@@ -1,0 +1,75 @@
+2016-09-23 14:21:41 ["redis",["add",["wang","hello world"]],0,2]
+================================================
+Exception Error : Command 'ADD' is not a registered Redis command. in /mnt/hgfs/code/eletron_trendy/trendi/vendor/predis/predis/src/Profile/RedisProfile.php:88
+Stack trace
+#0 /mnt/hgfs/code/eletron_trendy/trendi/vendor/predis/predis/src/Client.php(323): Predis\Profile\RedisProfile->createCommand('ADD', Array)
+#1 /mnt/hgfs/code/eletron_trendy/trendi/vendor/predis/predis/src/Client.php(314): Predis\Client->createCommand('add', Array)
+#2 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('add', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('add', Array)
+#4 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Support/Facade.php(99): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 1, 0, Array)
+#8 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Command/Pool/PoolBase.php(181): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Command/Pool/PoolBase.php(61): Trendi\Foundation\Command\Pool\PoolBase::doOperate('restart', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Command/Pool/Restart.php(28): Trendi\Foundation\Command\Pool\PoolBase::operate('restart', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Restart->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Restart), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Application.php(81): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/eletron_trendy/trendi/tests/application/trendi.php(9): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-23 14:25:17 ["redis",["sadd",["wang","hello world"]],0,2]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/eletron_trendy/trendi/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/eletron_trendy/trendi/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\SetAdd), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/eletron_trendy/trendi/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\SetAdd))
+#2 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('sadd', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('sadd', Array)
+#4 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Support/Facade.php(99): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 1, 0, Array)
+#8 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Command/Pool/PoolBase.php(181): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Command/Pool/PoolBase.php(61): Trendi\Foundation\Command\Pool\PoolBase::doOperate('restart', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Command/Pool/Restart.php(28): Trendi\Foundation\Command\Pool\PoolBase::operate('restart', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Restart->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Restart), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Application.php(81): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/eletron_trendy/trendi/tests/application/trendi.php(9): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-23 14:26:36 ["redis",["sadd",["wang","hello world"]],0,2]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/eletron_trendy/trendi/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/eletron_trendy/trendi/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\SetAdd), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/eletron_trendy/trendi/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\SetAdd))
+#2 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('sadd', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('sadd', Array)
+#4 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Support/Facade.php(99): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 1, 0, Array)
+#8 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Command/Pool/PoolBase.php(181): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Command/Pool/PoolBase.php(61): Trendi\Foundation\Command\Pool\PoolBase::doOperate('restart', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Command/Pool/Restart.php(28): Trendi\Foundation\Command\Pool\PoolBase::operate('restart', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Restart->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Restart), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/eletron_trendy/trendi/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Foundation/Application.php(81): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/eletron_trendy/trendi/tests/application/trendi.php(9): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================

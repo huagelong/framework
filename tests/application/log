@@ -1,0 +1,33 @@
+[2016-09-23 16:43:35 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#3 is closed.
+[2016-09-23 16:43:35 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#3 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#4 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#4 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#6 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#6 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#7 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#7 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#8 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#8 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#9 is closed.
+[2016-09-23 16:43:36 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#9 is closed.
+[2016-09-23 16:43:37 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#10 is closed.
+[2016-09-23 16:43:37 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#10 is closed.
+[2016-09-23 16:43:37 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#11 is closed.
+[2016-09-23 16:43:37 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#11 is closed.
+[2016-09-23 16:43:37 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#12 is closed.
+[2016-09-23 16:43:37 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#12 is closed.
+[2016-09-23 16:43:37 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#13 is closed.
+[2016-09-23 16:43:37 *9921.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#13 is closed.
+[2016-09-23 17:23:57 $10265.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-23 17:25:27 $10348.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-23 17:39:14 *10592.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#10 is closed.
+[2016-09-23 17:39:14 *10592.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#10 is closed.
+[2016-09-23 17:39:14 *10593.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#11 is closed.
+[2016-09-23 17:39:14 *10593.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#11 is closed.
+[2016-09-23 18:05:02 $10873.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-23 18:05:16 *10942.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Http/Response.php:67
+Stack trace:
+#0 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/HttpServer.php(166): Trendi\Http\Response->end()
+#1 [internal function]: Trendi\Server\HttpServer->onRequest(Object(swoole_http_request), Object(swoole_http_response))
+#2 /mnt/hgfs/code/eletron_trendy/trendi/src/trendi/Server/HttpServer.php(58): swoole_
+[2016-09-23 18:05:16 $10873.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0

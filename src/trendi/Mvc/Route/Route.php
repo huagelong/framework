@@ -1,0 +1,87 @@
+<?php
+/**
+ * User: Peter Wang
+ * Date: 16/9/12
+ * Time: 下午6:12
+ */
+
+namespace Trendi\Mvc\Route;
+
+use Trendi\Mvc\Route\Exception\InvalidArgumentException;
+
+class Route
+{
+
+    public static function group($params, $callback)
+    {
+        $obj = new RouteGroup();
+
+        if (is_array($params)) {
+
+            if (isset($params['name'])) {
+                $obj->setName($params['name']);
+            }
+
+            if (isset($params['prefix'])) {
+                $obj->setPrefix($params['prefix']);
+            }
+
+            if (isset($params['domain'])) {
+                $obj->setDomain($params['domain']);
+            }
+
+            if (isset($params['middleware'])) {
+                $obj->setMiddleware($params['middleware']);
+            }
+
+            if (isset($params['methods'])) {
+                $obj->setMethods($params['methods']);
+            }
+
+        } elseif (is_string($params)) {
+            $obj->setPrefix($params);
+        }
+
+        $obj->bind($callback);
+    }
+
+
+    public static function __callStatic($method, $args)
+    {
+        $method = strtoupper($method);
+        $obj = new RouteBase();
+        if (count($args) < 2) {
+            throw new InvalidArgumentException("argument count error");
+        }
+
+        $path = $args[0];
+        $closureOrArr = $args[1];
+
+        $obj->match($method, $path, $closureOrArr);
+//        dump($obj->getResult());
+        if (is_array($closureOrArr)) {
+            if (isset($closureOrArr['name'])) {
+                $obj->name($closureOrArr['name']);
+            }
+
+            if (isset($closureOrArr['uses'])) {
+                $obj->defaults(["_controller" => $closureOrArr['uses']]);
+            }
+
+            if (isset($closureOrArr['domain'])) {
+                $obj->domain($closureOrArr['domain']);
+            }
+
+            if (isset($closureOrArr['middleware'])) {
+                $obj->middleware($closureOrArr['middleware']);
+            }
+
+            if (isset($closureOrArr['where'])) {
+                $obj->where($closureOrArr['where']);
+            }
+
+        }
+
+        return $obj;
+    }
+}
