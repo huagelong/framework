@@ -23,7 +23,8 @@ class AliasConfig
             "Config" => \Trendi\Config\Config::class,
             "Route" => \Trendi\Mvc\Route\Route::class,
             "Context" => \Trendi\Server\Facade\Context::class,
-            "Task" => \Trendi\Server\Facade\Task::class
+            "Task" => \Trendi\Server\Facade\Task::class,
+            "Job" => \Trendi\Foundation\Bootstrap\Facade\Job::class,
         ];
     }
 

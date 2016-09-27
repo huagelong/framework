@@ -29,9 +29,8 @@ class ServerBase
             $output->writeln("<info>server config not config</info>");
             return;
         }
-
-
         self::doOperate($cmd, $daemonizeStr, $config);
+        exit(0);
     }
 
 
@@ -39,7 +38,7 @@ class ServerBase
     {
         self::runCmd($command, $config, $daemonizeStr);
 
-        \swoole_process::wait();
+        \swoole_process::wait(false);
     }
 
     protected static function runCmd($type, $config, $daemonizeStr)
@@ -52,6 +51,7 @@ class ServerBase
                 $params = [$runFileName, $v . ":" . $type];
                 if ($daemonizeStr) array_push($params, $daemonizeStr);
                 self::process($phpbin, $params);
+                sleep(1);
             }
         }
     }

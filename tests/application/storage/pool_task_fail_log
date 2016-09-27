@@ -73,3 +73,254 @@ Stack trace
 #18 /mnt/hgfs/code/eletron_trendy/trendi/tests/application/trendi.php(9): Trendi\Foundation\Application::runCmd()
 #19 {main}
 ================================================
+2016-09-26 15:03:23 ["redis",["zrangebyscore",["JOB_KEY:clearlog",0,"[1474873402"]],0,8]
+================================================
+Exception Error : ERR min or max is not a float in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 0, 0, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-26 15:03:23 ["redis",["zrangebyscore",["JOB_KEY:clearlog",0,"[1474873402"]],0,7]
+================================================
+Exception Error : ERR min or max is not a float in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 1, 0, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-26 15:03:23 ["redis",["zrangebyscore",["JOB_KEY:heart",0,"[1474873403"]],0,6]
+================================================
+Exception Error : ERR min or max is not a float in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 2, 0, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+==
+2016-09-26 16:30:32 ["redis",["zrangebyscore",["JOB_KEY:clearlog",0,1474878632]],0,8]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 5, 0, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-26 16:30:33 ["redis",["zrangebyscore",["JOB_KEY:heart",0,1474878633]],0,8]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 10, 1, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-26 16:31:21 ["redis",["zrangebyscore",["JOB_KEY:clearlog",0,1474878681]],0,8]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 0, 1, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-26 16:31:22 ["redis",["zrangebyscore",["JOB_KEY:clearlog",0,1474878681]],0,7]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 1, 1, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-26 16:31:22 ["redis",["zrangebyscore",["JOB_KEY:clearlog",0,1474878681]],0,7]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 1, 0, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-26 16:31:22 ["redis",["zrangebyscore",["JOB_KEY:clearlog",0,1474878682]],0,6]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 2, 1, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================
+2016-09-26 16:31:22 ["redis",["zrangebyscore",["JOB_KEY:clearlog",0,1474878682]],0,8]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\ZSetRangeByScore), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->handle('zrangebyscore', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->go(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(82): Trendi\Support\Facade::__callStatic('go', Array)
+#7 [internal function]: Trendi\Server\TcpServer->onTask(Object(swoole_server), 0, 0, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/TcpServer.php(52): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\TcpServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(122): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('start', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php(27): Trendi\Foundation\Command\Pool\PoolBase::operate('start', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Start->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Start), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(91): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================

@@ -138,7 +138,7 @@ class HttpServer
 
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
-        Reload::load($this->serverName, $this->config['mem_reboot_rate']);
+        Reload::load($this->serverName . "-http-server", $this->config['mem_reboot_rate']);
 //        return $swooleHttpResponse->end("a");
         $request = new Request($swooleHttpRequest);
         $response = new Response($swooleHttpResponse);

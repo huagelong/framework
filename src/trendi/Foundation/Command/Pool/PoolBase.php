@@ -165,14 +165,14 @@ class PoolBase
                         usleep(10000);
                         continue;
                     }
-                    $swooleServer = new \swoole_server($config['server']['host'], $config['server']['port']);
-                    $serialization = Serialization::get($config['server']['serialization']);
-                    $serialization->setBodyOffset($config['server']['package_body_offset']);
-                    $obj = new PoolServer($swooleServer, $serialization, $config, $root, $appName);
-                    $obj->start();
-                    $output->writeln("<info>[$serverName] restart success </info>");
                     break;
                 }
+                $swooleServer = new \swoole_server($config['server']['host'], $config['server']['port']);
+                $serialization = Serialization::get($config['server']['serialization']);
+                $serialization->setBodyOffset($config['server']['package_body_offset']);
+                $obj = new PoolServer($swooleServer, $serialization, $config, $root, $appName);
+                $obj->start();
+                $output->writeln("<info>[$serverName] restart success </info>");
                 break;
             default :
                 return "";

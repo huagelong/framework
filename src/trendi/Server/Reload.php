@@ -19,26 +19,10 @@ class Reload
             dump("Memory is full ,will restart!");
         }
 
-        $serverName = $serverName . "-http-server";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $serverPidArr);
-        $masterPid1 = $serverPidArr ? current($serverPidArr) : null;
-        if ($masterPid1) {
-            posix_kill($masterPid1, SIGUSR1);
-//            posix_kill($masterPid1, SIGUSR2);
-        }
-
-        $serverName = $serverName . "-pool-server";
-        exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $serverPidArr);
-        $masterPid2 = $serverPidArr ? current($serverPidArr) : null;
-        if ($masterPid2) {
-            posix_kill($masterPid2, SIGUSR1);
-        }
-
-        $serverName = $serverName . "-rpc-server";
-        exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $serverPidArr);
-        $masterPid3 = $serverPidArr ? current($serverPidArr) : null;
-        if ($masterPid3) {
-            posix_kill($masterPid3, SIGUSR1);
+        $masterPid = $serverPidArr ? current($serverPidArr) : null;
+        if ($masterPid) {
+            posix_kill($masterPid, SIGUSR1);
         }
     }
 
@@ -46,7 +30,7 @@ class Reload
     {
         $mem = self::getMemory();
         $memoryLimit = ini_get("memory_limit");
-        dump("Memory:" . $mem . "M/" . $memoryLimit . "-[" . date('Y-m-d H:i:s') . "]");
+//        dump("Memory:" . $mem . "M/" . $memoryLimit . "-[" . date('Y-m-d H:i:s') . "]");
         if ($memoryLimit == '-1') return true;
         $memoryLimitUnmber = substr($memoryLimit, 0, -1);
 

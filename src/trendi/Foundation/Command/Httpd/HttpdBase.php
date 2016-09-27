@@ -158,12 +158,12 @@ class HttpdBase
                         usleep(10000);
                         continue;
                     }
-                    $swooleServer = new \swoole_http_server($config['server']['host'], $config['server']['port']);
-                    $obj = new HttpServer($swooleServer, $config['server'], $adapter, $appName);
-                    $obj->start();
-                    $output->writeln("<info>[$serverName] restart success </info>");
                     break;
                 }
+                $swooleServer = new \swoole_http_server($config['server']['host'], $config['server']['port']);
+                $obj = new HttpServer($swooleServer, $config['server'], $adapter, $appName);
+                $obj->start();
+                $output->writeln("<info>[$serverName] restart success </info>");
                 break;
             default :
                 return "";

@@ -10,6 +10,7 @@ namespace Trendi\Test\Controller;
 use Trendi\Foundation\Controller;
 use Trendi\Http\Request;
 use Trendi\Http\Response;
+use Trendi\Job\Job;
 
 class Index
 {
@@ -73,6 +74,8 @@ class Index
 
         $_SESSION["test"] = "trendi";
         dump($_SESSION["test"]);
+
+        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"));
 
         $response->view->test = "test";
         

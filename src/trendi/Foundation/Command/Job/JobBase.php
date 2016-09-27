@@ -5,23 +5,22 @@
  * Time: 下午10:19
  */
 
-namespace Trendi\Foundation\Command\Rpc;
+namespace Trendi\Foundation\Command\Job;
 
 use Trendi\Config\Config;
-use Trendi\Rpc\RpcSerialization;
-use Trendi\Rpc\RpcServer;
+use Trendi\Job\JobServer;
 use Trendi\Support\Arr;
 use Trendi\Support\Dir;
+use Trendi\Support\Serialization\Serialization;
 
-class RpcBase
+class JobBase
 {
-
     public static function operate($cmd, $output, $input)
     {
 
         $root = Dir::formatPath(ROOT_PATH);
         Config::setConfigPath($root . "config");
-        $config = Config::get("server.rpc");
+        $config = Config::get("server.job");
         $appName = Config::get("server.name");
 
         if (!$appName) {
@@ -30,28 +29,19 @@ class RpcBase
         }
 
         if (!$config) {
-            $output->writeln("<info>rpc config not config</info>");
+            $output->writeln("<info>job config not config</info>");
             exit(0);
         }
 
         if (!isset($config['server'])) {
-            $output->writeln("<info>rpc.server config not config</info>");
+            $output->writeln("<info>job.server config not config</info>");
             exit(0);
         }
+
 
         if ($input->hasOption("daemonize")) {
             $daemonize = $input->getOption('daemonize');
             $config['server']['daemonize'] = $daemonize == 0 ? 0 : 1;
-        }
-
-        if (!isset($config['server']['host'])) {
-            $output->writeln("<info>rpc.server.host config not config</info>");
-            exit(0);
-        }
-
-        if (!isset($config['server']['port'])) {
-            $output->writeln("<info>rpc.server.port config not config</info>");
-            exit(0);
         }
 
         self::doOperate($cmd, $config, $root, $appName, $output);
@@ -61,33 +51,18 @@ class RpcBase
     public static function doOperate($command, array $config, $root, $appName, $output)
     {
         $defaultConfig = [
+            //是否后台运行, 推荐设置0
             'daemonize' => 0,
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
-            //reactor数量，推荐2
-            'reactor_num' => 2,
-            "dispatch_mode" => 2,
-            'static_path' => $root . '/public',
-            "gzip" => 4,
-            "static_expire_time" => 86400,
-            "task_worker_num" => 5,
-            "task_fail_log" => "/tmp/task_fail_log",
-            "task_retry_count" => 2,
-            "serialization" => 1,
-            "mem_reboot_rate" => 0.8,
-            //以下配置直接复制，无需改动
-            'open_length_check' => 1,
-            'package_length_type' => 'N',
-            'package_length_offset' => 0,
-            'package_body_offset' => 4,
-            'package_max_length' => 2000000,
-            'heartbeat_check_interval' => 5,
-            'heartbeat_idle_time' => 10,
+            "mem_reboot_rate"=>0.8,//可用内存达到多少自动重启
+            "serialization" => 1
         ];
 
         $config['server'] = Arr::merge($defaultConfig, $config['server']);
-//        $config['server']["open_length_check"] = 0;
-        $serverName = $appName . "-rpc-server";
+        $config['server']['name'] = $appName;
+
+        $serverName = $appName . "-job-server";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
@@ -106,14 +81,15 @@ class RpcBase
                 if ($masterPid) {
                     $output->writeln("<info>[$serverName] already running</info>");
                 } else {
-                    $output->writeln("<info>[$serverName] run</info>");
+                    $output->writeln("<info>[$serverName] not run</info>");
                 }
                 break;
             case 'start':
-                $swooleServer = new \swoole_server($config['server']['host'], $config['server']['port']);
-                $route = new RpcSerialization($config['server']['serialization'], $config['server']['package_body_offset']);
-                $obj = new RpcServer($swooleServer, $route, $config, $root, $appName);
-                $obj->start();
+                if(!self::checkPool($appName, $output)){
+                    return ;
+                }
+                $jobServer = new JobServer($config,$root);
+                $jobServer->start();
                 break;
             case 'stop':
                 $output->writeln("<info>[$serverName] is stoping ...</info>");
@@ -137,9 +113,9 @@ class RpcBase
                     }
                     // Stop success.
                     $output->writeln("<info>[$serverName] stop success </info>");
-                    return;
                     break;
                 }
+                self::closeWorker($appName);
                 break;
             case 'restart':
                 $output->writeln("<info>[$serverName] is restarting ...</info>");
@@ -161,15 +137,52 @@ class RpcBase
                     }
                     break;
                 }
-                $swooleServer = new \swoole_server($config['server']['host'], $config['server']['port']);
-                $route = new RpcSerialization($config['server']['serialization'], $config['server']['package_body_offset']);
-                $obj = new RpcServer($swooleServer, $route, $config, $root, $appName);
-                $obj->start();
+                self::closeWorker($appName);
+
+                if(!self::checkPool($appName, $output)){
+                    break;
+                }
+                $jobServer = new JobServer($config,$root);
+                $jobServer->start();
                 $output->writeln("<info>[$serverName] restart success </info>");
                 break;
             default :
-                return "";
+                exit(0);
         }
+    }
+
+    protected static function closeWorker($appName)
+    {
+        $serverName = $appName . "-job-worker";
+        exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
+        if($masterPidArr){
+            foreach ($masterPidArr as $v){
+                $v && posix_kill($v, SIGTERM);
+            }
+        }
+    }
+
+    protected static function checkPool($appName, $output)
+    {
+        $serverNamePool = $appName . "-pool-task-worker";
+        $start_time = time();
+        while (1) {
+            exec("ps axu|grep " . $serverNamePool . "$|awk '{print $2}'", $masterPidPoolArr);
+            $masterPoolPid = $masterPidPoolArr ? current($masterPidPoolArr) : null;
+//            dump($masterPidPoolArr);
+            if (!$masterPoolPid) {
+                // Timeout?
+                if ((time() - $start_time) >= 5) {
+                    $output->writeln("<error>[$serverNamePool] not start, job server need it !</error>");
+                    return false;
+                }
+                // Waiting amoment.
+                usleep(10000);
+                continue;
+            }
+            break;
+        }
+        return true;
     }
 
 }

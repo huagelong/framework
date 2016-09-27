@@ -65,7 +65,7 @@ class TcpServer
 
     public function onReceive(SwooleServer $serv, $fd, $from_id, $data)
     {
-        Reload::load($this->serverName, $this->config['mem_reboot_rate']);
+        Reload::load($this->serverName . "-server", $this->config['mem_reboot_rate']);
         try {
             $this->adapter->go($data, $serv, $fd, $from_id);
         } catch (\Exception $e) {

@@ -45,8 +45,11 @@ class RedisCache implements CacheInterface
             $serializeObj = Serialization::get(1);
         }
         $data = $serializeObj->format($value);
-        $result = $obj->set($key, $data);
-        if ($expire > 0) $obj->expire($key, $expire);
+        if ($expire > 0) {
+            $result = $obj->setex($key, $expire, $data);
+        }else{
+            $result = $obj->set($key, $data);
+        }
         return $result;
     }
 

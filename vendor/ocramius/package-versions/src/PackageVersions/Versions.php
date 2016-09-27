@@ -74,7 +74,7 @@ final class Versions
   'sebastian/version' => 'dev-master@c829badbd8fdf16a0bad8aa7fa7971c029f1b9c5',
   'symfony/yaml' => 'dev-master@aa8be2235b5dd4e472424552390609f61996f5ab',
   'webmozart/assert' => 'dev-master@8444f2ac9f86342665cdae47b6d3ea6e07794456',
-  'trendi/framework' => '9999999-dev@2dcaaef38802fb478cb299b196480f6d15445b45',
+  'trendi/framework' => '9999999-dev@59cb091a988d0254e80e797307830f765542031c',
 );
 
     private function __construct()

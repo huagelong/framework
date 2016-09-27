@@ -21,6 +21,9 @@ class DiConfig
             "task" => [
                 "class" => \Trendi\Server\Task::class
             ],
+            "job" => [
+                "class" => \Trendi\Foundation\Bootstrap\JobBootstrap::class
+            ],
         ];
     }
 
