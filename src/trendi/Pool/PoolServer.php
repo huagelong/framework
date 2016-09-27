@@ -9,11 +9,11 @@ namespace Trendi\Pool;
 
 use Trendi\Foundation\Application;
 use Trendi\Pool\Exception\InvalidArgumentException;
-use Trendi\Server\TcpInterface;
-use Trendi\Server\TcpServer;
+use Trendi\Server\SocketInterface;
+use Trendi\Server\SocketServer;
 use Trendi\Support\Coroutine\Event;
 
-class PoolServer implements TcpInterface
+class PoolServer implements SocketInterface
 {
     private $root = null;
     private $config = null;
@@ -45,7 +45,7 @@ class PoolServer implements TcpInterface
 
     public function start()
     {
-        $tcpServer = new TcpServer($this->server, $this->config['server'], $this, "pool", $this->serverName);
+        $tcpServer = new SocketServer($this->server, $this->config['server'], $this, "pool", $this->serverName);
         $tcpServer->start();
     }
 

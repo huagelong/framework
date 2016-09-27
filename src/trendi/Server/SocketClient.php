@@ -9,20 +9,17 @@ namespace Trendi\Server;
 
 use Trendi\Rpc\Exception\ConnectionException;
 
-class TcpClient
+class SocketClient
 {
-    /**
-     * @var TcpClient
-     */
     private $client;
     private $serialization = null;
 
     private $connected = false;
 
-    public function __construct($config = [], $serialization)
+    public function __construct($swooleClient,$config = [], $serialization)
     {
         $this->serialization = $serialization;
-        $this->client = new \swoole_client($config['alway_keep'] ? SWOOLE_SOCK_TCP | SWOOLE_KEEP : SWOOLE_TCP);
+        $this->client = $swooleClient;
         if (!$this->client->isConnected()) {
             $this->connect($config);
         }

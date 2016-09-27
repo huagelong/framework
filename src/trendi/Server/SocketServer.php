@@ -13,7 +13,7 @@ use Trendi\Server\Facade\Task;
 use Trendi\Support\Coroutine\Event;
 use Trendi\Support\Facade;
 
-class TcpServer
+class SocketServer
 {
     /**
      * @var swooleServer
@@ -23,13 +23,13 @@ class TcpServer
     private $serverName;
     private $config = [];
 
-    public function __construct(SwooleServer $swooleServer, array $config, $adapter, $tcpName, $serverName)
+    public function __construct(SwooleServer $swooleServer, array $config, $adapter, $socketName, $serverName)
     {
         $this->swooleServer = $swooleServer;
         $this->swooleServer->set($config);
         $this->config = $config;
         $this->adapter = $adapter;
-        $this->serverName = $serverName . "-" . $tcpName;
+        $this->serverName = $serverName . "-" . $socketName;
     }
 
     public function start()

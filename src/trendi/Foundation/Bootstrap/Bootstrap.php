@@ -42,12 +42,18 @@ class Bootstrap
         $this->initEnv();
         $this->initConfig($path);
         $this->iniSet();
+        $this->initMonitor();
         $this->initSession();
         $this->initAlias();
         $this->initHelper();
         $this->initDi();
         $this->initFacade();
         $this->initTask();
+    }
+
+    protected function initMonitor()
+    {
+
     }
 
     protected function initSession()

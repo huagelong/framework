@@ -8,7 +8,7 @@
 namespace Trendi\Server;
 
 
-interface TcpInterface
+interface SocketInterface
 {
 
     public function bootstrap();

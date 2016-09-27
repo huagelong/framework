@@ -8,12 +8,12 @@
 namespace Trendi\Rpc;
 
 use Trendi\Foundation\Application;
-use Trendi\Server\TcpInterface;
-use Trendi\Server\TcpServer;
+use Trendi\Server\SocketInterface;
+use Trendi\Server\SocketServer;
 use Trendi\Support\Coroutine\Event;
 use Trendi\Support\ElapsedTime;
 
-class RpcServer implements TcpInterface
+class RpcServer implements SocketInterface
 {
     private $root = null;
     private $config = null;
@@ -32,7 +32,7 @@ class RpcServer implements TcpInterface
 
     public function start()
     {
-        $tcpServer = new TcpServer($this->server, $this->config['server'], $this, "rpc", $this->serverName);
+        $tcpServer = new SocketServer($this->server, $this->config['server'], $this, "rpc", $this->serverName);
         $tcpServer->start();
     }
 

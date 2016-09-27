@@ -8,7 +8,7 @@
 namespace Trendi\Rpc;
 
 
-use Trendi\Server\TcpClient;
+use Trendi\Server\SocketClient;
 use Trendi\Support\Arr;
 use Trendi\Support\Serialization\Serialization;
 
@@ -41,8 +41,8 @@ class RpcClient
         $serialization = Serialization::get($config['serialization']);
 
         $serialization->setBodyOffset($config['package_body_offset']);
-
-        $this->client = new TcpClient($config, $serialization);
+        $client = new \swoole_client($config['alway_keep'] ? SWOOLE_SOCK_TCP | SWOOLE_KEEP : SWOOLE_TCP);
+        $this->client = new SocketClient($client, $config, $serialization);
     }
 
     public function get($url, $params = [])
