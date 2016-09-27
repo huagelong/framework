@@ -1255,3 +1255,7 @@ trendi-pool server shutdown ......
 [2016-09-27 10:17:32 *34684.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#238 is closed.
 [2016-09-27 10:17:33 *34684.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#240 is closed.
 [2016-09-27 10:17:33 *34684.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#240 is closed.
+[2016-09-27 13:54:06 *40003.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#6 is closed.
+[2016-09-27 13:54:06 *40003.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#6 is closed.
+[2016-09-27 13:56:01 $40134.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=0, signal=11
+[2016-09-27 13:58:02 $40249.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=0, signal=11

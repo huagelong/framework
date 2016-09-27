@@ -74,7 +74,7 @@ class Index
 //        $_SESSION["test"] = "trendi";
 //        dump($_SESSION["test"]);
 
-//        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"));
+        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"), date('Y-m-d H:i:s'), "*/5 * * * * *");
 
         $response->view->test = "test";
         

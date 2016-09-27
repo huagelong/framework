@@ -6,7 +6,7 @@
  */
 return [
     "name" => "trendi",
-    "servers" => ["httpd", 'rpc', "pool"],
+    "servers" => ["httpd", 'rpc', "pool", "job"],
     "httpd" => [
         "server" => [
             "host" => "0.0.0.0",
@@ -125,7 +125,8 @@ return [
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 4,
             "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
-            "serialization" => 1
+            "serialization" => 1,
+            "timer_tick"=>200,//每隔多长执行一次,单位毫秒
         ],
         "perform"=>[
             "clearlog"=>[
