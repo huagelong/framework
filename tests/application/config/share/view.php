@@ -1,6 +1,6 @@
 <?php
 return [
     "path"=>__DIR__."/../../rescource/views",
-    "compile_path"=>__DIR__."/../../storage/view_compile",
+    "compile_path"=>__DIR__."/../../storage/tplcompile",
     "engine"=>"blade"
 ];

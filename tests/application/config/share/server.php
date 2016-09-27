@@ -6,14 +6,14 @@
  */
 return [
     "name" => "trendi",
-    "servers" => ["httpd", 'rpc', "pool"],
+    "servers" => ["httpd", 'rpc', "pool","job"],
     "httpd" => [
         "server" => [
             "host" => "0.0.0.0",
             "port" => "7000",
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
-            "log_file" => ROOT_PATH . "/log",
+            "log_file" => ROOT_PATH . "/storage/log",
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
             "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
@@ -35,8 +35,8 @@ return [
             "task_retry_count" => 2,
             "serialization" => 1,
             "maxRequests" => 10000,
-            'heartbeat_check_interval' => 60,
-            'heartbeat_idle_time' => 600,
+            'heartbeat_check_interval' => 10,
+            'heartbeat_idle_time' => 60,
             //以下配置直接复制，无需改动
             'open_length_check' => 1,
             'package_length_type' => 'N',
@@ -52,7 +52,7 @@ return [
             "port" => "9000",
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
-            "log_file" => ROOT_PATH . "/log",
+            "log_file" => ROOT_PATH . "/storage/log",
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
             "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
@@ -73,8 +73,8 @@ return [
             "task_retry_count" => 2,
             "serialization" => 1,
             "maxRequests" => 10000,
-            'heartbeat_check_interval' => 60,
-            'heartbeat_idle_time' => 600,
+            'heartbeat_check_interval' => 10,
+            'heartbeat_idle_time' => 60,
             //以下配置直接复制，无需改动
             'open_length_check' => 1,
             'package_length_type' => 'N',
@@ -87,7 +87,7 @@ return [
         "server" => [
             "host" => "0.0.0.0",
             "port" => "9001",
-            "log_file" => ROOT_PATH . "/log",
+            "log_file" => ROOT_PATH . "/storage/log",
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
             //worker数量，推荐设置和cpu核数相等
@@ -114,8 +114,8 @@ return [
             ],
             "serialization" => 1,
             "maxRequests" => 10000,
-            'heartbeat_check_interval' => 60,
-            'heartbeat_idle_time' => 600,
+//            'heartbeat_check_interval' => 60,
+//            'heartbeat_idle_time' => 600,
             //以下配置直接复制，无需改动
             'open_length_check' => 1,
             'package_length_type' => 'N',

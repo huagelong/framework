@@ -65,7 +65,6 @@ class Index
         $rs = cache()->set("wang", "hello world");
         dump(posix_getpid()."-hello:".$rs);
 //        $data = cache()->get("wang");
-        usleep(300);
         $rs = cache()->set("wang", "wangkaihui");
         dump(posix_getpid()."-wang:".$rs);
         $data = cache()->get("wang");
