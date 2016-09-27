@@ -49,6 +49,7 @@ class Job
             if (!isset($this->config['perform'][$queueName])) return;
             $pv = $this->config['perform'][$queueName];
             $key = self::JOB_KEY_PRE . ":" . $queueName;
+//            $this->storage->del($key);
             $now = time();
             $data = $this->storage->zrangebyscore($key, 0, $now);
             //原子操作避免重复处理
@@ -95,7 +96,9 @@ class Job
         $config = $this->config['perform'][$queueName];
 
         if ($config['only_one']) {
-            $data = $this->storage->zcount($key, 0, -1);
+            $data = $this->storage->zrange($key, 0, -1);
+//            dump("--------------------job.total-------------------------");
+//            dump($data);
             if ($data) return;
         }
 

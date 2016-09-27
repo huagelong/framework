@@ -9,7 +9,6 @@ namespace Trendi\Cache\Adapter;
 
 use Trendi\Cache\CacheInterface;
 use Trendi\Foundation\Storage\Redis;
-use Trendi\Support\Serialization\Serialization;
 
 class RedisCache implements CacheInterface
 {
@@ -19,36 +18,17 @@ class RedisCache implements CacheInterface
         $obj = new Redis();
         $result = $obj->get($key);
         if (!$result) return $default;
-        if (function_exists("igbinary_serialize")) {
-            $serializeObj = Serialization::get(3);
-        } elseif (function_exists("msgpack_pack")) {
-            $serializeObj = Serialization::get(2);
-        } elseif (function_exists("hprose_serialize")) {
-            $serializeObj = Serialization::get(5);
-        } else {
-            $serializeObj = Serialization::get(1);
-        }
-        return $serializeObj->xformat($result);
+        return $result;
     }
 
 
     public function set($key, $value, $expire = -1)
     {
         $obj = new Redis();
-        if (function_exists("igbinary_serialize")) {
-            $serializeObj = Serialization::get(3);
-        } elseif (function_exists("msgpack_pack")) {
-            $serializeObj = Serialization::get(2);
-        } elseif (function_exists("hprose_serialize")) {
-            $serializeObj = Serialization::get(5);
-        } else {
-            $serializeObj = Serialization::get(1);
-        }
-        $data = $serializeObj->format($value);
         if ($expire > 0) {
-            $result = $obj->setex($key, $expire, $data);
+            $result = $obj->setex($key, $expire, $value);
         }else{
-            $result = $obj->set($key, $data);
+            $result = $obj->set($key, $value);
         }
         return $result;
     }

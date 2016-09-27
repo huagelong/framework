@@ -106,5 +106,6 @@ class Pdo extends PdoAdapter
         Event::bind("clear", function () {
             self::clearStaticData();
         });
+        $this->client->close();
     }
 }

@@ -49,9 +49,13 @@ class PoolClient
         return $data;
     }
 
+    public function close()
+    {
+        $this->client->close();
+    }
 
     public function __destruct()
     {
-        $this->client->close();
+
     }
 }

@@ -107,6 +107,14 @@ class HttpServer
 
     public function onWorkerStart(SwooleServer $swooleServer, $workerId)
     {
+        if(function_exists("apc_clear_cache")){
+            apc_clear_cache();
+        }
+
+        if(function_exists("opcache_reset")){
+            opcache_reset();
+        }
+
         if ($workerId >= $this->config["worker_num"]) {
             swoole_set_process_name($this->serverName . "-httpd-task-worker");
             echo $this->serverName . " httpd task worker start ..... \n";

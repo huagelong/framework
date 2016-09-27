@@ -63,14 +63,14 @@ class ServerBase
     protected static function check($config)
     {
         $name = $config['name'];
-        $count = 0;
+        $count = -1;
         $time = time();
         while (1){
             exec("ps axu|grep ".$name."|awk '{print $2}'", $masterArr);
             if((time()-$time)>30){
                 break;
             }
-            if($count ==0){
+            if($count ==-1){
                 $count = count($masterArr);
                 continue;
             }elseif(count($masterArr)==$count)

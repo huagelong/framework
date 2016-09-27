@@ -11,6 +11,7 @@ return [
     ],
     "options"=>[
         'prefix'  => 'test',
-        'cluster' => 'redis'
+        'cluster' => 'redis',
+        
     ],
 ];

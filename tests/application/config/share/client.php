@@ -23,6 +23,7 @@ return [
         "port" => "9001",
         "timeout" => 3,
         "serialization" => 1,
+        "alway_keep"=>true,
         "pdo"=>[
             "prefix"=>"putao_"
         ],

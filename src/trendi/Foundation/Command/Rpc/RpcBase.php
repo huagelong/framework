@@ -81,8 +81,8 @@ class RpcBase
             'package_length_offset' => 0,
             'package_body_offset' => 4,
             'package_max_length' => 2000000,
-            'heartbeat_check_interval' => 5,
-            'heartbeat_idle_time' => 10,
+            'heartbeat_check_interval' => 60,
+            'heartbeat_idle_time' => 600,
         ];
 
         $config['server'] = Arr::merge($defaultConfig, $config['server']);

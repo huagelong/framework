@@ -51,8 +51,13 @@ class RpcClient
         return $this->client->sendAndRecvice($result);
     }
 
-    public function __destruct()
+    public function close()
     {
         $this->client->close();
+    }
+
+    public function __destruct()
+    {
+        $this->close();
     }
 }

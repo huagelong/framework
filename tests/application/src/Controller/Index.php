@@ -55,26 +55,26 @@ class Index
         $data = $client->get("/rpc/index/index/kaihui", ["test"=>$str]);
 //        dump($data);
 
-//        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
-//        $data = $userDao->test();
-//
-//        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
-//        $data = $userDao->test();
+        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
+        $data = $userDao->test();
+
+        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
+        $data = $userDao->test();
 //        dump($data);
-//
-//        $redis = new \Trendi\Foundation\Storage\Redis();
-//        $redis->set("wang", "hello world");
-//        $data = $redis->get("wang");
 //        dump($data);
-//
-//        cache()->set("wang", "wangkaihui");
+        $rs = cache()->set("wang", "hello world");
+        dump(posix_getpid()."-hello:".$rs);
 //        $data = cache()->get("wang");
-//        dump($data);
-//
-//        $_SESSION["test"] = "trendi";
+        usleep(300);
+        $rs = cache()->set("wang", "wangkaihui");
+        dump(posix_getpid()."-wang:".$rs);
+        $data = cache()->get("wang");
+        dump(posix_getpid()."-".$data);
+
+        $_SESSION["test"] = "trendi";
 //        dump($_SESSION["test"]);
 
-        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"), date('Y-m-d H:i:s'), "*/5 * * * * *");
+        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"), date('Y-m-d H:i:s'), "*/2 * * * * *");
 
         $response->view->test = "test";
         

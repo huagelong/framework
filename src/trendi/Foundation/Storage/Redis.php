@@ -42,6 +42,6 @@ class Redis
 
     public function __destruct()
     {
-
+        $this->client->close();
     }
 }
