@@ -30,7 +30,7 @@ class Reload
     {
         $mem = self::getMemory();
         $memoryLimit = ini_get("memory_limit");
-//        dump("Memory:" . $mem . "M/" . $memoryLimit . "-[" . date('Y-m-d H:i:s') . "]");
+        dump("Memory:" . $mem . "M/" . $memoryLimit . "-[" . date('Y-m-d H:i:s') . "]");
         if ($memoryLimit == '-1') return true;
         $memoryLimitUnmber = substr($memoryLimit, 0, -1);
 

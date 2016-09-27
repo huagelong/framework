@@ -37,8 +37,12 @@ class ServerBase
     public static function doOperate($command, $daemonizeStr, array $config)
     {
         self::runCmd($command, $config, $daemonizeStr);
+        if ($daemonizeStr) {
+            \swoole_process::wait(false);
+        } else {
+            \swoole_process::wait();
+        }
 
-        \swoole_process::wait(false);
     }
 
     protected static function runCmd($type, $config, $daemonizeStr)
@@ -51,8 +55,29 @@ class ServerBase
                 $params = [$runFileName, $v . ":" . $type];
                 if ($daemonizeStr) array_push($params, $daemonizeStr);
                 self::process($phpbin, $params);
-                sleep(1);
+                self::check($config);
             }
+        }
+    }
+
+    protected static function check($config)
+    {
+        $name = $config['name'];
+        $count = 0;
+        $time = time();
+        while (1){
+            exec("ps axu|grep ".$name."|awk '{print $2}'", $masterArr);
+            if((time()-$time)>30){
+                break;
+            }
+            if($count ==0){
+                $count = count($masterArr);
+                continue;
+            }elseif(count($masterArr)==$count)
+            {
+                continue;
+            }
+            break;
         }
     }
 

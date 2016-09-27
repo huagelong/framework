@@ -5,7 +5,7 @@
  * Time: 下午2:08
  */
 
-namespace Trendi\Test\Dao;
+namespace Trendi\Test\Lib\Dao;
 
 class UserWxDao extends Base
 {

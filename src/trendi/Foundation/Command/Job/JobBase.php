@@ -85,9 +85,6 @@ class JobBase
                 }
                 break;
             case 'start':
-                if(!self::checkPool($appName, $output)){
-                    return ;
-                }
                 $jobServer = new JobServer($config,$root);
                 $jobServer->start();
                 break;
@@ -138,10 +135,7 @@ class JobBase
                     break;
                 }
                 self::closeWorker($appName);
-
-                if(!self::checkPool($appName, $output)){
-                    break;
-                }
+                
                 $jobServer = new JobServer($config,$root);
                 $jobServer->start();
                 $output->writeln("<info>[$serverName] restart success </info>");
@@ -160,29 +154,6 @@ class JobBase
                 $v && posix_kill($v, SIGTERM);
             }
         }
-    }
-
-    protected static function checkPool($appName, $output)
-    {
-        $serverNamePool = $appName . "-pool-task-worker";
-        $start_time = time();
-        while (1) {
-            exec("ps axu|grep " . $serverNamePool . "$|awk '{print $2}'", $masterPidPoolArr);
-            $masterPoolPid = $masterPidPoolArr ? current($masterPidPoolArr) : null;
-//            dump($masterPidPoolArr);
-            if (!$masterPoolPid) {
-                // Timeout?
-                if ((time() - $start_time) >= 5) {
-                    $output->writeln("<error>[$serverNamePool] not start, job server need it !</error>");
-                    return false;
-                }
-                // Waiting amoment.
-                usleep(10000);
-                continue;
-            }
-            break;
-        }
-        return true;
     }
 
 }

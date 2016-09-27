@@ -33,7 +33,7 @@ class Index
 //        dump(\Context::getFacadeApplication());
 
 //        \Task::email("wangkaihui@putao.com",array('site-monitor@putao.com' => 'Site Monitor'),"test","hello world");
-
+        
         $str = "
             asdasdaasd34gerhdtfhyyukyuoyuoiyouiouiotyjhfdhdfhfdhdrhfdhdfghdfghdfghdfghdfghfgh
             asdasdaasd34gerhdtfhyyukyuoyuoiyouiouiotyjhfdhdfhfdhdrhfdhdfghdfghdfghdfghdfghfgh
@@ -53,29 +53,28 @@ class Index
         ";
         $client = new \Trendi\Rpc\RpcClient("127.0.0.1", 9000,1);
         $data = $client->get("/rpc/index/index/kaihui", ["test"=>$str]);
-        dump($data);
+//        dump($data);
 
+//        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
+//        $data = $userDao->test();
 //
-        $userDao = new \Trendi\Test\Dao\UserWxDao();
-        $data = $userDao->test();
+//        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
+//        $data = $userDao->test();
+//        dump($data);
 //
-        $userDao = new \Trendi\Test\Dao\UserWxDao();
-        $data = $userDao->test();
-        dump($data);
+//        $redis = new \Trendi\Foundation\Storage\Redis();
+//        $redis->set("wang", "hello world");
+//        $data = $redis->get("wang");
+//        dump($data);
+//
+//        cache()->set("wang", "wangkaihui");
+//        $data = cache()->get("wang");
+//        dump($data);
+//
+//        $_SESSION["test"] = "trendi";
+//        dump($_SESSION["test"]);
 
-        $redis = new \Trendi\Foundation\Storage\Redis();
-        $redis->set("wang", "hello world");
-        $data = $redis->get("wang");
-        dump($data);
-
-        cache()->set("wang", "wangkaihui");
-        $data = cache()->get("wang");
-        dump($data);
-
-        $_SESSION["test"] = "trendi";
-        dump($_SESSION["test"]);
-
-        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"));
+//        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"));
 
         $response->view->test = "test";
         

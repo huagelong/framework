@@ -5,7 +5,7 @@
  * Time: 下午2:04
  */
 
-namespace Trendi\Test\Dao;
+namespace Trendi\Test\Lib\Dao;
 
 use Trendi\Foundation\Storage\Pdo;
 class Base extends Pdo

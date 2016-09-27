@@ -89,17 +89,17 @@ class HttpdBase
 
         $config['server'] = Arr::merge($defaultConfig, $config['server']);
 
-        $serverName = $appName . "-http-server";
+        $serverName = $appName . "-httpd-server";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {
-            $output->writeln("<info>http server already running</info>");
+            $output->writeln("<info>httpd server already running</info>");
             return;
         }
 
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
-            $output->writeln("<info>http server not run</info>");
+            $output->writeln("<info>httpd server not run</info>");
             return;
         }
         switch ($command) {

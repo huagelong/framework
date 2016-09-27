@@ -65,8 +65,8 @@ class HttpServer
 
     public function onManagerStart(SwooleServer $serv)
     {
-        swoole_set_process_name($this->serverName . "-http-manage");
-        echo $this->serverName . " http manage start ......\n";
+        swoole_set_process_name($this->serverName . "-httpd-manage");
+        echo $this->serverName . " httpd manage start ......\n";
     }
 
     public function onTask(SwooleServer $serv, $task_id, $from_id, $data)
@@ -91,28 +91,28 @@ class HttpServer
 
     public function onStart(SwooleServer $swooleServer)
     {
-        swoole_set_process_name($this->serverName . "-http-server");
+        swoole_set_process_name($this->serverName . "-httpd-server");
         $pid = posix_getpid();
         $pidFile = isset($this->config["pid_file"]) ? $this->config["pid_file"] : 0;
         if ($pidFile) {
             @file_put_contents($pidFile, $pid);
         }
-        echo $this->serverName . " http server start ......\n";
+        echo $this->serverName . " httpd server start ......\n";
     }
 
     public function onShutdown(SwooleServer $swooleServer)
     {
-        echo $this->serverName . " http server shutdown ...... \n";
+        echo $this->serverName . " httpd server shutdown ...... \n";
     }
 
     public function onWorkerStart(SwooleServer $swooleServer, $workerId)
     {
         if ($workerId >= $this->config["worker_num"]) {
-            swoole_set_process_name($this->serverName . "-http-task-worker");
-            echo $this->serverName . " http task worker start ..... \n";
+            swoole_set_process_name($this->serverName . "-httpd-task-worker");
+            echo $this->serverName . " httpd task worker start ..... \n";
         } else {
-            swoole_set_process_name($this->serverName . "-http-worker");
-            echo $this->serverName . " http worker start ..... \n";
+            swoole_set_process_name($this->serverName . "-httpd-worker");
+            echo $this->serverName . " httpd worker start ..... \n";
         }
         $this->adapter->bootstrap();
         if (Facade::getFacadeApplication()) {
@@ -124,12 +124,12 @@ class HttpServer
 
     public function onWorkerStop(SwooleServer $swooleServer, $workerId)
     {
-        echo $this->serverName . " http worker stop ..... \n";
+        echo $this->serverName . " httpd worker stop ..... \n";
     }
 
     public function onWorkerError(SwooleServer $swooleServer, $workerId, $workerPid, $exitCode)
     {
-        echo $this->serverName . " http worker error ..... \n";
+        echo $this->serverName . " httpd worker error ..... \n";
         echo "======================\n";
         echo socket_strerror($exitCode) . "\n";
 
@@ -138,7 +138,7 @@ class HttpServer
 
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
-        Reload::load($this->serverName . "-http-server", $this->config['mem_reboot_rate']);
+        Reload::load($this->serverName . "-httpd-server", $this->config['mem_reboot_rate']);
 //        return $swooleHttpResponse->end("a");
         $request = new Request($swooleHttpRequest);
         $response = new Response($swooleHttpResponse);
