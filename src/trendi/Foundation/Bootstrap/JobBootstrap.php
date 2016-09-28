@@ -1,5 +1,7 @@
 <?php
 /**
+ *  job 服务初始化
+ *
  * User: Peter Wang
  * Date: 16/9/13
  * Time: 下午3:38

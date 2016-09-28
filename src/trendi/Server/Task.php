@@ -108,7 +108,7 @@ class Task
         swoole_async_write(self::$logPath, $msg);
     }
 
-    public function go($data)
+    public function start($data)
     {
         list($task, $params) = $data;
         if (is_string($task)) {
@@ -123,7 +123,7 @@ class Task
                 throw new InvalidArgumentException(" task method handle not config ");
             }
 
-            $result = call_user_func_array([new $taskClass(), "handle"], $params);
+            $result = call_user_func_array([new $taskClass(), "perform"], $params);
             return [true, $result, ''];
         }
         return [true, "", ''];

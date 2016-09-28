@@ -12,6 +12,11 @@ use Trendi\Support\Serialization\SerializationAbstract;
 class DefaultSerialization extends SerializationAbstract
 {
 
+    /**
+     * 序列
+     * @param $data
+     * @return string
+     */
     public function format($data)
     {
         $resultData = serialize($data);
@@ -19,6 +24,11 @@ class DefaultSerialization extends SerializationAbstract
         return $this->getSendContent($resultData);
     }
 
+    /**
+     * 反序列
+     * @param $data
+     * @return null
+     */
     public function xformat($data)
     {
         $body = $this->getBody($data);

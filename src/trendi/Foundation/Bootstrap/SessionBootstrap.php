@@ -1,5 +1,7 @@
 <?php
 /**
+ *  session handle
+ *
  * User: Peter Wang
  * Date: 16/9/23
  * Time: 下午5:40

@@ -1,6 +1,7 @@
 <?php
 /**
- *
+ * 项目初始入口
+ * 
  * User: Peter Wang
  * Date: 16/9/8
  * Time: 上午10:45
@@ -25,6 +26,11 @@ class Application
      */
     const VERSION = '1.0';
 
+    /**
+     * 项目路径
+     *
+     * @var string
+     */
     protected static $rootPath = null;
 
     public function __construct($rootPath)
@@ -32,30 +38,52 @@ class Application
         self::$rootPath = Dir::formatPath($rootPath);
     }
 
+    /**
+     * http server 初始化
+     */
     public function bootstrap()
     {
         Bootstrap::getInstance(self::$rootPath);
         RouteBootstrap::getInstance();
     }
 
-
+    /**
+     * 连接池初始化
+     */
     public function poolBootstrap()
     {
         Bootstrap::getInstance(self::$rootPath);
         PoolBootstrap::getInstance();
     }
 
+    /**
+     * https server 路由开始匹配
+     *
+     * @param $request
+     * @param $response
+     * @return mixed
+     */
     public function start($request, $response)
     {
         $url = $request->getPathInfo();
         return RouteMatch::getInstance()->run($url, $request, $response);
     }
 
+    /**
+     * 获取项目根目录
+     *
+     * @return string
+     */
     public static function getRootPath()
     {
         return self::$rootPath;
     }
 
+    /**
+     * Command 初始化
+     *
+     * @throws \Exception
+     */
     public static function runCmd()
     {
         $commands = [
@@ -90,10 +118,6 @@ class Application
             $application->add($v);
         }
         $application->run();
-    }
-
-    public function __destruct()
-    {
     }
 
 }

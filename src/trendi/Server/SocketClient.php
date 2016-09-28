@@ -17,7 +17,7 @@ class SocketClient
 
     private $connected = false;
 
-    public function __construct($swooleClient,$config = [], $serialization)
+    public function __construct($swooleClient, $config = [], $serialization)
     {
         $this->serialization = $serialization;
         $this->client = $swooleClient;

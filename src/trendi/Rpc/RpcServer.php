@@ -42,7 +42,7 @@ class RpcServer implements SocketInterface
         $obj->bootstrap();
     }
 
-    public function go($data, $serv, $fd, $from_id)
+    public function perform($data, $serv, $fd, $from_id)
     {
         Event::bind("rpc_controller_call_before", function ($params) {
             ElapsedTime::setStartTime("rpc_sys_elapsed_time");

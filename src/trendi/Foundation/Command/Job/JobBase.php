@@ -8,7 +8,6 @@
 namespace Trendi\Foundation\Command\Job;
 
 use Trendi\Config\Config;
-use Trendi\Job\Job;
 use Trendi\Job\JobServer;
 use Trendi\Support\Arr;
 use Trendi\Support\Dir;

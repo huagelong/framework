@@ -72,7 +72,7 @@ class HttpServer
     public function onTask(SwooleServer $serv, $task_id, $from_id, $data)
     {
         try {
-            return Task::go($data);
+            return Task::start($data);
         } catch (\Exception $e) {
             $exception = \Trendi\Support\Exception::formatException($e);
             dump($exception);
@@ -107,11 +107,11 @@ class HttpServer
 
     public function onWorkerStart(SwooleServer $swooleServer, $workerId)
     {
-        if(function_exists("apc_clear_cache")){
+        if (function_exists("apc_clear_cache")) {
             apc_clear_cache();
         }
 
-        if(function_exists("opcache_reset")){
+        if (function_exists("opcache_reset")) {
             opcache_reset();
         }
 

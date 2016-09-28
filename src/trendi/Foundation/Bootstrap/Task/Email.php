@@ -1,5 +1,7 @@
 <?php
 /**
+ *  发送邮件email
+ *
  * User: Peter Wang
  * Date: 16/9/18
  * Time: 下午12:46
@@ -12,8 +14,17 @@ use Trendi\Foundation\Exception\ConfigNotFoundException;
 
 class Email
 {
-
-    public function handle($receiver, $sender, $title, $msg)
+    /**
+     *  执行函数
+     * 
+     * @param $receiver
+     * @param $sender
+     * @param $title
+     * @param $msg
+     * @return int
+     * @throws ConfigNotFoundException
+     */
+    public function perform($receiver, $sender, $title, $msg)
     {
         $sender = is_array($sender) ? $sender : [$sender => $sender];
         $receiver = is_array($receiver) ? $receiver : [$receiver];

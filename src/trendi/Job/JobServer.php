@@ -8,8 +8,8 @@
 namespace Trendi\Job;
 
 use Trendi\Foundation\Application;
-use Trendi\Server\ProcessServer;
 use Trendi\Foundation\Storage\Redis;
+use Trendi\Server\ProcessServer;
 
 class JobServer
 {
@@ -26,7 +26,7 @@ class JobServer
     {
         $perform = $this->config['perform'];
         $storage = new Redis();
-        foreach ($perform as $queueName=>$v){
+        foreach ($perform as $queueName => $v) {
             $key = Job::JOB_KEY_PRE . ":" . $queueName;
             $storage->del($key);
         }
@@ -39,16 +39,16 @@ class JobServer
         swoole_set_process_name($serverName);
         echo "[$serverName] start ...\n";
         //start job run
-        $job = new Job($this->config,$serverName);
+        $job = new Job($this->config, $serverName);
         $perform = $this->config['perform'];
-         
+
         $processServer = new ProcessServer($this->config['server']);
         $name = isset($this->config['server']['name']) ? $this->config['server']['name'] : "trendi";
-        $name = $name."-job-worker";
+        $name = $name . "-job-worker";
 
-        foreach ($perform as $key=>$v){
+        foreach ($perform as $key => $v) {
             $processServer->add(
-                function (\swoole_process $worker) use ($key, $job, $name){
+                function (\swoole_process $worker) use ($key, $job, $name) {
                     $worker->name($name);
                     echo "[$name] start ...\n";
                     $job->start($key);

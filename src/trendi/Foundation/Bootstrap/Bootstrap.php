@@ -25,7 +25,7 @@ class Bootstrap
 
     /**
      *  instance
-     * @return null|Init
+     * @return object
      */
     public static function getInstance($path)
     {
@@ -51,16 +51,25 @@ class Bootstrap
         $this->initTask();
     }
 
+    /**
+     * 监控初始化
+     */
     protected function initMonitor()
     {
 
     }
 
+    /**
+     * session 初始化
+     */
     protected function initSession()
     {
         new SessionBootstrap();
     }
 
+    /**
+     * php.ini 初始化
+     */
     protected function iniSet()
     {
         $configApp = Config::get("app");
@@ -75,6 +84,10 @@ class Bootstrap
 
     }
 
+    /**
+     * task 初始化
+     * @return bool
+     */
     protected function initTask()
     {
         $options = TaskConfig::getOptions();
@@ -88,11 +101,19 @@ class Bootstrap
         return true;
     }
 
+    /**
+     * 帮助函数初始化
+     */
     protected function initHelper()
     {
         require_once "helper.php";
     }
 
+    /**
+     * 配置初始化
+     * 
+     * @param $path
+     */
     protected function initConfig($path)
     {
         Config::setConfigPath($path . "config");

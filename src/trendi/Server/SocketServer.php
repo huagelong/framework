@@ -67,7 +67,7 @@ class SocketServer
     {
         Reload::load($this->serverName . "-server", $this->config['mem_reboot_rate']);
         try {
-            $this->adapter->go($data, $serv, $fd, $from_id);
+            $this->adapter->perform($data, $serv, $fd, $from_id);
         } catch (\Exception $e) {
             dump(\Trendi\Support\Exception::formatException($e));
         } catch (\Error $e) {
@@ -79,7 +79,7 @@ class SocketServer
     public function onTask(SwooleServer $serv, $task_id, $from_id, $data)
     {
         try {
-            return Task::go($data);
+            return Task::start($data);
         } catch (\Exception $e) {
             $exception = \Trendi\Support\Exception::formatException($e);
             dump($exception);

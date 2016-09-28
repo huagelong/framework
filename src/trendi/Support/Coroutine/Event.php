@@ -1,5 +1,7 @@
 <?php
 /**
+ *  event
+ *
  * User: Peter Wang
  * Date: 16/9/18
  * Time: 上午9:13
@@ -10,16 +12,35 @@ namespace Trendi\Support\Coroutine;
 
 class Event
 {
+    /**
+     *  event 保存静态变量
+     *
+     * @var array
+     */
     private static $evtMap = [];
 
+    /**
+     * 普通事物
+     */
     const NORMAL_EVENT = 1;
+
+    /**
+     * 只执行一次的事物
+     */
     const ONCE_EVENT = 2;
 
+    /**
+     * 清空
+     */
     public static function clear()
     {
         self::$evtMap = [];
     }
 
+    /**
+     * register
+     * @param $evtName
+     */
     public static function register($evtName)
     {
         if (!isset(self::$evtMap[$evtName])) {
@@ -27,6 +48,11 @@ class Event
         }
     }
 
+    /**
+     * unregister
+     *
+     * @param $evtName
+     */
     public static function unregister($evtName)
     {
         if (isset(self::$evtMap[$evtName])) {
@@ -34,6 +60,12 @@ class Event
         }
     }
 
+    /**
+     *  一次处理
+     *
+     * @param $evtName
+     * @param $callback
+     */
     public static function once($evtName, $callback)
     {
         self::register($evtName);
@@ -44,6 +76,12 @@ class Event
         ];
     }
 
+    /**
+     *  bing event
+     *
+     * @param $evtName
+     * @param $callback
+     */
     public static function bind($evtName, $callback)
     {
         self::register($evtName);
@@ -54,6 +92,12 @@ class Event
         ];
     }
 
+    /**
+     * 解绑
+     * @param $evtName
+     * @param $callback
+     * @return bool
+     */
     public static function unbind($evtName, $callback)
     {
         if (!isset(self::$evtMap[$evtName]) || !self::$evtMap[$evtName]) {
@@ -70,6 +114,12 @@ class Event
         return false;
     }
 
+    /**
+     * 执行
+     * @param $evtName
+     * @param null $args
+     * @param bool $loop
+     */
     public static function fire($evtName, $args = null, $loop = true)
     {
         if (isset(self::$evtMap[$evtName]) && self::$evtMap[$evtName]) {
@@ -77,6 +127,13 @@ class Event
         }
     }
 
+    /**
+     * 执行
+     * @param $evtName
+     * @param null $args
+     * @param bool $loop
+     * @return array
+     */
     private static function fireEvents($evtName, $args = null, $loop = true)
     {
         $result = [];

@@ -11,6 +11,12 @@ use Trendi\Support\Serialization\SerializationAbstract;
 
 class HproseSerialization extends SerializationAbstract
 {
+    /**
+     * 序列
+     * @param $data
+     * @return string
+     * @throws \Exception
+     */
     public function format($data)
     {
         if (!function_exists("hprose_serialize")) {
@@ -19,6 +25,12 @@ class HproseSerialization extends SerializationAbstract
         return $this->getSendContent(hprose_serialize($data));
     }
 
+    /**
+     * 反序列
+     * @param $data
+     * @return null
+     * @throws \Exception
+     */
     public function xformat($data)
     {
         $body = $this->getBody($data);

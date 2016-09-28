@@ -55,7 +55,7 @@ class PoolServer implements SocketInterface
         $obj->poolBootstrap();
     }
 
-    public function go($data, $serv, $fd, $from_id)
+    public function perform($data, $serv, $fd, $from_id)
     {
         $result = $this->serialize->xformat($data);
         if (!$result) {

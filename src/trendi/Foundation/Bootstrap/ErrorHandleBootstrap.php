@@ -1,5 +1,7 @@
 <?php
 /**
+ * error exception handle
+ *
  * User: Peter Wang
  * Date: 16/9/15
  * Time: 下午2:41
@@ -34,12 +36,20 @@ class ErrorHandleBootstrap
 
     }
 
+    /**
+     *  error handle
+     *
+     * @param $level
+     * @param $message
+     * @param string $file
+     * @param int $line
+     * @param array $context
+     */
     public function handleError($level, $message, $file = '', $line = 0, $context = [])
     {
         restore_error_handler();
         $message = "WARNING  with message '{$message}' in " . $file . ':' . $line . "\n";
         $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
-//        $trace = array_shift($trace);
         if ($trace) {
             foreach ($trace as $v) {
                 $class = isset($v['class']) ? $v['class'] : "";
@@ -51,12 +61,19 @@ class ErrorHandleBootstrap
         dump($message);
     }
 
+    /**
+     * exception handle
+     *
+     * @param $e
+     */
     public function handleException($e)
     {
         restore_exception_handler();
-//        dump(\Trendi\Support\Exception::formatException($e));
     }
 
+    /**
+     * register_shutdown_function
+     */
     public function handleShutdown()
     {
         $error = error_get_last();

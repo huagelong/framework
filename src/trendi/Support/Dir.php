@@ -13,11 +13,20 @@ use Trendi\Support\Exception\InvalidArgumentException;
 
 class Dir
 {
-
+    
     const SCAN_CURRENT_DIR = 'current';
     const SCAN_BFS = 'bfs';
     const SCAN_DFS = 'dfs';
 
+    /**
+     *  search files
+     *
+     * @param $path
+     * @param null $pattern
+     * @param string $strategy
+     * @return array
+     * @throws InvalidArgumentException
+     */
     public static function glob($path, $pattern = null, $strategy = self::SCAN_DFS)
     {
         if (!is_dir($path) || !$pattern) {
@@ -35,6 +44,13 @@ class Dir
         return $result;
     }
 
+    /**
+     * @param $path
+     * @param string $strategy
+     * @param bool $excludeDir
+     * @return array
+     * @throws InvalidArgumentException
+     */
     public static function scan($path, $strategy = self::SCAN_CURRENT_DIR, $excludeDir = true)
     {
         if (!is_dir($path)) {
@@ -58,6 +74,11 @@ class Dir
         return $files;
     }
 
+    /**
+     *  path init , add /
+     * @param $path
+     * @return string
+     */
     public static function formatPath($path)
     {
         if ('/' == substr($path, -1)) {
@@ -67,6 +88,11 @@ class Dir
         return $path . '/';
     }
 
+    /**
+     * @param $pattern
+     * @param $file
+     * @return bool
+     */
     public static function matchPattern($pattern, $file)
     {
         $replaceMap = [
@@ -86,6 +112,12 @@ class Dir
         return false;
     }
 
+    /**
+     *  get basename
+     * @param $pathes
+     * @param string $suffix
+     * @return array
+     */
     public static function basename($pathes, $suffix = '')
     {
         if (!$pathes) return [];
@@ -98,6 +130,13 @@ class Dir
         return $ret;
     }
 
+    /**
+     * scan
+     *
+     * @param $path
+     * @param bool $excludeDir
+     * @return array
+     */
     private static function scanCurrentDir($path, $excludeDir = true)
     {
         $path = self::formatPath($path);
@@ -121,6 +160,12 @@ class Dir
         return $files;
     }
 
+    /**
+     *
+     * @param $path
+     * @param bool $excludeDir
+     * @return array
+     */
     private static function scanBfs($path, $excludeDir = true)
     {
         $files = [];
@@ -146,6 +191,11 @@ class Dir
         return $files;
     }
 
+    /**
+     * @param $path
+     * @param bool $excludeDir
+     * @return array
+     */
     private static function scanDfs($path, $excludeDir = true)
     {
         $files = [];

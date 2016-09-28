@@ -26,6 +26,12 @@ abstract class SerializationAbstract
         return self::$bodyOffset;
     }
 
+    /**
+     * 数据流发送字符串衔接
+     *
+     * @param $bufferData
+     * @return string
+     */
     public function getSendContent($bufferData)
     {
         if (!$bufferData) return "";
@@ -34,6 +40,12 @@ abstract class SerializationAbstract
         return $packLen . $bufferData;
     }
 
+    /**
+     * 数据流body内容获取
+     *
+     * @param $bufferData
+     * @return string
+     */
     public function getBody($bufferData)
     {
         if (!$bufferData) return "";

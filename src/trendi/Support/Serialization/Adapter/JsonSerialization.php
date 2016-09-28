@@ -11,11 +11,21 @@ use Trendi\Support\Serialization\SerializationAbstract;
 
 class JsonSerialization extends SerializationAbstract
 {
+    /**
+     * 序列
+     * @param $data
+     * @return string
+     */
     public function format($data)
     {
         return $this->getSendContent(json_encode($data));
     }
 
+    /**
+     * 反序列
+     * @param $data
+     * @return null
+     */
     public function xformat($data)
     {
         $body = $this->getBody($data);

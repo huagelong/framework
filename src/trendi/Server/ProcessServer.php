@@ -36,7 +36,7 @@ class ProcessServer
             \swoole_process::daemon();
         }
 
-        \swoole_process::signal(SIGTERM, function (){
+        \swoole_process::signal(SIGTERM, function () {
             exit(0);
         });
 
@@ -45,9 +45,9 @@ class ProcessServer
         });
 
         \swoole_process::signal(SIGCHLD, function () {
-            if($ret = \swoole_process::wait(false)){
+            if ($ret = \swoole_process::wait(false)) {
                 $pid = $ret['pid'];
-                if(isset(self::$workers[$pid])){
+                if (isset(self::$workers[$pid])) {
                     self::$workers[$pid]->close();
                     \swoole_process::kill($pid, SIGTERM);
                 }

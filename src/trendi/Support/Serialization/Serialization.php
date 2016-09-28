@@ -16,6 +16,12 @@ use Trendi\Support\Serialization\Adapter\MsgPackSerialization;
 class Serialization
 {
 
+    /**
+     * 获取序列方案
+     * 
+     * @param $type
+     * @return DefaultSerialization|HproseSerialization|IgbinarySerialization|JsonSerialization|MsgPackSerialization
+     */
     public static function get($type)
     {
         $type = intval($type);

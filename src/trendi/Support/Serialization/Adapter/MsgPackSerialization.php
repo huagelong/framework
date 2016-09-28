@@ -11,6 +11,12 @@ use Trendi\Support\Serialization\SerializationAbstract;
 
 class MsgPackSerialization extends SerializationAbstract
 {
+    /**
+     * 序列
+     * @param $data
+     * @return string
+     * @throws \Exception
+     */
     public function format($data)
     {
         if (!function_exists("msgpack_pack")) {
@@ -19,6 +25,12 @@ class MsgPackSerialization extends SerializationAbstract
         return $this->getSendContent(msgpack_pack($data));
     }
 
+    /**
+     * 反序列
+     * @param $data
+     * @return null
+     * @throws \Exception
+     */
     public function xformat($data)
     {
         $body = $this->getBody($data);

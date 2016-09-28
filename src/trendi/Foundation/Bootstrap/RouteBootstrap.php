@@ -1,5 +1,7 @@
 <?php
-/**
+/** 
+ * 路由初始化
+ * 
  * User: Peter Wang
  * Date: 16/9/13
  * Time: 下午3:38
@@ -34,6 +36,11 @@ class RouteBootstrap
         $this->load();
     }
 
+    /**
+     * 路由导入
+     *
+     * @throws \Trendi\Support\Exception\InvalidArgumentException
+     */
     public function load()
     {
         $path = Config::get("route.config_path");

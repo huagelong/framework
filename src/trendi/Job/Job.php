@@ -37,8 +37,8 @@ class Job
     {
         if (!$this->config) return;
 
-        $timeTick = isset($this->config['server']['timer_tick'])?$this->config['server']['timer_tick']:500;
-        \swoole_timer_tick($timeTick, function () use ($queueName){
+        $timeTick = isset($this->config['server']['timer_tick']) ? $this->config['server']['timer_tick'] : 500;
+        \swoole_timer_tick($timeTick, function () use ($queueName) {
             $this->run($queueName);
         });
     }
@@ -120,7 +120,7 @@ class Job
             }
         }
 
-        $runTime = is_string($runTime)?strtotime($runTime):$runTime;
+        $runTime = is_string($runTime) ? strtotime($runTime) : $runTime;
 
         $value = [];
         $value[0] = $queueName;

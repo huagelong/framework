@@ -65,16 +65,15 @@ class ServerBase
         $name = $config['name'];
         $count = -1;
         $time = time();
-        while (1){
-            exec("ps axu|grep ".$name."|awk '{print $2}'", $masterArr);
-            if((time()-$time)>30){
+        while (1) {
+            exec("ps axu|grep " . $name . "|awk '{print $2}'", $masterArr);
+            if ((time() - $time) > 30) {
                 break;
             }
-            if($count ==-1){
+            if ($count == -1) {
                 $count = count($masterArr);
                 continue;
-            }elseif(count($masterArr)==$count)
-            {
+            } elseif (count($masterArr) == $count) {
                 continue;
             }
             break;

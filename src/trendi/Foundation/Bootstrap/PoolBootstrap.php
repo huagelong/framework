@@ -1,5 +1,7 @@
 <?php
 /**
+ *  连接池初始化
+ * 
  * User: Peter Wang
  * Date: 16/9/13
  * Time: 下午3:38
@@ -34,6 +36,9 @@ class PoolBootstrap
         $this->load();
     }
 
+    /**
+     *  pdo , redis 连接池配置导入
+     */
     public function load()
     {
         $config = Config::get("pdo");

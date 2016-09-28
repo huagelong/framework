@@ -36,6 +36,11 @@ class RunMode
         return self::$env;
     }
 
+    /**
+     *  初始化
+     * @return string
+     * @throws \EnvInvalidException
+     */
     public static function init()
     {
         if (self::$runMode) return self::$runMode;
