@@ -75,6 +75,7 @@ class Application
             new Command\Job\Restart(),
             new Command\Job\Status(),
             new Command\Job\Stop(),
+            new Command\Job\Clear(),
             new Command\Server\Start(),
             new Command\Server\Restart(),
             new Command\Server\Status(),

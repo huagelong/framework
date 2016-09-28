@@ -8,10 +8,10 @@
 namespace Trendi\Foundation\Command\Job;
 
 use Trendi\Config\Config;
+use Trendi\Job\Job;
 use Trendi\Job\JobServer;
 use Trendi\Support\Arr;
 use Trendi\Support\Dir;
-use Trendi\Support\Serialization\Serialization;
 
 class JobBase
 {
@@ -55,7 +55,7 @@ class JobBase
             'daemonize' => 0,
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
-            "mem_reboot_rate"=>0.8,//可用内存达到多少自动重启
+            "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
             "serialization" => 1
         ];
 
@@ -84,8 +84,12 @@ class JobBase
                     $output->writeln("<info>[$serverName] not run</info>");
                 }
                 break;
+            case 'clear':
+                $jobServer = new JobServer($config, $root);
+                $jobServer->clear();
+                break;
             case 'start':
-                $jobServer = new JobServer($config,$root);
+                $jobServer = new JobServer($config, $root);
                 $jobServer->start();
                 break;
             case 'stop':
@@ -135,8 +139,8 @@ class JobBase
                     break;
                 }
                 self::closeWorker($appName);
-                
-                $jobServer = new JobServer($config,$root);
+
+                $jobServer = new JobServer($config, $root);
                 $jobServer->start();
                 $output->writeln("<info>[$serverName] restart success </info>");
                 break;
@@ -149,8 +153,8 @@ class JobBase
     {
         $serverName = $appName . "-job-worker";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
-        if($masterPidArr){
-            foreach ($masterPidArr as $v){
+        if ($masterPidArr) {
+            foreach ($masterPidArr as $v) {
                 $v && posix_kill($v, SIGTERM);
             }
         }

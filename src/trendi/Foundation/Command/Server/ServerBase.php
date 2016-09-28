@@ -19,7 +19,7 @@ class ServerBase
         Config::setConfigPath($root . "config");
 
         $daemonizeStr = "";
-        if (($cmd == 'start') && $input->hasOption("daemonize")) {
+        if (($cmd == 'start' || $cmd == 'restart') && $input->hasOption("daemonize")) {
             $daemonize = $input->getOption('daemonize');
             $daemonizeStr = $daemonize == 0 ? "" : "-d";
         }

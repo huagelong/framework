@@ -9,6 +9,7 @@ namespace Trendi\Job;
 
 use Trendi\Foundation\Application;
 use Trendi\Server\ProcessServer;
+use Trendi\Foundation\Storage\Redis;
 
 class JobServer
 {
@@ -19,6 +20,16 @@ class JobServer
         $this->config = $config;
         $obj = new Application($root);
         $obj->bootstrap();
+    }
+
+    public function clear()
+    {
+        $perform = $this->config['perform'];
+        $storage = new Redis();
+        foreach ($perform as $queueName=>$v){
+            $key = Job::JOB_KEY_PRE . ":" . $queueName;
+            $storage->del($key);
+        }
     }
 
     public function start()
