@@ -1,5 +1,6 @@
 <?php
 /**
+ * route 处理
  * User: Peter Wang
  * Date: 16/9/12
  * Time: 下午6:12
@@ -12,6 +13,12 @@ use Trendi\Mvc\Route\Exception\InvalidArgumentException;
 class Route
 {
 
+    /**
+     * route group
+     *
+     * @param $params
+     * @param $callback
+     */
     public static function group($params, $callback)
     {
         $obj = new RouteGroup();
@@ -46,6 +53,14 @@ class Route
     }
 
 
+    /**
+     * 方法 post  get put delete 等调用
+     *
+     * @param $method
+     * @param $args
+     * @return RouteBase
+     * @throws InvalidArgumentException
+     */
     public static function __callStatic($method, $args)
     {
         $method = strtoupper($method);

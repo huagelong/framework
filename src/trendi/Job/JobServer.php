@@ -1,5 +1,6 @@
 <?php
 /**
+ * job server
  * User: Peter Wang
  * Date: 16/9/26
  * Time: 上午10:41
@@ -22,6 +23,9 @@ class JobServer
         $obj->bootstrap();
     }
 
+    /**
+     * 清空所有job
+     */
     public function clear()
     {
         $perform = $this->config['perform'];
@@ -32,6 +36,9 @@ class JobServer
         }
     }
 
+    /**
+     * job 服务开始
+     */
     public function start()
     {
         $name = isset($this->config['server']['name']) ? $this->config['server']['name'] : "trendi";

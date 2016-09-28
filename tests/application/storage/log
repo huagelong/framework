@@ -389,3 +389,47 @@ trendi-pool worker stop .....
 trendi-pool manage stop ......
 trendi-rpc server shutdown ...... 
 trendi-pool server shutdown ...... 
+[2016-09-28 19:26:37 $50440.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-28 19:26:37 $50440.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-28 19:27:11 *50523.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:122
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(173): Trendi\Http\Response->end()
+#1 [internal function]: Trendi\Server\HttpServer->onRequest(Object(swoole_http_request), Object(swoole_http_response))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(57): swoole_http_server->s
+[2016-09-28 19:27:11 $50510.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-28 19:29:29 *50629.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:122
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(173): Trendi\Http\Response->end()
+#1 [internal function]: Trendi\Server\HttpServer->onRequest(Object(swoole_http_request), Object(swoole_http_response))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(57): swoole_http_server->s
+[2016-09-28 19:29:29 $50615.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-28 19:30:41 *50731.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:122
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(173): Trendi\Http\Response->end()
+#1 [internal function]: Trendi\Server\HttpServer->onRequest(Object(swoole_http_request), Object(swoole_http_response))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(57): swoole_http_server->s
+[2016-09-28 19:30:41 $50714.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-28 20:59:34 *51020.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:123
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(173): Trendi\Http\Response->end()
+#1 [internal function]: Trendi\Server\HttpServer->onRequest(Object(swoole_http_request), Object(swoole_http_response))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(57): swoole_http_server->s
+[2016-09-28 20:59:34 $51007.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-28 21:00:29 *51123.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:124
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(173): Trendi\Http\Response->end()
+#1 [internal function]: Trendi\Server\HttpServer->onRequest(Object(swoole_http_request), Object(swoole_http_response))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(57): swoole_http_server->s
+[2016-09-28 21:00:29 $51106.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-28 21:01:28 *51219.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Access to undeclared static property: Trendi\Http\Response::$isRedirect in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(152): Trendi\Http\Response->__construct(Object(swoole_http_response))
+#1 [internal function]: Trendi\Server\HttpServer->onRequest(Object(swoole_http_request), Object(swoole_http_response))
+#2 /mnt/hgfs/code/trendi_framework/src/
+[2016-09-28 21:01:28 $51205.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-28 21:01:32 *51263.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Access to undeclared static property: Trendi\Http\Response::$isRedirect in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(152): Trendi\Http\Response->__construct(Object(swoole_http_response))
+#1 [internal function]: Trendi\Server\HttpServer->onRequest(Object(swoole_http_request), Object(swoole_http_response))
+#2 /mnt/hgfs/code/trendi_framework/src/
+[2016-09-28 21:01:32 $51205.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0

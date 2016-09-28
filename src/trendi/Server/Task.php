@@ -119,7 +119,7 @@ class Task
 
             $obj = new $taskClass();
 
-            if (!method_exists($obj, "handle")) {
+            if (!method_exists($obj, "perform")) {
                 throw new InvalidArgumentException(" task method handle not config ");
             }
 

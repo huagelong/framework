@@ -25,7 +25,7 @@ class Pdo
         return self::$config;
     }
 
-    public function handle($sql, $dnType = self::CONN_MASTER, $method = "")
+    public function perform($sql, $dnType = self::CONN_MASTER, $method = "")
     {
         if (!$sql) return null;
         $conn = $this->setConn($dnType);

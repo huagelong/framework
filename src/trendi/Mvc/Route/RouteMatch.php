@@ -1,5 +1,7 @@
 <?php
 /**
+ * 匹配route
+ *
  * User: Peter Wang
  * Date: 16/9/10
  * Time: 下午4:51
@@ -20,6 +22,15 @@ use Trendi\Support\Coroutine\Event;
 class RouteMatch
 {
     protected static $instance = null;
+    /**
+     * 所有路由数据
+     * @var array
+     */
+    protected static $allRoute = [];
+
+    protected static $collectionInstance = null;
+    
+    protected static $middlewareConfig=[];
 
     /**
      *  instance
@@ -32,8 +43,10 @@ class RouteMatch
         return self::$instance = new self();
     }
 
-    protected static $allRoute = [];
-    protected static $collectionInstance = null;
+    public function setMiddlewareConfig($middlewareConfig)
+    {
+        self::$middlewareConfig = $middlewareConfig;
+    }
 
     protected function getAllGroupRoute()
     {
@@ -65,6 +78,11 @@ class RouteMatch
         return self::$collectionInstance = $rootCollection;
     }
 
+    /**
+     * 获取匹配数据
+     * @param $url
+     * @return array
+     */
     public function match($url)
     {
         $rootCollection = $this->getRootCollection();
@@ -76,6 +94,13 @@ class RouteMatch
     }
 
 
+    /**
+     * 根据路由名称获取url
+     *
+     * @param $routeName
+     * @param array $params
+     * @return string
+     */
     public function url($routeName, $params = [])
     {
         $rootCollection = $this->getRootCollection();
@@ -87,6 +112,8 @@ class RouteMatch
     }
 
     /**
+     * http 执行匹配
+     *
      * @param $url
      * @return mixed
      * @throws PageNotFoundException
@@ -111,6 +138,14 @@ class RouteMatch
     }
 
 
+    /**
+     * rpc 执行匹配
+     *
+     * @param $url
+     * @param array $requestData
+     * @return string
+     * @throws PageNotFoundException
+     */
     public function runRpc($url, $requestData = [])
     {
         Event::fire("rpc_controller_call_before", [$url, $requestData]);
@@ -130,15 +165,33 @@ class RouteMatch
         return "";
     }
 
-
+    /**
+     * 基础执行匹配
+     *
+     * @param $require
+     * @param $parameters
+     * @return mixed
+     * @throws PageNotFoundException
+     */
     private function runBase($require, $parameters)
     {
         if ($parameters) {
             $controller = isset($parameters['_controller']) ? $parameters['_controller'] : null;
             if ($controller) {
                 $middleware = isset($parameters['_middleware']) ? $parameters['_middleware'] : null;
+                dump($middleware);
                 if ($middleware) {
-                    //TODO
+                    $midd = self::$middlewareConfig;
+                    if($midd){
+                        foreach ($middleware as $v){
+                            if(isset($midd[$v])){
+                                $class = $midd[$v];
+                                $obj = new $class();
+                                $rs = call_user_func_array([$obj, "perform"], $require);
+                                if(!$rs) return ;
+                            }
+                        }
+                    }
                 }
                 if ($controller instanceof \Closure) {
                     return call_user_func($controller, $require);
@@ -164,6 +217,4 @@ class RouteMatch
     public function __destruct()
     {
     }
-
-
 }

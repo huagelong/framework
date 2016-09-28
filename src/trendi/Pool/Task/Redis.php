@@ -24,7 +24,7 @@ class Redis
         return self::$config;
     }
 
-    public function handle()
+    public function perform()
     {
         $params = func_get_args();
 

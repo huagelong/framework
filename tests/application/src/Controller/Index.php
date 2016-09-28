@@ -21,7 +21,7 @@ class Index
         
         $response->view->say = $say;
         
-        return $response->redirect("/index/test");
+//        return $response->redirect("/index/test");
 
         return $response->render("index/index");
     }

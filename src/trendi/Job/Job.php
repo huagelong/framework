@@ -1,5 +1,7 @@
 <?php
 /**
+ *  job处理
+ *
  * User: Peter Wang
  * Date: 16/9/26
  * Time: 上午9:51
@@ -32,7 +34,10 @@ class Job
         $this->storage = new Redis();
     }
 
-
+    /**
+     * job 服务开始
+     * @param $queueName
+     */
     public function start($queueName)
     {
         if (!$this->config) return;
@@ -43,13 +48,16 @@ class Job
         });
     }
 
-    public function run($queueName)
+    /**
+     * job 服务执行
+     * @param $queueName
+     */
+    private function run($queueName)
     {
         try {
             if (!isset($this->config['perform'][$queueName])) return;
             $pv = $this->config['perform'][$queueName];
             $key = self::JOB_KEY_PRE . ":" . $queueName;
-//            $this->storage->del($key);
             $now = time();
             $data = $this->storage->zrangebyscore($key, 0, $now);
             //原子操作避免重复处理
@@ -88,6 +96,15 @@ class Job
     }
 
 
+    /**
+     * 添加job
+     * @param $queueName
+     * @param $jobObj
+     * @param string $runTime
+     * @param string $schedule
+     * @param string $tag
+     * @throws InvalidArgumentException
+     */
     public function add($queueName, $jobObj, $runTime = "", $schedule = "", $tag = "")
     {
         if (!isset($this->config['perform'][$queueName])) return;

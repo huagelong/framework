@@ -1,5 +1,7 @@
 <?php
 /**
+ * http request 类库
+ *
  * User: Peter Wang
  * Date: 16/9/13
  * Time: 下午6:28
@@ -13,6 +15,11 @@ use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 class Request extends SymfonyRequest
 {
 
+    /**
+     * 初始化
+     * Request constructor.
+     * @param array $swooleRequest
+     */
     public function __construct($swooleRequest)
     {
         $get = isset($swooleRequest->get) ? $swooleRequest->get : [];

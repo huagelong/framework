@@ -1,5 +1,7 @@
 <?php
 /**
+ *  route 基础类
+ *
  * User: Peter Wang
  * Date: 16/9/10
  * Time: 下午4:50
@@ -27,6 +29,13 @@ class RouteBase
      */
     protected $routeObj = null;
 
+    /**
+     * 设置route 条件
+     *
+     * @param $key
+     * @param string $value
+     * @return $this
+     */
     public function where($key, $value = "")
     {
         if (is_array($key)) {
@@ -45,6 +54,12 @@ class RouteBase
         return $this;
     }
 
+    /**
+     * 设置toute 名称
+     *
+     * @param $key
+     * @return $this
+     */
     public function name($key)
     {
         $this->name = $key;
@@ -63,11 +78,22 @@ class RouteBase
         return $this;
     }
 
+    /**
+     * 获取名称
+     *
+     * @return null
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * defaults
+     *
+     * @param array $default
+     * @return $this
+     */
     public function defaults(array $default)
     {
         $this->defaults = Arr::merge($this->defaults, $default);
@@ -79,6 +105,11 @@ class RouteBase
         return $this;
     }
 
+    /**
+     * 中间件
+     *
+     * @return $this|void
+     */
     public function middleware()
     {
 
@@ -103,6 +134,12 @@ class RouteBase
         return $this;
     }
 
+    /**
+     * 域名设置
+     *
+     * @param $host
+     * @return $this
+     */
     public function domain($host)
     {
         $this->host = $host;
@@ -114,7 +151,14 @@ class RouteBase
         return $this;
     }
 
-
+    /**
+     * 匹配
+     *
+     * @param $methods
+     * @param $path
+     * @param $closureOrArr
+     * @return $this
+     */
     public function match($methods, $path, $closureOrArr)
     {
         if (!is_array($methods)) $methods = array($methods);
@@ -144,6 +188,11 @@ class RouteBase
         return $this;
     }
 
+    /**
+     * 设置
+     * @param $key
+     * @param $value
+     */
     protected function setResult($key, $value)
     {
         $preKey = self::DEFAULTGROUP_KEY;
@@ -155,6 +204,10 @@ class RouteBase
     }
 
 
+    /**
+     * @param string $key
+     * @return array|mixed
+     */
     public static function getResult($key = '')
     {
         if (!$key) {
@@ -163,6 +216,10 @@ class RouteBase
         return isset(self::$result[$key]) ? self::$result[$key] : [];
     }
 
+    /**
+     * 清空
+     * @param string $key
+     */
     public static function clearResult($key = self::DEFAULTGROUP_KEY)
     {
         unset(self::$result[$key]);
