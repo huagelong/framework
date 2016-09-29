@@ -12,7 +12,7 @@ namespace Trendi\Server;
 use swoole_server as SwooleServer;
 use Trendi\Server\Facade\Context;
 use Trendi\Server\Facade\Task;
-use Trendi\Support\Coroutine\Event;
+use Trendi\Support\Event;
 use Trendi\Support\Facade;
 use Exception;
 

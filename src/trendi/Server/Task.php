@@ -11,7 +11,7 @@ namespace Trendi\Server;
 
 use Trendi\Server\Exception\InvalidArgumentException;
 use Trendi\Server\Facade\Context as FacedeContext;
-use Trendi\Support\Coroutine\Event;
+use Trendi\Support\Event;
 
 class Task
 {

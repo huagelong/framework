@@ -17,7 +17,7 @@ use Trendi\Http\Request;
 use Trendi\Http\Response;
 use Trendi\Mvc\Route\Exception\PageNotFoundException;
 use Trendi\Support\Arr;
-use Trendi\Support\Coroutine\Event;
+use Trendi\Support\Event;
 
 class RouteMatch
 {

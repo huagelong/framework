@@ -24,6 +24,9 @@ class DiConfig
             "job" => [
                 "class" => \Trendi\Foundation\Bootstrap\JobBootstrap::class
             ],
+            "log" => [
+                "class" => \Trendi\Log\Log::class
+            ],
         ];
     }
 

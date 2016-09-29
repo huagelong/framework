@@ -7,7 +7,7 @@
  * Time: 上午9:13
  */
 
-namespace Trendi\Support\Coroutine;
+namespace Trendi\Coroutine;
 
 
 class Event

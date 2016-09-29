@@ -435,3 +435,6 @@ Stack trace:
 [2016-09-28 21:01:32 $51205.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
 [2016-09-29 00:05:22 $51438.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
 [2016-09-29 00:05:27 $51438.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-29 10:22:55 *52132.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 152 byte failed, because session#10 is closed.
+[2016-09-29 10:25:25 *52334.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#5 is closed.
+[2016-09-29 10:25:25 *52334.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#5 is closed.

@@ -25,6 +25,7 @@ class AliasConfig
             "Context" => \Trendi\Server\Facade\Context::class,
             "Task" => \Trendi\Server\Facade\Task::class,
             "Job" => \Trendi\Foundation\Bootstrap\Facade\Job::class,
+            "Log" => \Trendi\Foundation\Bootstrap\Facade\Log::class,
         ];
     }
 

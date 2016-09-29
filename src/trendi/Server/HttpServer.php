@@ -16,7 +16,7 @@ use Trendi\Http\Request;
 use Trendi\Http\Response;
 use Trendi\Server\Facade\Context;
 use Trendi\Server\Facade\Task;
-use Trendi\Support\Coroutine\Event;
+use Trendi\Support\Event;
 use Trendi\Support\Facade;
 
 class HttpServer

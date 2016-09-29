@@ -128,6 +128,11 @@ class Response
                 $this->response->header($k, $v);
             }
         }
+
+        if($html instanceof \Iterator){
+            $html = $html->current();
+        }
+
         $data = $this->response->end($html);
 
         return $data;

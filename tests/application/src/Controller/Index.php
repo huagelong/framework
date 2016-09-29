@@ -77,7 +77,7 @@ class Index
 
         $response->view->test = "test";
         
-        return $response->render("index/test");
+        yield $response->render("index/test");
     }
 
 }
