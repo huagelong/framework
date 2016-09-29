@@ -1,5 +1,7 @@
 <?php
 /**
+ * httpd 服务器
+ *
  * User: Peter Wang
  * Date: 16/9/14
  * Time: 上午10:04
@@ -36,6 +38,9 @@ class HttpServer
         $this->serverName = $serverName;
     }
 
+    /**
+     * 服务器开始
+     */
     public function start()
     {
         $this->swooleServer->on('start', [$this, 'onStart']);
@@ -69,6 +74,15 @@ class HttpServer
         echo $this->serverName . " httpd manage start ......\n";
     }
 
+    /**
+     * 进程task
+     *
+     * @param SwooleServer $serv
+     * @param $task_id
+     * @param $from_id
+     * @param $data
+     * @return array
+     */
     public function onTask(SwooleServer $serv, $task_id, $from_id, $data)
     {
         try {
@@ -89,14 +103,10 @@ class HttpServer
         Task::finish($data);
     }
 
+
     public function onStart(SwooleServer $swooleServer)
     {
         swoole_set_process_name($this->serverName . "-httpd-server");
-        $pid = posix_getpid();
-        $pidFile = isset($this->config["pid_file"]) ? $this->config["pid_file"] : 0;
-        if ($pidFile) {
-            @file_put_contents($pidFile, $pid);
-        }
         echo $this->serverName . " httpd server start ......\n";
     }
 
@@ -105,6 +115,12 @@ class HttpServer
         echo $this->serverName . " httpd server shutdown ...... \n";
     }
 
+    /**
+     * 数据初始化
+     *
+     * @param SwooleServer $swooleServer
+     * @param $workerId
+     */
     public function onWorkerStart(SwooleServer $swooleServer, $workerId)
     {
         if (function_exists("apc_clear_cache")) {
@@ -144,10 +160,18 @@ class HttpServer
         Event::fire("httpd_worker_error", [$exitCode, date('Y-m-d H:i:s')]);
     }
 
+    /**
+     * 请求处理
+     *
+     * @param SwooleHttpRequest $swooleHttpRequest
+     * @param SwooleHttpResponse $swooleHttpResponse
+     * @throws Exception\InvalidArgumentException
+     * @throws \Trendi\Http\Exception\ContextErrorException
+     */
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
         Reload::load($this->serverName . "-httpd-server", $this->config['mem_reboot_rate']);
-//        return $swooleHttpResponse->end("a");
+
         $request = new Request($swooleHttpRequest);
         $response = new Response($swooleHttpResponse);
 
@@ -184,7 +208,13 @@ class HttpServer
         }
     }
 
-
+    /**
+     *  内容处理
+     * 
+     * @param Request $request
+     * @param Response $response
+     * @return mixed
+     */
     protected function requestHtmlHandle(Request $request, Response $response)
     {
         $gzip = isset($this->config["gzip"]) ? $this->config["gzip"] : 0;

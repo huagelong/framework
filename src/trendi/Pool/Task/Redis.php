@@ -1,5 +1,6 @@
 <?php
 /**
+ * redis pool 连接 redis服务器
  * User: Peter Wang
  * Date: 16/9/23
  * Time: 上午11:30
@@ -24,6 +25,12 @@ class Redis
         return self::$config;
     }
 
+    /**
+     * 执行
+     * 
+     * @return mixed
+     * @throws \Exception
+     */
     public function perform()
     {
         $params = func_get_args();

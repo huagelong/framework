@@ -1,5 +1,7 @@
 <?php
 /**
+ * 上下文
+ *
  * User: Peter Wang
  * Date: 16/9/18
  * Time: 上午9:27
@@ -38,8 +40,7 @@ class Context
         }
         self::$map[$key] = [$value, $once, $keepLive];
     }
-
-
+    
     public function __call($method, $args)
     {
         if (!isset(self::$map[$method])) {

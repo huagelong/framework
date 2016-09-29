@@ -1,5 +1,7 @@
 <?php
 /**
+ * process server
+ *
  * User: Peter Wang
  * Date: 16/9/26
  * Time: 上午10:41
@@ -21,7 +23,11 @@ class ProcessServer
         $this->init();
     }
 
-
+    /**
+     * 添加子进程 
+     *
+     * @param $callBack
+     */
     public function add($callBack)
     {
         $process = new \swoole_process($callBack, $this->redirectStdout);

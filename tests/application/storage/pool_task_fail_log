@@ -58,3 +58,59 @@ Stack trace
 #13 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
 #14 {main}
 ================================================
+2016-09-29 00:04:52 ["redis",["zrangebyscore",["JOB_KEY:heart",0,1475067881]],0,7]
+================================================
+Exception Error : No connections left in the pool for `CLUSTER SLOTS` in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Connection/Aggregate/RedisCluster.php:232
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Connection/Aggregate/RedisCluster.php(260): Predis\Connection\Aggregate\RedisCluster->queryClusterNodeForSlotsMap(NULL)
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Connection/Aggregate/RedisCluster.php(560): Predis\Connection\Aggregate\RedisCluster->askSlotsMap()
+#2 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Connection/Aggregate/RedisCluster.php(593): Predis\Connection\Aggregate\RedisCluster->retryCommandOnFailure(Object(Predis\Command\ZSetRangeByScore), 'executeCommand')
+#3 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(331): Predis\Connection\Aggregate\RedisCluster->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#4 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\ZSetRangeByScore))
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('zrangebyscore', Array)
+#6 [internal function]: Trendi\Pool\Task\Redis->perform('zrangebyscore', Array)
+#7 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->start(Array)
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(82): Trendi\Support\Facade::__callStatic('start', Array)
+#10 [internal function]: Trendi\Server\SocketServer->onTask(Object(swoole_server), 421, 0, Array)
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(52): swoole_server->start()
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\SocketServer->start()
+#13 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(172): Trendi\Pool\PoolServer->start()
+#14 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('restart', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Restart.php(28): Trendi\Foundation\Command\Pool\PoolBase::operate('restart', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Restart->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Restart), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(123): Symfony\Component\Console\Application->run()
+#21 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#22 {main}
+================================================
+2016-09-29 00:05:26 ["redis",["setnx",["JOB_KEYCHECK",1]],0,4]
+================================================
+Exception Error : No connections left in the pool for `CLUSTER SLOTS` in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Connection/Aggregate/RedisCluster.php:232
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Connection/Aggregate/RedisCluster.php(260): Predis\Connection\Aggregate\RedisCluster->queryClusterNodeForSlotsMap(NULL)
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Connection/Aggregate/RedisCluster.php(560): Predis\Connection\Aggregate\RedisCluster->askSlotsMap()
+#2 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Connection/Aggregate/RedisCluster.php(593): Predis\Connection\Aggregate\RedisCluster->retryCommandOnFailure(Object(Predis\Command\StringSetPreserve), 'executeCommand')
+#3 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(331): Predis\Connection\Aggregate\RedisCluster->executeCommand(Object(Predis\Command\StringSetPreserve))
+#4 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\StringSetPreserve))
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(41): Predis\Client->__call('setnx', Array)
+#6 [internal function]: Trendi\Pool\Task\Redis->perform('setnx', Array)
+#7 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(126): call_user_func_array(Array, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->start(Array)
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(82): Trendi\Support\Facade::__callStatic('start', Array)
+#10 [internal function]: Trendi\Server\SocketServer->onTask(Object(swoole_server), 424, 0, Array)
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(52): swoole_server->start()
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(49): Trendi\Server\SocketServer->start()
+#13 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(172): Trendi\Pool\PoolServer->start()
+#14 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(60): Trendi\Foundation\Command\Pool\PoolBase::doOperate('restart', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Restart.php(28): Trendi\Foundation\Command\Pool\PoolBase::operate('restart', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Restart->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(818): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Restart), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(123): Symfony\Component\Console\Application->run()
+#21 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#22 {main}
+================================================

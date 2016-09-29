@@ -1,5 +1,6 @@
 <?php
 /**
+ * rpc client
  * User: Peter Wang
  * Date: 16/9/19
  * Time: 下午2:13
@@ -45,6 +46,14 @@ class RpcClient
         $this->client = new SocketClient($client, $config, $serialization);
     }
 
+    /**
+     * 获取数据
+     * 
+     * @param $url
+     * @param array $params
+     * @return mixed
+     * @throws \Exception
+     */
     public function get($url, $params = [])
     {
         $result = [$url, $params];

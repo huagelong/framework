@@ -1,5 +1,7 @@
 <?php
 /**
+ * 连接池服务器
+ *
  * User: Peter Wang
  * Date: 16/9/19
  * Time: 下午5:41
@@ -24,6 +26,15 @@ class PoolServer implements SocketInterface
     private $poolWorkrNumber = 0;
     private $numbersTmp = [];
 
+    /**
+     * 执行
+     *
+     * @param $server
+     * @param $serialize
+     * @param $config
+     * @param $root
+     * @param string $serverName
+     */
     public function __construct($server, $serialize, $config, $root, $serverName = "trendi")
     {
         $this->config = $config;
@@ -43,18 +54,33 @@ class PoolServer implements SocketInterface
         $this->config['server']['task_worker_num'] = $poolWorkrNumber;
     }
 
+    /**
+     * 服务开始
+     */
     public function start()
     {
         $tcpServer = new SocketServer($this->server, $this->config['server'], $this, "pool", $this->serverName);
         $tcpServer->start();
     }
 
+    /**
+     * 初始化
+     */
     public function bootstrap()
     {
         $obj = new Application($this->root);
         $obj->poolBootstrap();
     }
 
+    /**
+     * 数据接收执行
+     *
+     * @param $data
+     * @param $serv
+     * @param $fd
+     * @param $from_id
+     * @throws InvalidArgumentException
+     */
     public function perform($data, $serv, $fd, $from_id)
     {
         $result = $this->serialize->xformat($data);
@@ -67,6 +93,12 @@ class PoolServer implements SocketInterface
         $this->sendWait($driver, $params, $serv, $fd, $dstWorkerId);
     }
 
+    /**
+     * 不同连接池,分配不同task worker
+     *
+     * @param $taskName
+     * @return int
+     */
     protected function getDstWorkerId($taskName)
     {
         $taskName = strtolower($taskName);
@@ -90,6 +122,16 @@ class PoolServer implements SocketInterface
         return array_pop($this->numbersTmp);
     }
 
+    /**
+     * 堵塞发送
+     *
+     * @param $taskName
+     * @param array $params
+     * @param $serv
+     * @param $fd
+     * @param int $dstWorkerId
+     * @throws InvalidArgumentException
+     */
     public function sendWait($taskName, $params = [], $serv, $fd, $dstWorkerId = -1)
     {
         if (!$fd) {
@@ -109,6 +151,12 @@ class PoolServer implements SocketInterface
         Event::fire("clear");
     }
 
+    /**
+     * 保存失败执行记录
+     *
+     * @param $exception
+     * @param $returnData
+     */
     private function log($exception, $returnData)
     {
         //超过次数,记录日志

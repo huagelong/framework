@@ -1,5 +1,7 @@
 <?php
 /**
+ *  socket 客户端
+ * 
  * User: Peter Wang
  * Date: 16/9/19
  * Time: 下午2:13

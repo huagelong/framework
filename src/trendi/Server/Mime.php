@@ -1,6 +1,7 @@
 <?php
-
 /**
+ * mime 处理
+ * 
  * User: Peter Wang
  * Date: 16/9/14
  * Time: 下午12:49
@@ -91,6 +92,11 @@ class Mime
         "video/x-msvideo" => "avi",
     ];
 
+    /**
+     * 获取
+     * 
+     * @return array
+     */
     public static function get()
     {
         if (self::$mime) return self::$mime;

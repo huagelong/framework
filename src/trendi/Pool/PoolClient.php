@@ -1,5 +1,6 @@
 <?php
 /**
+ * 连接池客户端
  * User: Peter Wang
  * Date: 16/9/20
  * Time: 上午9:18
@@ -15,6 +16,14 @@ class PoolClient
 {
     private $client = null;
 
+    /**
+     * 初始化
+     *
+     * @param $host
+     * @param $port
+     * @param int $serialization
+     * @param array $diyConfig
+     */
     public function __construct($host, $port, $serialization = 1, $diyConfig = [])
     {
         $config = [
@@ -42,6 +51,14 @@ class PoolClient
         $this->client = new SocketClient($client, $config, $serialization);
     }
 
+    /**
+     *  获取数据
+     * 
+     * @param $taskname
+     * @param array $params
+     * @return mixed
+     * @throws \Exception
+     */
     public function get($taskname, $params = [])
     {
         $result = [$taskname, $params];

@@ -1,5 +1,7 @@
 <?php
 /**
+ *  task worker 处理
+ *
  * User: Peter Wang
  * Date: 16/9/18
  * Time: 上午11:10
@@ -75,6 +77,7 @@ class Task
     {
         $sendData = [$taskName, $params, $retryNumber, $dstWorkerId];
         $this->server->task($sendData, $dstWorkerId);
+        //执行数据清空event
         Event::fire("clear");
     }
 

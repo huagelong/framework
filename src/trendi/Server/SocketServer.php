@@ -1,5 +1,7 @@
 <?php
 /**
+ * socket server 
+ * 
  * User: Peter Wang
  * Date: 16/9/18
  * Time: 下午6:20
@@ -12,6 +14,7 @@ use Trendi\Server\Facade\Context;
 use Trendi\Server\Facade\Task;
 use Trendi\Support\Coroutine\Event;
 use Trendi\Support\Facade;
+use Exception;
 
 class SocketServer
 {
@@ -69,9 +72,9 @@ class SocketServer
         try {
             $this->adapter->perform($data, $serv, $fd, $from_id);
         } catch (\Exception $e) {
-            dump(\Trendi\Support\Exception::formatException($e));
-        } catch (\Error $e) {
-            dump(\Trendi\Support\Exception::formatException($e));
+            dump(Exception::formatException($e));
+        } catch (\Error $e) { //php7.0兼容
+            dump(Exception::formatException($e));
         }
         Event::fire("clear");
     }
@@ -81,11 +84,11 @@ class SocketServer
         try {
             return Task::start($data);
         } catch (\Exception $e) {
-            $exception = \Trendi\Support\Exception::formatException($e);
+            $exception = Exception::formatException($e);
             dump($exception);
             return [false, $data, $exception];
         } catch (\Error $e) {
-            $exception = \Trendi\Support\Exception::formatException($e);
+            $exception = Exception::formatException($e);
             dump($exception);
             return [false, $data, $exception];
         }
@@ -99,11 +102,6 @@ class SocketServer
     public function onStart(SwooleServer $swooleServer)
     {
         swoole_set_process_name($this->serverName . "-server");
-        $pid = posix_getpid();
-        $pidFile = isset($this->config["pid_file"]) ? $this->config["pid_file"] : 0;
-        if ($pidFile) {
-            @file_put_contents($pidFile, $pid);
-        }
         echo $this->serverName . " server start ......\n";
     }
 

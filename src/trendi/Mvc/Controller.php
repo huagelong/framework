@@ -21,7 +21,7 @@ class Controller
     protected static $viewCacheRoot = null;
     protected static $engine = View::DEFAULT_ENGINE;
 
-
+    
     public static function setViewRoot($viewRoot)
     {
         self::$viewRoot = $viewRoot;
@@ -63,6 +63,13 @@ class Controller
     }
 
 
+    /**
+     * 模板处理
+     * @param $viewPath
+     * @param array $assign
+     * @return mixed
+     * @throws InvalidArgumentException
+     */
     public static function render($viewPath, $assign = [])
     {
         $tpl = self::getView();

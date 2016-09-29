@@ -433,3 +433,5 @@ Stack trace:
 #1 [internal function]: Trendi\Server\HttpServer->onRequest(Object(swoole_http_request), Object(swoole_http_response))
 #2 /mnt/hgfs/code/trendi_framework/src/
 [2016-09-28 21:01:32 $51205.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 00:05:22 $51438.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-29 00:05:27 $51438.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11

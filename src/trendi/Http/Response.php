@@ -119,8 +119,8 @@ class Response
     public function end($html = '')
     {
         if ($this->hasEnd) {
-            return ;
-//            throw new ContextErrorException("http has send");
+            //TODO
+            throw new ContextErrorException("http has send");
         }
         $this->hasEnd = 1;
         if ($this->headerStack) {

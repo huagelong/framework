@@ -36,6 +36,12 @@ class HttpSendFile
         return $this->analyse;
     }
 
+    /**
+     *  发送静态文件数据
+     * 
+     * @throws InvalidArgumentException
+     * @throws \Trendi\Http\Exception\ContextErrorException
+     */
     public function sendFile()
     {
 
@@ -80,6 +86,12 @@ class HttpSendFile
         }
     }
 
+    /**
+     * 文件分析
+     *
+     * @return array
+     * @throws InvalidArgumentException
+     */
     public function analyse()
     {
         if ($this->analyse) return $this->analyse;

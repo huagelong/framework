@@ -1,5 +1,6 @@
 <?php
 /**
+ *  laravel blade 模板
  * User: Peter Wang
  * Date: 16/9/13
  * Time: 下午2:01

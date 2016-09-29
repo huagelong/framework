@@ -1,5 +1,7 @@
 <?php
 /**
+ *  连接池连接pdo服务器
+ *
  * User: Peter Wang
  * Date: 16/9/19
  * Time: 下午7:04
@@ -8,8 +10,8 @@ namespace Trendi\Pool\Task;
 
 class Pdo
 {
-    const CONN_MASTER = 0;
-    const CONN_SLAVE = 1;
+    const CONN_MASTER = 0;//写服务器
+    const CONN_SLAVE = 1;//读服务器
 
     private static $conn = [];
     private static $config = [];
@@ -25,6 +27,14 @@ class Pdo
         return self::$config;
     }
 
+    /**
+     *  执行
+     * @param $sql
+     * @param int $dnType
+     * @param string $method  fetch , fetchAll
+     * @return null
+     * @throws \Exception
+     */
     public function perform($sql, $dnType = self::CONN_MASTER, $method = "")
     {
         if (!$sql) return null;
@@ -45,7 +55,12 @@ class Pdo
         }
     }
 
-
+    /**
+     * 获取连接
+     * 
+     * @param int $dnType
+     * @return mixed
+     */
     protected function setConn($dnType = self::CONN_MASTER)
     {
         if (self::$conn && isset(self::$conn[$dnType])) {
