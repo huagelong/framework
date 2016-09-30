@@ -610,3 +610,35 @@ Stack trace:
 [2016-09-30 10:58:27 *56018.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#21 is closed.
 [2016-09-30 11:25:42 *57580.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 152 byte failed, because session#8 is closed.
 [2016-09-30 12:37:46 $57719.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-30 13:38:47 *57961.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught TypeError: Argument 1 passed to Trendi\Coroutine\Scheduler::newTask() must be an instance of Generator, null given, called in /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php on line 196 and defined in /mnt/hgfs/code/trendi_framework/src/trendi/Coroutine/Scheduler.php:20
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(196): Trendi\Coroutine\Scheduler->newTask(NULL)
+#1 [internal function]: Trendi\Server\
+[2016-09-30 13:38:47 $57952.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-30 13:38:47 *57964.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught TypeError: Argument 1 passed to Trendi\Coroutine\Scheduler::newTask() must be an instance of Generator, null given, called in /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php on line 196 and defined in /mnt/hgfs/code/trendi_framework/src/trendi/Coroutine/Scheduler.php:20
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(196): Trendi\Coroutine\Scheduler->newTask(NULL)
+#1 [internal function]: Trendi\Server\
+[2016-09-30 13:38:47 $57952.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-30 13:38:48 *57965.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught TypeError: Argument 1 passed to Trendi\Coroutine\Scheduler::newTask() must be an instance of Generator, null given, called in /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php on line 196 and defined in /mnt/hgfs/code/trendi_framework/src/trendi/Coroutine/Scheduler.php:20
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(196): Trendi\Coroutine\Scheduler->newTask(NULL)
+#1 [internal function]: Trendi\Server\
+[2016-09-30 13:38:48 $57952.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-30 15:35:58 *3226.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Callable must return a generator. in /mnt/hgfs/code/trendi_framework/vendor/recoil/recoil/src/Kernel/StrandTrait.php:49
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/vendor/recoil/recoil/src/React/ReactKernel.php(68): Recoil\React\ReactStrand->__construct(Object(Recoil\React\ReactKernel), Object(Recoil\React\ReactApi), 1, Object(Closure))
+#1 /mnt/hgfs/code/trendi_framework/vendor/recoil/recoil/src/React/ReactKernel.php(42):
+[2016-09-30 15:35:59 $3217.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-30 15:36:28 $3257.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-30 15:39:32 *3403.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Callable must return a generator. in /mnt/hgfs/code/trendi_framework/vendor/recoil/recoil/src/Kernel/StrandTrait.php:49
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/vendor/recoil/recoil/src/React/ReactKernel.php(68): Recoil\React\ReactStrand->__construct(Object(Recoil\React\ReactKernel), Object(Recoil\React\ReactApi), 1, Object(Closure))
+#1 /mnt/hgfs/code/trendi_framework/vendor/recoil/recoil/src/React/ReactKernel.php(42):
+[2016-09-30 15:39:32 $3394.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-30 15:45:09 *3644.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 152 byte failed, because session#6 is closed.
+[2016-09-30 15:47:41 *3800.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 152 byte failed, because session#4 is closed.
+[2016-09-30 15:47:41 *3800.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 152 byte failed, because session#7 is closed.
+[2016-09-30 15:47:41 *3800.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 152 byte failed, because session#8 is closed.
+[2016-09-30 17:28:14 *4583.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#6 is closed.
+[2016-09-30 17:28:14 *4583.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#6 is closed.

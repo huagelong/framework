@@ -13,6 +13,7 @@ final class Versions
     const VERSIONS = array (
   'classpreloader/classpreloader' => 'dev-master@de1d55df4f492374f0b77eb06da990b7393a433f',
   'doctrine/inflector' => 'dev-master@803a2ed9fea02f9ca47cd45395089fe78769a392',
+  'icecave/repr' => 'dev-develop@99f3e6e2ce65468bc88380a066c0e8eea5c182a4',
   'illuminate/container' => '5.3.x-dev@360f4900dbaa7e76ecfbb58e0ad4b244a90edfe3',
   'illuminate/contracts' => '5.3.x-dev@5f8aa9599b49237eea0095d53937807c357d7452',
   'illuminate/events' => '5.3.x-dev@cb29124d4eaba8a60bad40e95e3d8b199d040d77',
@@ -28,6 +29,9 @@ final class Versions
   'paragonie/random_compat' => 'v2.0.2@088c04e2f261c33bed6ca5245491cfca69195ccf',
   'predis/predis' => 'v1.1.x-dev@6ab10b2b705ea5121f2c1ea87a290f6871c32ebd',
   'psr/log' => 'dev-master@d8e60a5619fff77f9669da8997697443ef1a1d7e',
+  'react/event-loop' => 'v0.4.2@164799f73175e1c80bba92a220ea35df6ca371dd',
+  'react/promise' => '2.x-dev@d3d5fdeadbb8489f73d74b8ec6bca1d3eb521d90',
+  'recoil/recoil' => '0.6.0@4b24c810b96565f6ab297903a662d87b5aa9eaae',
   'swiftmailer/swiftmailer' => '5.x-dev@de19df332219d73a2704525ba75aabd7dfaa303b',
   'symfony/config' => '3.1.x-dev@431d28df9c7bb6e77f8f6289d8670b044fabb9e8',
   'symfony/console' => '3.1.x-dev@d8897d545ca9656ae20f0ee19f872c818cb91197',
@@ -74,7 +78,7 @@ final class Versions
   'sebastian/version' => 'dev-master@c829badbd8fdf16a0bad8aa7fa7971c029f1b9c5',
   'symfony/yaml' => 'dev-master@aa8be2235b5dd4e472424552390609f61996f5ab',
   'webmozart/assert' => 'dev-master@8444f2ac9f86342665cdae47b6d3ea6e07794456',
-  'trendi/framework' => '9999999-dev@59cb091a988d0254e80e797307830f765542031c',
+  'trendi/framework' => '9999999-dev@ce8b2e67ebf77ccf2c1935146bddbdcc4eab51a2',
 );
 
     private function __construct()

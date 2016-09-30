@@ -47,7 +47,6 @@ class Scheduler
             dump("taskId:".$task->getTaskId());
             try {
                 $retval = $task->run();
-                dump($retval);
                 if ($retval instanceof SystemCall) {
                     $retval($task, $this);
                     continue;

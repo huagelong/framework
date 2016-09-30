@@ -18,7 +18,6 @@ use Trendi\Http\Response;
 use Trendi\Mvc\Route\Exception\PageNotFoundException;
 use Trendi\Support\Arr;
 use Trendi\Coroutine\Event;
-use Trendi\Coroutine\SystemCall;
 
 class RouteMatch
 {
@@ -125,14 +124,15 @@ class RouteMatch
         $parameters = $this->match($url);
 
         if ($parameters) {
+            $secondReq = [];
             foreach ($parameters as $k => $v) {
                 if (substr($k, 0, 1) != '_') {
-                    $request->query->set($k, $v);
+                    $secondReq[$k] = $v;
                 }
             }
             $request->overrideGlobals();
 
-            $require = [$request, $response];
+            $require = [$request, $response, $secondReq];
 
             return $this->runBase($require, $parameters);
         }
@@ -198,7 +198,14 @@ class RouteMatch
                 } elseif (is_string($controller)) {
                     if (stristr($controller, "@")) {
                         list($controller, $action) = explode("@", $controller);
-                        $content = call_user_func_array([new $controller(), $action], $require);
+                        //如果是http服务器
+                        if($require[0] instanceof Request){
+                            $obj = new $controller($require[0],$require[1]);
+                            $content = call_user_func_array([$obj, $action], $require[2]);
+                        }else{
+                            $obj = new $controller();
+                            $content = call_user_func_array([$obj, $action], $require);
+                        }
                         Event::fire("controller_call_after", [$content]);
                         Event::fire("clear");
                         return $content;

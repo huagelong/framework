@@ -8,40 +8,27 @@ use Trendi\Coroutine\SystemCall;
 use Trendi\Coroutine\Scheduler;
 use Trendi\Coroutine\Task;
 
+class test{
 
-class redistest{
-    private $client = null;
 
-    function __construct()
+    function hello($a,$b)
     {
-        Config::setConfigPath(__DIR__."/config");
-        $config = Config::get("redis");
-        $servers = $config['servers'];
-        $options = $config['options'];
-        $this->client = new Client($servers, $options);
+        yield;
+        return $a+$b;
     }
 
-    function w()
-    {
-        yield SystemCall::retval($this->client->set("wtest", "test"));
+    function get($c, $a,$b){
+        $rs = yield $this->hello($a, $b);
+        return $rs+$c;
     }
 
-    function r()
-    {
-        yield SystemCall::retval($this->client->get("wtest"));
-    }
 }
 
-function useClass(){
-    $obj = new redistest();
-    yield $obj->w();
-    $data = (yield $obj->r());
-    dump($data);
-}
+$obj= new test();
 
-$scheduler = new Scheduler;
-$scheduler->newTask(useClass());
-$scheduler->withIoPoll()->run();
+$data = SystemCall::newTask($obj->get(1,2,3));
+dump($data->getTaskId());
+
 
 
 

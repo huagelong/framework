@@ -3528,5 +3528,217 @@
             "predis",
             "redis"
         ]
+    },
+    {
+        "name": "react/promise",
+        "version": "2.x-dev",
+        "version_normalized": "2.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/reactphp/promise.git",
+            "reference": "d3d5fdeadbb8489f73d74b8ec6bca1d3eb521d90"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/reactphp/promise/d3d5fdeadbb8489f73d74b8ec6bca1d3eb521d90.zip",
+            "reference": "d3d5fdeadbb8489f73d74b8ec6bca1d3eb521d90",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2016-05-09 07:16:19",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "React\\Promise\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jan Sorgalla",
+                "email": "jsorgalla@gmail.com"
+            }
+        ],
+        "description": "A lightweight implementation of CommonJS Promises/A for PHP"
+    },
+    {
+        "name": "react/event-loop",
+        "version": "v0.4.2",
+        "version_normalized": "0.4.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/reactphp/event-loop.git",
+            "reference": "164799f73175e1c80bba92a220ea35df6ca371dd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/reactphp/event-loop/164799f73175e1c80bba92a220ea35df6ca371dd.zip",
+            "reference": "164799f73175e1c80bba92a220ea35df6ca371dd",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "suggest": {
+            "ext-event": "~1.0",
+            "ext-libev": "*",
+            "ext-libevent": ">=0.1.0"
+        },
+        "time": "2016-03-08 02:09:32",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "React\\EventLoop\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Event loop abstraction layer that libraries can use for evented I/O.",
+        "keywords": [
+            "asynchronous",
+            "event-loop"
+        ]
+    },
+    {
+        "name": "icecave/repr",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/IcecaveStudios/repr.git",
+            "reference": "99f3e6e2ce65468bc88380a066c0e8eea5c182a4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/IcecaveStudios/repr/99f3e6e2ce65468bc88380a066c0e8eea5c182a4.zip",
+            "reference": "99f3e6e2ce65468bc88380a066c0e8eea5c182a4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "icecave/archer": "~1"
+        },
+        "time": "2015-02-04 23:25:18",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-develop": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Icecave\\Repr\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "James Harris",
+                "email": "james.harris@icecave.com.au",
+                "homepage": "https://github.com/jmalloc"
+            }
+        ],
+        "description": "A library for generating string representations of any value, inspired by Python's reprlib library.",
+        "homepage": "https://github.com/IcecaveStudios/repr",
+        "keywords": [
+            "human",
+            "readable",
+            "repr",
+            "representation",
+            "string"
+        ]
+    },
+    {
+        "name": "recoil/recoil",
+        "version": "0.6.0",
+        "version_normalized": "0.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/recoilphp/recoil.git",
+            "reference": "4b24c810b96565f6ab297903a662d87b5aa9eaae"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/recoilphp/recoil/4b24c810b96565f6ab297903a662d87b5aa9eaae.zip",
+            "reference": "4b24c810b96565f6ab297903a662d87b5aa9eaae",
+            "shasum": ""
+        },
+        "require": {
+            "icecave/repr": "^1",
+            "php": "^7",
+            "react/event-loop": "^0.4",
+            "react/promise": "^2"
+        },
+        "require-dev": {
+            "eloquent/phony": "^0.13",
+            "ext-posix": "*",
+            "friendsofphp/php-cs-fixer": "^1",
+            "hamcrest/hamcrest-php": "^2",
+            "peridot-php/leo": "^1",
+            "peridot-php/peridot": "^1",
+            "peridot-php/peridot-code-coverage-reporters": "^2",
+            "react/dns": "^0.4"
+        },
+        "time": "2016-07-29 03:45:29",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Recoil\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "James Harris",
+                "email": "james.harris@icecave.com.au",
+                "homepage": "https://github.com/jmalloc"
+            }
+        ],
+        "description": "A generator-based cooperative multitasking kernel for React.",
+        "homepage": "https://github.com/recoilphp/recoil",
+        "keywords": [
+            "Thread",
+            "async",
+            "asynchronous",
+            "continuation",
+            "coroutine",
+            "event",
+            "generator",
+            "green",
+            "multitasking",
+            "react"
+        ]
     }
 ]

@@ -8,10 +8,7 @@
 namespace Trendi\Http;
 
 use swoole_http_response as SwooleHttpResponse;
-use Trendi\Config\Config;
 use Trendi\Http\Exception\ContextErrorException;
-use Trendi\Mvc\Controller as MvcController;
-use Trendi\Support\Arr;
 
 class Response
 {
@@ -161,24 +158,6 @@ class Response
         $this->header("Location", $url);
         $this->status(302);
         return $this->end('');
-    }
-
-    /**
-     * 模板render
-     * 
-     * @param $viewPath
-     * @param array $assign
-     * @return mixed
-     * @throws \Trendi\Mvc\Exception\InvalidArgumentException
-     */
-    public function render($viewPath, $assign = [])
-    {
-        MvcController::setViewRoot(Config::get("view.path"));
-        MvcController::setViewCacheRoot(Config::get("view.compile_path"));
-        MvcController::setEngine(Config::get("view.engine"));
-        $assign = Arr::merge($assign, $this->view->getAssignData());
-        $content = MvcController::render($viewPath, $assign);
-        return $content;
     }
 
 }

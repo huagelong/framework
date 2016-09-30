@@ -7,95 +7,53 @@
 
 namespace Trendi\Mvc;
 
-use Trendi\Mvc\Exception\InvalidArgumentException;
-use Trendi\Mvc\View\View;
+use Trendi\Support\Arr;
+use Trendi\Config\Config;
+use Trendi\Http\Response;
+use Trendi\Http\Request;
 
 class Controller
 {
 
     /**
-     * @var \Trendi\Mvc\View\View
+     * @var \Trendi\Http\View;
      */
-    protected static $view = null;
-    protected static $viewRoot = null;
-    protected static $viewCacheRoot = null;
-    protected static $engine = View::DEFAULT_ENGINE;
-
-    
-    public static function setViewRoot($viewRoot)
-    {
-        self::$viewRoot = $viewRoot;
-    }
-
-    public static function getViewRoot()
-    {
-        return self::$viewRoot;
-    }
-
-    public static function getViewCacheRoot()
-    {
-        return self::$viewCacheRoot;
-    }
-
-    public static function setViewCacheRoot($viewCacheRoot)
-    {
-        self::$viewCacheRoot = $viewCacheRoot;
-    }
-
-    public static function setView($view)
-    {
-        self::$view = $view;
-    }
-
-    public static function setEngine($engine)
-    {
-        self::$engine = $engine;
-    }
-
-    public static function getEngine()
-    {
-        return self::$engine;
-    }
-
-    public static function getView()
-    {
-        return self::$view;
-    }
-
+    public $view;
 
     /**
-     * 模板处理
+     * @var \Trendi\Http\Request
+     */
+    protected $request = null;
+
+    /**
+     * @var \Trendi\Http\Response
+     */
+    protected $response = null;
+
+
+    public function __construct(Request $request, Response $response)
+    {
+        $this->request = $request;
+        $this->response = $response;
+        $this->view = new AssignData();
+    }
+
+    /**
+     * 模板render
+     *
      * @param $viewPath
      * @param array $assign
      * @return mixed
-     * @throws InvalidArgumentException
+     * @throws \Trendi\Mvc\Exception\InvalidArgumentException
      */
-    public static function render($viewPath, $assign = [])
+    public function render($viewPath, $assign = [])
     {
-        $tpl = self::getView();
-
-        if (!$tpl) {
-            View::setEngine(self::getEngine());
-            $tpl = View::getViewObj();
-        }
-
-        $rootPath = self::getViewRoot();
-        $cacheRootPath = self::getViewCacheRoot();
-
-        if (!$rootPath) {
-            throw new InvalidArgumentException("view root path not found");
-        }
-
-        if (!$cacheRootPath) {
-            throw new InvalidArgumentException("view cache/compile path not found");
-        }
-
-        $tpl->setViewRootPath($rootPath);
-        $tpl->setCachePath($cacheRootPath);
-        return $tpl->render($viewPath, $assign);
+        Template::setViewRoot(Config::get("view.path"));
+        Template::setViewCacheRoot(Config::get("view.compile_path"));
+        Template::setEngine(Config::get("view.engine"));
+        $assign = Arr::merge($assign, $this->view->getAssignData());
+        $content = Template::render($viewPath, $assign);
+        return $content;
     }
-
-    public function __destruct()
-    {
-    }
+    
 }

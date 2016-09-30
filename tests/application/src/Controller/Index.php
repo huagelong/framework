@@ -7,26 +7,23 @@
  */
 namespace Trendi\Test\Controller;
 
-use Trendi\Foundation\Controller;
-use Trendi\Http\Request;
-use Trendi\Http\Response;
+use Trendi\Mvc\Controller;
 use Trendi\Job\Job;
 
-class Index
+class Index extends Controller
 {
 
-    public function index(Request $request, Response $response)
+    public function index($say)
     {
-        $say = $request->query->get("say");
         
-        $response->view->say = $say;
+        $this->view->say = $say;
         
 //        return $response->redirect("/index/test");
 
-        return $response->render("index/index");
+        return $this->render("index/index");
     }
 
-    public function test(Request $request, Response $response)
+    public function test()
     {
 //        $this->test2();
 //        dump(\Context::response());
@@ -75,9 +72,9 @@ class Index
 //
 //        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"), date('Y-m-d H:i:s'), "*/2 * * * * *");
         dump("test");
-        $response->view->test = "test";
+        $this->view->test = "test";
         
-        return $response->render("index/test");
+        return $this->render("index/test");
     }
 
 }

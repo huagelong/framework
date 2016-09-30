@@ -13,6 +13,7 @@ class ComposerStaticInit5033e5b5aa9859d478aa51ba8a903ccb
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
+        'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -57,6 +58,12 @@ class ComposerStaticInit5033e5b5aa9859d478aa51ba8a903ccb
             'Symfony\\Bridge\\ProxyManager\\' => 28,
             'SuperClosure\\' => 13,
         ),
+        'R' => 
+        array (
+            'Recoil\\' => 7,
+            'React\\Promise\\' => 14,
+            'React\\EventLoop\\' => 16,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -76,6 +83,7 @@ class ComposerStaticInit5033e5b5aa9859d478aa51ba8a903ccb
             'Illuminate\\Events\\' => 18,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
+            'Icecave\\Repr\\' => 13,
         ),
         'D' => 
         array (
@@ -195,6 +203,18 @@ class ComposerStaticInit5033e5b5aa9859d478aa51ba8a903ccb
         array (
             0 => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src',
         ),
+        'Recoil\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/recoil/recoil/src',
+        ),
+        'React\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/promise/src',
+        ),
+        'React\\EventLoop\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/event-loop/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -238,6 +258,10 @@ class ComposerStaticInit5033e5b5aa9859d478aa51ba8a903ccb
         'Illuminate\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/container',
+        ),
+        'Icecave\\Repr\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/icecave/repr/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
