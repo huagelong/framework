@@ -642,3 +642,37 @@ Stack trace:
 [2016-09-30 15:47:41 *3800.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 152 byte failed, because session#8 is closed.
 [2016-09-30 17:28:14 *4583.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#6 is closed.
 [2016-09-30 17:28:14 *4583.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#6 is closed.
+[2016-09-30 17:37:19 *4656.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#20 is closed.
+[2016-09-30 17:37:19 *4656.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#20 is closed.
+[2016-09-30 17:37:19 *4656.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#22 is closed.
+[2016-09-30 17:37:19 *4656.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#22 is closed.
+[2016-09-30 18:00:04 *5218.0]	ERROR	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2016-09-30 18:04:54 *5311.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#14 is closed.
+[2016-09-30 18:04:54 *5311.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#14 is closed.
+[2016-09-30 18:04:54 *5311.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#15 is closed.
+[2016-09-30 18:04:54 *5311.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#15 is closed.
+[2016-09-30 18:06:52 *5606.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#8 is closed.
+[2016-09-30 18:06:52 *5606.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#8 is closed.
+[2016-09-30 18:06:52 *5606.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#9 is closed.
+[2016-09-30 18:06:52 *5606.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#9 is closed.
+[2016-09-30 18:07:55 *5696.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#9 is closed.
+[2016-09-30 18:07:55 *5696.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#9 is closed.
+[2016-09-30 18:07:55 *5696.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#12 is closed.
+[2016-09-30 18:07:55 *5696.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#12 is closed.
+[2016-09-30 18:07:56 *5696.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#14 is closed.
+[2016-09-30 18:07:56 *5696.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#14 is closed.
+[2016-09-30 18:07:56 *5696.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#15 is closed.
+[2016-09-30 18:07:56 *5696.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#15 is closed.
+[2016-09-30 18:08:58 *14650.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#45 is closed.
+[2016-09-30 18:08:58 *14650.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#45 is closed.
+[2016-09-30 18:08:58 *14650.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#47 is closed.
+[2016-09-30 18:08:58 *14650.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#47 is closed.
+[2016-09-30 18:08:59 *14650.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#52 is closed.
+[2016-09-30 18:08:59 *14650.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#52 is closed.
+[2016-09-30 22:51:01 $16131.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-30 22:53:05 $16214.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-30 22:57:56 *16464.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught TypeError: Argument 1 passed to Trendi\Coroutine\Scheduler::newTask() must be an instance of Generator, null given, called in /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php on line 197 and defined in /mnt/hgfs/code/trendi_framework/src/trendi/Coroutine/Scheduler.php:20
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(197): Trendi\Coroutine\Scheduler->newTask(NULL)
+#1 [internal function]: Trendi\Server\
+[2016-09-30 22:57:56 $16455.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0

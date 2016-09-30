@@ -46,24 +46,7 @@ class SystemCall
             }
         );
     }
-
-    public static function waitForRead($socket)
-    {
-        return new self(
-            function (Task $task, Scheduler $scheduler) use ($socket) {
-                $scheduler->waitForRead($socket, $task);
-            }
-        );
-    }
-
-    public static function waitForWrite($socket)
-    {
-        return new self(
-            function (Task $task, Scheduler $scheduler) use ($socket) {
-                $scheduler->waitForWrite($socket, $task);
-            }
-        );
-    }
+    
 
     public static function retval($value) {
         return new CoroutineReturnValue($value);

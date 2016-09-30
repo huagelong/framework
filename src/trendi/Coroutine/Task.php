@@ -63,6 +63,7 @@ class Task
 
         while (1) {
             try {
+//
                 if ($exception) {
                     $gen->throw($exception);
                     $exception = null;
@@ -87,7 +88,7 @@ class Task
                     $gen->send($isReturnValue ? $value->getValue() : NULL);
                     continue;
                 }
-
+                dump($gen);
                 try {
                     $sendValue = (yield $gen->key() => $value);
                 } catch (\Exception $e) {
