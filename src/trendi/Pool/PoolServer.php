@@ -13,7 +13,7 @@ use Trendi\Foundation\Application;
 use Trendi\Pool\Exception\InvalidArgumentException;
 use Trendi\Server\SocketInterface;
 use Trendi\Server\SocketServer;
-use Trendi\Support\Event;
+use Trendi\Coroutine\Event;
 
 class PoolServer implements SocketInterface
 {

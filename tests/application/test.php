@@ -1,14 +1,47 @@
 <?php
-$process = new swoole_process('callback_function', true);
-$pid = $process->start();
+define("ROOT_PATH", __DIR__);
+require_once __DIR__ . "/../../vendor/autoload.php";
 
-function callback_function(swoole_process $worker)
-{
-    $worker->exec('php',
-        [
-            "/mnt/hgfs/code/eletron_trendy/trendi/tests/application/trendi.php",
-            "httpd:start"
-        ]);
+use Trendi\Config\Config;
+use Predis\Client;
+use Trendi\Coroutine\SystemCall;
+use Trendi\Coroutine\Scheduler;
+use Trendi\Coroutine\Task;
+
+
+class redistest{
+    private $client = null;
+
+    function __construct()
+    {
+        Config::setConfigPath(__DIR__."/config");
+        $config = Config::get("redis");
+        $servers = $config['servers'];
+        $options = $config['options'];
+        $this->client = new Client($servers, $options);
+    }
+
+    function w()
+    {
+        yield SystemCall::retval($this->client->set("wtest", "test"));
+    }
+
+    function r()
+    {
+        yield SystemCall::retval($this->client->get("wtest"));
+    }
 }
 
-swoole_process::wait();
+function useClass(){
+    $obj = new redistest();
+    yield $obj->w();
+    $data = (yield $obj->r());
+    dump($data);
+}
+
+$scheduler = new Scheduler;
+$scheduler->newTask(useClass());
+$scheduler->withIoPoll()->run();
+
+
+

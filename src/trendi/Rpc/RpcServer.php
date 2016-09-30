@@ -11,7 +11,7 @@ namespace Trendi\Rpc;
 use Trendi\Foundation\Application;
 use Trendi\Server\SocketInterface;
 use Trendi\Server\SocketServer;
-use Trendi\Support\Event;
+use Trendi\Coroutine\Event;
 use Trendi\Support\ElapsedTime;
 
 class RpcServer implements SocketInterface

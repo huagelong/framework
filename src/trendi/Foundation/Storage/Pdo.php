@@ -11,7 +11,7 @@ use Config;
 use Trendi\Foundation\Exception\ConfigNotFoundException;
 use Trendi\Foundation\Storage\Adapter\PdoAbstract as PdoAdapter;
 use Trendi\Pool\PoolClient;
-use Trendi\Support\Event;
+use Trendi\Coroutine\Event;
 
 class Pdo extends PdoAdapter
 {

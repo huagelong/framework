@@ -12,9 +12,9 @@ namespace Trendi\Server;
 use swoole_server as SwooleServer;
 use Trendi\Server\Facade\Context;
 use Trendi\Server\Facade\Task;
-use Trendi\Support\Event;
+use Trendi\Coroutine\Event;
 use Trendi\Support\Facade;
-use Exception;
+use Trendi\Support\Exception as ExceptionFormat;
 
 class SocketServer
 {
@@ -72,9 +72,9 @@ class SocketServer
         try {
             $this->adapter->perform($data, $serv, $fd, $from_id);
         } catch (\Exception $e) {
-            dump(Exception::formatException($e));
+            dump(ExceptionFormat::formatException($e));
         } catch (\Error $e) { //php7.0兼容
-            dump(Exception::formatException($e));
+            dump(ExceptionFormat::formatException($e));
         }
         Event::fire("clear");
     }
@@ -84,11 +84,11 @@ class SocketServer
         try {
             return Task::start($data);
         } catch (\Exception $e) {
-            $exception = Exception::formatException($e);
+            $exception = ExceptionFormat::formatException($e);
             dump($exception);
             return [false, $data, $exception];
         } catch (\Error $e) {
-            $exception = Exception::formatException($e);
+            $exception = ExceptionFormat::formatException($e);
             dump($exception);
             return [false, $data, $exception];
         }

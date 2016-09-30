@@ -16,7 +16,9 @@ use Trendi\Http\Request;
 use Trendi\Http\Response;
 use Trendi\Server\Facade\Context;
 use Trendi\Server\Facade\Task;
-use Trendi\Support\Event;
+use Trendi\Coroutine\Scheduler;
+use Trendi\Coroutine\Event;
+use Trendi\Coroutine\SystemCall;
 use Trendi\Support\Facade;
 
 class HttpServer
@@ -24,10 +26,11 @@ class HttpServer
     /**
      * @var swooleServer
      */
-    public $swooleServer;
-    private $adapter;
-    private $serverName;
+    public $swooleServer = null;
+    private $adapter = null;
+    private $serverName = '';
     private $config = [];
+    private $scheduler = null;
 
     public function __construct(SwooleServer $swooleServer, array $config, $adapter, $serverName = "trendi")
     {
@@ -144,6 +147,8 @@ class HttpServer
             Task::setLogPath($this->config["task_fail_log"]);
             Task::setRetryCount($this->config["task_retry_count"]);
         }
+        //协程调度器
+        $this->scheduler = new Scheduler();
     }
 
     public function onWorkerStop(SwooleServer $swooleServer, $workerId)
@@ -189,28 +194,36 @@ class HttpServer
         if ($isFile) {
             $httpSendFile->sendFile();
         } else {
-            try {
-                $content = $this->requestHtmlHandle($request, $response);
-                $response->end($content);
-            } catch (\Exception $e) {
-                $response->status(500);
-                $response->end();
-                dump(\Trendi\Support\Exception::formatException($e));
-            } catch (\Error $e) {
-                $response->status(500);
-                $response->end();
-                dump(\Trendi\Support\Exception::formatException($e));
-            }
+            $this->scheduler->newTask($this->response($request, $response));
+            $this->scheduler->withIoPoll()->run();
+
             if (Facade::getFacadeApplication()) {
                 Context::clear();
             }
+            
             Event::fire("clear");
+        }
+    }
+
+    private function response(Request $request, Response $response)
+    {
+        try {
+            $content = (yield $this->requestHtmlHandle($request, $response));
+            yield $response->end($content);
+        } catch (\Exception $e) {
+            $response->status(500);
+            yield $response->end();
+            dump(\Trendi\Support\Exception::formatException($e));
+        } catch (\Error $e) {
+            $response->status(500);
+            yield $response->end();
+            dump(\Trendi\Support\Exception::formatException($e));
         }
     }
 
     /**
      *  内容处理
-     * 
+     *
      * @param Request $request
      * @param Response $response
      * @return mixed
@@ -222,7 +235,7 @@ class HttpServer
             $response->gzip($gzip);
         }
         $response->header("Content-Type", "text/html;charset=utf-8");
-        return $this->adapter->start($request, $response);
+        return SystemCall::retval($this->adapter->start($request, $response));
     }
 
 }

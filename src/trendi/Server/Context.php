@@ -9,7 +9,7 @@
 
 namespace Trendi\Server;
 
-
+use Trendi\Coroutine\Event;
 class Context
 {
     private static $map = [];

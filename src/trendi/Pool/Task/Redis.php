@@ -9,6 +9,7 @@
 namespace Trendi\Pool\Task;
 
 use Predis\Client;
+use Trendi\Coroutine\SystemCall;
 
 class Redis
 {
@@ -45,11 +46,10 @@ class Redis
         try {
             $client = new Client($servers, $options);
             if (isset($params[1])) {
-                $data = $client->$cmd(...$params[1]);
+                return $client->$cmd(...$params[1]);
             } else {
-                $data = $client->$cmd();
+                return $client->$cmd();
             }
-            return $data;
         } catch (\Exception $e) {
             throw $e;
         }

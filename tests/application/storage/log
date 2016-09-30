@@ -438,3 +438,175 @@ Stack trace:
 [2016-09-29 10:22:55 *52132.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 152 byte failed, because session#10 is closed.
 [2016-09-29 10:25:25 *52334.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#5 is closed.
 [2016-09-29 10:25:25 *52334.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#5 is closed.
+[2016-09-29 17:26:32 *53138.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00xa:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:32 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:32 *53142.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00ua:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:32 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:32 *53143.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Za:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:32 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:32 *53144.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Za:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:32 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:33 *53145.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Pa:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:33 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:33 *53146.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Pa:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:33 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:37 *53147.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00xa:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:37 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:37 *53148.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Za:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:37 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:37 *53149.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Pa:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:37 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:37 *53150.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00ua:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:37 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:37 *53151.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Za:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:37 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:26:37 *53152.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined method Exception::formatException() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:77
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Pa:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\Soc
+[2016-09-29 17:26:37 $53120.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:28:28 *53249.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Support\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:79
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00xa:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->star
+[2016-09-29 17:28:28 $53227.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:28:28 *53252.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Support\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:79
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00ua:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->star
+[2016-09-29 17:28:28 $53227.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:28:29 *53253.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Support\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:79
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Za:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->star
+[2016-09-29 17:28:29 $53227.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:28:29 *53254.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Support\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:79
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Za:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->star
+[2016-09-29 17:28:29 $53227.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:28:30 *53255.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Support\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:79
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x01Ta:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->star
+[2016-09-29 17:28:30 $53227.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:28:30 *53256.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Support\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:79
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00ha:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->star
+[2016-09-29 17:28:30 $53227.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:28:30 *53257.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Support\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:79
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x01ea:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->star
+[2016-09-29 17:28:30 $53227.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:28:30 *53258.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Support\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:79
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Pa:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->star
+[2016-09-29 17:28:30 $53227.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:28:30 *53259.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Support\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:79
+Stack trace:
+#0 [internal function]: Trendi\Server\SocketServer->onReceive(Object(swoole_server), 1, 0, '\x00\x00\x00Pa:2:{i:0;s:...')
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(55): swoole_server->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->star
+[2016-09-29 17:28:30 $53227.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:42:56 *53900.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Trendi\Server\Event' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Server/Context.php:54
+Stack trace:
+#0 [internal function]: Trendi\Server\Context->__destruct()
+#1 {main}
+  thrown in /mnt/hgfs/code/trendi_framework/src/trendi/Server/Context.php on line 54.
+[2016-09-29 17:42:56 $53891.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-29 17:44:31 *53929.0]	ERROR	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2016-09-29 18:12:03 *54555.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#41 is closed.
+[2016-09-29 18:12:03 *54555.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#41 is closed.
+[2016-09-29 18:16:29 *54625.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught TypeError: Argument 1 passed to Trendi\Server\HttpServer::response() must be an instance of swoole_http_request, instance of Trendi\Http\Request given in /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php:207
+Stack trace:
+#0 [internal function]: Trendi\Server\HttpServer->response(Object(Trendi\Http\Request), Object(Trendi\Http\Response))
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Coroutine/Task.php(72): Generator->current()
+#2 [intern
+[2016-09-29 18:16:29 $54616.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-09-30 09:37:21 $55121.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-09-30 09:38:42 *55164.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#7 is closed.
+[2016-09-30 09:38:42 *55164.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#7 is closed.
+[2016-09-30 09:38:43 *55164.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#11 is closed.
+[2016-09-30 09:38:43 *55164.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#11 is closed.
+[2016-09-30 09:38:44 *55164.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#16 is closed.
+[2016-09-30 09:38:44 *55164.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#16 is closed.
+[2016-09-30 10:24:56 *55353.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#6 is closed.
+[2016-09-30 10:24:56 *55353.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#6 is closed.
+[2016-09-30 10:25:57 *55412.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#5 is closed.
+[2016-09-30 10:25:57 *55412.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#5 is closed.
+[2016-09-30 10:25:57 *55412.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#6 is closed.
+[2016-09-30 10:25:57 *55412.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#6 is closed.
+[2016-09-30 10:28:56 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#4 is closed.
+[2016-09-30 10:28:56 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#4 is closed.
+[2016-09-30 10:28:57 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#7 is closed.
+[2016-09-30 10:28:57 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#7 is closed.
+[2016-09-30 10:28:57 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#9 is closed.
+[2016-09-30 10:28:57 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#9 is closed.
+[2016-09-30 10:28:58 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#12 is closed.
+[2016-09-30 10:28:58 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#12 is closed.
+[2016-09-30 10:28:58 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#13 is closed.
+[2016-09-30 10:28:58 *55441.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#13 is closed.
+[2016-09-30 10:48:44 #55595.0]	NOTICE	Server is shutdown now.
+[2016-09-30 10:49:07 #55639.0]	NOTICE	Server is shutdown now.
+[2016-09-30 10:57:05 *55894.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#7 is closed.
+[2016-09-30 10:57:05 *55894.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#7 is closed.
+[2016-09-30 10:58:27 *56018.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#21 is closed.
+[2016-09-30 10:58:27 *56018.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#21 is closed.
+[2016-09-30 11:25:42 *57580.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 152 byte failed, because session#8 is closed.
+[2016-09-30 12:37:46 $57719.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11

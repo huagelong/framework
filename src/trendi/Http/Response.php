@@ -129,10 +129,6 @@ class Response
             }
         }
 
-        if($html instanceof \Iterator){
-            $html = $html->current();
-        }
-
         $data = $this->response->end($html);
 
         return $data;

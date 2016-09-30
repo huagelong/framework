@@ -17,7 +17,8 @@ use Trendi\Http\Request;
 use Trendi\Http\Response;
 use Trendi\Mvc\Route\Exception\PageNotFoundException;
 use Trendi\Support\Arr;
-use Trendi\Support\Event;
+use Trendi\Coroutine\Event;
+use Trendi\Coroutine\SystemCall;
 
 class RouteMatch
 {
@@ -179,7 +180,6 @@ class RouteMatch
             $controller = isset($parameters['_controller']) ? $parameters['_controller'] : null;
             if ($controller) {
                 $middleware = isset($parameters['_middleware']) ? $parameters['_middleware'] : null;
-                dump($middleware);
                 if ($middleware) {
                     $midd = self::$middlewareConfig;
                     if($midd){

@@ -11,7 +11,7 @@ namespace Trendi\Server;
 
 use Trendi\Server\Exception\InvalidArgumentException;
 use Trendi\Server\Facade\Context as FacedeContext;
-use Trendi\Support\Event;
+use Trendi\Coroutine\Event;
 
 class Task
 {
@@ -125,8 +125,8 @@ class Task
             if (!method_exists($obj, "perform")) {
                 throw new InvalidArgumentException(" task method handle not config ");
             }
-
-            $result = call_user_func_array([new $taskClass(), "perform"], $params);
+            dump($obj);
+            $result = call_user_func_array([$obj, "perform"], $params);
             return [true, $result, ''];
         }
         return [true, "", ''];
