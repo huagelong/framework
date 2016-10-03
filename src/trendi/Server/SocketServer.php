@@ -15,6 +15,7 @@ use Trendi\Server\Facade\Task;
 use Trendi\Coroutine\Event;
 use Trendi\Support\Facade;
 use Trendi\Support\Exception as ExceptionFormat;
+use Trendi\Support\Log;
 
 class SocketServer
 {
@@ -57,13 +58,13 @@ class SocketServer
 
     public function onManagerSop(SwooleServer $serv)
     {
-        echo $this->serverName . " manage stop ......\n";
+        Log::sysinfo($this->serverName . " manage stop ......");
     }
 
     public function onManagerStart(SwooleServer $serv)
     {
         swoole_set_process_name($this->serverName . "-manage");
-        echo $this->serverName . " manage start ......\n";
+        Log::sysinfo($this->serverName . " manage start ......");
     }
 
     public function onReceive(SwooleServer $serv, $fd, $from_id, $data)
@@ -72,9 +73,9 @@ class SocketServer
         try {
             $this->adapter->perform($data, $serv, $fd, $from_id);
         } catch (\Exception $e) {
-            dump(ExceptionFormat::formatException($e));
+            Log::error(ExceptionFormat::formatException($e));
         } catch (\Error $e) { //php7.0兼容
-            dump(ExceptionFormat::formatException($e));
+            Log::error(ExceptionFormat::formatException($e));
         }
         Event::fire("clear");
     }
@@ -85,11 +86,11 @@ class SocketServer
             return Task::start($data);
         } catch (\Exception $e) {
             $exception = ExceptionFormat::formatException($e);
-            dump($exception);
+            Log::error($exception);
             return [false, $data, $exception];
         } catch (\Error $e) {
             $exception = ExceptionFormat::formatException($e);
-            dump($exception);
+            Log::error($exception);
             return [false, $data, $exception];
         }
     }
@@ -102,22 +103,22 @@ class SocketServer
     public function onStart(SwooleServer $swooleServer)
     {
         swoole_set_process_name($this->serverName . "-server");
-        echo $this->serverName . " server start ......\n";
+        Log::sysinfo($this->serverName . " server start ......");
     }
 
     public function onShutdown(SwooleServer $swooleServer)
     {
-        echo $this->serverName . " server shutdown ...... \n";
+        Log::sysinfo($this->serverName . " server shutdown ...... ");
     }
 
     public function onWorkerStart(SwooleServer $swooleServer, $workerId)
     {
         if ($workerId >= $this->config["worker_num"]) {
             swoole_set_process_name($this->serverName . "-task-worker");
-            echo $this->serverName . " task worker start ..... \n";
+            Log::sysinfo($this->serverName . " task worker start ..... ");
         } else {
             swoole_set_process_name($this->serverName . "-worker");
-            echo $this->serverName . " worker start ..... \n";
+            Log::sysinfo($this->serverName . " worker start ..... ");
         }
         $this->adapter->bootstrap();
         if (Facade::getFacadeApplication()) {
@@ -129,12 +130,12 @@ class SocketServer
 
     public function onWorkerStop(SwooleServer $swooleServer, $workerId)
     {
-        echo $this->serverName . " worker stop ..... \n";
+        Log::sysinfo($this->serverName . " worker stop ..... ");
     }
 
     public function onWorkerError(SwooleServer $swooleServer, $workerId, $workerPid, $exitCode)
     {
-        echo $this->serverName . " worker error ..... \n";
+        Log::sysinfo($this->serverName . " worker error .....");
     }
 
 

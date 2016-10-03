@@ -1,6 +1,7 @@
 <?php
 namespace Trendi\Coroutine;
 
+use Trendi\Support\Log;
 class Task
 {
     protected $taskId;
@@ -88,7 +89,7 @@ class Task
                     $gen->send($isReturnValue ? $value->getValue() : NULL);
                     continue;
                 }
-                dump($gen);
+                Log::info($gen);
                 try {
                     $sendValue = (yield $gen->key() => $value);
                 } catch (\Exception $e) {

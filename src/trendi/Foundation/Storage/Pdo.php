@@ -12,31 +12,35 @@ use Trendi\Foundation\Exception\ConfigNotFoundException;
 use Trendi\Foundation\Storage\Adapter\PdoAbstract as PdoAdapter;
 use Trendi\Pool\PoolClient;
 use Trendi\Coroutine\Event;
+use Trendi\Support\Log;
 
 class Pdo extends PdoAdapter
 {
-    protected $client = null;
-
+    protected static $client = null;
+    protected $config = null;
+    
     public function __construct()
     {
+        $this->config = Config::get("client.pool");
+        if (!$this->config) {
+            throw new ConfigNotFoundException("client.pool not config");
+        }
+        $prefix = isset($this->config['pdo']['prefix']) ? $this->config['pdo']['prefix'] : null;
+        if (!$prefix) {
+            $prefix = Config::get("pdo.prefix");
+        }
+
+        $this->prefix = $prefix;
+        
         $this->initialize();
         parent::__construct();
     }
 
     public function initialize()
     {
-        $config = Config::get("client.pool");
-        if (!$config) {
-            throw new ConfigNotFoundException("client.pool not config");
-        }
-        $prefix = isset($config['pdo']['prefix']) ? $config['pdo']['prefix'] : null;
-        if (!$prefix) {
-            $prefix = Config::get("pdo.prefix");
-        }
-
-        $this->prefix = $prefix;
-
-        $this->client = new PoolClient($config['host'], $config['port'], $config['serialization']);
+        if(self::$client) return;
+        Log::sysinfo("new redis client conn");
+        self::$client = new PoolClient($this->config['host'], $this->config['port'], $this->config['serialization'],$this->config);
     }
 
     /**
@@ -64,7 +68,7 @@ class Pdo extends PdoAdapter
             $sql,
             $connType
         ];
-        $data = $this->client->get("pdo", $params);
+        $data = self::$client->get("pdo", $params);
         return $data;
     }
 
@@ -81,7 +85,7 @@ class Pdo extends PdoAdapter
             $connType,
             "fetchAll"
         ];
-        $data = $this->client->get("pdo", $params);
+        $data = self::$client->get("pdo", $params);
         return $data;
     }
 
@@ -97,7 +101,7 @@ class Pdo extends PdoAdapter
             $connType,
             "fetch"
         ];
-        $data = $this->client->get("pdo", $params);
+        $data = self::$client->get("pdo", $params);
         return $data;
     }
 
@@ -106,6 +110,6 @@ class Pdo extends PdoAdapter
         Event::bind("clear", function () {
             self::clearStaticData();
         });
-        $this->client->close();
+//        self::$client->close();
     }
 }

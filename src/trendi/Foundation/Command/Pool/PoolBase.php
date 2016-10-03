@@ -12,12 +12,13 @@ use Trendi\Pool\PoolServer;
 use Trendi\Support\Arr;
 use Trendi\Support\Dir;
 use Trendi\Support\Serialization\Serialization;
+use Trendi\Support\ElapsedTime;
 
 class PoolBase
 {
     public static function operate($cmd, $output, $input)
     {
-
+        ElapsedTime::setStartTime(ElapsedTime::SYS_START);
         $root = Dir::formatPath(ROOT_PATH);
         Config::setConfigPath($root . "config");
         $config = Config::get("server.pool");

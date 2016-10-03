@@ -55,23 +55,20 @@ class Index extends Controller
 //        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
 //        $data = $userDao->test();
 //
-//        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
-//        $data = $userDao->test();
+        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
+        $data = $userDao->test();
 //        dump($data);
-//        dump($data);
-//        $rs = cache()->set("wang", "hello world");
+        $rs = cache()->set("wang", "hello world");
 //        dump(posix_getpid()."-hello:".$rs);
-////        $data = cache()->get("wang");
-//        $rs = cache()->set("wang", "wangkaihui");
-//        dump(posix_getpid()."-wang:".$rs);
 //        $data = cache()->get("wang");
+        $rs = cache()->set("wang", "wangkaihui");
+//        dump(posix_getpid()."-wang:".$rs);
+        $data = cache()->get("wang");
 //        dump(posix_getpid()."-".$data);
-////
-//        $_SESSION["test"] = "trendi";
-//        dump($_SESSION["test"]);
 //
+        $_SESSION["test"] = "trendi";
+        debug($_SESSION);
 //        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"), date('Y-m-d H:i:s'), "*/2 * * * * *");
-        dump("test");
         $this->view->test = "test";
         
         return $this->render("index/test");

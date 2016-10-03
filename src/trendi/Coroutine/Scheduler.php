@@ -1,7 +1,7 @@
 <?php
 namespace Trendi\Coroutine;
 
-use Trendi\Log\Log;
+use Trendi\Support\Log;
 
 class Scheduler
 {
@@ -40,7 +40,7 @@ class Scheduler
     {
         while (!$this->taskQueue->isEmpty()) {
             $task = $this->taskQueue->dequeue();
-            dump(date('Y-m-d H:i:s'). "-taskId:".$task->getTaskId());
+            Log::info(date('Y-m-d H:i:s'). "-taskId:".$task->getTaskId());
             try {
                 $retval = $task->run();
                 if ($retval instanceof SystemCall) {

@@ -11,6 +11,7 @@ namespace Trendi\Foundation\Bootstrap\Task;
 
 use Trendi\Config\Config;
 use Trendi\Foundation\Exception\ConfigNotFoundException;
+use Trendi\Support\Log;
 
 class Email
 {
@@ -36,7 +37,6 @@ class Email
             ->setBody($msg, 'text/html', 'utf-8');
 
         $config = Config::get("email.server");
-        dump($config);
         if (!$config) {
             throw new ConfigNotFoundException("email.server not config");
         }
@@ -51,7 +51,7 @@ class Email
         $failures = [];
         $result = $mailer->send($message, $failures);
         if (!$result) {
-            dump($result);
+            Log::error($result);
         }
         return $result;
     }

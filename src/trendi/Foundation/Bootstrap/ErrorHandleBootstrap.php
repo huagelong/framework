@@ -9,6 +9,8 @@
 
 namespace Trendi\Foundation\Bootstrap;
 
+use Trendi\Support\Log;
+
 class ErrorHandleBootstrap
 {
 
@@ -58,7 +60,7 @@ class ErrorHandleBootstrap
                 $message .= $v['file'] . "(" . $v['line'] . "): " . $class . $type . $function . "\n";
             }
         }
-        dump($message);
+        Log::warn($message);
     }
 
     /**
@@ -104,7 +106,7 @@ class ErrorHandleBootstrap
                         }
                         $log .= "{$t['function']}()\n";
                     }
-                    dump($log);
+                Log::error($log);
                 default:
                     break;
             }

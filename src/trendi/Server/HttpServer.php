@@ -18,6 +18,8 @@ use Trendi\Server\Facade\Context;
 use Trendi\Server\Facade\Task;
 use Trendi\Coroutine\Event;
 use Trendi\Support\Facade;
+use Trendi\Support\Log;
+use Trendi\Support\Exception;
 
 class HttpServer
 {
@@ -65,14 +67,14 @@ class HttpServer
 
     public function onManagerSop(SwooleServer $serv)
     {
-        echo $this->serverName . " manage stop ......\n";
+        Log::sysinfo($this->serverName . " manage stop ......");
     }
 
 
     public function onManagerStart(SwooleServer $serv)
     {
         swoole_set_process_name($this->serverName . "-httpd-manage");
-        echo $this->serverName . " httpd manage start ......\n";
+        Log::sysinfo($this->serverName . " httpd manage start ......");
     }
 
     /**
@@ -90,11 +92,11 @@ class HttpServer
             return Task::start($data);
         } catch (\Exception $e) {
             $exception = \Trendi\Support\Exception::formatException($e);
-            dump($exception);
+            Log::error($exception);
             return [false, $data, $exception];
         } catch (\Error $e) {
             $exception = \Trendi\Support\Exception::formatException($e);
-            dump($exception);
+            Log::error($exception);
             return [false, $data, $exception];
         }
     }
@@ -108,12 +110,12 @@ class HttpServer
     public function onStart(SwooleServer $swooleServer)
     {
         swoole_set_process_name($this->serverName . "-httpd-server");
-        echo $this->serverName . " httpd server start ......\n";
+        Log::sysinfo($this->serverName . " httpd server start ......");
     }
 
     public function onShutdown(SwooleServer $swooleServer)
     {
-        echo $this->serverName . " httpd server shutdown ...... \n";
+        Log::sysinfo($this->serverName . " httpd server shutdown ...... ");
     }
 
     /**
@@ -134,10 +136,10 @@ class HttpServer
 
         if ($workerId >= $this->config["worker_num"]) {
             swoole_set_process_name($this->serverName . "-httpd-task-worker");
-            echo $this->serverName . " httpd task worker start ..... \n";
+            Log::sysinfo($this->serverName . " httpd task worker start ..... ");
         } else {
             swoole_set_process_name($this->serverName . "-httpd-worker");
-            echo $this->serverName . " httpd worker start ..... \n";
+            Log::sysinfo($this->serverName . " httpd worker start ..... ");
         }
         $this->adapter->bootstrap();
         if (Facade::getFacadeApplication()) {
@@ -149,14 +151,14 @@ class HttpServer
 
     public function onWorkerStop(SwooleServer $swooleServer, $workerId)
     {
-        echo $this->serverName . " httpd worker stop ..... \n";
+        Log::sysinfo($this->serverName . " httpd worker stop ..... ");
     }
 
     public function onWorkerError(SwooleServer $swooleServer, $workerId, $workerPid, $exitCode)
     {
-        echo $this->serverName . " httpd worker error ..... \n";
-        echo "======================\n";
-        echo socket_strerror($exitCode) . "\n";
+        Log::sysinfo($this->serverName . " httpd worker error ..... ");
+        Log::sysinfo("======================");
+        Log::error(socket_strerror($exitCode) . "");
 
         Event::fire("httpd_worker_error", [$exitCode, date('Y-m-d H:i:s')]);
     }
@@ -206,11 +208,11 @@ class HttpServer
         } catch (\Exception $e) {
             $response->status(500);
             $response->end();
-            dump(\Trendi\Support\Exception::formatException($e));
+            Log::error(Exception::formatException($e));
         } catch (\Error $e) {
             $response->status(500);
             $response->end();
-            dump(\Trendi\Support\Exception::formatException($e));
+            Log::error(Exception::formatException($e));
         }
     }
 

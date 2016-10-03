@@ -14,6 +14,7 @@ use Trendi\Foundation\Storage\Redis;
 use Trendi\Job\Exception\InvalidArgumentException;
 use Trendi\Server\Reload;
 use Trendi\Support\Exception;
+use Trendi\Support\Log;
 
 class Job
 {
@@ -89,9 +90,9 @@ class Job
             $sleep = $pv['sleep'] ? $pv['sleep'] : 1;
             sleep($sleep);
         } catch (\Exception $e) {
-            echo "Job ERROR : \n" . Exception::formatException($e);
+            Log::error("Job ERROR : \n" . Exception::formatException($e));
         } catch (\Error $e) {
-            echo "Job ERROR : \n" . Exception::formatException($e);
+            Log::error("Job ERROR : \n" . Exception::formatException($e));
         }
     }
 

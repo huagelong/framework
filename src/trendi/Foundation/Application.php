@@ -18,6 +18,8 @@ use Trendi\Foundation\Bootstrap\RouteBootstrap;
 use Trendi\Foundation\Command;
 use Trendi\Mvc\Route\RouteMatch;
 use Trendi\Support\Dir;
+use Trendi\Coroutine\Event;
+use Trendi\Support\ElapsedTime;
 
 class Application
 {
@@ -65,6 +67,10 @@ class Application
      */
     public function start($request, $response)
     {
+        Event::bind("controller_call_before", function ($params) {
+            ElapsedTime::setStartTime("sys_elapsed_time");
+        });
+        
         $url = $request->getPathInfo();
         $routeObj = RouteMatch::getInstance();
         $middlewareConfig = CConfig::get("middleware");

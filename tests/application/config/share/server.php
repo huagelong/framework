@@ -6,7 +6,7 @@
  */
 return [
     "name" => "trendi",
-    "servers" => ["httpd"],
+    "servers" => ["httpd","pool","rpc"],
     "httpd" => [
         "server" => [
             "host" => "0.0.0.0",

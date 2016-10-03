@@ -23,7 +23,7 @@ class PoolServer implements SocketInterface
     private $server = null;
     private $serverName = null;
     private $timeOut = 10;
-    private $poolWorkrNumber = 0;
+    private $poolWorkrNumberConfig = [];
     private $numbersTmp = [];
 
     /**
@@ -50,7 +50,7 @@ class PoolServer implements SocketInterface
                 $poolWorkrNumber += $v;
             }
         }
-        $this->poolWorkrNumber = $poolWorkrNumberConfig;
+        $this->poolWorkrNumberConfig = $poolWorkrNumberConfig;
         $this->config['server']['task_worker_num'] = $poolWorkrNumber;
     }
 
@@ -90,6 +90,7 @@ class PoolServer implements SocketInterface
         }
         list($driver, $params) = $result;
         $dstWorkerId = $this->getDstWorkerId($driver);
+//        dump($driver.":".$dstWorkerId);
         $this->sendWait($driver, $params, $serv, $fd, $dstWorkerId);
     }
 
@@ -102,10 +103,12 @@ class PoolServer implements SocketInterface
     protected function getDstWorkerId($taskName)
     {
         $taskName = strtolower($taskName);
-        if (!isset($this->poolWorkrNumber[$taskName])) return -1;
+        if (!isset($this->poolWorkrNumberConfig[$taskName])) return -1;
+
+        if(isset($this->numbersTmp[$taskName]) && $this->numbersTmp[$taskName]) return array_pop($this->numbersTmp[$taskName]);
         $pre = 0;
         $current = 0;
-        foreach ($this->poolWorkrNumber as $k => $v) {
+        foreach ($this->poolWorkrNumberConfig as $k => $v) {
             if ($k == $taskName) {
                 $current = $v;
                 break;
@@ -116,10 +119,11 @@ class PoolServer implements SocketInterface
         $end = $pre + $current - 1;
         $numbers = range($start, $end);
         //按照顺序执行,保证每个连接池子数固定
-        if (empty($this->numbersTmp)) {
-            $this->numbersTmp = $numbers;
+        if (!isset($this->numbersTmp[$taskName]) ||
+            (isset($this->numbersTmp[$taskName])&&empty($this->numbersTmp[$taskName]))) {
+            $this->numbersTmp[$taskName] = $numbers;
         }
-        return array_pop($this->numbersTmp);
+        return array_pop($this->numbersTmp[$taskName]);
     }
 
     /**

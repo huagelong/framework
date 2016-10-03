@@ -4,8 +4,6 @@
  * Date: 16/9/9
  * Time: 下午12:18
  */
-use Symfony\Component\VarDumper\Cloner\VarCloner;
-use Symfony\Component\VarDumper\Dumper\HtmlDumper;
 
 if (!function_exists('url')) {
     /**
@@ -18,26 +16,6 @@ if (!function_exists('url')) {
     function url($routeName, $params = [])
     {
         return \Trendi\Mvc\Route\RouteMatch::getInstance()->url($routeName, $params);
-    }
-}
-
-if (!function_exists('pp')) {
-    /**
-     *  调试输出,,输出html
-     *
-     * @param $var
-     * @return mixed
-     */
-    function pp($var)
-    {
-        foreach (func_get_args() as $var) {
-            $cloner = new VarCloner();
-            $dumper = new HtmlDumper();
-            $handler = function ($var) use ($cloner, $dumper) {
-                $dumper->dump($cloner->cloneVar($var));
-            };
-            return call_user_func($handler, $var);
-        }
     }
 }
 
@@ -75,5 +53,17 @@ if (!function_exists('cache')) {
     function cache()
     {
         return new \Trendi\Cache\Adapter\RedisCache();
+    }
+}
+
+if (!function_exists('debug')) {
+    /**
+     * 缓存对象
+     * @return \Trendi\Support\Log;
+     */
+    function debug($str)
+    {
+        $str = print_r($str, true);
+        return \Trendi\Support\Log::debug($str);
     }
 }

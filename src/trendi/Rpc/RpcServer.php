@@ -48,6 +48,11 @@ class RpcServer implements SocketInterface
         Event::bind("rpc_controller_call_before", function ($params) {
             ElapsedTime::setStartTime("rpc_sys_elapsed_time");
         });
+        
+        Event::bind("controller_call_before", function ($params) {
+            ElapsedTime::setStartTime("sys_elapsed_time");
+        });
+        
         $result = $this->serialize->matchAndRun($data);
         $serv->send($fd, $result);
         $serv->close($fd);

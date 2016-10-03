@@ -1,6 +1,5 @@
-.idea/blade.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/trendi_framework.iml
-.idea/vcs.xml
-.idea/copyright/profiles_settings.xml
+.idea/
+composer.lock
+tests/application/storage/log
+tests/application/storage/tplcompile/
+vendor/

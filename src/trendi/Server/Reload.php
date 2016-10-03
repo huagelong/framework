@@ -9,6 +9,7 @@
 
 namespace Trendi\Server;
 
+use Trendi\Support\Log;
 
 class Reload
 {
@@ -18,7 +19,7 @@ class Reload
         if (self::check($rate)) {
             return;
         } else {
-            dump("Memory is full ,will restart!");
+            Log::warn("Memory is full ,will restart!");
         }
 
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $serverPidArr);
@@ -32,7 +33,7 @@ class Reload
     {
         $mem = self::getMemory();
         $memoryLimit = ini_get("memory_limit");
-        dump("Memory:" . $mem . "M/" . $memoryLimit . "-[" . date('Y-m-d H:i:s') . "]");
+        Log::sysinfo("Memory:" . $mem . "M/" . $memoryLimit);
         if ($memoryLimit == '-1') return true;
         $memoryLimitUnmber = substr($memoryLimit, 0, -1);
 

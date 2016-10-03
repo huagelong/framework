@@ -11,6 +11,7 @@ namespace Trendi\Job;
 use Trendi\Foundation\Application;
 use Trendi\Foundation\Storage\Redis;
 use Trendi\Server\ProcessServer;
+use Trendi\Support\Log;
 
 class JobServer
 {
@@ -44,7 +45,7 @@ class JobServer
         $name = isset($this->config['server']['name']) ? $this->config['server']['name'] : "trendi";
         $serverName = $name . "-job-server";
         swoole_set_process_name($serverName);
-        echo "[$serverName] start ...\n";
+        Log::info("[$serverName] start ...");
         //start job run
         $job = new Job($this->config, $serverName);
         $perform = $this->config['perform'];
@@ -57,7 +58,7 @@ class JobServer
             $processServer->add(
                 function (\swoole_process $worker) use ($key, $job, $name) {
                     $worker->name($name);
-                    echo "[$name] start ...\n";
+                    Log::info("[$name] start ...");
                     $job->start($key);
                 }
             );

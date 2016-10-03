@@ -10,10 +10,11 @@ namespace Trendi\Foundation\Storage;
 use Config;
 use Trendi\Foundation\Exception\ConfigNotFoundException;
 use Trendi\Pool\PoolClient;
+use Trendi\Support\Log;
 
 class Redis
 {
-    protected $client = null;
+    protected static $client = null;
 
     public function __construct()
     {
@@ -22,12 +23,14 @@ class Redis
 
     public function initialize()
     {
+        if(self::$client) return ;
+        Log::sysinfo("new redis client conn");
         $config = Config::get("client.pool");
         if (!$config) {
             throw new ConfigNotFoundException("client.pool not config");
         }
 
-        $this->client = new PoolClient($config['host'], $config['port'], $config['serialization']);
+        self::$client = new PoolClient($config['host'], $config['port'], $config['serialization'], $config);
     }
 
     public function __call($name, $arguments)
@@ -36,12 +39,12 @@ class Redis
             $name,
             $arguments
         ];
-        $data = $this->client->get("redis", $params);
+        $data = self::$client->get("redis", $params);
         return $data;
     }
 
     public function __destruct()
     {
-        $this->client->close();
+//        $this->client->close();
     }
 }

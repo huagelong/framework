@@ -12,12 +12,14 @@ use Trendi\Foundation\Application;
 use Trendi\Server\HttpServer;
 use Trendi\Support\Arr;
 use Trendi\Support\Dir;
+use Trendi\Support\ElapsedTime;
 
 class HttpdBase
 {
     public static function operate($cmd, $output, $input)
     {
-
+        ElapsedTime::setStartTime(ElapsedTime::SYS_START);
+        
         $root = Dir::formatPath(ROOT_PATH);
         Config::setConfigPath($root . "config");
         $config = Config::get("server.httpd");

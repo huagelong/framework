@@ -121,6 +121,7 @@ class RouteMatch
     public function run($url, Request $request, Response $response)
     {
         Event::fire("controller_call_before", [$url, $request, $response]);
+        Event::fire("controller_call_before", [$url]);
         $parameters = $this->match($url);
 
         if ($parameters) {
@@ -150,6 +151,7 @@ class RouteMatch
     public function runRpc($url, $requestData = [])
     {
         Event::fire("rpc_controller_call_before", [$url, $requestData]);
+        Event::fire("controller_call_before", [$url]);
         $parameters = $this->match($url);
         if ($parameters) {
             $require = [];

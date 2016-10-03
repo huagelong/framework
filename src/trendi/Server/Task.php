@@ -123,9 +123,8 @@ class Task
             $obj = new $taskClass();
 
             if (!method_exists($obj, "perform")) {
-                throw new InvalidArgumentException(" task method handle not config ");
+                throw new InvalidArgumentException(" task method perform not config ");
             }
-            dump($obj);
             $result = call_user_func_array([$obj, "perform"], $params);
             return [true, $result, ''];
         }
