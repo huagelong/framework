@@ -2012,3 +2012,56 @@ Stack trace:
 [2016-10-08 18:38:16 *66526.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#51 does not exist.
 [2016-10-08 18:38:43 *66526.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#107 is closed.
 [2016-10-08 18:38:43 *66526.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#107 does not exist.
+[2016-10-08 18:46:32 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#40 is closed.
+[2016-10-08 18:46:32 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#40 does not exist.
+[2016-10-08 18:46:32 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 507 byte failed, because session#41 is closed.
+[2016-10-08 18:46:44 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#41 does not exist.
+[2016-10-08 18:46:44 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#57 is closed.
+[2016-10-08 18:46:44 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#57 does not exist.
+[2016-10-08 18:46:45 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#58 is closed.
+[2016-10-08 18:46:45 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#58 does not exist.
+[2016-10-08 18:46:45 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#59 is closed.
+[2016-10-08 18:46:45 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#59 does not exist.
+[2016-10-08 18:46:45 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#61 is closed.
+[2016-10-08 18:46:45 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#61 does not exist.
+[2016-10-08 18:46:46 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#62 is closed.
+[2016-10-08 18:46:46 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#62 does not exist.
+[2016-10-08 18:46:47 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#64 is closed.
+[2016-10-08 18:46:47 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#64 does not exist.
+[2016-10-08 18:46:47 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#65 is closed.
+[2016-10-08 18:46:47 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#65 does not exist.
+[2016-10-08 18:46:47 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#66 is closed.
+[2016-10-08 18:46:47 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#66 does not exist.
+[2016-10-08 18:46:47 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#67 is closed.
+[2016-10-08 18:46:47 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#67 does not exist.
+[2016-10-08 18:46:47 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#68 is closed.
+[2016-10-08 18:46:48 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#68 does not exist.
+[2016-10-08 18:46:48 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#69 is closed.
+[2016-10-08 18:46:48 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#69 does not exist.
+[2016-10-08 18:46:48 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#70 is closed.
+[2016-10-08 18:46:48 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#70 does not exist.
+[2016-10-08 18:46:48 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#71 is closed.
+[2016-10-08 18:46:48 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#72 is closed.
+[2016-10-08 18:46:48 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#72 does not exist.
+[2016-10-08 18:46:48 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#71 does not exist.
+[2016-10-08 18:46:49 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#73 is closed.
+[2016-10-08 18:46:49 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#73 does not exist.
+[2016-10-08 18:46:49 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#75 is closed.
+[2016-10-08 18:46:49 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#75 does not exist.
+[2016-10-08 18:46:49 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#74 is closed.
+[2016-10-08 18:46:49 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#74 does not exist.
+[2016-10-08 18:46:49 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#77 is closed.
+[2016-10-08 18:46:49 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#77 does not exist.
+[2016-10-08 18:46:49 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#76 is closed.
+[2016-10-08 18:46:49 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#76 does not exist.
+[2016-10-08 18:46:50 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#78 is closed.
+[2016-10-08 18:46:50 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#78 does not exist.
+[2016-10-08 18:46:50 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#79 is closed.
+[2016-10-08 18:46:50 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#79 does not exist.
+[2016-10-08 18:46:50 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#80 is closed.
+[2016-10-08 18:46:50 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#80 does not exist.
+[2016-10-08 18:46:50 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#81 is closed.
+[2016-10-08 18:46:50 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#81 does not exist.
+[2016-10-08 18:46:50 *66670.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#83 is closed.
+[2016-10-08 18:46:50 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#82 is closed.
+[2016-10-08 18:46:50 *66669.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#82 does not exist.

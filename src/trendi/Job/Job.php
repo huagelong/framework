@@ -55,6 +55,7 @@ class Job
      */
     private function run($queueName)
     {
+        Reload::load($this->name."-server", $this->config['server']['mem_reboot_rate']);
         try {
             if (!isset($this->config['perform'][$queueName])) return;
             $pv = $this->config['perform'][$queueName];
@@ -70,7 +71,6 @@ class Job
             }
             if ($data && is_array($data)) {
                 foreach ($data as $v) {
-                    Reload::load($this->name, $this->config['server']['mem_reboot_rate']);
                     list(, $value) = explode("@", $v);
                     $valueArr = unserialize($value);
                     $queueName = isset($valueArr[0]) ? $valueArr[0] : "";

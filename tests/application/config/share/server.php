@@ -6,7 +6,7 @@
  */
 return [
     "name" => "trendi",
-    "servers" => ["pool","httpd","rpc"],
+    "servers" => ["pool","httpd","rpc","job"],
     "httpd" => [
         "server" => [
             "host" => "0.0.0.0",
@@ -16,7 +16,6 @@ return [
             "log_file" => ROOT_PATH . "/storage/log",
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
-            "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
             /**
              * 1，轮循模式，收到会轮循分配给每一个worker进程
              * 2，固定模式，根据连接的文件描述符分配worker。这样可以保证同一个连接发来的数据只会被同一个worker处理
@@ -55,7 +54,6 @@ return [
             "log_file" => ROOT_PATH . "/storage/log",
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
-            "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
             /**
              * 1，轮循模式，收到会轮循分配给每一个worker进程
              * 2，固定模式，根据连接的文件描述符分配worker。这样可以保证同一个连接发来的数据只会被同一个worker处理
@@ -92,7 +90,6 @@ return [
             'daemonize' => 0,
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
-            "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
             /**
              * 1，轮循模式，收到会轮循分配给每一个worker进程
              * 2，固定模式，根据连接的文件描述符分配worker。这样可以保证同一个连接发来的数据只会被同一个worker处理
@@ -132,7 +129,7 @@ return [
             'worker_num' => 4,
             "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
             "serialization" => 1,
-            "timer_tick"=>200,//每隔多长执行一次,单位毫秒
+            "timer_tick"=>500,//每隔多长执行一次,单位毫秒
         ],
         "perform"=>[
             "clearlog"=>[

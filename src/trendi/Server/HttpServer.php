@@ -30,7 +30,6 @@ class HttpServer
     private $adapter = null;
     private $serverName = '';
     private $config = [];
-    private $scheduler = null;
 
     public function __construct(SwooleServer $swooleServer, array $config, $adapter, $serverName = "trendi")
     {
@@ -174,7 +173,8 @@ class HttpServer
      */
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
-        Reload::load($this->serverName . "-httpd-server", $this->config['mem_reboot_rate']);
+        $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
+        Reload::load($this->serverName . "-httpd-server", $memRebootRate);
 
         $request = new Request($swooleHttpRequest);
         $response = new Response($swooleHttpResponse);

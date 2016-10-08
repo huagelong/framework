@@ -14,9 +14,11 @@ use Trendi\Support\Log;
 class Reload
 {
 
-    public static function load($serverName, $rate)
+    public static function load($serverName, $rate, $showLog=false)
     {
-        if (self::check($rate)) {
+        if(!$rate) return ;
+        
+        if (self::check($rate, $showLog)) {
             return;
         } else {
             Log::warn("Memory is full ,will restart!");
@@ -29,11 +31,11 @@ class Reload
         }
     }
 
-    protected static function check($rate)
+    protected static function check($rate, $showLog)
     {
         $mem = self::getMemory();
         $memoryLimit = ini_get("memory_limit");
-        Log::sysinfo("Memory:" . $mem . "M/" . $memoryLimit);
+        if($showLog) Log::sysinfo("Memory:" . $mem . "M/" . $memoryLimit);
         if ($memoryLimit == '-1') return true;
         $memoryLimitUnmber = substr($memoryLimit, 0, -1);
 

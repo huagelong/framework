@@ -69,7 +69,8 @@ class SocketServer
 
     public function onReceive(SwooleServer $serv, $fd, $from_id, $data)
     {
-        Reload::load($this->serverName . "-server", $this->config['mem_reboot_rate']);
+        $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
+        Reload::load($this->serverName . "-server", $memRebootRate);
         try {
             $this->adapter->perform($data, $serv, $fd, $from_id);
         } catch (\Exception $e) {
