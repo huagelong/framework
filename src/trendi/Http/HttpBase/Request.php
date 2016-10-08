@@ -82,49 +82,49 @@ class Request
     /**
      * Custom parameters.
      *
-     * @var \Symfony\Component\HttpFoundation\ParameterBag
+     * @var \Trendi\Http\HttpBase\ParameterBag
      */
     public $attributes;
 
     /**
      * Request body parameters ($_POST).
      *
-     * @var \Symfony\Component\HttpFoundation\ParameterBag
+     * @var \Trendi\Http\HttpBase\ParameterBag
      */
-    public $request;
+    public $post;
 
     /**
      * Query string parameters ($_GET).
      *
-     * @var \Symfony\Component\HttpFoundation\ParameterBag
+     * @var \Trendi\Http\HttpBase\ParameterBag
      */
     public $query;
 
     /**
      * Server and execution environment parameters ($_SERVER).
      *
-     * @var \Symfony\Component\HttpFoundation\ServerBag
+     * @var \Trendi\Http\HttpBase\ServerBag
      */
     public $server;
 
     /**
      * Uploaded files ($_FILES).
      *
-     * @var \Symfony\Component\HttpFoundation\FileBag
+     * @var \Trendi\Http\HttpBase\FileBag
      */
     public $files;
 
     /**
      * Cookies ($_COOKIE).
      *
-     * @var \Symfony\Component\HttpFoundation\ParameterBag
+     * @var \Trendi\Http\HttpBase\ParameterBag
      */
     public $cookies;
 
     /**
      * Headers (taken from the $_SERVER).
      *
-     * @var \Symfony\Component\HttpFoundation\HeaderBag
+     * @var \Trendi\Http\HttpBase\HeaderBag
      */
     public $headers;
 
@@ -231,7 +231,7 @@ class Request
      */
     public function initialize(array $query = array(), array $request = array(), array $attributes = array(), array $cookies = array(), array $files = array(), array $server = array(), $content = null)
     {
-        $this->request = new ParameterBag($request);
+        $this->post = new ParameterBag($request);
         $this->query = new ParameterBag($query);
         $this->attributes = new ParameterBag($attributes);
         $this->cookies = new ParameterBag($cookies);
@@ -471,7 +471,7 @@ class Request
     public function __clone()
     {
         $this->query = clone $this->query;
-        $this->request = clone $this->request;
+        $this->post = clone $this->post;
         $this->attributes = clone $this->attributes;
         $this->cookies = clone $this->cookies;
         $this->files = clone $this->files;
@@ -509,7 +509,7 @@ class Request
         $this->server->set('QUERY_STRING', static::normalizeQueryString(http_build_query($this->query->all(), null, '&')));
 
         $_GET = $this->query->all();
-        $_POST = $this->request->all();
+        $_POST = $this->post->all();
         $_SERVER = $this->server->all();
         $_COOKIE = $this->cookies->all();
 
@@ -718,7 +718,7 @@ class Request
             return $result;
         }
 
-        if ($this !== $result = $this->request->get($key, $this)) {
+        if ($this !== $result = $this->post->get($key, $this)) {
             return $result;
         }
 
@@ -1227,7 +1227,7 @@ class Request
                 if ($method = $this->headers->get('X-HTTP-METHOD-OVERRIDE')) {
                     $this->method = strtoupper($method);
                 } elseif (self::$httpMethodParameterOverride) {
-                    $this->method = strtoupper($this->request->get('_method', $this->query->get('_method', 'POST')));
+                    $this->method = strtoupper($this->post->get('_method', $this->query->get('_method', 'POST')));
                 }
             }
         }

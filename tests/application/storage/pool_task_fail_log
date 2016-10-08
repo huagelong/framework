@@ -577,3 +577,28 @@ Stack trace
 #21 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
 #22 {main}
 ================================================
+2016-10-08 18:13:40 ["redis",["hset",[null,"wang","test hello world"]],0,5]
+================================================
+Exception Error : WRONGTYPE Operation against a key holding the wrong kind of value in /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php:370
+Stack trace
+#0 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\HashSet), Object(Predis\Response\Error))
+#1 /mnt/hgfs/code/trendi_framework/vendor/predis/predis/src/Client.php(314): Predis\Client->executeCommand(Object(Predis\Command\HashSet))
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/Task/Redis.php(49): Predis\Client->__call('hset', Array)
+#3 [internal function]: Trendi\Pool\Task\Redis->perform('hset', Array)
+#4 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Task.php(128): call_user_func_array(Array, Array)
+#5 /mnt/hgfs/code/trendi_framework/src/trendi/Support/Facade.php(100): Trendi\Server\Task->start(Array)
+#6 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(86): Trendi\Support\Facade::__callStatic('start', Array)
+#7 [internal function]: Trendi\Server\SocketServer->onTask(Object(swoole_server), 4, 0, Array)
+#8 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(56): swoole_server->start()
+#9 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php(63): Trendi\Server\SocketServer->start()
+#10 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(173): Trendi\Pool\PoolServer->start()
+#11 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php(61): Trendi\Foundation\Command\Pool\PoolBase::doOperate('restart', Array, '/mnt/hgfs/code/...', 'trendi', Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Restart.php(28): Trendi\Foundation\Command\Pool\PoolBase::operate('restart', Object(Symfony\Component\Console\Output\ConsoleOutput), Object(Symfony\Component\Console\Input\ArgvInput))
+#13 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php(256): Trendi\Foundation\Command\Pool\Restart->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(820): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Trendi\Foundation\Command\Pool\Restart), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php(141): Symfony\Component\Console\Application->run()
+#18 /mnt/hgfs/code/trendi_framework/tests/application/trendi(10): Trendi\Foundation\Application::runCmd()
+#19 {main}
+================================================

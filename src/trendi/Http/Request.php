@@ -10,9 +10,9 @@
 namespace Trendi\Http;
 
 use Trendi\Http\HttpBase\ParameterBag;
-use Trendi\Http\HttpBase\Request as SymfonyRequest;
+use Trendi\Http\HttpBase\Request as BaseRequest;
 
-class Request extends SymfonyRequest
+class Request extends BaseRequest
 {
 
     /**

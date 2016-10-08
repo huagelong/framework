@@ -19,7 +19,6 @@ use Trendi\Mvc\Route\RouteMatch;
 use Trendi\Support\Dir;
 use Trendi\Support\Arr;
 use Trendi\Support\ElapsedTime;
-use Trendi\Foundation\Bootstrap\SessionBootstrap;
 
 class Application
 {
@@ -46,14 +45,14 @@ class Application
     }
 
     /**
-     * http 初始化
+     *
      */
     public function httpBoostrap()
     {
         $this->baseBoostrap();
-        SessionBootstrap::getInstance();
         RouteBootstrap::getInstance();
     }
+    
 
     /**
      * rpc server 初始化

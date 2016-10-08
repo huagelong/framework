@@ -142,6 +142,7 @@ class HttpServer
             Log::sysinfo($this->serverName . " httpd worker start ..... ");
         }
         $this->adapter->httpBoostrap();
+
         if (Facade::getFacadeApplication()) {
             Context::set("server", $swooleServer, true, true);
             Task::setLogPath($this->config["task_fail_log"]);

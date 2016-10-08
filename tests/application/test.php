@@ -10,15 +10,16 @@ class test{
         yield $a+$b;
     }
 
-    function get($c, $a,$b){
+    function get($a,$b){
         $rs = yield $this->hello($a, $b);
-        return $rs+$c;
+        var_dump($rs);
+        return $rs;
     }
 
 }
 
 $obj= new test();
-$result = $obj->hello(2,3);
+$result = $obj->get(2,3);
 print_r($result);
 
 

@@ -1432,3 +1432,579 @@ Stack trace:
 [2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#8 is closed.
 [2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#9 is closed.
 [2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#9 is closed.
+[2016-10-08 15:52:37 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#17 is closed.
+[2016-10-08 15:52:37 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#17 is closed.
+[2016-10-08 15:52:37 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#18 is closed.
+[2016-10-08 15:52:37 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#18 is closed.
+[2016-10-08 15:52:37 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#20 is closed.
+[2016-10-08 15:52:37 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#20 is closed.
+[2016-10-08 15:52:38 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#21 is closed.
+[2016-10-08 15:52:38 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#21 is closed.
+[2016-10-08 15:52:38 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#23 is closed.
+[2016-10-08 15:52:38 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#23 is closed.
+[2016-10-08 15:52:39 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#24 is closed.
+[2016-10-08 15:52:39 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#24 is closed.
+[2016-10-08 15:52:39 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#25 is closed.
+[2016-10-08 15:52:39 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#25 is closed.
+[2016-10-08 15:58:02 ^62320.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 15:58:02 ^62318.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 15:58:02 *62324.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 15:58:02 ^62319.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 15:58:02 *62325.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 15:58:02 ^62323.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 15:58:02 ^62321.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 15:58:02 $62313.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 15:58:02 $62313.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 15:58:02 $62313.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 15:58:02 $62313.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 15:58:02 $62313.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 15:58:02 $62313.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 15:58:02 $62313.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:07:27 *62675.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:07:27 ^62671.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:07:27 ^62673.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:07:27 ^62670.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:07:27 ^62672.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:07:27 ^62674.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:07:27 *62676.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:07:27 $62662.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:07:27 $62662.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:07:28 $62662.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:07:28 $62662.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:07:28 $62662.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:07:28 $62662.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:07:28 $62662.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:10:04 *62902.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:10:05 $62888.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:14:07 ^62979.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:14:07 ^62982.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:14:07 ^62981.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:14:07 ^62978.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:14:07 *62983.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:14:07 ^62980.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:14:07 *62984.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:14:08 $62972.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:14:08 $62972.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:14:08 $62972.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:14:08 $62972.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:14:08 $62972.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:14:08 $62972.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:14:08 $62972.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 ^63468.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 ^63469.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 ^63467.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 *63472.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 *63473.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 ^63471.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 ^63470.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 ^63476.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 ^63477.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 *63478.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 *63479.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 ^63480.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 ^63481.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 ^63482.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 ^63483.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 *63484.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 *63485.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 ^63486.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 ^63487.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 ^63488.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 ^63489.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:34 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 *63491.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63490.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 *63492.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63493.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63494.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63495.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 ^63497.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 ^63501.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63502.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63503.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 *63504.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 *63505.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63506.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63507.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 ^63508.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63509.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63510.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 *63511.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 *63512.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 ^63513.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 ^63514.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 ^63515.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63516.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 ^63517.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 *63518.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 *63519.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 ^63520.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 ^63521.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:35 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63522.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 ^63523.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 *63524.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 ^63525.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 *63526.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63527.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63528.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63533.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 *63534.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 ^63535.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63536.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63537.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 *63538.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 ^63540.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63541.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 *63542.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 ^63543.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 *63544.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 ^63545.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63546.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63547.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63548.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 *63551.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 ^63550.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 *63549.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 ^63552.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:36 ^63553.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:36 $63463.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:37 $63463.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:37 ^63554.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:37 $63463.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:37 $63463.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:37 $63463.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:37 ^63555.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:37 *63556.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 16:23:37 $63463.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 16:23:37 $63463.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#7 is closed.
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#7 is closed.
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#8 is closed.
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#8 is closed.
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#9 is closed.
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#9 is closed.
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#10 is closed.
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#10 is closed.
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#11 is closed.
+[2016-10-08 18:05:43 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#11 is closed.
+[2016-10-08 18:05:44 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#14 is closed.
+[2016-10-08 18:05:44 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#14 is closed.
+[2016-10-08 18:05:45 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#15 is closed.
+[2016-10-08 18:05:45 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#15 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#17 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#17 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#18 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#18 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#19 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#19 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#20 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#20 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#21 is closed.
+[2016-10-08 18:05:46 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#21 is closed.
+[2016-10-08 18:05:50 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#29 is closed.
+[2016-10-08 18:05:50 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#29 is closed.
+[2016-10-08 18:05:50 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#31 is closed.
+[2016-10-08 18:05:50 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#31 is closed.
+[2016-10-08 18:05:50 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#32 is closed.
+[2016-10-08 18:05:50 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#32 is closed.
+[2016-10-08 18:05:50 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#33 is closed.
+[2016-10-08 18:05:50 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#33 is closed.
+[2016-10-08 18:05:51 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#34 is closed.
+[2016-10-08 18:05:51 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#34 is closed.
+[2016-10-08 18:05:51 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#36 is closed.
+[2016-10-08 18:05:51 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#36 is closed.
+[2016-10-08 18:05:52 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#37 is closed.
+[2016-10-08 18:05:52 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#37 is closed.
+[2016-10-08 18:05:52 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#38 is closed.
+[2016-10-08 18:05:52 *64975.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#38 is closed.
+[2016-10-08 18:13:40 $65068.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-10-08 18:25:58 *65909.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class name must be a valid object or a string in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:122
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(215): Trendi\Http\Response->end()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(196): Trendi\Server\HttpServer->response(Object(Trendi\Http\Request), Object(Trendi\Http\Response))
+#2 [internal function]: Trendi\Server\HttpServer->o
+[2016-10-08 18:25:58 $65895.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 18:31:54 *66342.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#16 is closed.
+[2016-10-08 18:31:56 *66342.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#16 does not exist.
+[2016-10-08 18:33:19 *66435.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#20 is closed.
+[2016-10-08 18:33:19 *66435.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#20 does not exist.
+[2016-10-08 18:33:21 *66435.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#34 is closed.
+[2016-10-08 18:33:21 *66435.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#34 does not exist.
+[2016-10-08 18:33:21 *66436.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 507 byte failed, because session#35 is closed.
+[2016-10-08 18:33:22 *66435.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#42 is closed.
+[2016-10-08 18:33:22 *66435.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#42 does not exist.
+[2016-10-08 18:33:28 *66436.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#35 does not exist.

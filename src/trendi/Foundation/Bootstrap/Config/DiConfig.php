@@ -27,6 +27,9 @@ class DiConfig
             "log" => [
                 "class" => \Trendi\Support\Log::class
             ],
+            "session" => [
+                "class" => \Trendi\Foundation\Bootstrap\Session::class,
+            ],
         ];
     }
 

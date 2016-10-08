@@ -67,6 +67,7 @@ class ServerBase
         $count = -1;
         $time = time();
         while (1) {
+            usleep(40000);
             exec("ps axu|grep " . $name . "|awk '{print $2}'", $masterArr);
             if ((time() - $time) > 30) {
                 break;

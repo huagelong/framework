@@ -66,8 +66,9 @@ class Index extends Controller
         $data = cache()->get("wang");
 //        dump(posix_getpid()."-".$data);
 //
-        $_SESSION["test"] = "trendi";
-        debug($_SESSION);
+        session()->set("wang", "test hello world");
+        $data = session()->get("wang");
+        dump($data);
 //        \Job::add("clearlog",new \Trendi\Test\Lib\Job\Test("job_start"), date('Y-m-d H:i:s'), "*/2 * * * * *");
         $this->view->test = "test";
         

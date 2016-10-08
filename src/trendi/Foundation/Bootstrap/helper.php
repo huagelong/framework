@@ -35,13 +35,23 @@ if (!function_exists('config')) {
     /**
      *  config 对象
      *
-     * @param $str
-     * @param null $default
-     * @return array
+     * @return mixed
      */
-    function config($str, $default = null)
+    function config()
     {
-        return \Trendi\Config\Config::get($str, $default);
+        return new \Trendi\Config\Config();
+    }
+}
+
+if (!function_exists('session')) {
+    /**
+     *  session 对象
+     *
+     * @return mixed
+     */
+    function session()
+    {
+        return \Trendi\Foundation\Bootstrap\Session::getInstance();
     }
 }
 
@@ -56,14 +66,16 @@ if (!function_exists('cache')) {
     }
 }
 
-if (!function_exists('debug')) {
+
+if (!function_exists('dump')) {
     /**
      * 缓存对象
      * @return \Trendi\Support\Log;
      */
-    function debug($str)
+    function dump($str)
     {
         $str = print_r($str, true);
         return \Trendi\Support\Log::debug($str);
     }
 }
+
