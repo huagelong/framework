@@ -18,7 +18,6 @@
         "swiftmailer/swiftmailer": "^5.4",
         "symfony/console": "3.1.*",
         "symfony/dependency-injection":"3.1.*",
-        "illuminate/view": "^5.3",
         "predis/predis": "^1.1"
     },
     "replace":{

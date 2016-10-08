@@ -40,7 +40,7 @@ class RpcServer implements SocketInterface
     public function bootstrap()
     {
         $obj = new Application($this->root);
-        $obj->bootstrap();
+        $obj->rpcBootstrap();
     }
 
     public function perform($data, $serv, $fd, $from_id)

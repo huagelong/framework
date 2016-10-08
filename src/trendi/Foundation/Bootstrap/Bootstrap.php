@@ -43,7 +43,6 @@ class Bootstrap
         $this->initConfig($path);
         $this->iniSet();
         $this->initMonitor();
-        $this->initSession();
         $this->initAlias();
         $this->initHelper();
         $this->initDi();
@@ -57,14 +56,6 @@ class Bootstrap
     protected function initMonitor()
     {
 
-    }
-
-    /**
-     * session 初始化
-     */
-    protected function initSession()
-    {
-        new SessionBootstrap();
     }
 
     /**

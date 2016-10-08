@@ -21,7 +21,7 @@ class JobServer
     {
         $this->config = $config;
         $obj = new Application($root);
-        $obj->bootstrap();
+        $obj->baseBoostrap();
     }
 
     /**

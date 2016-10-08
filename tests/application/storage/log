@@ -21,3 +21,1414 @@ Stack trace:
 [2016-10-03 21:46:52 $28119.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
 [2016-10-08 10:38:06 *48034.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#5 is closed.
 [2016-10-08 10:38:06 *48034.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#5 is closed.
+[2016-10-08 12:49:08 $50385.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
+[2016-10-08 13:25:09 *51193.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#6 is closed.
+[2016-10-08 13:25:09 *51193.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#6 is closed.
+[2016-10-08 13:25:09 *51193.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 215 byte failed, because session#7 is closed.
+[2016-10-08 13:25:09 *51193.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#7 is closed.
+[2016-10-08 13:42:21 ^53793.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 ^53796.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 ^53794.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 *53798.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 *53799.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 ^53795.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 ^53797.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:21 ^53804.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 ^53805.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:21 ^53810.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 ^53811.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 *53809.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:21 $53780.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53812.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 *53813.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53825.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53814.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53818.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53817.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53816.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53820.8]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53815.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53821.9]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 *53824.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53822.10]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 *53823.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53819.7]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53829.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53831.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53836.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53839.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 *53838.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53832.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53834.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 *53837.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53833.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53835.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 *53840.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#8 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53841.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#9 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 *53844.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53842.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53845.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#10 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53843.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53846.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53848.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53851.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53847.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 *53849.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53850.7]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53853.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53855.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53856.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53852.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53854.8]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53857.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53858.9]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 *53859.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53861.10]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53860.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 *53863.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53862.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 *53864.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53826.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 *53865.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 *53866.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53867.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#8 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 ^53868.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 ^53869.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:22 $53780.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:22 $53806.0]	WARNING	swManager_check_exit_status: worker#9 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 *53870.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53872.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53874.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53871.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53873.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#10 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53878.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53876.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53875.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53880.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53877.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 *53879.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53881.7]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53882.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53883.8]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53884.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53886.9]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 *53887.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53885.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53889.10]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 *53888.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 *53892.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 *53894.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 *53890.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53891.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53893.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53895.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53896.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53897.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53898.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53899.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#8 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53900.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 *53901.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#9 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53902.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53903.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#10 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53904.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53905.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53907.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53908.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53906.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53910.8]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53909.7]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 *53911.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53914.9]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53912.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 *53913.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 *53915.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53916.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53917.10]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53918.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 ^53919.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53920.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 *53921.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 *53923.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53780.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 ^53924.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:23 $53806.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 $53826.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:23 *53922.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:24 $53806.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:24 ^53926.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:24 ^53925.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:24 $53826.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:24 ^53927.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Class 'Config' not found in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php:28
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Storage/Redis.php(21): Trendi\Foundation\Storage\Redis->initialize()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Cache/Adapter/RedisCache.php(27): Trendi\Foundation\Storage\Redis->__construct()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBoots
+[2016-10-08 13:42:24 $53780.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:42:24 $53826.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:44:09 ^53984.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:44:09 ^53983.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:44:09 *53989.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:44:09 ^53987.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:44:09 ^53986.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:44:09 *53988.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:44:09 ^53985.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:44:09 $53975.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:44:09 $53975.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:44:09 $53975.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:44:09 $53975.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:44:09 $53975.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:44:09 $53975.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:44:09 $53975.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:45:14 ^54154.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:45:14 *54156.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:45:14 ^54153.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:45:17 $54142.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:45:17 $54142.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:45:17 $54142.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:45:18 *54178.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 86 byte failed, because session#5 is closed.
+[2016-10-08 13:45:18 *54179.1]	ERROR	swFactoryProcess_finish (ERROR 1004): send 86 byte failed, because session#6 is closed.
+[2016-10-08 13:45:18 *54178.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 86 byte failed, because session#7 is closed.
+[2016-10-08 13:53:28 ^54332.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:53:28 *54333.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:53:28 *54334.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:53:28 ^54331.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:53:28 ^54329.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 13:55:31 *54602.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 *54603.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 ^54599.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 ^54600.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 ^54597.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 ^54601.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 ^54598.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 ^54611.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 ^54613.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 ^54612.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 ^54614.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 ^54618.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 *54620.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:31 $54585.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:31 *54631.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54624.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54622.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54625.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54627.8]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54633.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54626.7]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54621.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54629.10]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 *54632.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 *54630.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54623.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54628.9]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54641.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 *54640.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54636.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 *54639.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54637.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54638.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54634.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54635.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#8 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54643.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54642.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 *54644.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54647.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54645.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54646.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54648.7]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#9 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54649.8]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 *54650.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54651.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#10 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54653.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 *54657.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54654.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54652.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54656.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 *54655.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54659.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54660.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54658.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54661.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54662.9]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54663.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 *54664.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 *54666.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54667.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54665.10]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#8 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 *54668.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54672.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54671.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 *54673.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54670.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54669.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54674.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54675.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54678.7]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54676.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 ^54677.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 *54679.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 ^54680.8]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 *54681.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Foundation\Bootstrap\debug() in /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/SessionBootstrap.php:33
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(67): Trendi\Foundation\Bootstrap\SessionBootstrap->__construct()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/Bootstrap.php(44): Trendi\Foundation\Bootstrap\Bootstrap->initSessio
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#9 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54585.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54608.0]	WARNING	swManager_check_exit_status: worker#10 abnormal exit, status=255, signal=0
+[2016-10-08 13:55:32 $54615.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 14:07:49 ^54907.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:07:49 ^54911.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:07:49 *54913.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:07:49 ^54908.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:07:49 *54912.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:07:49 ^54910.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:07:49 ^54909.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:07:49 $54899.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 14:07:49 $54899.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 14:07:49 $54899.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 14:07:49 $54899.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 14:07:49 $54899.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 14:07:49 $54899.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 14:07:49 $54899.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 14:12:10 ^55051.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:12:10 ^55050.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:12:10 ^55052.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:12:10 *55053.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:12:10 ^55048.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:12:10 *55054.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:12:10 ^55049.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:12:10 $55040.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 14:12:10 $55040.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 14:12:10 $55040.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 14:12:10 $55040.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 14:12:10 $55040.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 14:12:10 $55040.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 14:12:10 $55040.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 14:19:48 ^55153.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:19:48 ^55154.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:19:48 ^55156.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:19:48 ^55152.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:19:48 ^55155.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:19:48 *55162.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:19:48 *55158.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:19:48 $55144.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 14:19:48 $55144.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 14:19:48 $55144.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 14:19:48 $55144.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 14:19:49 $55144.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 14:19:49 $55144.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 14:19:49 $55144.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 14:20:30 *55248.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:20:30 ^55244.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:20:30 ^55245.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:20:30 *55249.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:20:30 ^55246.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:20:30 ^55247.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:20:30 ^55243.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:20:30 $55230.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 14:20:30 $55230.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 14:20:30 $55230.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 14:20:30 $55230.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 14:20:30 $55230.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 14:20:30 $55230.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 14:20:31 $55230.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 14:21:52 ^55334.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:21:52 *55336.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:21:52 *55337.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:21:52 ^55335.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:21:52 ^55332.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:21:52 ^55333.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:21:52 ^55331.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:21:52 $55322.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 14:21:52 $55322.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 14:21:52 $55322.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 14:21:52 $55322.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 14:21:52 $55322.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 14:21:52 $55322.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 14:21:52 $55322.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 14:24:26 ^55499.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:24:26 *55502.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:24:26 ^55498.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:24:26 ^55497.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:24:26 ^55496.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:24:26 ^55500.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:24:26 *55501.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:24:26 $55487.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-08 14:24:26 $55487.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-08 14:24:26 $55487.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-08 14:24:26 $55487.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-08 14:24:26 $55487.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-08 14:24:26 $55487.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-08 14:24:26 $55487.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 14:47:20 ^56401.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:47:20 ^56400.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:47:20 *56402.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 14:47:20 *56403.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Rpc\Exception\ConnectionException: Connection refused in /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php:36
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketClient.php(28): Trendi\Server\SocketClient->connect(Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolClient.php(51): Trendi\Server\SocketClient->__construct(Object(swoole_client), Array, Object(Trendi\Support\Serialization\Adapter\Defau
+[2016-10-08 15:38:28 *61558.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: require_once(): Failed opening required '/mnt/hgfs/code/trendi_framework/src/trendi/Mvc/View/Engine/Blade/Engineshelper.php' (include_path='.:/usr/share/php') in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/View/Engine/Blade/Engines/PhpEngine.php on line 32.
+[2016-10-08 15:38:28 $61544.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-08 15:44:20 *61884.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#12 is closed.
+[2016-10-08 15:44:20 *61884.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#12 is closed.
+[2016-10-08 15:44:20 *61884.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#13 is closed.
+[2016-10-08 15:44:20 *61884.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#13 is closed.
+[2016-10-08 15:44:20 *61884.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#14 is closed.
+[2016-10-08 15:44:20 *61884.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#14 is closed.
+[2016-10-08 15:44:21 *61884.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#18 is closed.
+[2016-10-08 15:44:21 *61884.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#18 is closed.
+[2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#6 is closed.
+[2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#6 is closed.
+[2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#7 is closed.
+[2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#7 is closed.
+[2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#8 is closed.
+[2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#8 is closed.
+[2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#9 is closed.
+[2016-10-08 15:51:27 *62148.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 166 byte failed, because session#9 is closed.

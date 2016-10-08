@@ -7,6 +7,8 @@
  */
 namespace Trendi\Support;
 
+//use Symfony\Component\Console\Output\ConsoleOutput;
+
 class Log
 {
     private static $instance = null;
@@ -70,6 +72,7 @@ class Log
             self::$instance = new self();
         }
         $pre = "[$name] ";
+//        $output =  new ConsoleOutput();
         switch ($name) {
             case 'info':
                 echo self::$instance->getColoredString($pre.$arguments[0], 'light_gray')."\n";

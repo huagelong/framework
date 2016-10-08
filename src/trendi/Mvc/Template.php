@@ -76,6 +76,7 @@ class Template
         if (!$tpl) {
             View::setEngine(self::getEngine());
             $tpl = View::getViewObj();
+            self::setView($tpl);
         }
 
         $rootPath = self::getViewRoot();

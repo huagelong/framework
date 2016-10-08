@@ -7,22 +7,18 @@
  */
 namespace Trendi\Mvc\View\Engine;
 
-use Illuminate\Container\Container;
-use Illuminate\Events\Dispatcher;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\View\ViewServiceProvider;
+use Trendi\Mvc\View\Engine\Blade\Engines\EngineResolver;
 use Trendi\Mvc\View\ViewInterface;
+use Trendi\Mvc\View\Engine\Blade\Compilers\BladeCompiler;
+use Trendi\Mvc\View\Engine\Blade\Engines\CompilerEngine;
+use Trendi\Mvc\View\Engine\Blade\Engines\PhpEngine;
+use Trendi\Mvc\View\Engine\Blade\FileViewFinder;
+use Trendi\Mvc\View\Engine\Blade\Factory;
 
 class Blade implements ViewInterface
 {
     protected static $instance = null;
 
-    /**
-     * Container instance.
-     *
-     * @var Container
-     */
-    protected $container;
     /**
      * Engine Resolver
      *
@@ -36,10 +32,7 @@ class Blade implements ViewInterface
      */
     public function __construct()
     {
-        $this->container = new Container;
-        $this->setupContainer();
-        (new ViewServiceProvider($this->container))->register();
-        $this->engineResolver = $this->container->make('view.engine.resolver');
+
     }
 
     public static function getInstance()
@@ -64,24 +57,6 @@ class Blade implements ViewInterface
     }
 
 
-    /**
-     * Bind required instances for the service provider.
-     */
-    protected function setupContainer()
-    {
-        $this->container->bindIf('files', function () {
-            return new Filesystem;
-        }, true);
-        $this->container->bindIf('events', function () {
-            return new Dispatcher;
-        }, true);
-        $this->container->bindIf('config', function () {
-            return [
-                'view.paths' => (array)$this->viewPaths,
-                'view.compiled' => $this->cachePath,
-            ];
-        }, true);
-    }
 
     /**
      * Render shortcut.
@@ -93,30 +68,51 @@ class Blade implements ViewInterface
      */
     public function render($view, $data = [])
     {
-        return $this->container['view']->make($view, $data, [])->render();
+        $path = $this->viewPaths;
+        $resolver = new EngineResolver();
+        foreach (['php', 'blade'] as $engine) {
+            $this->{'register'.ucfirst($engine).'Engine'}($resolver);
+        }
+        $finder = new FileViewFinder([$path]);
+
+        $factory = new Factory($resolver, $finder);
+        
+        $result= $factory->make($view, $data, [])->render();
+
+        return $result;
     }
 
     /**
-     * Get the compiler
+     * Register the PHP engine implementation.
      *
-     * @return mixed
+     * @param  \Trendi\Mvc\View\Engine\Blade\Engines\EngineResolver  $resolver
+     * @return void
      */
-    public function compiler()
+    public function registerPhpEngine($resolver)
     {
-        $bladeEngine = $this->engineResolver->resolve('blade');
-        return $bladeEngine->getCompiler();
+        $resolver->register('php', function () {
+            return new PhpEngine;
+        });
     }
 
     /**
-     * Pass any method to the view factory instance.
+     * Register the Blade engine implementation.
      *
-     * @param  string $method
-     * @param  array $params
-     * @return mixed
+     * @param  \Trendi\Mvc\View\Engine\Blade\Engines\EngineResolver  $resolver
+     * @return void
      */
-    public function __call($method, $params)
+    public function registerBladeEngine($resolver)
     {
-        return call_user_func_array([$this->container['view'], $method], $params);
+        $resolver->register('blade', function () {
+            $cachePath =  $this->cachePath;
+            $compiler = new BladeCompiler($cachePath);
+            $compiler->directive('datetime', function($timestamp) {
+                return preg_replace('/(\(\d+\))/', '<?php echo date("Y-m-d H:i:s", $1); ?>', $timestamp);
+            });
+            $engine = new CompilerEngine($compiler);
+            return $engine;
+        });
     }
+
 
 }

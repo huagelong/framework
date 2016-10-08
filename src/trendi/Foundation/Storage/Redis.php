@@ -7,7 +7,7 @@
 
 namespace Trendi\Foundation\Storage;
 
-use Config;
+use Trendi\Config\Config;
 use Trendi\Foundation\Exception\ConfigNotFoundException;
 use Trendi\Pool\PoolClient;
 use Trendi\Support\Log;

@@ -11,9 +11,24 @@ namespace Trendi\Foundation\Bootstrap;
 
 use Trendi\Cache\Adapter\RedisCache;
 use Trendi\Config\Config;
+use Trendi\Support\Log;
 
 class SessionBootstrap
 {
+    protected static $instance = [];
+
+    /**
+     *  instance
+     * @return object
+     */
+    public static function getInstance()
+    {
+        if (isset(self::$instance) && self::$instance) return self::$instance;
+
+        return self::$instance = new self();
+    }
+
+
     /**
      * @var \Trendi\Cache\Adapter\RedisCache
      */
@@ -21,8 +36,9 @@ class SessionBootstrap
 
     public function __construct()
     {
-        $this->server = new RedisCache();
+        session_write_close();
 
+        $this->server = new RedisCache();
         session_set_save_handler(
             array($this, "open"),
             array($this, "close"),
@@ -31,6 +47,10 @@ class SessionBootstrap
             array($this, "destroy"),
             array($this, "gc")
         );
+
+        if(session_status() != PHP_SESSION_NONE && (session_status() != PHP_SESSION_ACTIVE)){
+            session_start();
+        }
     }
 
     public function open($savePath, $sessionName)
@@ -45,6 +65,7 @@ class SessionBootstrap
 
     public function read($id)
     {
+        Log::debug("sessionRead:".$id);
         return $this->server->get($id);
     }
 

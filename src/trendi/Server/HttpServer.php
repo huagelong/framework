@@ -141,7 +141,7 @@ class HttpServer
             swoole_set_process_name($this->serverName . "-httpd-worker");
             Log::sysinfo($this->serverName . " httpd worker start ..... ");
         }
-        $this->adapter->bootstrap();
+        $this->adapter->httpBoostrap();
         if (Facade::getFacadeApplication()) {
             Context::set("server", $swooleServer, true, true);
             Task::setLogPath($this->config["task_fail_log"]);

@@ -2,19 +2,12 @@
 define("ROOT_PATH", __DIR__);
 require_once __DIR__ . "/../../vendor/autoload.php";
 
-use Trendi\Config\Config;
-use Predis\Client;
-use Trendi\Coroutine\SystemCall;
-use Trendi\Coroutine\Scheduler;
-use Trendi\Coroutine\Task;
-
 class test{
 
 
     function hello($a,$b)
     {
-        yield;
-        return $a+$b;
+        yield $a+$b;
     }
 
     function get($c, $a,$b){
@@ -25,9 +18,9 @@ class test{
 }
 
 $obj= new test();
+$result = $obj->hello(2,3);
+print_r($result);
 
-$data = SystemCall::newTask($obj->get(1,2,3));
-dump($data->getTaskId());
 
 
 
