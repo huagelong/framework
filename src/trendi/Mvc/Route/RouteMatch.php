@@ -9,15 +9,16 @@
 
 namespace Trendi\Mvc\Route;
 
-use Symfony\Component\Routing\Generator\UrlGenerator;
-use Symfony\Component\Routing\Matcher\UrlMatcher;
-use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\RouteCollection as SymfonyRouteCollection;
+use Trendi\Mvc\Route\Base\Generator\UrlGenerator;
+use Trendi\Mvc\Route\Base\Matcher\UrlMatcher;
+use Trendi\Mvc\Route\Base\RouteCollection as BaseRouteCollection;
+use Trendi\Mvc\Route\Base\RequestContext;
 use Trendi\Http\Request;
 use Trendi\Http\Response;
 use Trendi\Mvc\Route\Exception\PageNotFoundException;
 use Trendi\Support\Arr;
 use Trendi\Coroutine\Event;
+use Trendi\Mvc\Route\Base;
 
 class RouteMatch
 {
@@ -58,7 +59,7 @@ class RouteMatch
     protected function getRootCollection()
     {
         if (self::$collectionInstance) return self::$collectionInstance;
-        $rootCollection = new SymfonyRouteCollection();
+        $rootCollection = new BaseRouteCollection();
         $allRoute = $this->getAllGroupRoute();
         if ($allRoute) {
             foreach ($allRoute as $v) {

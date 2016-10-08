@@ -9,8 +9,8 @@
 
 namespace Trendi\Http;
 
-use Symfony\Component\HttpFoundation\ParameterBag;
-use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
+use Trendi\Http\HttpBase\ParameterBag;
+use Trendi\Http\HttpBase\Request as SymfonyRequest;
 
 class Request extends SymfonyRequest
 {

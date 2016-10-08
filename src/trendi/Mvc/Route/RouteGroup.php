@@ -9,7 +9,7 @@
 
 namespace Trendi\Mvc\Route;
 
-use Symfony\Component\Routing\RouteCollection as SymfonyRouteCollection;
+use Trendi\Mvc\Route\Base\RouteCollection as BaseRouteCollection;
 use Trendi\Support\Arr;
 
 class RouteGroup
@@ -65,7 +65,7 @@ class RouteGroup
 
     public function bind($closure)
     {
-        $subCollection = new SymfonyRouteCollection();
+        $subCollection = new BaseRouteCollection();
         $key = "group_" . spl_object_hash($subCollection);
 
         self::$groupHash = $key;

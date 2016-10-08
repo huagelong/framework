@@ -17,13 +17,7 @@
         "mtdowling/cron-expression": "~1.1",
         "swiftmailer/swiftmailer": "^5.4",
         "symfony/console": "3.1.*",
-        "symfony/config":"3.1.*",
-        "symfony/http-foundation": "3.1.*",
-        "symfony/http-kernel": "3.1.*",
-        "symfony/process": "3.1.*",
-        "symfony/routing": "3.1.*",
         "symfony/dependency-injection":"3.1.*",
-        "symfony/proxy-manager-bridge":"3.1.*",
         "illuminate/view": "^5.3",
         "predis/predis": "^1.1"
     },
@@ -41,7 +35,8 @@
     "suggest": {
         "ext-msgpack": "data serialize tool",
         "ext-igbinary":"data serialize tool",
-        "ext-hprose":"data serialize tool"
+        "ext-hprose":"data serialize tool",
+        "symfony/proxy-manager-bridge": "Generate service proxies to lazy load them"
     },
     "autoload-dev": {
         "psr-4": {

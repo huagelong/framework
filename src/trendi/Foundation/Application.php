@@ -9,7 +9,6 @@
 
 namespace Trendi\Foundation;
 
-use Illuminate\Support\Arr;
 use Symfony\Component\Console\Application as CmdApplication;
 use Trendi\Config\Config as CConfig;
 use Trendi\Foundation\Bootstrap\Bootstrap;
@@ -18,7 +17,7 @@ use Trendi\Foundation\Bootstrap\RouteBootstrap;
 use Trendi\Foundation\Command;
 use Trendi\Mvc\Route\RouteMatch;
 use Trendi\Support\Dir;
-use Trendi\Coroutine\Event;
+use Trendi\Support\Arr;
 use Trendi\Support\ElapsedTime;
 
 class Application
@@ -67,9 +66,7 @@ class Application
      */
     public function start($request, $response)
     {
-        Event::bind("controller_call_before", function ($params) {
-            ElapsedTime::setStartTime("sys_elapsed_time");
-        });
+        ElapsedTime::setStartTime("sys_elapsed_time");
         
         $url = $request->getPathInfo();
         $routeObj = RouteMatch::getInstance();

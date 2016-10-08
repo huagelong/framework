@@ -9,6 +9,7 @@ namespace Trendi\Foundation\Command\Server;
 
 use Trendi\Config\Config;
 use Trendi\Support\Dir;
+use Trendi\Support\PhpExecutableFinder;
 
 
 class ServerBase
@@ -90,7 +91,7 @@ class ServerBase
 
     protected static function getPhpBinary()
     {
-        $executableFinder = new \Symfony\Component\Process\PhpExecutableFinder();
+        $executableFinder = new PhpExecutableFinder();
 
         return $executableFinder->find();
     }

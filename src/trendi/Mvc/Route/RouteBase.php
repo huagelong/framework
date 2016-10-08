@@ -9,7 +9,7 @@
 
 namespace Trendi\Mvc\Route;
 
-use Symfony\Component\Routing\Route as SymfonyRoute;
+use Trendi\Mvc\Route\Base\Route as BaseRoute;
 use Trendi\Support\Arr;
 
 class RouteBase
@@ -170,7 +170,7 @@ class RouteBase
             $this->defaults['_controller'] = $closureOrArr;
         }
 
-        $route = new SymfonyRoute(
+        $route = new BaseRoute(
             $this->path, // path
             $this->defaults, // default values
             $this->requirements, // requirements
