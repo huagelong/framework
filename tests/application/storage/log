@@ -2008,3 +2008,7 @@ Stack trace:
 [2016-10-08 18:33:22 *66435.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#42 is closed.
 [2016-10-08 18:33:22 *66435.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#42 does not exist.
 [2016-10-08 18:33:28 *66436.1]	ERROR	swFactoryProcess_finish (ERROR 1005): session#35 does not exist.
+[2016-10-08 18:38:16 *66526.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#51 is closed.
+[2016-10-08 18:38:16 *66526.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#51 does not exist.
+[2016-10-08 18:38:43 *66526.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#107 is closed.
+[2016-10-08 18:38:43 *66526.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#107 does not exist.

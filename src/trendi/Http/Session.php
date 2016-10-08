@@ -57,12 +57,9 @@ class Session
             $sid = $request->post->get($sessionName);
         } elseif ($request->cookies->get($sessionName)) {
             $sid = $request->cookies->get($sessionName);
-        } elseif ($request->server->get($sessionName)) {
-            $sid = $request->server->get($sessionName);
         } else {
             $sid = sha1($request->headers->get('user-agent') . $request->server->get('remote_addr') . uniqid(posix_getpid(), true));
         }
-        
         $response->rawcookie($sessionName, $sid, $lifetime, $path, $domain, $secure, $httponly);
         self::$sid = $sid;
         $this->set("trendy_heart", 1);
