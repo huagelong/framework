@@ -14,6 +14,7 @@ return [
             "port" => "3306",
             "password" => "123456",
             "db_name" => "putao_mall",
+            "timeout"=>5,
         ]
     ],
     "redis"=>[
@@ -24,6 +25,7 @@ return [
         "options"=>[
             'prefix'  => 'test',
             'cluster' => 'redis',
+            "timeout"=>9,
         ],
     ]
 ];

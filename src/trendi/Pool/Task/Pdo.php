@@ -70,12 +70,16 @@ class Pdo
         try {
             if (isset(self::$config['master']) && !isset(self::$conn[self::CONN_MASTER])) {
                 $masterConfig = self::$config['master'];
-                $dbh = new \PDO(self::$config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '', $masterConfig['user'], $masterConfig['password'], array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+                $dbh = new \PDO(self::$config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '', 
+                    $masterConfig['user'], $masterConfig['password'], 
+                       array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout']));
                 self::$conn[self::CONN_MASTER] = $dbh;
             }
             if (isset(self::$config['slave']) && !isset(self::$conn[self::CONN_MASTER])) {
-                $masterConfig = self::$config['slave'];
-                $slaveDBH = new \PDO(self::$config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '', $masterConfig['user'], $masterConfig['password'], array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+                $slaveConfig = self::$config['slave'];
+                $slaveDBH = new \PDO(self::$config['type'] . ':host=' . $slaveConfig['host'] . ';port=' . $slaveConfig['port'] . ';dbname=' . $slaveConfig['db_name'] . '', 
+                    $slaveConfig['user'], $slaveConfig['password'], 
+                      array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout']));
                 self::$conn[self::CONN_SLAVE] = $slaveDBH;
             }
 

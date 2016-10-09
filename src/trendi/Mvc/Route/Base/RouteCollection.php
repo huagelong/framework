@@ -258,7 +258,7 @@ class RouteCollection implements \IteratorAggregate, \Countable
     /**
      * Returns an array of resources loaded to build this collection.
      *
-     * @return ResourceInterface[] An array of resources
+     * @return 
      */
     public function getResources()
     {
@@ -268,7 +268,7 @@ class RouteCollection implements \IteratorAggregate, \Countable
     /**
      * Adds a resource for this collection.
      *
-     * @param ResourceInterface $resource A resource instance
+     * @param 
      */
     public function addResource($resource)
     {

@@ -76,12 +76,16 @@ class Pdo extends SQlAdapter
             $config = Config::get("storage.pdo");
             if (isset($config['master']) && !isset(self::$conn[self::CONN_MASTER])) {
                 $masterConfig = $config['master'];
-                $dbh = new \PDO($config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '', $masterConfig['user'], $masterConfig['password'], array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+                $dbh = new \PDO($config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '',
+                    $masterConfig['user'], $masterConfig['password'],
+                    array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout']));
                 self::$conn[self::CONN_MASTER] = $dbh;
             }
             if (isset($config['slave']) && !isset(self::$conn[self::CONN_MASTER])) {
-                $masterConfig = $config['slave'];
-                $slaveDBH = new \PDO($config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '', $masterConfig['user'], $masterConfig['password'], array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+                $slaveConfig = $config['slave'];
+                $slaveDBH = new \PDO($config['type'] . ':host=' . $slaveConfig['host'] . ';port=' . $slaveConfig['port'] . ';dbname=' . $slaveConfig['db_name'] . '',
+                    $slaveConfig['user'], $slaveConfig['password'],
+                    array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout']));
                 self::$conn[self::CONN_SLAVE] = $slaveDBH;
             }
 

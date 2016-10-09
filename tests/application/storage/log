@@ -3741,3 +3741,13 @@ Stack trace:
 [2016-10-09 16:03:25 *71732.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#10 does not exist.
 [2016-10-09 16:03:26 *71732.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 221 byte failed, because session#12 is closed.
 [2016-10-09 16:03:26 *71732.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#12 does not exist.
+[2016-10-09 17:09:39 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#5 is closed.
+[2016-10-09 17:09:39 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#5 does not exist.
+[2016-10-09 17:09:40 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#10 is closed.
+[2016-10-09 17:09:40 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#10 does not exist.
+[2016-10-09 17:09:40 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#11 is closed.
+[2016-10-09 17:09:40 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#11 does not exist.
+[2016-10-09 17:09:43 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#20 is closed.
+[2016-10-09 17:09:43 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#20 does not exist.
+[2016-10-09 17:09:43 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#21 is closed.
+[2016-10-09 17:09:43 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#21 does not exist.
