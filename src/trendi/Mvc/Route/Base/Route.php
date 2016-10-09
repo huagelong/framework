@@ -469,6 +469,7 @@ class Route implements \Serializable
      */
     public function addRequirements(array $requirements)
     {
+        
         foreach ($requirements as $key => $regex) {
             $this->requirements[$key] = $this->sanitizeRequirement($key, $regex);
         }

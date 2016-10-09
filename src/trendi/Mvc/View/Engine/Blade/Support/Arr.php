@@ -48,7 +48,7 @@ class Arr
         $results = [];
 
         foreach ($array as $values) {
-            if ($values instanceof Collection) {
+            if (method_exists($values,"all")) {
                 $values = $values->all();
             } elseif (! is_array($values)) {
                 continue;
@@ -179,7 +179,7 @@ class Arr
     public static function flatten($array, $depth = INF)
     {
         return array_reduce($array, function ($result, $item) use ($depth) {
-            $item = $item instanceof Collection ? $item->all() : $item;
+            $item = method_exists($item,"all") ? $item->all() : $item;
 
             if (! is_array($item)) {
                 return array_merge($result, [$item]);
@@ -464,10 +464,10 @@ class Arr
      * @param  callable|string  $callback
      * @return array
      */
-    public static function sort($array, $callback)
-    {
-        return Collection::make($array)->sortBy($callback)->all();
-    }
+//    public static function sort($array, $callback)
+//    {
+//        return Collection::make($array)->sortBy($callback)->all();
+//    }
 
     /**
      * Recursively sort an array by keys and values.

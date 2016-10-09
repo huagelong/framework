@@ -29,7 +29,6 @@ class PhpEngine implements EngineInterface
      */
     protected function evaluatePath($__path, $__data)
     {
-        require_once __DIR__."/helper.php";
         $obLevel = ob_get_level();
         ob_start();
         extract($__data, EXTR_SKIP);

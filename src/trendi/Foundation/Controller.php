@@ -5,12 +5,15 @@
  * Time: 上午9:09
  */
 
-namespace Trendi\Mvc;
+namespace Trendi\Foundation;
 
 use Trendi\Support\Arr;
+use Trendi\Support\Dir;
 use Trendi\Config\Config;
 use Trendi\Http\Response;
 use Trendi\Http\Request;
+use Trendi\Mvc\AssignData;
+use Trendi\Mvc\Template;
 
 class Controller
 {
@@ -48,7 +51,10 @@ class Controller
      */
     public function render($viewPath, $assign = [])
     {
-        Template::setViewRoot(Config::get("view.path"));
+        $viewRoot = Config::get("view.path");
+        $theme = Config::get("view.theme");
+        $realViewRoot = Dir::formatPath($viewRoot).$theme;
+        Template::setViewRoot($realViewRoot);
         Template::setViewCacheRoot(Config::get("view.compile_path"));
         Template::setEngine(Config::get("view.engine"));
         $assign = Arr::merge($assign, $this->view->getAssignData());

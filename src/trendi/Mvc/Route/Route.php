@@ -63,7 +63,21 @@ class Route
      */
     public static function __callStatic($method, $args)
     {
-        $method = strtoupper($method);
+        return self::bind($method, $args);
+    }
+
+
+    public static function bind($method, $args)
+    {
+        if (is_array($method)) {
+            $_method = [];
+            foreach ($method as $v) {
+                $_method = strtoupper($v);
+            }
+        } else {
+            $_method = strtoupper($method);
+        }
+
         $obj = new RouteBase();
         if (count($args) < 2) {
             throw new InvalidArgumentException("argument count error");
@@ -72,7 +86,7 @@ class Route
         $path = $args[0];
         $closureOrArr = $args[1];
 
-        $obj->match($method, $path, $closureOrArr);
+        $obj->match($_method, $path, $closureOrArr);
 //        dump($obj->getResult());
         if (is_array($closureOrArr)) {
             if (isset($closureOrArr['name'])) {
@@ -96,7 +110,6 @@ class Route
             }
 
         }
-
         return $obj;
     }
 }

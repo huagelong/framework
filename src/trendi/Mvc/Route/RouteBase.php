@@ -25,7 +25,7 @@ class RouteBase
     protected static $result = [];
     protected $resultKey = null;
     /**
-     * @var \Symfony\Component\Routing\Route
+     * @var \Trendi\Mvc\Route\Base\Route
      */
     protected $routeObj = null;
 
@@ -46,7 +46,7 @@ class RouteBase
             $tmp = [$key => $value];
             $this->requirements = Arr::merge($this->requirements, $tmp);
         }
-
+        
         $this->routeObj->setRequirements($this->requirements);
 
         $this->setResult($this->resultKey, $this->routeObj);
@@ -161,11 +161,13 @@ class RouteBase
      */
     public function match($methods, $path, $closureOrArr)
     {
-        if (!is_array($methods)) $methods = array($methods);
-
+        if($methods != 'any'){
+            if (!is_array($methods)) $methods = array($methods);
+            $this->methods = $methods;
+        }
+        
         $this->path = $path;
-        $this->methods = $methods;
-
+        
         if (!is_array($closureOrArr)) {
             $this->defaults['_controller'] = $closureOrArr;
         }

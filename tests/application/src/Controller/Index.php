@@ -7,7 +7,7 @@
  */
 namespace Trendi\Test\Controller;
 
-use Trendi\Mvc\Controller;
+use Trendi\Foundation\Controller;
 use Trendi\Job\Job;
 
 class Index extends Controller

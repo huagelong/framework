@@ -32,7 +32,7 @@ class Blade implements ViewInterface
      */
     public function __construct()
     {
-
+        require_once __DIR__."/Blade/helper.php";
     }
 
     public static function getInstance()

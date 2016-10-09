@@ -2072,3 +2072,1654 @@ Stack trace:
 [2016-10-09 13:29:40 *69026.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#13 does not exist.
 [2016-10-09 13:29:40 *69026.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#14 is closed.
 [2016-10-09 13:29:40 *69026.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#14 does not exist.
+[2016-10-09 15:20:35 *69378.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:35 ^69377.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:35 *69383.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:35 ^69373.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:35 ^69375.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:35 ^69374.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:35 ^69376.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:35 $69364.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:35 $69364.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:35 $69364.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:35 $69364.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:35 $69364.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:35 $69364.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 *69392.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69393.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69394.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69395.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 ^69400.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 ^69401.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 *69402.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 ^69406.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 *69408.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69404.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 *69409.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69405.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 ^69410.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69403.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69396.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 $69396.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 *69411.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69407.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69396.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 $69396.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 $69396.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 ^69412.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 $69396.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 ^69413.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 $69396.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 ^69414.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 *69415.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69421.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69422.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 ^69417.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 *69424.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 $69364.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:36 ^69423.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:36 *69425.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:37 *69426.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:37 ^69427.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:37 $69364.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:37 $69396.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:37 ^69428.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:20:37 $69396.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:20:37 ^69429.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Mvc\Route\bind() in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Route.php:66
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/tests/application/route/test.php(3): Trendi\Mvc\Route\Route::__callStatic('get', Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap/RouteBootstrap.php(55): require_once('/mnt/hgfs/code/...')
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Bootstrap
+[2016-10-09 15:21:02 *69496.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:02 ^69494.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:02 *69495.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:02 ^69493.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:02 ^69490.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:02 ^69491.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:02 ^69492.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:02 $69478.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:02 $69478.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:02 $69478.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:02 $69478.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:02 $69478.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 *69513.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69509.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69508.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69507.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69510.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 *69511.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69506.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69517.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 ^69518.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69519.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 ^69521.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69520.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 *69522.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 *69528.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 *69529.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 *69530.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69531.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 ^69532.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 ^69535.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69534.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69533.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 ^69537.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69536.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69501.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 $69478.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:03 ^69538.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:03 ^69539.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:04 ^69542.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:04 *69541.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:04 $69478.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:04 *69540.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:04 *69543.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:04 $69478.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:04 ^69545.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:58 *69614.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:58 ^69612.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:58 ^69609.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:58 ^69613.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:58 $69596.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:58 ^69610.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:58 *69615.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:58 ^69608.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:58 $69596.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:58 $69596.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:58 $69596.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:58 $69596.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:58 $69596.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:59 $69596.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:59 ^69628.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 ^69626.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 ^69627.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 ^69624.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 *69630.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 ^69625.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 *69629.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 ^69637.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 *69636.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 *69635.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:21:59 $69619.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:59 $69619.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:21:59 $69619.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 ^69707.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 *69710.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 ^69706.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 ^69704.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 ^69708.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 *69709.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 ^69705.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 ^69723.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 ^69728.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 *69729.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 ^69730.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 ^69731.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 ^69732.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 ^69734.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 ^69736.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:35 ^69735.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:35 $69695.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 *69733.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 *69739.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 ^69738.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 ^69737.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 *69740.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 ^69741.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 ^69742.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 ^69744.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 ^69746.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 ^69745.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 *69743.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 ^69747.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 ^69749.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 ^69748.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 ^69754.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 *69755.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 *69756.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 ^69758.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 ^69759.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 *69757.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 ^69760.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 ^69761.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:36 $69724.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 $69695.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:36 ^69766.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 ^69767.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 ^69769.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 ^69770.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 *69768.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 ^69771.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 *69772.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 *69774.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 ^69773.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 ^69776.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 ^69775.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 ^69778.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 *69777.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 ^69780.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 ^69779.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 ^69783.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 *69785.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 ^69784.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 ^69786.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 ^69787.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 *69788.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 *69789.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 ^69790.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:37 $69724.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 $69695.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:37 ^69792.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:38 ^69791.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:38 ^69793.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:28:38 $69724.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:38 $69724.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:28:38 *69794.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:14 *69863.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:14 ^69860.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:14 ^69861.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:14 ^69859.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:14 ^69858.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:14 ^69857.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:14 *69862.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:14 $69844.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:14 $69844.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:14 $69844.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:14 $69844.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:14 $69844.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:14 $69844.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:14 $69844.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:15 ^69874.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:15 *69879.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:15 ^69878.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:15 ^69877.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:15 ^69875.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:15 ^69876.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:15 *69880.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:15 ^69884.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:15 ^69885.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:15 $69868.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:15 $69868.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:15 $69868.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:15 $69868.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 *69958.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 ^69952.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 ^69953.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 *69957.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 ^69956.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 ^69955.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 ^69954.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 ^69964.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 *69970.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 ^69966.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 ^69965.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 *69969.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 ^69968.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 ^69967.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 $69949.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69949.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69949.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69949.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69949.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 ^69976.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 *69977.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 $69949.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 ^69978.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 $69949.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 ^69979.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:29:34 ^69980.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:29:34 $69937.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:08 ^70051.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:08 *70056.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:08 ^70054.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:08 ^70050.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:08 *70055.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:08 ^70052.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:08 ^70053.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:08 $70037.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:08 $70037.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:08 $70037.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:08 $70037.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:08 $70037.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:08 $70037.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:09 $70037.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:09 ^70067.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:09 *70070.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:09 *70071.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:09 ^70068.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:09 ^70069.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:09 ^70065.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:09 ^70066.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:09 $70057.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:09 $70057.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:09 $70057.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:09 $70057.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:09 $70057.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:09 $70057.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:55 ^70148.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 *70151.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 ^70147.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 ^70146.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 ^70149.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 *70150.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 ^70145.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 $70132.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:55 $70132.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:55 $70132.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:55 $70132.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:55 $70132.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:55 $70132.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:55 $70132.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:30:55 ^70164.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 ^70161.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 *70165.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 ^70162.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:30:55 *70166.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:571
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(473): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:42 ^70238.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:42 ^70237.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:42 ^70239.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:42 *70241.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:42 ^70236.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:42 *70240.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:42 ^70235.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:42 $70223.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:42 $70223.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:42 $70223.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:42 $70223.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:42 $70223.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:42 $70223.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:42 $70223.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:42 ^70253.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:42 *70258.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 ^70256.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 ^70255.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 ^70254.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 *70257.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 ^70252.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 ^70263.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 ^70262.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 $70246.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:43 *70264.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 $70246.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:43 $70246.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:43 $70223.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:43 $70246.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:43 $70246.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:43 $70246.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:31:43 ^70265.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:31:43 $70246.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:04 *70337.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 *70338.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 ^70336.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 ^70333.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 ^70334.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 ^70332.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 ^70335.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 $70320.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:04 $70320.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:04 $70320.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:04 $70320.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:04 $70320.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:04 $70320.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:04 $70320.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:04 *70353.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 ^70348.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 ^70350.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 ^70352.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:04 *70354.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:05 ^70351.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:05 ^70349.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:05 ^70359.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:05 $70343.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 $70343.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 $70343.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 ^70360.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:05 ^70361.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:05 $70343.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 ^70362.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:05 $70343.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 $70343.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 $70320.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 $70320.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 $70343.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 $70320.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 $70320.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:05 *70365.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:36 *70438.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:36 ^70436.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:36 ^70434.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:36 ^70435.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:36 *70437.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:36 ^70433.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:36 ^70432.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:36 $70419.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:36 $70419.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:36 $70419.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:36 $70419.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:36 $70419.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:36 $70419.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:36 $70419.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:36 ^70449.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:572
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(474): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 ^70525.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 ^70526.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 ^70522.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 *70528.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 *70527.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 ^70523.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 ^70524.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 $70509.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70509.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70509.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70509.0]	WARNING	swManager_check_exit_status: worker#1 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70509.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70509.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70509.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 ^70538.3]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 ^70540.5]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 *70542.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 *70543.1]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 ^70539.4]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 ^70537.2]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 ^70541.6]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught InvalidArgumentException: Routing requirement for "0" must be a string. in /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php:573
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(475): Trendi\Mvc\Route\Base\Route->sanitizeRequirement(0, Array)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Mvc/Route/Base/Route.php(458): Trendi\Mvc\Route\Base\Route->addRequirements(Array)
+#2 /mnt/hgfs/code/trendi_frame
+[2016-10-09 15:32:58 $70529.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70529.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70529.0]	WARNING	swManager_check_exit_status: worker#3 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70529.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70529.0]	WARNING	swManager_check_exit_status: worker#2 abnormal exit, status=255, signal=0
+[2016-10-09 15:32:58 $70529.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:46:52 *71153.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#5 is closed.
+[2016-10-09 15:46:52 *71153.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#5 does not exist.
+[2016-10-09 15:46:53 *71153.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#7 is closed.
+[2016-10-09 15:46:53 *71153.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#7 does not exist.
+[2016-10-09 15:46:53 *71153.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#8 is closed.
+[2016-10-09 15:46:53 *71153.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#8 does not exist.
+[2016-10-09 15:46:53 *71153.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#9 is closed.
+[2016-10-09 15:46:53 *71153.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#9 does not exist.
+[2016-10-09 15:46:57 *71153.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:120
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(211): Trendi\Http\Response->end()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(196): Trendi\Server\HttpServer->response(Object(Trendi\Http\Request), Object(Trendi\Http\Response))
+#2 [internal function]: Trendi\Server\HttpSer
+[2016-10-09 15:46:57 $71135.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:46:58 *71189.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:120
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(211): Trendi\Http\Response->end()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(196): Trendi\Server\HttpServer->response(Object(Trendi\Http\Request), Object(Trendi\Http\Response))
+#2 [internal function]: Trendi\Server\HttpSer
+[2016-10-09 15:46:58 $71135.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:46:59 *71191.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:120
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(211): Trendi\Http\Response->end()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(196): Trendi\Server\HttpServer->response(Object(Trendi\Http\Request), Object(Trendi\Http\Response))
+#2 [internal function]: Trendi\Server\HttpSer
+[2016-10-09 15:46:59 $71135.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:49:30 *71440.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 221 byte failed, because session#5 is closed.
+[2016-10-09 15:49:30 *71440.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#5 does not exist.
+[2016-10-09 15:49:30 *71440.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 221 byte failed, because session#6 is closed.
+[2016-10-09 15:49:31 *71440.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#6 does not exist.
+[2016-10-09 15:50:56 *71540.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Trendi\Http\Exception\ContextErrorException: http has send in /mnt/hgfs/code/trendi_framework/src/trendi/Http/Response.php:120
+Stack trace:
+#0 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(211): Trendi\Http\Response->end()
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(196): Trendi\Server\HttpServer->response(Object(Trendi\Http\Request), Object(Trendi\Http\Response))
+#2 [internal function]: Trendi\Server\HttpSer
+[2016-10-09 15:50:56 $71523.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
