@@ -8,7 +8,7 @@
 
 namespace Trendi\Foundation\Storage\Adapter;
 
-abstract class PdoAbstract
+abstract class SQlAbstract
 {
     protected $hasTran = 0;//是否有事务
     protected $_total = 0;

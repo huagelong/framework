@@ -9,38 +9,98 @@ namespace Trendi\Foundation\Storage;
 
 use Config;
 use Trendi\Foundation\Exception\ConfigNotFoundException;
-use Trendi\Foundation\Storage\Adapter\PdoAbstract as PdoAdapter;
+use Trendi\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
 use Trendi\Pool\PoolClient;
 use Trendi\Coroutine\Event;
 use Trendi\Support\Log;
 
-class Pdo extends PdoAdapter
+class Pdo extends SQlAdapter
 {
+    const CONN_MASTER = 0;//写服务器
+    const CONN_SLAVE = 1;//读服务器
+
+    //适配器类型
+    const ADAPTER_DEFAULT = "default";
+    const ADAPTER_POOL = "pool";
+
+    private $type = self::ADAPTER_DEFAULT;
+
     protected static $client = null;
-    protected $config = null;
+    private static $conn = [];
     
     public function __construct()
     {
-        $this->config = Config::get("client.pool");
-        if (!$this->config) {
+        $type = Config::get("app.adapter.database");
+        $this->type = $type;
+        if($this->type == self::ADAPTER_DEFAULT){
+            $this->initializeDefault();
+        }else{
+            $this->initializePool();
+        }
+
+        parent::__construct();
+    }
+
+    protected function initializeDefault()
+    {
+        $this->prefix = Config::get("pdo.prefix");
+    }
+
+    protected function initializePool()
+    {
+        if(self::$client) return;
+
+        $config = Config::get("client.pool");
+        if (!$config) {
             throw new ConfigNotFoundException("client.pool not config");
         }
-        $prefix = isset($this->config['pdo']['prefix']) ? $this->config['pdo']['prefix'] : null;
+        $prefix = isset($config['pdo']['prefix']) ? $config['pdo']['prefix'] : null;
         if (!$prefix) {
             $prefix = Config::get("pdo.prefix");
         }
 
         $this->prefix = $prefix;
-        
-        $this->initialize();
-        parent::__construct();
+
+        Log::sysinfo("new pdo client conn");
+        self::$client = new PoolClient($config['host'], $config['port'], $config['serialization'],$config);
     }
 
-    public function initialize()
+
+    protected function setConn($dnType = self::CONN_MASTER)
     {
-        if(self::$client) return;
-        Log::sysinfo("new redis client conn");
-        self::$client = new PoolClient($this->config['host'], $this->config['port'], $this->config['serialization'],$this->config);
+        if (self::$conn && isset(self::$conn[$dnType])) {
+            return self::$conn[$dnType];
+        }
+
+        try {
+            $config = Config::get("pdo");
+            if (isset($config['master']) && !isset(self::$conn[self::CONN_MASTER])) {
+                $masterConfig = $config['master'];
+                $dbh = new \PDO($config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '', $masterConfig['user'], $masterConfig['password'], array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+                self::$conn[self::CONN_MASTER] = $dbh;
+            }
+            if (isset($config['slave']) && !isset(self::$conn[self::CONN_MASTER])) {
+                $masterConfig = $config['slave'];
+                $slaveDBH = new \PDO($config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '', $masterConfig['user'], $masterConfig['password'], array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+                self::$conn[self::CONN_SLAVE] = $slaveDBH;
+            }
+
+        } catch (\PDOException $e) {
+            throw $e;
+        }
+
+        if (!isset(self::$conn[self::CONN_MASTER])) {
+            throw new \PDOException('master database server must set ~');
+        }
+
+        if (!isset(self::$conn[self::CONN_SLAVE])) {
+            self::$conn[self::CONN_SLAVE] = self::$conn[self::CONN_MASTER];
+        }
+
+        self::$conn[$dnType]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+        self::$conn[$dnType]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+        return self::$conn[$dnType];
     }
 
     /**
@@ -64,12 +124,17 @@ class Pdo extends PdoAdapter
 
         self::$_sql[] = $sql;
 
-        $params = [
-            $sql,
-            $connType
-        ];
-        $data = self::$client->get("pdo", $params);
-        return $data;
+        if($this->type == self::ADAPTER_DEFAULT){
+            $conn = $this->setConn($connType);
+            $conn->exec($sql);
+        }else{
+            $params = [
+                $sql,
+                $connType
+            ];
+            $data = self::$client->get("pdo", $params);
+            return $data;
+        }
     }
 
 
@@ -80,13 +145,19 @@ class Pdo extends PdoAdapter
         }
         self::$_sql[] = $sql;
 
-        $params = [
-            $sql,
-            $connType,
-            "fetchAll"
-        ];
-        $data = self::$client->get("pdo", $params);
-        return $data;
+        if($this->type == self::ADAPTER_DEFAULT){
+            $conn = $this->setConn($connType);
+            $query = $conn->query($sql);
+            return $query->fetchAll();
+        }else{
+            $params = [
+                $sql,
+                $connType,
+                "fetchAll"
+            ];
+            $data = self::$client->get("pdo", $params);
+            return $data; 
+        }
     }
 
 
@@ -96,13 +167,20 @@ class Pdo extends PdoAdapter
             return false;
         }
         self::$_sql[] = $sql;
-        $params = [
-            $sql,
-            $connType,
-            "fetch"
-        ];
-        $data = self::$client->get("pdo", $params);
-        return $data;
+
+        if($this->type == self::ADAPTER_DEFAULT){
+            $conn = $this->setConn($connType);
+            $query = $conn->query($sql);
+            return $query->fetch();
+        }else{
+            $params = [
+                $sql,
+                $connType,
+                "fetch"
+            ];
+            $data = self::$client->get("pdo", $params);
+            return $data; 
+        }
     }
 
     public function __destruct()

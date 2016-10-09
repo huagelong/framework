@@ -55,15 +55,15 @@ class Index extends Controller
 //        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
 //        $data = $userDao->test();
 //
-        $userDao = new \Trendi\Test\Lib\Dao\UserWxDao();
-        $data = $userDao->test();
+//        $userDao = new \Trendi\Test\Lib\Dao\UserDao();
+//        $data = $userDao->test();
 //        dump($data);
-        $rs = cache()->set("wang", "hello world");
+//        $rs = cache()->set("wang", "hello world");
 //        dump(posix_getpid()."-hello:".$rs);
 //        $data = cache()->get("wang");
-        $rs = cache()->set("wang", "wangkaihui");
+//        $rs = cache()->set("wang", "wangkaihui");
 //        dump(posix_getpid()."-wang:".$rs);
-        $data = cache()->get("wang");
+//        $data = cache()->get("wang");
 //        dump(posix_getpid()."-".$data);
 //
         session()->set("wang", "test hello world");

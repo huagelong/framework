@@ -106,8 +106,8 @@ return [
             "task_fail_log" => ROOT_PATH . "/storage/pool_task_fail_log",
             "task_retry_count" => 2,
             "pool_worker_number" => [
-                "pdo" => 4,
-                "redis" => 5
+                "pdo" => 2,
+                "redis" =>2
             ],
             "serialization" => 1,
             "maxRequests" => 10000,

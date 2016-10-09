@@ -9,7 +9,6 @@
 namespace Trendi\Pool\Task;
 
 use Predis\Client;
-use Trendi\Coroutine\SystemCall;
 
 class Redis
 {

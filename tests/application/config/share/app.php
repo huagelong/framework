@@ -10,4 +10,8 @@ return [
         "secure"=>false,
         "httponly"=>true,
     ],
+    "adapter"=>[
+        "database"=>"pool",//pool or default
+        "redis"=>"pool"
+    ]
 ];
