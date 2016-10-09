@@ -160,7 +160,7 @@ class HttpServer
         Log::sysinfo("======================");
         Log::error(socket_strerror($exitCode) . "");
 
-        Event::fire("httpd_worker_error", [$exitCode, date('Y-m-d H:i:s')]);
+        Event::fire("httpd.worker.error", [$exitCode, date('Y-m-d H:i:s')]);
     }
 
     /**

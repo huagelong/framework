@@ -41,9 +41,9 @@ class PoolBootstrap
      */
     public function load()
     {
-        $config = Config::get("pdo");
+        $config = Config::get("storage.pdo");
         if ($config) Pdo::setConfig($config);
-        $config = Config::get("redis");
+        $config = Config::get("storage.redis");
         if ($config) Redis::setConfig($config);
     }
 }

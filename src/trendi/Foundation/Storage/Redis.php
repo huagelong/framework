@@ -37,7 +37,7 @@ class Redis
     protected function initializeDefault()
     {
         if(self::$conn) return ;
-        $config = Config::get("redis");
+        $config = Config::get("storage.redis");
         $servers = $config['servers'];
         $options = $config['options'];
         try {

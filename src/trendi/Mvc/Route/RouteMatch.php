@@ -122,8 +122,8 @@ class RouteMatch
      */
     public function run($url, Request $request, Response $response)
     {
-        Event::fire("http_controller_call_before", [$url, $request, $response]);
-        Event::fire("controller_call_before", [$url]);
+        Event::fire("controller.call.before", [$url]);
+        Event::fire("http.controller.call.before", [$url, $request, $response]);
         
         $this->sessionStart($request, $response);
         
@@ -168,8 +168,9 @@ class RouteMatch
      */
     public function runRpc($url, $requestData = [])
     {
-        Event::fire("rpc_controller_call_before", [$url, $requestData]);
-        Event::fire("controller_call_before", [$url]);
+        Event::fire("controller.call.before", [$url]);
+        Event::fire("rpc.controller.call.before", [$url, $requestData]);
+        
         $parameters = $this->match($url);
         if ($parameters) {
             $require = [];
@@ -226,7 +227,7 @@ class RouteMatch
                             $obj = new $controller();
                             $content = call_user_func_array([$obj, $action], $require);
                         }
-                        Event::fire("controller_call_after", [$content]);
+                        Event::fire("controller.call.after", [$content]);
                         Event::fire("clear");
                         return $content;
                     } else {

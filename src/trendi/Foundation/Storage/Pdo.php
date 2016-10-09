@@ -43,7 +43,7 @@ class Pdo extends SQlAdapter
 
     protected function initializeDefault()
     {
-        $this->prefix = Config::get("pdo.prefix");
+        $this->prefix = Config::get("storage.pdo.prefix");
     }
 
     protected function initializePool()
@@ -56,7 +56,7 @@ class Pdo extends SQlAdapter
         }
         $prefix = isset($config['pdo']['prefix']) ? $config['pdo']['prefix'] : null;
         if (!$prefix) {
-            $prefix = Config::get("pdo.prefix");
+            $prefix = Config::get("storage.pdo.prefix");
         }
 
         $this->prefix = $prefix;
@@ -73,7 +73,7 @@ class Pdo extends SQlAdapter
         }
 
         try {
-            $config = Config::get("pdo");
+            $config = Config::get("storage.pdo");
             if (isset($config['master']) && !isset(self::$conn[self::CONN_MASTER])) {
                 $masterConfig = $config['master'];
                 $dbh = new \PDO($config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '', $masterConfig['user'], $masterConfig['password'], array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
