@@ -255,23 +255,23 @@ class RouteCollection implements \IteratorAggregate, \Countable
         }
     }
 
-//    /**
-//     * Returns an array of resources loaded to build this collection.
-//     *
-//     * @return ResourceInterface[] An array of resources
-//     */
-//    public function getResources()
-//    {
-//        return array_unique($this->resources);
-//    }
-//
-//    /**
-//     * Adds a resource for this collection.
-//     *
-//     * @param ResourceInterface $resource A resource instance
-//     */
-//    public function addResource(ResourceInterface $resource)
-//    {
-//        $this->resources[] = $resource;
-//    }
+    /**
+     * Returns an array of resources loaded to build this collection.
+     *
+     * @return ResourceInterface[] An array of resources
+     */
+    public function getResources()
+    {
+        return array_unique($this->resources);
+    }
+
+    /**
+     * Adds a resource for this collection.
+     *
+     * @param ResourceInterface $resource A resource instance
+     */
+    public function addResource($resource)
+    {
+        $this->resources[] = $resource;
+    }
 }

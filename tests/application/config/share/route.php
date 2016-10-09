@@ -5,7 +5,7 @@ return [
         [
             "name"=>"site",
             "method"=>"get",
-            "prefix"=>"",
+            "prefix"=>"rpc",
             "domain"=>"",
             "middleware"=>"",
             "routes"=>[

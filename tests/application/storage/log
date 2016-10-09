@@ -3723,3 +3723,21 @@ Stack trace:
 #1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php(196): Trendi\Server\HttpServer->response(Object(Trendi\Http\Request), Object(Trendi\Http\Response))
 #2 [internal function]: Trendi\Server\HttpSer
 [2016-10-09 15:50:56 $71523.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+[2016-10-09 15:51:48 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#10 is closed.
+[2016-10-09 15:51:48 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#10 does not exist.
+[2016-10-09 15:51:48 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#11 is closed.
+[2016-10-09 15:51:48 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#11 does not exist.
+[2016-10-09 15:51:49 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#15 is closed.
+[2016-10-09 15:51:49 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#15 does not exist.
+[2016-10-09 15:51:49 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#16 is closed.
+[2016-10-09 15:51:49 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#16 does not exist.
+[2016-10-09 15:51:50 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#19 is closed.
+[2016-10-09 15:51:50 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#19 does not exist.
+[2016-10-09 15:51:50 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#20 is closed.
+[2016-10-09 15:51:50 *71576.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#20 does not exist.
+[2016-10-09 16:03:25 *71732.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 221 byte failed, because session#9 is closed.
+[2016-10-09 16:03:25 *71732.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#9 does not exist.
+[2016-10-09 16:03:25 *71732.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 221 byte failed, because session#10 is closed.
+[2016-10-09 16:03:25 *71732.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#10 does not exist.
+[2016-10-09 16:03:26 *71732.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 221 byte failed, because session#12 is closed.
+[2016-10-09 16:03:26 *71732.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#12 does not exist.
