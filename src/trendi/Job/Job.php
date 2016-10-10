@@ -77,6 +77,9 @@ class Job
                     $jobObj = isset($valueArr[1]) ? $valueArr[1] : "";
                     $schedule = isset($valueArr[3]) ? $valueArr[3] : "";
                     $tag = isset($valueArr[4]) ? $valueArr[4] : "";
+                    if(!is_object($jobObj)){
+                        continue;
+                    }
                     $jobObj->perform();
                     $this->storage->zrem($key, $v);
                     if ($schedule) {

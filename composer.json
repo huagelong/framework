@@ -28,7 +28,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Trendi\\": "src/trendi"
+            "Trendi\\": "src/trendi",
+            "Trendi\\Test\\": "tests/application/src"
         }
     },
     "suggest": {
@@ -39,7 +40,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Trendi\\Test\\": "tests/application/src"
         }
     },
     "minimum-stability": "dev",
