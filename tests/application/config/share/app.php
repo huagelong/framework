@@ -6,7 +6,7 @@ return [
         "name"=>"TSESSIONID",
         "cache_expire"=>60*60*2,
         "path"=>"/",
-        "domain"=>"test.app",
+        "domain"=>"",
         "secure"=>false,
         "httponly"=>true,
     ],

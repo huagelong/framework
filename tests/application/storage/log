@@ -3751,3 +3751,4 @@ Stack trace:
 [2016-10-09 17:09:43 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#20 does not exist.
 [2016-10-09 17:09:43 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#21 is closed.
 [2016-10-09 17:09:43 *72579.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#21 does not exist.
+[2016-10-10 09:00:31 $72535.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=0, signal=11
