@@ -17,7 +17,7 @@ tests/application/config/share/storage.php
 里面的pdo和redis连接
 
 
-* 安装成功后执行
+* 设置完成后执行
 
 ``
 php tests/application/trendi server:restart
