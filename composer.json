@@ -32,7 +32,7 @@
     "autoload": {
         "psr-4": {
             "Trendi\\": "src/trendi",
-            "Trendi\\Test\\": "tests/application/src"
+            "Trendi\\Test\\": "tests"
         }
     },
     "suggest": {
