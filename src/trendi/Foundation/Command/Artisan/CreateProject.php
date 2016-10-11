@@ -21,21 +21,22 @@ class CreateProject extends Command
         $this->setName('create:project')
             ->setDescription('create project');
         $this->addOption('--name', '-p', InputOption::VALUE_REQUIRED, 'project name ?');
-        $this->addOption('--dir', '-d', InputOption::VALUE_OPTIONAL, 'project dir ?');
+        $this->addOption('--dir', '-d', InputOption::VALUE_OPTIONAL, 'project dir ?', null);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $name = $input->getOption('name');
         $path = $input->getOption('dir');
-        $path = $path?$path:__DIR__;
-        $path = $path . "/".$name;
+        $path = $path ? $path : __DIR__;
 
-        if (!is_dir($path)) {
-            mkdir($path);
+        if (!is_file($path . "/trendi")) {
+            if (!is_dir($path)) {
+                mkdir($path);
+            }
         } else {
             Log::error("project existed!");
-//            return true;
+            return true;
         }
 
         $this->xCopy(__DIR__ . "/_dist/application", $path);
@@ -47,7 +48,18 @@ class CreateProject extends Command
         $this->changeExt($path);
         //名字替换
         $this->batchReplace($path, "/#Name#/", ucfirst($name));
-//        $this->batchReplace($path, "/#name#/", $name);
+        $composerJsonPath = $path . "/composer.json";
+        if (is_file($composerJsonPath)) {
+            unlink($path . "/composer.json.back");
+            $code = file_get_contents($composerJsonPath);
+            $json = json_decode($code,true);
+            $json['name'] = $name;
+            $json['autoload']['psr-4'][ucfirst($name)."\\"] = "src";
+            $newCode = json_decode($json);
+            file_put_contents($composerJsonPath, $newCode);
+        } else {
+            rename($path . "/composer.json.back", $path . "/composer.json");
+        }
     }
 
     protected function xCopy($source, $destination, $child = 1)
@@ -87,8 +99,8 @@ class CreateProject extends Command
                 } else {
                     $pathinfo = pathinfo($source . "/" . $entry);
                     if (isset($pathinfo['extension']) && ($pathinfo['extension'] == $ext)) {
-                        rename($source . "/" . $entry, str_replace(".".$ext, "", $source . "/" . $entry));
-                        Log::sysinfo(str_replace(".".$ext, "", $source . "/" . $entry) . " created");
+                        rename($source . "/" . $entry, str_replace("." . $ext, "", $source . "/" . $entry));
+                        Log::sysinfo(str_replace("." . $ext, "", $source . "/" . $entry) . " created");
                     }
                 }
             }
@@ -96,7 +108,7 @@ class CreateProject extends Command
         return true;
     }
 
-    protected function batchReplace($sourcePath, $reg, $replaceTo, $ext = "php,json")
+    protected function batchReplace($sourcePath, $reg, $replaceTo, $ext = "php,json,back")
     {
         if (!is_dir($sourcePath)) {
             return false;
