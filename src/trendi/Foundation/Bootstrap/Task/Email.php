@@ -36,7 +36,7 @@ class Email
             ->setTo($receiver)
             ->setBody($msg, 'text/html', 'utf-8');
 
-        $config = Config::get("email.server");
+        $config = Config::get("app.email.server");
         if (!$config) {
             throw new ConfigNotFoundException("email.server not config");
         }

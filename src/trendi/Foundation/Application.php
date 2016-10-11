@@ -85,7 +85,7 @@ class Application
         
         $url = $request->getPathInfo();
         $routeObj = RouteMatch::getInstance();
-        $middlewareConfig = CConfig::get("middleware");
+        $middlewareConfig = CConfig::get("app.middleware");
         $routeObj->setMiddlewareConfig($middlewareConfig);
         return $routeObj->run($url, $request, $response);
     }
@@ -129,6 +129,7 @@ class Application
             new Command\Server\Restart(),
             new Command\Server\Status(),
             new Command\Server\Stop(),
+            new Command\Artisan\CreateProject(),
         ];
         $config = CConfig::get("command");
         if ($config) {

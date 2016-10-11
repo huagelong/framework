@@ -83,7 +83,7 @@ class Bootstrap
     {
         $options = TaskConfig::getOptions();
 
-        $configOption = Config::get("task");
+        $configOption = Config::get("app.task");
         if ($configOption) $options = Arr::merge($options, $configOption);
 
         if (!$options) return true;
@@ -128,7 +128,7 @@ class Bootstrap
     {
         $options = AliasConfig::getOptions();
 
-        $configOption = Config::get("aliases");
+        $configOption = Config::get("app.aliases");
         if ($configOption) $options = Arr::merge($options, $configOption);
 
         if (!$options) return true;
@@ -155,7 +155,7 @@ class Bootstrap
     {
         $options = DiConfig::getOptions();
 
-        $configOption = Config::get("di");
+        $configOption = Config::get("app.di");
         if ($configOption) $options = Arr::merge($options, $configOption);
 
         if (!$options) return true;

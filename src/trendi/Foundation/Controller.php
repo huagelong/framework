@@ -51,12 +51,12 @@ class Controller
      */
     public function render($viewPath, $assign = [])
     {
-        $viewRoot = Config::get("view.path");
-        $theme = Config::get("view.theme");
+        $viewRoot = Config::get("app.view.path");
+        $theme = Config::get("app.view.theme");
         $realViewRoot = Dir::formatPath($viewRoot).$theme;
         Template::setViewRoot($realViewRoot);
-        Template::setViewCacheRoot(Config::get("view.compile_path"));
-        Template::setEngine(Config::get("view.engine"));
+        Template::setViewCacheRoot(Config::get("app.view.compile_path"));
+        Template::setEngine(Config::get("app.view.engine"));
         $assign = Arr::merge($assign, $this->view->getAssignData());
         $content = Template::render($viewPath, $assign);
         return $content;

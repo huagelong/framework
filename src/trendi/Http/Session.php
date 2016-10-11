@@ -22,7 +22,7 @@ class Session
     private $config = [];
 
 
-    public function __construct($config, $server)
+    public function __construct($config=[], $server=null)
     {
         $this->config = $config;
         $this->server = $server;
@@ -31,7 +31,9 @@ class Session
     public function start($request, $response)
     {
         if (self::$sid) return self::$sid;
-
+        
+        if(!$this->config||!$this->server) return ;
+        
         $config = $this->config;
 
         $sid = null;

@@ -26,8 +26,11 @@ class Session extends HttpSession
     public function __construct()
     {
         $config = Config::get("app.session");
-        $server = new Redis();
-        parent::__construct($config, $server);
+        $serverConfig = Config::get("storage.redis.servers");
+        if($serverConfig){
+            $server = new Redis();
+            parent::__construct($config, $server);
+        }
     }
 
 }

@@ -11,8 +11,8 @@ return [
         "httponly"=>true,
     ],
     "adapter"=>[
-        "database"=>"default",//pool or default
-        "redis"=>"default"
+        "database"=>"pool",//pool or default
+        "redis"=>"pool"
     ],
     "aliases"=>[],
     "di"=>[],
@@ -26,7 +26,7 @@ return [
         ]
     ],
     "middleware"=>[
-        "author"=>\Trendi\Test\Lib\Middleware\Author::class
+
     ],
     "task"=>[],
     "view"=>[

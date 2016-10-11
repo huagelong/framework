@@ -1,0 +1,24 @@
+<?php
+return [
+    "load_path"=>__DIR__."/../../route",
+    "routes"=>[
+        [
+            "name"=>"home",
+            "method"=>"get",
+            "prefix"=>"",
+            "domain"=>"",
+            "middleware"=>"",
+            "routes"=>[
+                [
+                    "method"=>"get",
+                    "path"=>"/",
+                    "uses"=>"\\Trendi\\Test\\Controller\\Index@index",
+                    "name"=>"home",
+                    "middleware"=>"",
+                    "where"=>[],
+                ],
+            ],
+
+        ],
+    ]
+];
