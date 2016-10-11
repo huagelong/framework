@@ -45,7 +45,7 @@
         "psr-4": {
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "repositories": {
         "packagist": {
             "type": "composer",
