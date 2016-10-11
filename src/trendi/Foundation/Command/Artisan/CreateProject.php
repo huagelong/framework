@@ -12,6 +12,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputArgument;
 use Trendi\Support\Log;
 
 class CreateProject extends Command
@@ -20,15 +21,15 @@ class CreateProject extends Command
     {
         $this->setName('create:project')
             ->setDescription('create project');
-        $this->addOption('--name', '-p', InputOption::VALUE_REQUIRED, 'project name ?');
-        $this->addOption('--dir', '-d', InputOption::VALUE_OPTIONAL, 'project dir ?', null);
+        $this->addArgument('name', InputArgument::REQUIRED, 'project name ?');
+        $this->addArgument('dir', InputArgument::OPTIONAL, 'project dir ?');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $name = $input->getOption('name');
-        $path = $input->getOption('dir');
-        $path = $path ? $path : __DIR__;
+        $name = $input->getArgument('name');
+        $path = $input->getArgument('dir');
+        $path = $path ? $path : ROOT_PATH;
 
         if (!is_file($path . "/trendi")) {
             if (!is_dir($path)) {
@@ -55,7 +56,7 @@ class CreateProject extends Command
             $json = json_decode($code,true);
             $json['name'] = $name;
             $json['autoload']['psr-4'][ucfirst($name)."\\"] = "src";
-            $newCode = json_decode($json);
+            $newCode = json_encode($json);
             file_put_contents($composerJsonPath, $newCode);
         } else {
             rename($path . "/composer.json.back", $path . "/composer.json");
@@ -95,6 +96,7 @@ class CreateProject extends Command
         while ($entry = $handle->read()) {
             if (($entry != ".") && ($entry != "..")) {
                 if (is_dir($source . "/" . $entry)) {
+                    if($entry == '_dist') continue;
                     $this->changeExt($source . "/" . $entry, $ext);
                 } else {
                     $pathinfo = pathinfo($source . "/" . $entry);
