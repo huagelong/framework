@@ -3,3 +3,4 @@ composer.lock
 tests/application/storage/log
 tests/application/storage/tplcompile/
 vendor/
+/mela/

@@ -76,7 +76,7 @@ class Log
                 echo self::$instance->getColoredString($pre.$arguments[0], 'light_gray')."\n";
                 break;
             case 'sysinfo':
-                echo self::$instance->getColoredString($pre.$arguments[0], 'light_gray')."\n";
+                echo self::$instance->getColoredString($pre.$arguments[0], 'dark_gray')."\n";
                 break;
             case 'warn':
                 echo self::$instance->getColoredString($pre.$arguments[0], 'yellow')."\n";
