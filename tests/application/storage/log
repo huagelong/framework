@@ -4337,3 +4337,11 @@ Call Stack:
 [0;37m[2016-10-11 16:44:27][15118][10.8.8.8][264ms][sysinfo] trendi-rpc worker start ..... [0m
 [0;37m[2016-10-11 16:44:27][15117][10.8.8.8][264ms][sysinfo] trendi-rpc task worker start ..... [0m
 [0;37m[2016-10-11 16:44:27][15119][10.8.8.8][274ms][sysinfo] trendi-rpc worker start ..... [0m
+[2016-10-11 16:51:48 *15980.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#6 is closed.
+[2016-10-11 16:51:48 *15980.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#6 does not exist.
+[2016-10-11 17:03:16 *16801.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#6 is closed.
+[2016-10-11 17:03:16 *16801.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#6 does not exist.
+[2016-10-11 17:03:16 *16801.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#7 is closed.
+[2016-10-11 17:03:16 *16801.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#7 does not exist.
+[2016-10-11 17:03:17 *16801.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 368 byte failed, because session#11 is closed.
+[2016-10-11 17:03:17 *16801.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#11 does not exist.

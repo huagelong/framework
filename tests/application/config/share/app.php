@@ -13,5 +13,26 @@ return [
     "adapter"=>[
         "database"=>"pool",//pool or default
         "redis"=>"pool"
-    ]
+    ],
+    "aliases"=>[],
+    "di"=>[],
+    "email"=>[
+        "server"=>[
+            "smtp"=>"",
+            "port"=>465,
+            "username"=>"",
+            "password"=>"",
+            "encryption"=>"ssl",
+        ]
+    ],
+    "middleware"=>[
+        "author"=>\Trendi\Test\Lib\Middleware\Author::class
+    ],
+    "task"=>[],
+    "view"=>[
+        "path"=>__DIR__."/../../rescource/views",
+        "theme"=>"default",
+        "compile_path"=>__DIR__."/../../storage/tplcompile",
+        "engine"=>"blade"
+    ],
 ];
