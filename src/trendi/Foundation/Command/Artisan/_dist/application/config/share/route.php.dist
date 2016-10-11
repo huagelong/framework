@@ -12,7 +12,7 @@ return [
                 [
                     "method"=>"get",
                     "path"=>"/",
-                    "uses"=>"\\Trendi\\Test\\Controller\\Index@index",
+                    "uses"=>"\\#Name#\\Controller\\Index@index",
                     "name"=>"home",
                     "middleware"=>"",
                     "where"=>[],

@@ -20,21 +20,22 @@ class CreateProject extends Command
     {
         $this->setName('create:project')
             ->setDescription('create project');
-        $this->addOption('--name', '-n', InputOption::VALUE_REQUIRED, 'project name ?');
-        $this->addOption('--path', '-p', InputOption::VALUE_NONE, 'project path ?');
+        $this->addOption('--name', '-p', InputOption::VALUE_REQUIRED, 'project name ?');
+        $this->addOption('--dir', '-d', InputOption::VALUE_OPTIONAL, 'project dir ?');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $name = $input->getOption('name');
-        $path = $input->getOption('path');
-        $path = $path?$path:__DIR__."/".$name;
+        $path = $input->getOption('dir');
+        $path = $path?$path:__DIR__;
+        $path = $path . "/".$name;
 
         if (!is_dir($path)) {
             mkdir($path);
         } else {
             Log::error("project existed!");
-            return true;
+//            return true;
         }
 
         $this->xCopy(__DIR__ . "/_dist/application", $path);
@@ -45,8 +46,8 @@ class CreateProject extends Command
         //替换扩展名
         $this->changeExt($path);
         //名字替换
-        $this->batchReplace($path, "/\$\{Name\}/", ucfirst($name));
-        $this->batchReplace($path, "/\$\{name\}/", $name);
+        $this->batchReplace($path, "/#Name#/", ucfirst($name));
+//        $this->batchReplace($path, "/#name#/", $name);
     }
 
     protected function xCopy($source, $destination, $child = 1)
@@ -85,7 +86,7 @@ class CreateProject extends Command
                     $this->changeExt($source . "/" . $entry, $ext);
                 } else {
                     $pathinfo = pathinfo($source . "/" . $entry);
-                    if ($pathinfo['extension'] == $ext) {
+                    if (isset($pathinfo['extension']) && ($pathinfo['extension'] == $ext)) {
                         rename($source . "/" . $entry, str_replace(".".$ext, "", $source . "/" . $entry));
                         Log::sysinfo(str_replace(".".$ext, "", $source . "/" . $entry) . " created");
                     }
@@ -114,6 +115,7 @@ class CreateProject extends Command
                     if (isset($pathinfo['extension']) && in_array($pathinfo['extension'], $extArr)) {
                         $tmpData = file_get_contents($tmpPath);
                         $tmpData = preg_replace($reg, $replaceTo, $tmpData);
+//                        Log::debug($tmpData);
                         file_put_contents($tmpPath, $tmpData);
                     }
                 }

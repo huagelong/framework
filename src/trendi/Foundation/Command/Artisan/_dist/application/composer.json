@@ -1,5 +1,5 @@
 {
-    "name": "${Name}",
+    "name": "#Name#",
     "description": "you project description",
     "type": "library",
     "license": "MIT",
@@ -10,16 +10,16 @@
         }
     ],
     "require": {
-        "trendi/framework": "1.01"
+        "trendi/framework": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.4"
     },
     "autoload": {
         "psr-4": {
-            "${Name}\\": "src"
+            "#Name#\\": "src"
         }
-    }
+    },
     "repositories": {
         "packagist": {
             "type": "composer",

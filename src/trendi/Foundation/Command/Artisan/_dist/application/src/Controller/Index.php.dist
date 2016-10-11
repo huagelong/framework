@@ -5,7 +5,7 @@
  * Date: 16/9/13
  * Time: 下午3:18
  */
-namespace ${Name}\Controller;
+namespace #Name#\Controller;
 
 use Trendi\Foundation\Controller;
 
