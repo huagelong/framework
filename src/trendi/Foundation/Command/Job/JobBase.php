@@ -12,6 +12,7 @@ use Trendi\Job\JobServer;
 use Trendi\Support\Arr;
 use Trendi\Support\Dir;
 use Trendi\Support\ElapsedTime;
+use Trendi\Support\Log;
 
 class JobBase
 {
@@ -24,17 +25,17 @@ class JobBase
         $appName = Config::get("server.name");
 
         if (!$appName) {
-            $output->writeln("<info>server.name not config</info>");
+            Log::sysinfo("server.name not config");
             exit(0);
         }
 
         if (!$config) {
-            $output->writeln("<info>job config not config</info>");
+            Log::sysinfo("job config not config");
             exit(0);
         }
 
         if (!isset($config['server'])) {
-            $output->writeln("<info>job.server config not config</info>");
+            Log::sysinfo("job.server config not config");
             exit(0);
         }
 
@@ -67,21 +68,21 @@ class JobBase
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {
-            $output->writeln("<info>[$serverName] already running</info>");
+            Log::sysinfo("[$serverName] already running");
             return;
         }
 
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
-            $output->writeln("<info>[$serverName] not run</info>");
+            Log::sysinfo("[$serverName] not run");
             return;
         }
         // execute command.
         switch ($command) {
             case 'status':
                 if ($masterPid) {
-                    $output->writeln("<info>[$serverName] already running</info>");
+                    Log::sysinfo("[$serverName] already running");
                 } else {
-                    $output->writeln("<info>[$serverName] not run</info>");
+                    Log::sysinfo("[$serverName] not run");
                 }
                 break;
             case 'clear':
@@ -93,7 +94,7 @@ class JobBase
                 break;
             case 'stop':
                 self::stop($appName);
-                $output->writeln("<info>[$serverName] stop success </info>");
+                Log::sysinfo("[$serverName] stop success ");
                 break;
             case 'restart':
                 self::stop($appName);

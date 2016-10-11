@@ -10,6 +10,7 @@ namespace Trendi\Foundation\Command\Server;
 use Trendi\Config\Config;
 use Trendi\Support\Dir;
 use Trendi\Support\PhpExecutableFinder;
+use Trendi\Support\Log;
 
 
 class ServerBase
@@ -27,7 +28,7 @@ class ServerBase
 
         $config = Config::get("server");
         if (!$config) {
-            $output->writeln("<info>server config not config</info>");
+            Log::sysinfo("server config not config");
             return;
         }
         self::doOperate($cmd, $daemonizeStr, $config);

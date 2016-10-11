@@ -13,6 +13,7 @@ use Trendi\Support\Arr;
 use Trendi\Support\Dir;
 use Trendi\Support\Serialization\Serialization;
 use Trendi\Support\ElapsedTime;
+use Trendi\Support\Log;
 
 class PoolBase
 {
@@ -25,22 +26,22 @@ class PoolBase
         $appName = Config::get("server.name");
 
         if (!$appName) {
-            $output->writeln("<info>server.name not config</info>");
+            Log::sysinfo("server.name not config");
             exit(0);
         }
 
         if (!$config) {
-            $output->writeln("<info>pool config not config</info>");
+            Log::sysinfo("pool config not config");
             exit(0);
         }
 
         if (!isset($config['server'])) {
-            $output->writeln("<info>pool.server config not config</info>");
+            Log::sysinfo("pool.server config not config");
             exit(0);
         }
 
         if (!isset($config['server']['pool_worker_number'])) {
-            $output->writeln("<info>pool.server.pool_worker_number config not config</info>");
+            Log::sysinfo("pool.server.pool_worker_number config not config");
             exit(0);
         }
 
@@ -50,12 +51,12 @@ class PoolBase
         }
 
         if (!isset($config['server']['host'])) {
-            $output->writeln("<info>pool.server.host config not config</info>");
+            Log::sysinfo("pool.server.host config not config");
             exit(0);
         }
 
         if (!isset($config['server']['port'])) {
-            $output->writeln("<info>pool.server.port config not config</info>");
+            Log::sysinfo("pool.server.port config not config");
             exit(0);
         }
         self::doOperate($cmd, $config, $root, $appName, $output);
@@ -95,21 +96,21 @@ class PoolBase
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {
-            $output->writeln("<info>[$serverName] already running</info>");
+            Log::sysinfo("[$serverName] already running");
             return;
         }
 
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
-            $output->writeln("<info>[$serverName] not run</info>");
+            Log::sysinfo("[$serverName] not run");
             return;
         }
         // execute command.
         switch ($command) {
             case 'status':
                 if ($masterPid) {
-                    $output->writeln("<info>[$serverName] already running</info>");
+                    Log::sysinfo("[$serverName] already running");
                 } else {
-                    $output->writeln("<info>[$serverName] not run</info>");
+                    Log::sysinfo("[$serverName] not run");
                 }
                 break;
             case 'start':
@@ -117,7 +118,7 @@ class PoolBase
                 break;
             case 'stop':
                 self::stop($appName);
-                $output->writeln("<info>[$serverName] stop success </info>");
+                Log::sysinfo("[$serverName] stop success ");
                 break;
             case 'restart':
                 self::stop($appName);

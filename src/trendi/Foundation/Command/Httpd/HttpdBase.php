@@ -13,6 +13,7 @@ use Trendi\Server\HttpServer;
 use Trendi\Support\Arr;
 use Trendi\Support\Dir;
 use Trendi\Support\ElapsedTime;
+use Trendi\Support\Log;
 
 class HttpdBase
 {
@@ -26,17 +27,17 @@ class HttpdBase
         $appName = Config::get("server.name");
 
         if (!$appName) {
-            $output->writeln("<info>server.name not config</info>");
+            Log::sysinfo("server.name not config");
             exit(0);
         }
 
         if (!$config) {
-            $output->writeln("<info>httpd config not config</info>");
+            Log::sysinfo("httpd config not config");
             exit(0);
         }
 
         if (!isset($config['server'])) {
-            $output->writeln("<info>httpd.server config not config</info>");
+            Log::sysinfo("httpd.server config not config");
             exit(0);
         }
 
@@ -46,12 +47,12 @@ class HttpdBase
         }
 
         if (!isset($config['server']['host'])) {
-            $output->writeln("<info>httpd.server.host config not config</info>");
+            Log::sysinfo("httpd.server.host config not config");
             exit(0);
         }
 
         if (!isset($config['server']['port'])) {
-            $output->writeln("<info>httpd.server.port config not config</info>");
+            Log::sysinfo("httpd.server.port config not config");
             exit(0);
         }
 
@@ -94,20 +95,20 @@ class HttpdBase
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {
-            $output->writeln("<info>httpd server already running</info>");
+            Log::sysinfo("httpd server already running");
             return;
         }
 
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
-            $output->writeln("<info>[$serverName] not run</info>");
+            Log::sysinfo("[$serverName] not run");
             return;
         }
         switch ($command) {
             case 'status':
                 if ($masterPid) {
-                    $output->writeln("<info>[$serverName]  already running</info>");
+                    Log::sysinfo("[$serverName]  already running");
                 } else {
-                    $output->writeln("<info>[$serverName]  not run</info>");
+                    Log::sysinfo("[$serverName]  not run");
                 }
                 break;
             case 'start':
@@ -115,7 +116,7 @@ class HttpdBase
                 break;
             case 'stop':
                 self::stop($appName);
-                $output->writeln("<info>[$serverName] stop success </info>");
+                Log::sysinfo("[$serverName] stop success ");
                 break;
             case 'restart':
                 self::stop($appName);
