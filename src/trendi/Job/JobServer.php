@@ -43,22 +43,23 @@ class JobServer
     public function start()
     {
         $name = isset($this->config['server']['name']) ? $this->config['server']['name'] : "trendi";
-        $serverName = $name . "-job-server";
+        $preName = $name."-job";
+        $serverName = $preName . "-master";
         swoole_set_process_name($serverName);
-        Log::info("[$serverName] start ...");
+//        Log::sysinfo("[$serverName] start ...");
         //start job run
-        $job = new Job($this->config, $serverName);
+        $this->config['server_name'] = $name;
+        $job = new Job($this->config);
         $perform = $this->config['perform'];
 
-        $processServer = new ProcessServer($this->config['server']);
-        $name = isset($this->config['server']['name']) ? $this->config['server']['name'] : "trendi";
-        $name = $name . "-job-worker";
+        $processServer = new ProcessServer($this->config['server'],true);
+        $name = $preName . "-worker";
 
         foreach ($perform as $key => $v) {
             $processServer->add(
                 function (\swoole_process $worker) use ($key, $job, $name) {
                     $worker->name($name);
-                    Log::info("[$name] start ...");
+                    Log::sysinfo("[$name] start ...");
                     $job->start($key);
                 }
             );

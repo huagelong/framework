@@ -34,6 +34,7 @@ class SocketServer
         $this->config = $config;
         $this->adapter = $adapter;
         $this->serverName = $serverName . "-" . $socketName;
+        $this->config['server_name'] = $this->serverName;
     }
 
     public function start()
@@ -69,8 +70,6 @@ class SocketServer
 
     public function onReceive(SwooleServer $serv, $fd, $from_id, $data)
     {
-        $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
-        Reload::load($this->serverName . "-server", $memRebootRate);
         try {
             $this->adapter->perform($data, $serv, $fd, $from_id);
         } catch (\Exception $e) {
@@ -103,8 +102,10 @@ class SocketServer
 
     public function onStart(SwooleServer $swooleServer)
     {
-        swoole_set_process_name($this->serverName . "-server");
+        swoole_set_process_name($this->serverName . "-master");
         Log::sysinfo($this->serverName . " server start ......");
+        $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
+        Reload::load($this->serverName . "-master", $memRebootRate, $this->config);
     }
 
     public function onShutdown(SwooleServer $swooleServer)
@@ -114,6 +115,14 @@ class SocketServer
 
     public function onWorkerStart(SwooleServer $swooleServer, $workerId)
     {
+        if (function_exists("apc_clear_cache")) {
+            apc_clear_cache();
+        }
+
+        if (function_exists("opcache_reset")) {
+            opcache_reset();
+        }
+        
         if ($workerId >= $this->config["worker_num"]) {
             swoole_set_process_name($this->serverName . "-task-worker");
             Log::sysinfo($this->serverName . " task worker start ..... ");

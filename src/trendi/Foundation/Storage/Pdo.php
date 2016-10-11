@@ -61,7 +61,7 @@ class Pdo extends SQlAdapter
 
         $this->prefix = $prefix;
 
-        Log::sysinfo("new pdo client conn");
+//        Log::sysinfo("new pdo client conn");
         self::$client = new PoolClient($config['host'], $config['port'], $config['serialization'],$config);
     }
 

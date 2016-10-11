@@ -6,13 +6,14 @@
  */
 return [
     "name" => "trendi",
-    "servers" => ["pool","httpd","rpc"],
+    "servers" => ["pool",'httpd','rpc','job'],
     "httpd" => [
         "server" => [
             "host" => "0.0.0.0",
             "port" => "7000",
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
+            "auto_reload"=>"04:00",//每天4点重启
             "log_file" => ROOT_PATH . "/storage/log",
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
@@ -51,6 +52,7 @@ return [
             "port" => "9000",
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
+            "auto_reload"=>"04:00",//每天4点重启
             "log_file" => ROOT_PATH . "/storage/log",
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
@@ -88,6 +90,7 @@ return [
             "log_file" => ROOT_PATH . "/storage/log",
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
+            "auto_reload"=>"04:00",//每天4点重启
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
             /**
@@ -123,6 +126,7 @@ return [
     ],
     "job" => [
         "server" => [
+            "auto_reload"=>"04:00",//每天4点重启
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
             //worker数量，推荐设置和cpu核数相等

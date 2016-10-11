@@ -3755,3 +3755,491 @@ Stack trace:
 [2016-10-10 16:06:42 #73208.0]	NOTICE	Server is shutdown now.
 [2016-10-10 16:06:42 #73224.0]	NOTICE	Server is shutdown now.
 [2016-10-10 16:06:43 #73239.0]	NOTICE	Server is shutdown now.
+[2016-10-11 14:34:59 @7852.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Server\dump() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php:22
+Stack trace:
+#0 [internal function]: Trendi\Server\Reload::Trendi\Server\{closure}(1)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php(30): swoole_process->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(107): Trendi\Server\Reload::load('trendi-pool-ser...', 0.8)
+#3 [internal function]: 
+[2016-10-11 14:34:59 @7888.0]	ERROR	zm_deactivate_swoole (ERROR 103): Fatal error: Uncaught Error: Call to undefined function Trendi\Server\dump() in /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php:22
+Stack trace:
+#0 [internal function]: Trendi\Server\Reload::Trendi\Server\{closure}(1)
+#1 /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php(30): swoole_process->start()
+#2 /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php(107): Trendi\Server\Reload::load('trendi-rpc-serv...', 0.8)
+#3 [internal function]: 
+[2016-10-11 14:35:15 #7835.0]	NOTICE	Server is shutdown now.
+[2016-10-11 14:35:15 #7871.0]	NOTICE	Server is shutdown now.
+[2016-10-11 14:41:36 #7928.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:21:43][9820][10.8.8.8][42ms][sysinfo] trendi-pool server start ......[0m
+[0;37m[2016-10-11 15:21:43][9836][10.8.8.8][144ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9841][10.8.8.8][146ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9840][10.8.8.8][145ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9821][10.8.8.8][151ms][sysinfo] trendi-pool manage start ......[0m
+[0;37m[2016-10-11 15:21:43][9842][10.8.8.8][152ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9835][10.8.8.8][159ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9843][10.8.8.8][166ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9845][10.8.8.8][64ms][sysinfo] trendi-httpd httpd server start ......[0m
+[0;37m[2016-10-11 15:21:43][9846][10.8.8.8][173ms][sysinfo] trendi-httpd httpd manage start ......[0m
+[0;37m[2016-10-11 15:21:43][9866][10.8.8.8][171ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9867][10.8.8.8][177ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9865][10.8.8.8][179ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9863][10.8.8.8][182ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9868][10.8.8.8][183ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9864][10.8.8.8][192ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9862][10.8.8.8][198ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9878][10.8.8.8][89ms][sysinfo] trendi-rpc server start ......[0m
+[0;37m[2016-10-11 15:21:43][9879][10.8.8.8][193ms][sysinfo] trendi-rpc manage start ......[0m
+[0;37m[2016-10-11 15:21:43][9895][10.8.8.8][195ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9898][10.8.8.8][198ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9899][10.8.8.8][196ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9897][10.8.8.8][198ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9896][10.8.8.8][200ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9894][10.8.8.8][202ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:21:43][9893][10.8.8.8][220ms][sysinfo] trendi-rpc task worker start ..... [0m
+[2016-10-11 15:23:26 #9820.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:23:26][9841][10.8.8.8][103230ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9835][10.8.8.8][103231ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9836][10.8.8.8][103230ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9843][10.8.8.8][103231ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9842][10.8.8.8][103231ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9840][10.8.8.8][103231ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9821][10.8.8.8][103240ms][sysinfo] trendi-pool manage stop ......[0m
+[2016-10-11 15:23:26 #9845.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:23:26][9867][10.8.8.8][103229ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9862][10.8.8.8][103230ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9865][10.8.8.8][103229ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9863][10.8.8.8][103230ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9868][10.8.8.8][103230ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9866][10.8.8.8][103230ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9864][10.8.8.8][103230ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9846][10.8.8.8][103243ms][sysinfo] trendi-httpd manage stop ......[0m
+[0;37m[2016-10-11 15:23:26][9820][10.8.8.8][103443ms][sysinfo] trendi-pool server shutdown ...... [0m
+[2016-10-11 15:23:26 #9878.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:23:26][9898][10.8.8.8][103130ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9897][10.8.8.8][103131ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9893][10.8.8.8][103130ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9894][10.8.8.8][103130ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9899][10.8.8.8][103130ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9896][10.8.8.8][103130ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9895][10.8.8.8][103131ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:23:26][9879][10.8.8.8][103139ms][sysinfo] trendi-rpc manage stop ......[0m
+[0;37m[2016-10-11 15:23:26][9845][10.8.8.8][103446ms][sysinfo] trendi-httpd httpd server shutdown ...... [0m
+[0;37m[2016-10-11 15:23:26][9878][10.8.8.8][103343ms][sysinfo] trendi-rpc server shutdown ...... [0m
+[0;37m[2016-10-11 15:26:44][10078][10.8.8.8][52ms][sysinfo] trendi-pool server start ......[0m
+[0;37m[2016-10-11 15:26:44][10080][10.8.8.8][152ms][sysinfo] trendi-pool manage start ......[0m
+[0;37m[2016-10-11 15:26:44][10089][10.8.8.8][152ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10091][10.8.8.8][154ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10088][10.8.8.8][155ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10090][10.8.8.8][164ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10093][10.8.8.8][172ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10092][10.8.8.8][158ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10103][10.8.8.8][69ms][sysinfo] trendi-httpd httpd server start ......[0m
+[0;37m[2016-10-11 15:26:44][10104][10.8.8.8][175ms][sysinfo] trendi-httpd httpd manage start ......[0m
+[0;37m[2016-10-11 15:26:44][10119][10.8.8.8][177ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10123][10.8.8.8][179ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10121][10.8.8.8][182ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10118][10.8.8.8][185ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10120][10.8.8.8][187ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10124][10.8.8.8][193ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10122][10.8.8.8][195ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10148][10.8.8.8][124ms][sysinfo] trendi-rpc server start ......[0m
+[0;37m[2016-10-11 15:26:44][10161][10.8.8.8][229ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10149][10.8.8.8][229ms][sysinfo] trendi-rpc manage start ......[0m
+[0;37m[2016-10-11 15:26:44][10162][10.8.8.8][226ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10167][10.8.8.8][232ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10166][10.8.8.8][233ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10165][10.8.8.8][236ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10163][10.8.8.8][235ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:26:44][10164][10.8.8.8][247ms][sysinfo] trendi-rpc task worker start ..... [0m
+[2016-10-11 15:28:09 #10078.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:28:09][10089][10.8.8.8][84840ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10088][10.8.8.8][84840ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10093][10.8.8.8][84840ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10092][10.8.8.8][84840ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10090][10.8.8.8][84840ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10091][10.8.8.8][84841ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10080][10.8.8.8][84849ms][sysinfo] trendi-pool manage stop ......[0m
+[2016-10-11 15:28:09 #10103.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:28:09][10124][10.8.8.8][84811ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10122][10.8.8.8][84812ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10123][10.8.8.8][84811ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10118][10.8.8.8][84812ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10119][10.8.8.8][84812ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10120][10.8.8.8][84812ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10121][10.8.8.8][84812ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10104][10.8.8.8][84822ms][sysinfo] trendi-httpd manage stop ......[0m
+[0;37m[2016-10-11 15:28:09][10078][10.8.8.8][85052ms][sysinfo] trendi-pool server shutdown ...... [0m
+[2016-10-11 15:28:09 #10148.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:28:09][10161][10.8.8.8][84709ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10164][10.8.8.8][84710ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10166][10.8.8.8][84709ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10165][10.8.8.8][84710ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10167][10.8.8.8][84710ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10163][10.8.8.8][84710ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10162][10.8.8.8][84710ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:28:09][10149][10.8.8.8][84720ms][sysinfo] trendi-rpc manage stop ......[0m
+[0;37m[2016-10-11 15:28:09][10103][10.8.8.8][85025ms][sysinfo] trendi-httpd httpd server shutdown ...... [0m
+[0;37m[2016-10-11 15:28:09][10148][10.8.8.8][84924ms][sysinfo] trendi-rpc server shutdown ...... [0m
+[2016-10-11 15:30:16 *10370.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 223 byte failed, because session#6 is closed.
+[2016-10-11 15:30:16 *10370.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#6 does not exist.
+[0;37m[2016-10-11 15:30:30][10430][10.8.8.8][42ms][sysinfo] trendi-pool server start ......[0m
+[0;37m[2016-10-11 15:30:31][10431][10.8.8.8][144ms][sysinfo] trendi-pool manage start ......[0m
+[0;37m[2016-10-11 15:30:31][10448][10.8.8.8][146ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10447][10.8.8.8][144ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10450][10.8.8.8][151ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10452][10.8.8.8][148ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10449][10.8.8.8][155ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10451][10.8.8.8][160ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10454][10.8.8.8][73ms][sysinfo] trendi-httpd httpd server start ......[0m
+[0;37m[2016-10-11 15:30:31][10472][10.8.8.8][177ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10471][10.8.8.8][176ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10455][10.8.8.8][176ms][sysinfo] trendi-httpd httpd manage start ......[0m
+[0;37m[2016-10-11 15:30:31][10475][10.8.8.8][180ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10473][10.8.8.8][189ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10474][10.8.8.8][188ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10476][10.8.8.8][195ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10477][10.8.8.8][206ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10498][10.8.8.8][135ms][sysinfo] trendi-rpc server start ......[0m
+[0;37m[2016-10-11 15:30:31][10511][10.8.8.8][236ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10499][10.8.8.8][240ms][sysinfo] trendi-rpc manage start ......[0m
+[0;37m[2016-10-11 15:30:31][10515][10.8.8.8][242ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10516][10.8.8.8][244ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10517][10.8.8.8][245ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10513][10.8.8.8][247ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10514][10.8.8.8][246ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:30:31][10512][10.8.8.8][251ms][sysinfo] trendi-rpc task worker start ..... [0m
+[2016-10-11 15:31:26 #10430.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:31:26][10447][10.8.8.8][55323ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10452][10.8.8.8][55323ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10449][10.8.8.8][55323ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10448][10.8.8.8][55323ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10451][10.8.8.8][55324ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10450][10.8.8.8][55324ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10431][10.8.8.8][55334ms][sysinfo] trendi-pool manage stop ......[0m
+[2016-10-11 15:31:26 #10454.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:31:26][10477][10.8.8.8][55344ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10471][10.8.8.8][55344ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10472][10.8.8.8][55345ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10473][10.8.8.8][55345ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10474][10.8.8.8][55345ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10476][10.8.8.8][55345ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10475][10.8.8.8][55345ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10455][10.8.8.8][55357ms][sysinfo] trendi-httpd manage stop ......[0m
+[0;37m[2016-10-11 15:31:26][10430][10.8.8.8][55537ms][sysinfo] trendi-pool server shutdown ...... [0m
+[2016-10-11 15:31:26 #10498.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:31:26][10511][10.8.8.8][55280ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10512][10.8.8.8][55281ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10516][10.8.8.8][55281ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10514][10.8.8.8][55281ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10517][10.8.8.8][55281ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10513][10.8.8.8][55281ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10515][10.8.8.8][55282ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:31:26][10499][10.8.8.8][55291ms][sysinfo] trendi-rpc manage stop ......[0m
+[0;37m[2016-10-11 15:31:26][10454][10.8.8.8][55559ms][sysinfo] trendi-httpd httpd server shutdown ...... [0m
+[0;37m[2016-10-11 15:31:26][10498][10.8.8.8][55497ms][sysinfo] trendi-rpc server shutdown ...... [0m
+[2016-10-11 15:33:30 *10798.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 223 byte failed, because session#14 is closed.
+[2016-10-11 15:33:30 *10798.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#14 does not exist.
+[0;37m[2016-10-11 15:33:34][10851][10.8.8.8][41ms][sysinfo] trendi-pool server start ......[0m
+[0;37m[2016-10-11 15:33:34][10852][10.8.8.8][144ms][sysinfo] trendi-pool manage start ......[0m
+[0;37m[2016-10-11 15:33:34][10868][10.8.8.8][38ms][sysinfo] trendi-httpd httpd server start ......[0m
+[0;37m[2016-10-11 15:33:34][10872][10.8.8.8][142ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10876][10.8.8.8][152ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10877][10.8.8.8][146ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10878][10.8.8.8][154ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10874][10.8.8.8][159ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10875][10.8.8.8][158ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10869][10.8.8.8][137ms][sysinfo] trendi-httpd httpd manage start ......[0m
+[0;37m[2016-10-11 15:33:34][10886][10.8.8.8][140ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10885][10.8.8.8][142ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10887][10.8.8.8][139ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10890][10.8.8.8][160ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10888][10.8.8.8][153ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10889][10.8.8.8][150ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10891][10.8.8.8][162ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:33:34][10914][10.8.8.8][122ms][sysinfo] trendi-rpc server start ......[0m
+[0;37m[2016-10-11 15:33:35][10927][10.8.8.8][224ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:33:35][10915][10.8.8.8][227ms][sysinfo] trendi-rpc manage start ......[0m
+[0;37m[2016-10-11 15:33:35][10933][10.8.8.8][231ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:33:35][10932][10.8.8.8][231ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:33:35][10931][10.8.8.8][234ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:33:35][10930][10.8.8.8][232ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:33:35][10929][10.8.8.8][241ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:33:35][10928][10.8.8.8][240ms][sysinfo] trendi-rpc task worker start ..... [0m
+[2016-10-11 15:33:42 #10851.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:33:42][10874][10.8.8.8][7925ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10878][10.8.8.8][7925ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10877][10.8.8.8][7925ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10872][10.8.8.8][7925ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10875][10.8.8.8][7925ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10876][10.8.8.8][7925ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10852][10.8.8.8][7933ms][sysinfo] trendi-pool manage stop ......[0m
+[2016-10-11 15:33:42 #10868.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:33:42][10885][10.8.8.8][7936ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10886][10.8.8.8][7936ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10890][10.8.8.8][7936ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10887][10.8.8.8][7936ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10889][10.8.8.8][7937ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10891][10.8.8.8][7941ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10888][10.8.8.8][7937ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10869][10.8.8.8][7945ms][sysinfo] trendi-httpd manage stop ......[0m
+[0;37m[2016-10-11 15:33:42][10851][10.8.8.8][8136ms][sysinfo] trendi-pool server shutdown ...... [0m
+[2016-10-11 15:33:42 #10914.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:33:42][10927][10.8.8.8][7821ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10932][10.8.8.8][7821ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10928][10.8.8.8][7821ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10931][10.8.8.8][7821ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10929][10.8.8.8][7822ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10933][10.8.8.8][7822ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10930][10.8.8.8][7822ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:33:42][10915][10.8.8.8][7835ms][sysinfo] trendi-rpc manage stop ......[0m
+[0;37m[2016-10-11 15:33:42][10868][10.8.8.8][8148ms][sysinfo] trendi-httpd httpd server shutdown ...... [0m
+[0;37m[2016-10-11 15:33:42][10914][10.8.8.8][8041ms][sysinfo] trendi-rpc server shutdown ...... [0m
+[0;37m[2016-10-11 15:42:14][11173][10.8.8.8][36ms][sysinfo] trendi-pool server start ......[0m
+[0;37m[2016-10-11 15:42:14][11175][10.8.8.8][141ms][sysinfo] trendi-pool manage start ......[0m
+[0;37m[2016-10-11 15:42:14][11187][10.8.8.8][144ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11188][10.8.8.8][145ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11190][10.8.8.8][144ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11189][10.8.8.8][147ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11191][10.8.8.8][162ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11192][10.8.8.8][159ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11202][10.8.8.8][74ms][sysinfo] trendi-httpd httpd server start ......[0m
+[0;37m[2016-10-11 15:42:14][11217][10.8.8.8][173ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11203][10.8.8.8][178ms][sysinfo] trendi-httpd httpd manage start ......[0m
+[0;37m[2016-10-11 15:42:14][11219][10.8.8.8][184ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11221][10.8.8.8][192ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11223][10.8.8.8][188ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11222][10.8.8.8][189ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11220][10.8.8.8][202ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11218][10.8.8.8][205ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11232][10.8.8.8][98ms][sysinfo] trendi-rpc server start ......[0m
+[0;37m[2016-10-11 15:42:14][11233][10.8.8.8][203ms][sysinfo] trendi-rpc manage start ......[0m
+[0;37m[2016-10-11 15:42:14][11248][10.8.8.8][205ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11252][10.8.8.8][207ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11249][10.8.8.8][202ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11253][10.8.8.8][210ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11250][10.8.8.8][224ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11251][10.8.8.8][221ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:42:14][11254][10.8.8.8][229ms][sysinfo] trendi-rpc worker start ..... [0m
+[2016-10-11 15:42:22 #11173.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:42:22][11187][10.8.8.8][8213ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11188][10.8.8.8][8213ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11192][10.8.8.8][8213ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11191][10.8.8.8][8213ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11189][10.8.8.8][8214ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11190][10.8.8.8][8214ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11175][10.8.8.8][8221ms][sysinfo] trendi-pool manage stop ......[0m
+[2016-10-11 15:42:22 #11202.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:42:22][11217][10.8.8.8][8180ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11222][10.8.8.8][8180ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11223][10.8.8.8][8183ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11221][10.8.8.8][8183ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11219][10.8.8.8][8184ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11218][10.8.8.8][8186ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11220][10.8.8.8][8187ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11203][10.8.8.8][8190ms][sysinfo] trendi-httpd manage stop ......[0m
+[0;37m[2016-10-11 15:42:22][11173][10.8.8.8][8426ms][sysinfo] trendi-pool server shutdown ...... [0m
+[2016-10-11 15:42:22 #11232.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:42:22][11249][10.8.8.8][8113ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11248][10.8.8.8][8113ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11253][10.8.8.8][8116ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11252][10.8.8.8][8113ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11251][10.8.8.8][8113ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11254][10.8.8.8][8113ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11250][10.8.8.8][8113ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:42:22][11233][10.8.8.8][8125ms][sysinfo] trendi-rpc manage stop ......[0m
+[0;37m[2016-10-11 15:42:22][11202][10.8.8.8][8393ms][sysinfo] trendi-httpd httpd server shutdown ...... [0m
+[0;37m[2016-10-11 15:42:22][11232][10.8.8.8][8328ms][sysinfo] trendi-rpc server shutdown ...... [0m
+[0;37m[2016-10-11 15:43:01][11347][10.8.8.8][39ms][sysinfo] trendi-pool server start ......[0m
+[0;37m[2016-10-11 15:43:01][11363][10.8.8.8][141ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11362][10.8.8.8][143ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11365][10.8.8.8][147ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11348][10.8.8.8][142ms][sysinfo] trendi-pool manage start ......[0m
+[0;37m[2016-10-11 15:43:01][11364][10.8.8.8][156ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11366][10.8.8.8][172ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11371][10.8.8.8][77ms][sysinfo] trendi-httpd httpd server start ......[0m
+[0;37m[2016-10-11 15:43:01][11367][10.8.8.8][173ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11372][10.8.8.8][179ms][sysinfo] trendi-httpd httpd manage start ......[0m
+[0;37m[2016-10-11 15:43:01][11393][10.8.8.8][188ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11387][10.8.8.8][209ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11389][10.8.8.8][193ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11391][10.8.8.8][189ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11390][10.8.8.8][192ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11392][10.8.8.8][190ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11388][10.8.8.8][204ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11403][10.8.8.8][103ms][sysinfo] trendi-rpc server start ......[0m
+[0;37m[2016-10-11 15:43:01][11416][10.8.8.8][211ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11418][10.8.8.8][213ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11404][10.8.8.8][213ms][sysinfo] trendi-rpc manage start ......[0m
+[0;37m[2016-10-11 15:43:01][11419][10.8.8.8][212ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11417][10.8.8.8][210ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11424][10.8.8.8][217ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11425][10.8.8.8][221ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:43:01][11415][10.8.8.8][219ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11563][10.8.8.8][49ms][sysinfo] trendi-pool server start ......[0m
+
+Warning: swoole_process::signal(): cannot use swoole_process::signal in swoole_server. in /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php on line 35
+
+Call Stack:
+    0.0003     347776   1. {main}() /mnt/hgfs/code/trendi_framework/tests/application/trendi:0
+    0.0066     602152   2. Trendi\Foundation\Application::runCmd() /mnt/hgfs/code/trendi_framework/tests/application/trendi:10
+    0.0486    1369936   3. Symfony\Component\Console\Application->run() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php:141
+    0.0594    1666896   4. Symfony\Component\Console\Application->doRun() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php:118
+    0.0596    1666896   5. Symfony\Component\Console\Application->doRunCommand() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php:187
+    0.0597    1666896   6. Symfony\Component\Console\Command\Command->run() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php:820
+    0.0605    1669152   7. Trendi\Foundation\Command\Pool\Start->execute() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php:256
+    0.0615    1704952   8. Trendi\Foundation\Command\Pool\PoolBase::operate() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/Start.php:27
+    0.0790    1788152   9. Trendi\Foundation\Command\Pool\PoolBase::doOperate() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php:61
+    0.0951    1831544  10. Trendi\Pool\PoolServer->start() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Pool/PoolBase.php:121
+    0.0959    1862376  11. Trendi\Server\SocketServer->start() /mnt/hgfs/code/trendi_framework/src/trendi/Pool/PoolServer.php:63
+    0.0960    1867520  12. swoole_server->start() /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:57
+    0.1096    1867600  13. Trendi\Server\SocketServer->onStart() /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:57
+    0.1151    1902824  14. Trendi\Server\Reload::load() /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:108
+    0.1161    1905144  15. swoole_process::signal() /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php:35
+
+[0;37m[2016-10-11 15:48:26][11564][10.8.8.8][151ms][sysinfo] trendi-pool manage start ......[0m
+[0;37m[2016-10-11 15:48:26][11580][10.8.8.8][153ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11583][10.8.8.8][156ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11585][10.8.8.8][157ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11584][10.8.8.8][158ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11582][10.8.8.8][165ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11581][10.8.8.8][175ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11587][10.8.8.8][74ms][sysinfo] trendi-httpd httpd server start ......[0m
+
+Warning: swoole_process::signal(): cannot use swoole_process::signal in swoole_server. in /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php on line 35
+
+Call Stack:
+    0.0004     347776   1. {main}() /mnt/hgfs/code/trendi_framework/tests/application/trendi:0
+    0.0075     602152   2. Trendi\Foundation\Application::runCmd() /mnt/hgfs/code/trendi_framework/tests/application/trendi:10
+    0.0437    1369936   3. Symfony\Component\Console\Application->run() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php:141
+    0.0555    1666896   4. Symfony\Component\Console\Application->doRun() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php:118
+    0.0558    1666896   5. Symfony\Component\Console\Application->doRunCommand() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php:187
+    0.0558    1666896   6. Symfony\Component\Console\Command\Command->run() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php:820
+    0.0566    1669152   7. Trendi\Foundation\Command\Httpd\Start->execute() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php:256
+    0.0575    1699760   8. Trendi\Foundation\Command\Httpd\HttpdBase::operate() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Httpd/Start.php:27
+    0.0735    1783000   9. Trendi\Foundation\Command\Httpd\HttpdBase::doOperate() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Httpd/HttpdBase.php:59
+    0.1076    1830344  10. Trendi\Server\HttpServer->start() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Httpd/HttpdBase.php:116
+    0.1077    1835448  11. swoole_http_server->start() /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php:65
+    0.1311    1835720  12. Trendi\Server\HttpServer->onStart() /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php:65
+    0.1347    1870912  13. Trendi\Server\Reload::load() /mnt/hgfs/code/trendi_framework/src/trendi/Server/HttpServer.php:115
+    0.1358    1873232  14. swoole_process::signal() /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php:35
+
+[0;37m[2016-10-11 15:48:26][11588][10.8.8.8][179ms][sysinfo] trendi-httpd httpd manage start ......[0m
+[0;37m[2016-10-11 15:48:26][11604][10.8.8.8][179ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11607][10.8.8.8][187ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11606][10.8.8.8][181ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11609][10.8.8.8][201ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11605][10.8.8.8][185ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11610][10.8.8.8][201ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11608][10.8.8.8][202ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 15:48:26][11626][10.8.8.8][129ms][sysinfo] trendi-rpc server start ......[0m
+
+Warning: swoole_process::signal(): cannot use swoole_process::signal in swoole_server. in /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php on line 35
+
+Call Stack:
+    0.0034     347776   1. {main}() /mnt/hgfs/code/trendi_framework/tests/application/trendi:0
+    0.0126     602152   2. Trendi\Foundation\Application::runCmd() /mnt/hgfs/code/trendi_framework/tests/application/trendi:10
+    0.1011    1369936   3. Symfony\Component\Console\Application->run() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Application.php:141
+    0.1137    1666896   4. Symfony\Component\Console\Application->doRun() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php:118
+    0.1140    1666896   5. Symfony\Component\Console\Application->doRunCommand() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php:187
+    0.1141    1666896   6. Symfony\Component\Console\Command\Command->run() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Application.php:820
+    0.1150    1669152   7. Trendi\Foundation\Command\Rpc\Start->execute() /mnt/hgfs/code/trendi_framework/vendor/symfony/console/Command/Command.php:256
+    0.1259    1699504   8. Trendi\Foundation\Command\Rpc\RpcBase::operate() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Rpc/Start.php:27
+    0.1829    1782704   9. Trendi\Foundation\Command\Rpc\RpcBase::doOperate() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Rpc/RpcBase.php:58
+    0.2450    1816288  10. Trendi\Rpc\RpcServer->start() /mnt/hgfs/code/trendi_framework/src/trendi/Foundation/Command/Rpc/RpcBase.php:115
+    0.2481    1847152  11. Trendi\Server\SocketServer->start() /mnt/hgfs/code/trendi_framework/src/trendi/Rpc/RpcServer.php:37
+    0.2482    1852296  12. swoole_server->start() /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:57
+    0.2559    1852376  13. Trendi\Server\SocketServer->onStart() /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:57
+    0.2599    1887672  14. Trendi\Server\Reload::load() /mnt/hgfs/code/trendi_framework/src/trendi/Server/SocketServer.php:108
+    0.2606    1889992  15. swoole_process::signal() /mnt/hgfs/code/trendi_framework/src/trendi/Server/Reload.php:35
+
+[0;37m[2016-10-11 15:48:27][11639][10.8.8.8][231ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:48:27][11627][10.8.8.8][234ms][sysinfo] trendi-rpc manage start ......[0m
+[0;37m[2016-10-11 15:48:27][11645][10.8.8.8][239ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:48:27][11642][10.8.8.8][244ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:48:27][11644][10.8.8.8][241ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 15:48:27][11641][10.8.8.8][242ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:48:27][11640][10.8.8.8][250ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 15:48:27][11643][10.8.8.8][266ms][sysinfo] trendi-rpc task worker start ..... [0m
+[2016-10-11 15:52:57 #11563.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:52:57][11585][10.8.8.8][271165ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11581][10.8.8.8][271165ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11582][10.8.8.8][271168ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11584][10.8.8.8][271165ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11580][10.8.8.8][271165ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11583][10.8.8.8][271168ms][sysinfo] trendi-pool worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11564][10.8.8.8][271176ms][sysinfo] trendi-pool manage stop ......[0m
+[2016-10-11 15:52:57 #11587.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:52:57][11610][10.8.8.8][271175ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11609][10.8.8.8][271175ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11604][10.8.8.8][271176ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11605][10.8.8.8][271176ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11606][10.8.8.8][271176ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11607][10.8.8.8][271177ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11608][10.8.8.8][271177ms][sysinfo] trendi-httpd httpd worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11588][10.8.8.8][271190ms][sysinfo] trendi-httpd manage stop ......[0m
+[0;37m[2016-10-11 15:52:57][11563][10.8.8.8][271378ms][sysinfo] trendi-pool server shutdown ...... [0m
+[2016-10-11 15:52:57 #11626.0]	NOTICE	Server is shutdown now.
+[0;37m[2016-10-11 15:52:57][11639][10.8.8.8][271082ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11641][10.8.8.8][271083ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11645][10.8.8.8][271082ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11640][10.8.8.8][271082ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11644][10.8.8.8][271082ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11643][10.8.8.8][271083ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11642][10.8.8.8][271083ms][sysinfo] trendi-rpc worker stop ..... [0m
+[0;37m[2016-10-11 15:52:57][11627][10.8.8.8][271096ms][sysinfo] trendi-rpc manage stop ......[0m
+[0;37m[2016-10-11 15:52:57][11587][10.8.8.8][271394ms][sysinfo] trendi-httpd httpd server shutdown ...... [0m
+[0;37m[2016-10-11 15:52:58][11626][10.8.8.8][271299ms][sysinfo] trendi-rpc server shutdown ...... [0m
+[0;37m[2016-10-11 16:09:38][12651][10.8.8.8][51ms][sysinfo] trendi-pool server start ......[0m
+[0;37m[2016-10-11 16:09:38][12668][10.8.8.8][40ms][sysinfo] trendi-httpd httpd server start ......[0m
+[0;37m[2016-10-11 16:09:38][12652][10.8.8.8][153ms][sysinfo] trendi-pool manage start ......[0m
+[0;37m[2016-10-11 16:09:38][12680][10.8.8.8][159ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12679][10.8.8.8][162ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12676][10.8.8.8][164ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12675][10.8.8.8][170ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12677][10.8.8.8][167ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12678][10.8.8.8][167ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12685][10.8.8.8][147ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12670][10.8.8.8][153ms][sysinfo] trendi-httpd httpd manage start ......[0m
+[0;37m[2016-10-11 16:09:38][12686][10.8.8.8][162ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12687][10.8.8.8][157ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12688][10.8.8.8][173ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12689][10.8.8.8][176ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12691][10.8.8.8][184ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12690][10.8.8.8][189ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12718][10.8.8.8][158ms][sysinfo] trendi-rpc server start ......[0m
+[0;37m[2016-10-11 16:09:38][12730][10.8.8.8][260ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12729][10.8.8.8][262ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12719][10.8.8.8][263ms][sysinfo] trendi-rpc manage start ......[0m
+[0;37m[2016-10-11 16:09:38][12731][10.8.8.8][269ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12733][10.8.8.8][278ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12732][10.8.8.8][275ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12735][10.8.8.8][284ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 16:09:38][12734][10.8.8.8][287ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13573][10.8.8.8][41ms][sysinfo] trendi-pool server start ......[0m
+[0;37m[2016-10-11 16:12:25][13574][10.8.8.8][144ms][sysinfo] trendi-pool manage start ......[0m
+[0;37m[2016-10-11 16:12:25][13586][10.8.8.8][146ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13587][10.8.8.8][144ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13592][10.8.8.8][147ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13591][10.8.8.8][156ms][sysinfo] trendi-pool worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13588][10.8.8.8][158ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13589][10.8.8.8][160ms][sysinfo] trendi-pool task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13597][10.8.8.8][64ms][sysinfo] trendi-httpd httpd server start ......[0m
+[0;37m[2016-10-11 16:12:25][13612][10.8.8.8][166ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13598][10.8.8.8][166ms][sysinfo] trendi-httpd httpd manage start ......[0m
+[0;37m[2016-10-11 16:12:25][13615][10.8.8.8][169ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13613][10.8.8.8][176ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13618][10.8.8.8][173ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13617][10.8.8.8][174ms][sysinfo] trendi-httpd httpd worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13616][10.8.8.8][182ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13614][10.8.8.8][179ms][sysinfo] trendi-httpd httpd task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13642][10.8.8.8][131ms][sysinfo] trendi-rpc server start ......[0m
+[0;37m[2016-10-11 16:12:25][13643][10.8.8.8][216ms][sysinfo] trendi-rpc manage start ......[0m
+[0;37m[2016-10-11 16:12:25][13652][10.8.8.8][217ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13653][10.8.8.8][218ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13654][10.8.8.8][222ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13655][10.8.8.8][220ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13658][10.8.8.8][231ms][sysinfo] trendi-rpc worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13656][10.8.8.8][230ms][sysinfo] trendi-rpc task worker start ..... [0m
+[0;37m[2016-10-11 16:12:25][13657][10.8.8.8][230ms][sysinfo] trendi-rpc worker start ..... [0m
+[2016-10-11 16:12:52 *13837.0]	ERROR	swFactoryProcess_finish (ERROR 1004): send 223 byte failed, because session#16 is closed.
+[2016-10-11 16:12:52 *13837.0]	ERROR	swFactoryProcess_finish (ERROR 1005): session#16 does not exist.

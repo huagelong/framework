@@ -37,7 +37,8 @@ class HttpServer
         $this->swooleServer->set($config);
         $this->config = $config;
         $this->adapter = $adapter;
-        $this->serverName = $serverName;
+        $this->serverName = $serverName."-httpd";
+        $this->config['server_name'] =$this->serverName;
     }
 
     /**
@@ -72,7 +73,7 @@ class HttpServer
 
     public function onManagerStart(SwooleServer $serv)
     {
-        swoole_set_process_name($this->serverName . "-httpd-manage");
+        swoole_set_process_name($this->serverName . "-manage");
         Log::sysinfo($this->serverName . " httpd manage start ......");
     }
 
@@ -108,8 +109,10 @@ class HttpServer
 
     public function onStart(SwooleServer $swooleServer)
     {
-        swoole_set_process_name($this->serverName . "-httpd-server");
+        swoole_set_process_name($this->serverName . "-master");
         Log::sysinfo($this->serverName . " httpd server start ......");
+        $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
+        Reload::load($this->serverName . "-master", $memRebootRate, $this->config);
     }
 
     public function onShutdown(SwooleServer $swooleServer)
@@ -134,10 +137,10 @@ class HttpServer
         }
 
         if ($workerId >= $this->config["worker_num"]) {
-            swoole_set_process_name($this->serverName . "-httpd-task-worker");
+            swoole_set_process_name($this->serverName . "-task-worker");
             Log::sysinfo($this->serverName . " httpd task worker start ..... ");
         } else {
-            swoole_set_process_name($this->serverName . "-httpd-worker");
+            swoole_set_process_name($this->serverName . "-worker");
             Log::sysinfo($this->serverName . " httpd worker start ..... ");
         }
         $this->adapter->httpBoostrap();
@@ -173,9 +176,6 @@ class HttpServer
      */
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
-        $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
-        Reload::load($this->serverName . "-httpd-server", $memRebootRate);
-
         $request = new Request($swooleHttpRequest);
         $response = new Response($swooleHttpResponse);
 

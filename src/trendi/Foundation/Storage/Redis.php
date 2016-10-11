@@ -52,7 +52,7 @@ class Redis
     protected function initializePool()
     {
         if(self::$client) return ;
-        Log::sysinfo("new redis client conn");
+//        Log::sysinfo("new redis client conn");
         $config = Config::get("client.pool");
         if (!$config) {
             throw new ConfigNotFoundException("client.pool not config");

@@ -22,16 +22,15 @@ class Job
     const JOB_KEY_PRE = "JOB_KEY";
 
     private $config = [];
-    private $name = null;
+
     /**
      * @var \Trendi\Foundation\Storage\Redis
      */
     private $storage = null;
 
-    public function __construct(array $config, $name = "")
+    public function __construct(array $config)
     {
         $this->config = $config;
-        $this->name = $name;
         $this->storage = new Redis();
     }
 
@@ -44,8 +43,10 @@ class Job
         if (!$this->config) return;
 
         $timeTick = isset($this->config['server']['timer_tick']) ? $this->config['server']['timer_tick'] : 500;
+        $this->config['auto_reload'] = isset($this->config['server']['auto_reload'])?$this->config['server']['auto_reload']:false;
         \swoole_timer_tick($timeTick, function () use ($queueName) {
             $this->run($queueName);
+            Reload::perform($this->config['server_name'] . "-master", $this->config['server']['mem_reboot_rate'], $this->config);
         });
     }
 
@@ -55,7 +56,6 @@ class Job
      */
     private function run($queueName)
     {
-        Reload::load($this->name."-server", $this->config['server']['mem_reboot_rate']);
         try {
             if (!isset($this->config['perform'][$queueName])) return;
             $pv = $this->config['perform'][$queueName];

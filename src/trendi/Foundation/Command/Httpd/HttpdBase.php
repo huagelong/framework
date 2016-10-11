@@ -89,7 +89,7 @@ class HttpdBase
 
         $config['server'] = Arr::merge($defaultConfig, $config['server']);
 
-        $serverName = $appName . "-httpd-server";
+        $serverName = $appName . "-httpd-master";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
@@ -99,7 +99,7 @@ class HttpdBase
         }
 
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
-            $output->writeln("<info>httpd server not run</info>");
+            $output->writeln("<info>[$serverName] not run</info>");
             return;
         }
         switch ($command) {
@@ -111,63 +111,32 @@ class HttpdBase
                 }
                 break;
             case 'start':
-                $swooleServer = new \swoole_http_server($config['server']['host'], $config['server']['port']);
-                $obj = new HttpServer($swooleServer, $config['server'], $adapter, $appName);
-                $obj->start();
+                self::start($config, $adapter, $appName);
                 break;
             case 'stop':
-                $output->writeln("<info>[$serverName] is stoping ...</info>");
-                // Send stop signal to master process.
-                $masterPid && posix_kill($masterPid, SIGTERM);
-                // Timeout.
-                $timeout = 5;
-                $start_time = time();
-                // Check master process is still alive?
-                while (1) {
-                    $masterIsAlive = $masterPid && posix_kill($masterPid, 0);
-                    if ($masterIsAlive) {
-                        // Timeout?
-                        if ((time() - $start_time) >= $timeout) {
-                            $output->writeln("<error>[$serverName] stop fail </error>");
-                            return;
-                        }
-                        // Waiting amoment.
-                        usleep(10000);
-                        continue;
-                    }
-                    // Stop success.
-                    $output->writeln("<info>[$serverName] stop success </info>");
-                    break;
-                }
+                self::stop($appName);
+                $output->writeln("<info>[$serverName] stop success </info>");
                 break;
             case 'restart':
-                $output->writeln("<info>[$serverName] is restarting ...</info>");
-                $masterPid && posix_kill($masterPid, SIGTERM);
-                $timeout = 5;
-                $start_time = time();
-                // Check master process is still alive?
-                while (1) {
-                    $masterIsAlive = $masterPid && posix_kill($masterPid, 0);
-                    if ($masterIsAlive) {
-                        // Timeout?
-                        if ((time() - $start_time) >= $timeout) {
-                            $output->writeln("<error>[$serverName] restart fail </error>");
-                            return;
-                        }
-                        // Waiting amoment.
-                        usleep(10000);
-                        continue;
-                    }
-                    break;
-                }
-                $swooleServer = new \swoole_http_server($config['server']['host'], $config['server']['port']);
-                $obj = new HttpServer($swooleServer, $config['server'], $adapter, $appName);
-                $obj->start();
-                $output->writeln("<info>[$serverName] restart success </info>");
+                self::stop($appName);
+                self::start($config, $adapter, $appName);
                 break;
             default :
                 return "";
         }
+    }
+
+    protected static function stop($appName)
+    {
+        $killStr = $appName . "-httpd";
+        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9", $masterPidArr);
+    }
+
+    protected static function start($config, $adapter, $appName)
+    {
+        $swooleServer = new \swoole_http_server($config['server']['host'], $config['server']['port']);
+        $obj = new HttpServer($swooleServer, $config['server'], $adapter, $appName);
+        $obj->start();
     }
 
 }

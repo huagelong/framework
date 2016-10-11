@@ -14,7 +14,40 @@ use Trendi\Support\Log;
 class Reload
 {
 
-    public static function load($serverName, $rate, $showLog=false)
+    public static function load($serverName, $rate, $config, $showLog=false)
+    {
+        $process = new \swoole_process(function(\swoole_process $worker) use($serverName, $rate, $config,$showLog){
+            $worker->name($config['server_name']."-processCheck");
+            swoole_timer_tick(1000, function()use($serverName, $rate, $config,$showLog){
+                self::perform($serverName, $rate, $config, $showLog);
+            });
+        });
+        $process->start();
+    }
+    
+    public static function perform($serverName, $rate, $config, $showLog=false)
+    {
+        self::start($serverName, $rate, $showLog);
+//        Log::info(($config['auto_reload']));
+        if(isset($config['auto_reload']) && $config['auto_reload']){
+            if((date('H:i') == $config['auto_reload'])){
+                self::reload($serverName);
+                //休息70s
+                sleep(70);
+            }
+        }
+    }
+
+    protected static function reload($serverName)
+    {
+        exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $serverPidArr);
+        $masterPid = $serverPidArr ? current($serverPidArr) : null;
+        if ($masterPid) {
+            posix_kill($masterPid, SIGUSR1);
+        }
+    }
+
+    protected static function start($serverName, $rate, $showLog=false)
     {
         if(!$rate) return ;
         
@@ -24,18 +57,13 @@ class Reload
             Log::warn("Memory is full ,will restart!");
         }
 
-        exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $serverPidArr);
-        $masterPid = $serverPidArr ? current($serverPidArr) : null;
-        if ($masterPid) {
-            posix_kill($masterPid, SIGUSR1);
-        }
+        self::reload($serverName);
     }
 
     protected static function check($rate, $showLog)
     {
         $mem = self::getMemory();
         $memoryLimit = ini_get("memory_limit");
-        if($showLog) Log::sysinfo("Memory:" . $mem . "M/" . $memoryLimit);
         if ($memoryLimit == '-1') return true;
         $memoryLimitUnmber = substr($memoryLimit, 0, -1);
 
@@ -46,6 +74,7 @@ class Reload
         } else {
             $memoryLimit = $memoryLimitUnmber;
         }
+        if($showLog) Log::sysinfo("Memory:" . $mem . "M/" . $memoryLimit*$rate."M/".$memoryLimit."M");
         return ($mem / $memoryLimit) > $rate ? false : true;
     }
 
