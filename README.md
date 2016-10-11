@@ -19,6 +19,8 @@ sudo ./vendor/bin/trendi create:project mela
 
 sudo composer dumpautoload
 
+sudo chmod 0777 trendi
+
 sudo ./trendi server:restart
 ```
 
