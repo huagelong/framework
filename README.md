@@ -6,6 +6,8 @@
 
 * 只支持linux
 
+* 先安装 swoole,mbstring,posix扩展
+
 * 安装
 
 ``

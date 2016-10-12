@@ -96,7 +96,7 @@ class CreateProject extends Command
         while ($entry = $handle->read()) {
             if (($entry != ".") && ($entry != "..")) {
                 if (is_dir($source . "/" . $entry)) {
-                    if($entry == '_dist') continue;
+                    if($entry == 'vendor') continue;
                     $this->changeExt($source . "/" . $entry, $ext);
                 } else {
                     $pathinfo = pathinfo($source . "/" . $entry);
