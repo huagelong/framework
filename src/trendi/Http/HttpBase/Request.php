@@ -91,7 +91,7 @@ class Request
      *
      * @var \Trendi\Http\HttpBase\ParameterBag
      */
-    public $post;
+    public $request;
 
     /**
      * Query string parameters ($_GET).
@@ -231,7 +231,7 @@ class Request
      */
     public function initialize(array $query = array(), array $request = array(), array $attributes = array(), array $cookies = array(), array $files = array(), array $server = array(), $content = null)
     {
-        $this->post = new ParameterBag($request);
+        $this->request = new ParameterBag($request);
         $this->query = new ParameterBag($query);
         $this->attributes = new ParameterBag($attributes);
         $this->cookies = new ParameterBag($cookies);
@@ -471,7 +471,7 @@ class Request
     public function __clone()
     {
         $this->query = clone $this->query;
-        $this->post = clone $this->post;
+        $this->request = clone $this->request;
         $this->attributes = clone $this->attributes;
         $this->cookies = clone $this->cookies;
         $this->files = clone $this->files;
@@ -509,7 +509,7 @@ class Request
         $this->server->set('QUERY_STRING', static::normalizeQueryString(http_build_query($this->query->all(), null, '&')));
 
         $_GET = $this->query->all();
-        $_POST = $this->post->all();
+        $_POST = $this->request->all();
         $_SERVER = $this->server->all();
         $_COOKIE = $this->cookies->all();
 
@@ -718,7 +718,7 @@ class Request
             return $result;
         }
 
-        if ($this !== $result = $this->post->get($key, $this)) {
+        if ($this !== $result = $this->request->get($key, $this)) {
             return $result;
         }
 
@@ -1227,7 +1227,7 @@ class Request
                 if ($method = $this->headers->get('X-HTTP-METHOD-OVERRIDE')) {
                     $this->method = strtoupper($method);
                 } elseif (self::$httpMethodParameterOverride) {
-                    $this->method = strtoupper($this->post->get('_method', $this->query->get('_method', 'POST')));
+                    $this->method = strtoupper($this->request->get('_method', $this->query->get('_method', 'POST')));
                 }
             }
         }
