@@ -31,3 +31,7 @@ sudo ./trendi server:restart
 ``
 http://127.0.0.1:7000/
 ``
+
+### 文档
+
+[目录](doc/index.md)
