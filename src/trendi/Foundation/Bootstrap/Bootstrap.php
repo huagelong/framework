@@ -97,7 +97,11 @@ class Bootstrap
      */
     protected function initHelper()
     {
-        require_once "helper.php";
+        if(function_exists('url') && function_exists('redis') && function_exists('config')){
+
+        }else{
+            require_once "helper.php";
+        }
     }
 
     /**

@@ -220,7 +220,7 @@ class RouteMatch
                     if (stristr($controller, "@")) {
                         list($controller, $action) = explode("@", $controller);
                         //如果是http服务器
-                        if($require[0] instanceof Request){
+                        if(isset($require[0]) && ($require[0] instanceof Request)){
                             $obj = new $controller($require[0],$require[1]);
                             $content = call_user_func_array([$obj, $action], $require[2]);
                         }else{

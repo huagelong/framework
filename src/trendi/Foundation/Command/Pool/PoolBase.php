@@ -71,7 +71,7 @@ class PoolBase
             'worker_num' => 2,
             //reactor数量，推荐2
             'reactor_num' => 2,
-            "mem_reboot_rate" => 0.8,
+            "mem_reboot_rate" => 0,
             "dispatch_mode" => 2,
             'static_path' => $root . '/public',
             "gzip" => 4,

@@ -10,12 +10,18 @@
 namespace Trendi\Server;
 
 use Trendi\Support\Log;
+use Trendi\Config\Config;
 
 class Reload
 {
 
     public static function load($serverName, $rate, $config, $showLog=false)
     {
+        $configApp = Config::get("app");
+        if (isset($configApp['memory_limit'])) {
+            ini_set('memory_limit', $configApp['memory_limit']);
+        }
+
         $process = new \swoole_process(function(\swoole_process $worker) use($serverName, $rate, $config,$showLog){
             $worker->name($config['server_name']."-processCheck");
             swoole_timer_tick(1000, function()use($serverName, $rate, $config,$showLog){
@@ -64,6 +70,7 @@ class Reload
     {
         $mem = self::getMemory();
         $memoryLimit = ini_get("memory_limit");
+
         if ($memoryLimit == '-1') return true;
         $memoryLimitUnmber = substr($memoryLimit, 0, -1);
 
@@ -74,6 +81,7 @@ class Reload
         } else {
             $memoryLimit = $memoryLimitUnmber;
         }
+        $showLog = 1;
         if($showLog) Log::sysinfo("Memory:" . $mem . "M/" . $memoryLimit*$rate."M/".$memoryLimit."M");
         return ($mem / $memoryLimit) > $rate ? false : true;
     }

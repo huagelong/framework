@@ -55,8 +55,8 @@ class Session
 
         if ($request->query->get($sessionName)) {
             $sid = $request->query->get($sessionName);
-        } elseif ($request->post->get($sessionName)) {
-            $sid = $request->post->get($sessionName);
+        } elseif ($request->request->get($sessionName)) {
+            $sid = $request->request->get($sessionName);
         } elseif ($request->cookies->get($sessionName)) {
             $sid = $request->cookies->get($sessionName);
         } else {

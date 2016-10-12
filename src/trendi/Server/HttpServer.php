@@ -112,6 +112,7 @@ class HttpServer
         swoole_set_process_name($this->serverName . "-master");
         Log::sysinfo($this->serverName . " httpd server start ......");
         $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
+        
         Reload::load($this->serverName . "-master", $memRebootRate, $this->config);
     }
 
