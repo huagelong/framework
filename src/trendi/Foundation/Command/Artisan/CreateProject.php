@@ -31,6 +31,10 @@ class CreateProject extends Command
         $path = $input->getArgument('dir');
         $path = $path ? $path : ROOT_PATH;
 
+        if(!preg_match("/^[a-zA-Z]\w+/", $name)){
+            return Log::error("  The first of the project name must be letters, other must letter, numeric underline");
+        }
+
         if (!is_file($path . "/trendi")) {
             if (!is_dir($path)) {
                 mkdir($path);
