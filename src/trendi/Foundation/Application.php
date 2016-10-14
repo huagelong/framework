@@ -9,7 +9,7 @@
 
 namespace Trendi\Foundation;
 
-use Symfony\Component\Console\Application as CmdApplication;
+use Trendi\Console\Application as CmdApplication;
 use Trendi\Config\Config as CConfig;
 use Trendi\Foundation\Bootstrap\Bootstrap;
 use Trendi\Foundation\Bootstrap\PoolBootstrap;
@@ -131,7 +131,7 @@ class Application
             new Command\Server\Stop(),
             new Command\Artisan\CreateProject(),
         ];
-        $config = CConfig::get("command");
+        $config = CConfig::get("app.command");
         if ($config) {
             $commands = Arr::merge($commands, $config);
         }

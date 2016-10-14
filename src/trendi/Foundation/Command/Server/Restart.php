@@ -8,10 +8,10 @@
 
 namespace Trendi\Foundation\Command\Server;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
+use Trendi\Console\Command\Command;
+use Trendi\Console\Input\InputInterface;
+use Trendi\Console\Input\InputOption;
+use Trendi\Console\Output\OutputInterface;
 
 class Restart extends Command
 {
@@ -23,7 +23,7 @@ class Restart extends Command
         $this->addOption('--daemonize', '-d', InputOption::VALUE_NONE, 'Is daemonize ?');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input,OutputInterface $output)
     {
         ServerBase::operate("restart", $output, $input);
     }

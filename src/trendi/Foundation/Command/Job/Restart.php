@@ -8,10 +8,10 @@
 
 namespace Trendi\Foundation\Command\Job;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
+use Trendi\Console\Command\Command;
+use Trendi\Console\Input\InputInterface;
+use Trendi\Console\Input\InputOption;
+use Trendi\Console\Output\OutputInterface;
 
 class Restart extends Command
 {

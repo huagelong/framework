@@ -8,11 +8,11 @@
 
 namespace Trendi\Foundation\Command\Artisan;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
+use Trendi\Console\Command\Command;
+use Trendi\Console\Input\InputInterface;
+use Trendi\Console\Input\InputOption;
+use Trendi\Console\Output\OutputInterface;
+use Trendi\Console\Input\InputArgument;
 use Trendi\Support\Log;
 
 class CreateProject extends Command

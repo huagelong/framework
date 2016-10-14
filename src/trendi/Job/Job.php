@@ -9,7 +9,7 @@
 
 namespace Trendi\Job;
 
-use Cron\CronExpression;
+use Trendi\Job\Cron\CronExpression;
 use Trendi\Foundation\Storage\Redis;
 use Trendi\Job\Exception\InvalidArgumentException;
 use Trendi\Server\Reload;

@@ -12,6 +12,7 @@ namespace Trendi\Foundation\Bootstrap\Task;
 use Trendi\Config\Config;
 use Trendi\Foundation\Exception\ConfigNotFoundException;
 use Trendi\Support\Log;
+use Trendi\Foundation\Mail\Mail;
 
 class Email
 {
@@ -27,6 +28,7 @@ class Email
      */
     public function perform($receiver, $sender, $title, $msg)
     {
+        Mail::Load();
         $sender = is_array($sender) ? $sender : [$sender => $sender];
         $receiver = is_array($receiver) ? $receiver : [$receiver];
 

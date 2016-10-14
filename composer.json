@@ -14,10 +14,6 @@
         "ext-swoole" : "1.8.*",
         "ext-mbstring": "*",
         "ext-posix":"*",
-        "mtdowling/cron-expression": "~1.1",
-        "swiftmailer/swiftmailer": "^5.4",
-        "symfony/console": "3.1.*",
-        "symfony/dependency-injection":"3.1.*",
         "predis/predis": "^1.1"
     },
     "replace":{
@@ -27,7 +23,6 @@
         "trendi"
     ],
     "require-dev": {
-        "phpunit/phpunit": "~5.4"
     },
     "autoload": {
         "psr-4": {
@@ -38,8 +33,7 @@
     "suggest": {
         "ext-msgpack": "data serialize tool",
         "ext-igbinary":"data serialize tool",
-        "ext-hprose":"data serialize tool",
-        "symfony/proxy-manager-bridge": "Generate service proxies to lazy load them"
+        "ext-hprose":"data serialize tool"
     },
     "autoload-dev": {
         "psr-4": {

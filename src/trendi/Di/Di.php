@@ -7,8 +7,8 @@
 
 namespace Trendi\Di;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
+use Trendi\Di\Base\ContainerBuilder;
+use Trendi\Di\Base\Definition;
 use Trendi\Di\Exception\DiNotDefinedException;
 
 class Di implements DiInterface
