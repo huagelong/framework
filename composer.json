@@ -13,8 +13,7 @@
         "php": ">=5.4.30",
         "ext-swoole" : "1.8.*",
         "ext-mbstring": "*",
-        "ext-posix":"*",
-        "predis/predis": "^1.1"
+        "ext-posix":"*"
     },
     "replace":{
 
@@ -26,8 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Trendi\\": "src/trendi",
-            "Trendi\\Test\\": "tests"
+            "Trendi\\": "src/trendi"
         }
     },
     "suggest": {
@@ -37,6 +35,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Trendi\\Test\\": "tests/application/src"
         }
     },
     "minimum-stability": "stable",
