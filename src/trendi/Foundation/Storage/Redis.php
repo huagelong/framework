@@ -11,6 +11,7 @@ use Trendi\Config\Config;
 use Trendi\Foundation\Exception\ConfigNotFoundException;
 use Trendi\Pool\PoolClient;
 use Trendi\Support\Log;
+use Predis\Client;
 
 class Redis
 {
@@ -40,8 +41,7 @@ class Redis
         $servers = $config['servers'];
         $options = $config['options'];
         try {
-            require_once __DIR__ . "/Adapter/Redis/Predis.php";
-            self::$conn = new \Predis\Client($servers, $options);
+            self::$conn = new Client($servers, $options);
         } catch (\Exception $e) {
             throw $e;
         }catch (\Error $e) {

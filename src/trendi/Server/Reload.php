@@ -81,7 +81,7 @@ class Reload
         } else {
             $memoryLimit = $memoryLimitUnmber;
         }
-        $showLog = 1;
+//        $showLog = 1;
         if($showLog) Log::sysinfo("Memory:" . $mem . "M/" . $memoryLimit*$rate."M/".$memoryLimit."M");
         return ($mem / $memoryLimit) > $rate ? false : true;
     }

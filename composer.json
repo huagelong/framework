@@ -26,7 +26,10 @@
     "autoload": {
         "psr-4": {
             "Trendi\\": "src/trendi"
-        }
+        },
+        "files":[
+            "src/trendi/Support/Predis.php"
+        ]
     },
     "suggest": {
         "ext-msgpack": "data serialize tool",
