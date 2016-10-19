@@ -166,11 +166,12 @@ class HttpdBase
         $file = [
             "fis-conf.js", "package.json"
         ];
-
+        
         foreach ($file as $f) {
             $path = ROOT_PATH . "/" . $f;
             if (!is_file($path)) {
                 Log::sysinfo($path . " not found   ---->----->");
+                self::removeRelease();
                 return;
             }
         }
@@ -201,6 +202,15 @@ class HttpdBase
         }
         exec($cmdStr);
         file_put_contents($log, $fisPath);
+    }
+
+    protected static function removeRelease()
+    {
+        $log = ROOT_PATH."/storage/release";
+        if(is_file($log)){
+            unlink($log);
+            return ;
+        }
     }
 
     protected static function checkCmd($cmd)
