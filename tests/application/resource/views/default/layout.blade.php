@@ -16,7 +16,7 @@ This is the master sidebar.
     @yield('content')
 </div>
 @script()
-require(['bootstrap', 'jquery']);
+
 @endscript
 @placeholder('framework')
 @placeholder('scripts')

@@ -20,6 +20,7 @@ use Trendi\Support\Dir;
 use Trendi\Support\Arr;
 use Trendi\Support\ElapsedTime;
 
+
 class Application
 {
     /**
@@ -44,15 +45,23 @@ class Application
         Bootstrap::getInstance(self::$rootPath);
     }
 
-    /**
-     *
-     */
+
     public function httpBoostrap()
     {
         $this->baseBoostrap();
+        $this->initRelease();
         RouteBootstrap::getInstance();
+
     }
-    
+
+    protected function initRelease()
+    {
+        $release = ROOT_PATH."/storage/release";
+        if(is_file($release)){
+            $releaseContent = @file_get_contents($release);
+            if($releaseContent) CConfig::set("_release.path", $releaseContent);
+        }
+    }
 
     /**
      * rpc server 初始化

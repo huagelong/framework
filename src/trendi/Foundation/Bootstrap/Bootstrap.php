@@ -43,22 +43,12 @@ class Bootstrap
         $this->initEnv();
         $this->initConfig($path);
         $this->iniSet();
-        $this->initRelease();
         $this->initMonitor();
         $this->initAlias();
         $this->initHelper();
         $this->initDi();
         $this->initFacade();
         $this->initTask();
-    }
-
-    protected function initRelease()
-    {
-        $release = ROOT_PATH."/storage/release";
-        if(is_file($release)){
-            $releaseContent = file_get_contents($release);
-            Config::set("_release.path", $releaseContent);
-        }
     }
 
     /**

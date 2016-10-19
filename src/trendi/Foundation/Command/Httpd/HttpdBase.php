@@ -166,7 +166,7 @@ class HttpdBase
         $file = [
             "fis-conf.js", "package.json"
         ];
-        
+
         foreach ($file as $f) {
             $path = ROOT_PATH . "/" . $f;
             if (!is_file($path)) {
@@ -185,7 +185,8 @@ class HttpdBase
         if(!self::checkCmd("fis3")) return ;
 
         $log = ROOT_PATH."/storage/release";
-        if(!is_writable($log)){
+        $fopen = fopen($log, "w");
+        if(!$fopen){
             Log::error($log." can not writable");
             return ;
         }
