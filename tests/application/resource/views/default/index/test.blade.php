@@ -1,5 +1,4 @@
 @extends('layout')
-@require('/resource/static/js/test2.js')
 @require('/resource/static/js/test.js')
 @section('title', 'Page Title')
 

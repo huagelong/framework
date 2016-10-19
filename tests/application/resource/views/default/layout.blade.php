@@ -2,7 +2,7 @@
 <head>
     <title>App Name - @yield('title')</title>
 </head>
-
+@require('/resource/static/js/test2.js')
 @require('/resource/static/css/normalize.css')
 @require('/resource/static/css/style.css')
 @placeholder('styles')
@@ -15,6 +15,9 @@ This is the master sidebar.
 <div class="container">
     @yield('content')
 </div>
+@script()
+require(['bootstrap', 'jquery']);
+@endscript
 @placeholder('framework')
 @placeholder('scripts')
 </body>

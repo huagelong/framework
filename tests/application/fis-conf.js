@@ -7,11 +7,15 @@ fis.hook('commonjs', {
     // 短路径支持
     // 可以通过 require('/libs/alert') 依赖 `static/libs/alert.js`
     {
-      name: 'libs',
-      location: '/resource/static/libs'
+      name: 'modules',
+      location: '/resource/static/modules'
     }
-  ]
+  ],
+  paths: {
+    $: '/modules/jquery/jquery-1.11.2.js'
+  }
 });
+
 
 //所有静态文件都要用指纹
 fis.match('/resource/static/**.{js,css,png,jpg,gif}', {
@@ -85,11 +89,16 @@ fis
   })
 
   // libs 目录下面的 js 打成一个
-  .match('/resource/static/libs/**.js', {
-    packTo: '/resource/static/pkg/lib.js'
+  .match('/resource/static/modules/**.js', {
+    packTo: '/resource/static/pkg/modules.js'
   })
 
   // components 目录下面的打成一个。
   .match('/resource/static/components/**.js', {
     packTo: '/resource/static/pkg/components.js'
   })
+    .match('*.js', {
+      parser: fis.plugin('jdists', {
+        remove: "debug"
+      })
+   })
