@@ -1,4 +1,5 @@
 @extends('layout')
+@require('/resource/static/js/test2.js')
 @require('/resource/static/js/test.js')
 @section('title', 'Page Title')
 
@@ -20,11 +21,6 @@
     @else
         I don't have any records!
     @endif
-
-    @script()
-    var alert = require('libs/alert');
-    alert('Hello World!');
-    @endscript
 
 @endsection
 

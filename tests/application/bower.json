@@ -1,10 +1,9 @@
 {
+  "name": "trendi",
   "protocol": "github",
   "gihub": {
-    "author": "fis-components"
+    "author": "trendi"
   },
   "dependencies": [
-    "jquery@^1.9.1",
-    "bootstrap"
   ]
 }

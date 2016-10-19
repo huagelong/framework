@@ -1,0 +1,10 @@
+{
+  "name": "trendi",
+  "protocol": "github",
+  "gihub": {
+    "author": "trendi"
+  },
+  "dependencies": [
+
+  ]
+}
