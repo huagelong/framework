@@ -168,14 +168,13 @@ class HttpdBase
         foreach ($file as $f) {
             $path = ROOT_PATH . "/" . $f;
             if (!is_file($path)) {
-                Log::sysinfo($path . " not found");
+                Log::sysinfo($path . " not found   ---->----->");
                 return;
             }
         }
 
         $nodeModulesPath = ROOT_PATH . "/node_modules";
         if (!is_dir($nodeModulesPath)) {
-
             if(!self::checkCmd("npm")) return ;
             exec("npm install");
         }

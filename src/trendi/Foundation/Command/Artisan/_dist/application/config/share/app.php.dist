@@ -29,10 +29,14 @@ return [
 
     ],
     "task"=>[],
-    "view"=>[
-        "path"=>__DIR__."/../../rescource/views",
+  "view"=>[
+        "path"=>__DIR__."/../../resource/views",
         "theme"=>"default",
         "compile_path"=>__DIR__."/../../storage/tplcompile",
-        "engine"=>"blade"
-    ],
+        "engine"=>"blade",
+        "fis"=>[
+            "map_path"=>"resource/map",
+            "view_path"=>"resource/views",
+        ]
+    ]
 ];
