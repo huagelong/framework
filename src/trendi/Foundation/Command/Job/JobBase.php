@@ -20,7 +20,6 @@ class JobBase
     {
         ElapsedTime::setStartTime(ElapsedTime::SYS_START);
         $root = Dir::formatPath(ROOT_PATH);
-        Config::setConfigPath($root . "config");
         $config = Config::get("server.job");
         $appName = Config::get("server.name");
 

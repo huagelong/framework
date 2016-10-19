@@ -15,7 +15,7 @@ use swoole_http_server as SwooleServer;
 use Trendi\Http\Request;
 use Trendi\Http\Response;
 use Trendi\Server\Facade\Context;
-use Trendi\Server\Facade\Task;
+use Trendi\Server\Facade\Task as FacadeTask;
 use Trendi\Coroutine\Event;
 use Trendi\Support\Facade;
 use Trendi\Support\Log;
@@ -89,7 +89,7 @@ class HttpServer
     public function onTask(SwooleServer $serv, $task_id, $from_id, $data)
     {
         try {
-            return Task::start($data);
+            return FacadeTask::start($data);
         } catch (\Exception $e) {
             $exception = \Trendi\Support\Exception::formatException($e);
             Log::error($exception);
@@ -103,7 +103,7 @@ class HttpServer
 
     public function onFinish(SwooleServer $serv, $task_id, $data)
     {
-        Task::finish($data);
+        FacadeTask::finish($data);
     }
 
 
@@ -148,8 +148,8 @@ class HttpServer
 
         if (Facade::getFacadeApplication()) {
             Context::set("server", $swooleServer, true, true);
-            Task::setLogPath($this->config["task_fail_log"]);
-            Task::setRetryCount($this->config["task_retry_count"]);
+            FacadeTask::setLogPath($this->config["task_fail_log"]);
+            FacadeTask::setRetryCount($this->config["task_retry_count"]);
         }
     }
 

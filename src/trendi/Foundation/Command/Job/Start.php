@@ -8,12 +8,12 @@
 
 namespace Trendi\Foundation\Command\Job;
 
-use Trendi\Console\Command\Command;
 use Trendi\Console\Input\InputInterface;
 use Trendi\Console\Input\InputOption;
 use Trendi\Console\Output\OutputInterface;
+use Trendi\Foundation\Command\Base;
 
-class Start extends Command
+class Start extends Base
 {
     protected function configure()
     {

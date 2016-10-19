@@ -8,11 +8,11 @@
 
 namespace Trendi\Foundation\Command\Pool;
 
-use Trendi\Console\Command\Command;
 use Trendi\Console\Input\InputInterface;
 use Trendi\Console\Output\OutputInterface;
+use Trendi\Foundation\Command\Base;
 
-class Stop extends Command
+class Stop extends Base
 {
     protected function configure()
     {

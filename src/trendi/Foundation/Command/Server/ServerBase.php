@@ -18,7 +18,6 @@ class ServerBase
     public static function operate($cmd, $output, $input)
     {
         $root = Dir::formatPath(ROOT_PATH);
-        Config::setConfigPath($root . "config");
         $daemonizeStr = "";
         if (($cmd == 'start' || $cmd == 'restart') && $input->hasOption("daemonize")) {
             $daemonize = $input->getOption('daemonize');
@@ -31,6 +30,7 @@ class ServerBase
             return;
         }
         self::doOperate($cmd, $daemonizeStr, $config);
+        sleep(1);
         exit(0);
     }
 

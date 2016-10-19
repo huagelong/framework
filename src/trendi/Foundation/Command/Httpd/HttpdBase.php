@@ -23,9 +23,7 @@ class HttpdBase
         ElapsedTime::setStartTime(ElapsedTime::SYS_START);
 
         $root = Dir::formatPath(ROOT_PATH);
-        Config::setConfigPath($root . "config");
 
-        self::addRelease($input->getOption('daemonize'));
         self::setRelease();
 
         $config = Config::get("server.httpd");
@@ -118,6 +116,10 @@ class HttpdBase
             return;
         }
 
+        if($command == "start"||$command=='restart'){
+            self::addRelease($config['server']['daemonize']);
+        }
+
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
             Log::sysinfo("[$serverName] not run");
             return;
@@ -189,7 +191,6 @@ class HttpdBase
 
         $fisPath = ROOT_PATH."/public/release/".date('YmdHis');
 
-        RunMode::init();
         if(RunMode::getRunMode() == RunMode::RUN_MODE_TEST){
             $fisPath = ROOT_PATH."/public/release/_source";
         }

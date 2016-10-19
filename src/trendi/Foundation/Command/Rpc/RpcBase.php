@@ -22,7 +22,6 @@ class RpcBase
     {
         ElapsedTime::setStartTime(ElapsedTime::SYS_START);
         $root = Dir::formatPath(ROOT_PATH);
-        Config::setConfigPath($root . "config");
         $config = Config::get("server.rpc");
         $appName = Config::get("server.name");
 

@@ -21,7 +21,6 @@ class PoolBase
     {
         ElapsedTime::setStartTime(ElapsedTime::SYS_START);
         $root = Dir::formatPath(ROOT_PATH);
-        Config::setConfigPath($root . "config");
         $config = Config::get("server.pool");
         $appName = Config::get("server.name");
 

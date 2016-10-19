@@ -18,6 +18,7 @@ use Trendi\Support\AliasLoader;
 use Trendi\Support\Arr;
 use Trendi\Support\Facade;
 use Trendi\Support\RunMode;
+use Trendi\Support\Dir;
 
 class Bootstrap
 {
@@ -121,6 +122,7 @@ class Bootstrap
      */
     protected function initConfig($path)
     {
+        $path = Dir::formatPath($path);
         Config::setConfigPath($path . "config");
     }
 
