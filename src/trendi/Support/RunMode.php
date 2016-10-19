@@ -14,8 +14,8 @@ class RunMode
     const RUN_MODE_TEST = "test";
     const RUN_MODE_ONLINE = "online";
 
-    private static $runMode = self::RUN_MODE_ONLINE;
-    private static $env = self::RUN_MODE_ONLINE;
+    private static $runMode = null;
+    private static $env = null;
 
 
     /**
@@ -24,7 +24,7 @@ class RunMode
      */
     public static function getRunMode()
     {
-        return self::$runMode;
+        return self::$runMode?self::$runMode:self::RUN_MODE_ONLINE;
     }
 
     /**
@@ -33,7 +33,7 @@ class RunMode
      */
     public static function getEnv()
     {
-        return self::$env;
+        return self::$env?self::$env:self::RUN_MODE_ONLINE;
     }
 
     /**
@@ -44,11 +44,13 @@ class RunMode
     public static function init()
     {
         if (self::$runMode) return self::$runMode;
-
-        $env = getenv("WEB_RUNMODE");//test.dev
-
+        $env = getenv("TRENDI_RUNMODE");//test.dev
         if (!$env) {
-            $env = get_cfg_var("WEB_RUNMODE");
+            $env = get_cfg_var("TRENDI_RUNMODE");
+        }
+
+        if(defined("TRENDI_RUNMODE")){
+            $env = TRENDI_RUNMODE;
         }
 
         if ($env) {
@@ -65,5 +67,8 @@ class RunMode
             self::$runMode = $envArr[0];
             self::$env = $envArr[1];
         }
+
+        !self::$runMode && self::$runMode= self::RUN_MODE_ONLINE;
+        !self::$env && self::$env= self::RUN_MODE_ONLINE;
     }
 }

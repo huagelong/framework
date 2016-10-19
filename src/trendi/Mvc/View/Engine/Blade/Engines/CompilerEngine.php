@@ -5,6 +5,7 @@ namespace Trendi\Mvc\View\Engine\Blade\Engines;
 use Exception;
 use ErrorException;
 use Trendi\Mvc\View\Engine\Blade\Compilers\CompilerInterface;
+use Trendi\Di\Di;
 
 class CompilerEngine extends PhpEngine
 {
@@ -41,6 +42,18 @@ class CompilerEngine extends PhpEngine
      * @return string
      */
     public function get($path, array $data = [])
+    {
+        $env = (Object)$data['__env'];
+        $result =  $this->_get($path, $data);
+        $env->decrementRender();
+        $doneRendering = $env->doneRendering();
+        $env->incrementRender();
+        $fis = Di::get("fis");
+        $doneRendering && ($result = $fis->filter($result));
+        return $result;
+    }
+    
+    protected function _get($path, array $data = [])
     {
         $this->lastCompiled[] = $path;
 

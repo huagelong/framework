@@ -325,9 +325,9 @@ class BladeCompiler extends Compiler implements CompilerInterface
             } elseif (isset($this->customDirectives[$match[1]])) {
                 $match[0] = $this->callCustomDirective($match[1], Arr::get($match, 3));
             } elseif (method_exists($this, $method = 'compile'.ucfirst($match[1]))) {
-                $match[0] = $this->$method(Arr::get($match, 3));
+//                $match[0] = $this->$method(Arr::get($match, 3));
+                $match[0] = $this->$method(Arr::get($match, 3), $match);
             }
-
             return isset($match[3]) ? $match[0] : $match[0].$match[2];
         };
 
@@ -805,35 +805,6 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return "<?php unset{$expression}; ?>";
     }
 
-    /**
-     * Compile the extends statements into valid PHP.
-     *
-     * @param  string  $expression
-     * @return string
-     */
-    protected function compileExtends($expression)
-    {
-        $expression = $this->stripParentheses($expression);
-
-        $data = "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
-
-        $this->footer[] = $data;
-
-        return '';
-    }
-
-    /**
-     * Compile the include statements into valid PHP.
-     *
-     * @param  string  $expression
-     * @return string
-     */
-    protected function compileInclude($expression)
-    {
-        $expression = $this->stripParentheses($expression);
-
-        return "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
-    }
 
     /**
      * Compile the include statements into valid PHP.
@@ -1046,5 +1017,96 @@ class BladeCompiler extends Compiler implements CompilerInterface
     public function setEchoFormat($format)
     {
         $this->echoFormat = $format;
+    }
+
+    /**
+     * Compile the extends statements into valid PHP.
+     *
+     * @param  string  $expression
+     * @return string
+     */
+    protected function _compileExtends($expression)
+    {
+        $expression = $this->stripParentheses($expression);
+
+        $data = "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
+
+        $this->footer[] = $data;
+
+        return '';
+    }
+
+    /**
+     * Compile the include statements into valid PHP.
+     *
+     * @param  string  $expression
+     * @return string
+     */
+    protected function _compileInclude($expression)
+    {
+        $expression = $this->stripParentheses($expression);
+
+        return "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
+    }
+
+    protected function compileExtends($expression, $match) {
+        $params = explode(",", $match[4]);
+        $params[0] = "\$__fis->uri({$params[0]})";
+        $expression = join(",", $params);
+        $this->_compileExtends($expression);
+        return "";
+    }
+
+    protected function compileFramework($expression) {
+        return "<?php \$__fis->setFramework{$expression}; ?>";
+    }
+
+    protected function compileRequire($expression, $match) {
+        $params = explode(",", $match[4]);
+        $params[0] = "<?php echo {$params[0]} ?>";
+        $expression = join(", ", $params);
+        return "<!--f.r(".$expression.")-->";
+    }
+
+    protected function compileInclude($expression, $match) {
+        $params = explode(",", $match[4]);
+        $params[0] = "\$__fis->uri({$params[0]})";
+        $expression = join(",", $params);
+        return $this->_compileInclude($expression);
+    }
+
+    protected function compileUri($expression) {
+        return "<?php echo \$__fis->uri{$expression}; ?>";
+    }
+
+    protected function compileUrl($expression) {
+        return "\$__fis->uri{$expression}";
+    }
+
+    protected function compileWidget($expression, $match) {
+        $params = explode(",", $match[4]);
+        $params[0] = "\$__fis->uri({$params[0]})";
+        $expression = join(",", $params);
+        return $this->_compileInclude($expression);
+    }
+
+    protected function compilePlaceholder($expression) {
+        return "<?php echo \$__fis->placeholder{$expression}; ?>";
+    }
+
+    protected function compileScript($expression) {
+        return "<?php \$__fis->startScript{$expression}; ?>";
+    }
+
+    protected function compileStyle($expression) {
+        return "<?php \$__fis->startStyle{$expression}; ?>";
+    }
+
+    protected function compileEndscript($expression) {
+        return "<?php \$__fis->endScript(); ?>";
+    }
+
+    protected function compileEndstyle($expression) {
+        return "<?php \$__fis->endStyle(); ?>";
     }
 }

@@ -7,6 +7,7 @@
 
 namespace Trendi\Foundation;
 
+use Trendi\Di\Di;
 use Trendi\Support\Arr;
 use Trendi\Support\Dir;
 use Trendi\Config\Config;
@@ -51,7 +52,14 @@ class Controller
      */
     public function render($viewPath, $assign = [])
     {
-        $viewRoot = Config::get("app.view.path");
+        $fisPath = Config::get("_release.path");
+        if($fisPath){
+            $fis = Config::get("app.view.fis.view_path");
+            $viewRoot = Dir::formatPath($fisPath).$fis;
+        }else{
+            $viewRoot = Config::get("app.view.path"); 
+        }
+        
         $theme = Config::get("app.view.theme");
         $realViewRoot = Dir::formatPath($viewRoot).$theme;
         Template::setViewRoot($realViewRoot);

@@ -7,6 +7,7 @@
  */
 namespace Trendi\Mvc\View\Engine;
 
+use Trendi\Config\Config;
 use Trendi\Mvc\View\Engine\Blade\Engines\EngineResolver;
 use Trendi\Mvc\View\ViewInterface;
 use Trendi\Mvc\View\Engine\Blade\Compilers\BladeCompiler;
@@ -14,6 +15,7 @@ use Trendi\Mvc\View\Engine\Blade\Engines\CompilerEngine;
 use Trendi\Mvc\View\Engine\Blade\Engines\PhpEngine;
 use Trendi\Mvc\View\Engine\Blade\FileViewFinder;
 use Trendi\Mvc\View\Engine\Blade\Factory;
+use Trendi\Support\Dir;
 
 class Blade implements ViewInterface
 {
@@ -75,7 +77,12 @@ class Blade implements ViewInterface
         }
         $finder = new FileViewFinder([$path]);
 
-        $factory = new Factory($resolver, $finder);
+        $fisConfig = "";
+        $fisPath = Config::get("_release.path");
+        if($fisPath){
+            $fisConfig = Dir::formatPath($fisPath).Config::get("app.view.fis.map_path");
+        }
+        $factory = new Factory($resolver, $finder, $fisConfig);
         
         $result= $factory->make($view, $data, [])->render();
 

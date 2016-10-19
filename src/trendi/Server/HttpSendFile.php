@@ -107,8 +107,10 @@ class HttpSendFile
             $extension = 'php';
             return $this->analyse = [$isFile, $filePath, $extension, '', $notFound];
         }
+        
+        $fisPath = isset($this->config["_release.path"]) ? $this->config["_release.path"] : "";
         $staticPath = isset($this->config["static_path"]) ? $this->config["static_path"] : "";
-
+        
         if (!$staticPath) {
             throw new InvalidArgumentException(" config httpserver.static_path not config");
         }
@@ -120,7 +122,13 @@ class HttpSendFile
         $mime = Mime::get();
         if (is_file($filePath) && isset($mime[$extension])) {
             $isFile = 1;
-        } else {
+        } elseif($fisPath && isset($mime[$extension])){
+            $fisPath = rtrim($fisPath, DIRECTORY_SEPARATOR);
+            $filePath = $fisPath.$pathinfo;
+            if(is_file($filePath)){
+                $isFile = 1;
+            }
+        } else{
             if ($pathinfo == "/favicon.ico") {
                 $isFile = 1;
             }

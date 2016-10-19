@@ -19,7 +19,6 @@ class ServerBase
     {
         $root = Dir::formatPath(ROOT_PATH);
         Config::setConfigPath($root . "config");
-
         $daemonizeStr = "";
         if (($cmd == 'start' || $cmd == 'restart') && $input->hasOption("daemonize")) {
             $daemonize = $input->getOption('daemonize');

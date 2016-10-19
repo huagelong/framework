@@ -4,10 +4,11 @@ namespace Trendi\Mvc\View\Engine\Blade;
 
 use Closure;
 use Countable;
-use Trendi\Mvc\View\Engine\Blade\Support\Arr;
-use Trendi\Mvc\View\Engine\Blade\Support\Str;
 use InvalidArgumentException;
 use Trendi\Mvc\View\Engine\Blade\Engines\EngineResolver;
+use Trendi\Mvc\View\Engine\Blade\Support\Arr;
+use Trendi\Mvc\View\Engine\Blade\Support\Str;
+use Trendi\Di\Di;
 
 class Factory
 {
@@ -31,7 +32,7 @@ class Factory
      *
      * @var \Illuminate\Contracts\Container\Container
      */
-    protected $container;
+//    protected $container;
 
     /**
      * Data that should be available to all templates.
@@ -113,25 +114,30 @@ class Factory
     /**
      * Create a new view factory instance.
      *
-     * @param  \Trendi\Mvc\View\Engine\Blade\Engines\EngineResolver  $engines
-     * @param  \Trendi\Mvc\View\Engine\Blade\ViewFinderInterface  $finder
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \Trendi\Mvc\View\Engine\Blade\Engines\EngineResolver $engines
+     * @param  \Trendi\Mvc\View\Engine\Blade\ViewFinderInterface $finder
      * @return void
      */
-    public function __construct(EngineResolver $engines, ViewFinderInterface $finder)
+    public function __construct(EngineResolver $engines, ViewFinderInterface $finder, $fisConfig="")
     {
         $this->finder = $finder;
         $this->engines = $engines;
 
+        Di::set("fis", ["class"=>\Trendi\Mvc\View\Engine\Blade\FisResource::class]);
+
+        $fis = Di::get("fis");
+        $fis->setPath($fisConfig);
+        
         $this->share('__env', $this);
+        $this->share('__fis', $fis);
     }
 
     /**
      * Get the evaluated view contents for the given view.
      *
-     * @param  string  $path
-     * @param  array   $data
-     * @param  array   $mergeData
+     * @param  string $path
+     * @param  array $data
+     * @param  array $mergeData
      * @return \Illuminate\Contracts\View\View
      */
     public function file($path, $data = [], $mergeData = [])
@@ -146,9 +152,9 @@ class Factory
     /**
      * Get the evaluated view contents for the given view.
      *
-     * @param  string  $view
-     * @param  array   $data
-     * @param  array   $mergeData
+     * @param  string $view
+     * @param  array $data
+     * @param  array $mergeData
      * @return
      */
     public function make($view, $data = [], $mergeData = [])
@@ -183,13 +189,13 @@ class Factory
 
         list($namespace, $name) = explode($delimiter, $name);
 
-        return $namespace.$delimiter.str_replace('/', '.', $name);
+        return $namespace . $delimiter . str_replace('/', '.', $name);
     }
 
     /**
      * Parse the given data into a raw array.
      *
-     * @param  mixed  $data
+     * @param  mixed $data
      * @return array
      */
     protected function parseData($data)
@@ -200,8 +206,8 @@ class Factory
     /**
      * Get the evaluated view contents for a named view.
      *
-     * @param  string  $view
-     * @param  mixed   $data
+     * @param  string $view
+     * @param  mixed $data
      * @return \Illuminate\Contracts\View\View
      */
     public function of($view, $data = [])
@@ -212,8 +218,8 @@ class Factory
     /**
      * Register a named view.
      *
-     * @param  string  $view
-     * @param  string  $name
+     * @param  string $view
+     * @param  string $name
      * @return void
      */
     public function name($view, $name)
@@ -224,8 +230,8 @@ class Factory
     /**
      * Add an alias for a view.
      *
-     * @param  string  $view
-     * @param  string  $alias
+     * @param  string $view
+     * @param  string $alias
      * @return void
      */
     public function alias($view, $alias)
@@ -236,7 +242,7 @@ class Factory
     /**
      * Determine if a given view exists.
      *
-     * @param  string  $view
+     * @param  string $view
      * @return bool
      */
     public function exists($view)
@@ -253,10 +259,10 @@ class Factory
     /**
      * Get the rendered contents of a partial from a loop.
      *
-     * @param  string  $view
-     * @param  array   $data
-     * @param  string  $iterator
-     * @param  string  $empty
+     * @param  string $view
+     * @param  array $data
+     * @param  string $iterator
+     * @param  string $empty
      * @return string
      */
     public function renderEach($view, $data, $iterator, $empty = 'raw|')
@@ -291,14 +297,14 @@ class Factory
     /**
      * Get the appropriate view engine for the given path.
      *
-     * @param  string  $path
+     * @param  string $path
      * @return \Trendi\Mvc\View\Engine\Blade\Engines\EngineInterface
      *
      * @throws \InvalidArgumentException
      */
     public function getEngineFromPath($path)
     {
-        if (! $extension = $this->getExtension($path)) {
+        if (!$extension = $this->getExtension($path)) {
             throw new InvalidArgumentException("Unrecognized extension in file: $path");
         }
 
@@ -310,7 +316,7 @@ class Factory
     /**
      * Get the extension used by the view file.
      *
-     * @param  string  $path
+     * @param  string $path
      * @return string
      */
     protected function getExtension($path)
@@ -318,20 +324,20 @@ class Factory
         $extensions = array_keys($this->extensions);
 
         return Arr::first($extensions, function ($value) use ($path) {
-            return Str::endsWith($path, '.'.$value);
+            return Str::endsWith($path, '.' . $value);
         });
     }
 
     /**
      * Add a piece of shared data to the environment.
      *
-     * @param  array|string  $key
-     * @param  mixed  $value
+     * @param  array|string $key
+     * @param  mixed $value
      * @return mixed
      */
     public function share($key, $value = null)
     {
-        if (! is_array($key)) {
+        if (!is_array($key)) {
             return $this->shared[$key] = $value;
         }
 
@@ -344,8 +350,8 @@ class Factory
     /**
      * Build a class based container callback Closure.
      *
-     * @param  string  $class
-     * @param  string  $prefix
+     * @param  string $class
+     * @param  string $prefix
      * @return \Closure
      */
     protected function buildClassEventCallback($class, $prefix)
@@ -365,8 +371,8 @@ class Factory
     /**
      * Parse a class based composer name.
      *
-     * @param  string  $class
-     * @param  string  $prefix
+     * @param  string $class
+     * @param  string $prefix
      * @return array
      */
     protected function parseClassEvent($class, $prefix)
@@ -384,8 +390,8 @@ class Factory
     /**
      * Start injecting content into a section.
      *
-     * @param  string  $section
-     * @param  string  $content
+     * @param  string $section
+     * @param  string $content
      * @return void
      */
     public function startSection($section, $content = '')
@@ -402,8 +408,8 @@ class Factory
     /**
      * Inject inline content into a section.
      *
-     * @param  string  $section
-     * @param  string  $content
+     * @param  string $section
+     * @param  string $content
      * @return void
      */
     public function inject($section, $content)
@@ -428,7 +434,7 @@ class Factory
     /**
      * Stop injecting content into a section.
      *
-     * @param  bool  $overwrite
+     * @param  bool $overwrite
      * @return string
      * @throws \InvalidArgumentException
      */
@@ -475,8 +481,8 @@ class Factory
     /**
      * Append content to a given section.
      *
-     * @param  string  $section
-     * @param  string  $content
+     * @param  string $section
+     * @param  string $content
      * @return void
      */
     protected function extendSection($section, $content)
@@ -491,8 +497,8 @@ class Factory
     /**
      * Get the string contents of a section.
      *
-     * @param  string  $section
-     * @param  string  $default
+     * @param  string $section
+     * @param  string $default
      * @return string
      */
     public function yieldContent($section, $default = '')
@@ -513,8 +519,8 @@ class Factory
     /**
      * Start injecting content into a push section.
      *
-     * @param  string  $section
-     * @param  string  $content
+     * @param  string $section
+     * @param  string $content
      * @return void
      */
     public function startPush($section, $content = '')
@@ -550,16 +556,16 @@ class Factory
     /**
      * Append content to a given push section.
      *
-     * @param  string  $section
-     * @param  string  $content
+     * @param  string $section
+     * @param  string $content
      * @return void
      */
     protected function extendPush($section, $content)
     {
-        if (! isset($this->pushes[$section])) {
+        if (!isset($this->pushes[$section])) {
             $this->pushes[$section] = [];
         }
-        if (! isset($this->pushes[$section][$this->renderCount])) {
+        if (!isset($this->pushes[$section][$this->renderCount])) {
             $this->pushes[$section][$this->renderCount] = $content;
         } else {
             $this->pushes[$section][$this->renderCount] .= $content;
@@ -569,13 +575,13 @@ class Factory
     /**
      * Get the string contents of a push section.
      *
-     * @param  string  $section
-     * @param  string  $default
+     * @param  string $section
+     * @param  string $default
      * @return string
      */
     public function yieldPushContent($section, $default = '')
     {
-        if (! isset($this->pushes[$section])) {
+        if (!isset($this->pushes[$section])) {
             return $default;
         }
 
@@ -643,7 +649,7 @@ class Factory
     /**
      * Add new loop to the stack.
      *
-     * @param  \Countable|array  $data
+     * @param  \Countable|array $data
      * @return void
      */
     public function addLoop($data)
@@ -660,7 +666,7 @@ class Factory
             'first' => true,
             'last' => isset($length) ? $length == 1 : null,
             'depth' => count($this->loopsStack) + 1,
-            'parent' => $parent ? (object) $parent : null,
+            'parent' => $parent ? (object)$parent : null,
         ];
     }
 
@@ -702,7 +708,7 @@ class Factory
      */
     public function getFirstLoop()
     {
-        return ($last = Arr::last($this->loopsStack)) ? (object) $last : null;
+        return ($last = Arr::last($this->loopsStack)) ? (object)$last : null;
     }
 
     /**
@@ -718,7 +724,7 @@ class Factory
     /**
      * Add a location to the array of view locations.
      *
-     * @param  string  $location
+     * @param  string $location
      * @return void
      */
     public function addLocation($location)
@@ -729,8 +735,8 @@ class Factory
     /**
      * Add a new namespace to the loader.
      *
-     * @param  string  $namespace
-     * @param  string|array  $hints
+     * @param  string $namespace
+     * @param  string|array $hints
      * @return void
      */
     public function addNamespace($namespace, $hints)
@@ -741,8 +747,8 @@ class Factory
     /**
      * Prepend a new namespace to the loader.
      *
-     * @param  string  $namespace
-     * @param  string|array  $hints
+     * @param  string $namespace
+     * @param  string|array $hints
      * @return void
      */
     public function prependNamespace($namespace, $hints)
@@ -753,9 +759,9 @@ class Factory
     /**
      * Register a valid view extension and its engine.
      *
-     * @param  string    $extension
-     * @param  string    $engine
-     * @param  \Closure  $resolver
+     * @param  string $extension
+     * @param  string $engine
+     * @param  \Closure $resolver
      * @return void
      */
     public function addExtension($extension, $engine, $resolver = null)
@@ -804,7 +810,7 @@ class Factory
     /**
      * Set the view finder instance.
      *
-     * @param  \Trendi\Mvc\View\Engine\Blade\ViewFinderInterface  $finder
+     * @param  \Trendi\Mvc\View\Engine\Blade\ViewFinderInterface $finder
      * @return void
      */
     public function setFinder(ViewFinderInterface $finder)
@@ -817,27 +823,27 @@ class Factory
      *
      * @return \Illuminate\Contracts\Container\Container
      */
-    public function getContainer()
-    {
-        return $this->container;
-    }
+//    public function getContainer()
+//    {
+//        return $this->container;
+//    }
 
     /**
      * Set the IoC container instance.
      *
-     * @param  \Illuminate\Contracts\Container\Container  $container
+     * @param  \Illuminate\Contracts\Container\Container $container
      * @return void
      */
-    public function setContainer($container)
-    {
-        $this->container = $container;
-    }
+//    public function setContainer($container)
+//    {
+//        $this->container = $container;
+//    }
 
     /**
      * Get an item from the shared data.
      *
-     * @param  string  $key
-     * @param  mixed   $default
+     * @param  string $key
+     * @param  mixed $default
      * @return mixed
      */
     public function shared($key, $default = null)
@@ -858,7 +864,7 @@ class Factory
     /**
      * Check if section exists.
      *
-     * @param  string  $name
+     * @param  string $name
      * @return bool
      */
     public function hasSection($name)

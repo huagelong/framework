@@ -14,15 +14,20 @@ use Trendi\Support\Arr;
 use Trendi\Support\Dir;
 use Trendi\Support\ElapsedTime;
 use Trendi\Support\Log;
+use Trendi\Support\RunMode;
 
 class HttpdBase
 {
     public static function operate($cmd, $output, $input)
     {
         ElapsedTime::setStartTime(ElapsedTime::SYS_START);
-        
+
         $root = Dir::formatPath(ROOT_PATH);
         Config::setConfigPath($root . "config");
+
+        self::addRelease($input->getOption('daemonize'));
+        self::setRelease();
+
         $config = Config::get("server.httpd");
         $appName = Config::get("server.name");
 
@@ -57,11 +62,20 @@ class HttpdBase
         }
 
         $adapter = new Application($root);
-        self::doOperate($cmd, $config, $adapter, $root, $appName, $output);
+        self::doOperate($cmd, $config, $adapter, $root, $appName);
+    }
+
+    protected static function setRelease()
+    {
+        $release = ROOT_PATH . "/storage/release";
+        if (is_file($release)) {
+            $releaseContent = file_get_contents($release);
+            Config::set("_release.path", $releaseContent);
+        }
     }
 
 
-    public static function doOperate($command, array $config, $adapter, $root, $appName, $output)
+    public static function doOperate($command, array $config, $adapter, $root, $appName)
     {
         $defaultConfig = [
             'daemonize' => 0,
@@ -89,6 +103,11 @@ class HttpdBase
         ];
 
         $config['server'] = Arr::merge($defaultConfig, $config['server']);
+
+        $fisPath = Config::get("_release.path");
+        if ($fisPath) {
+            $config['server']['_release.path'] = $fisPath;
+        }
 
         $serverName = $appName . "-httpd-master";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
@@ -138,6 +157,62 @@ class HttpdBase
         $swooleServer = new \swoole_http_server($config['server']['host'], $config['server']['port']);
         $obj = new HttpServer($swooleServer, $config['server'], $adapter, $appName);
         $obj->start();
+    }
+
+    protected static function addRelease($daemonize=0)
+    {
+        $file = [
+            "fis-conf.js", "package.json"
+        ];
+
+        foreach ($file as $f) {
+            $path = ROOT_PATH . "/" . $f;
+            if (!is_file($path)) {
+                Log::sysinfo($path . " not found");
+                return;
+            }
+        }
+
+        $nodeModulesPath = ROOT_PATH . "/node_modules";
+        if (!is_dir($nodeModulesPath)) {
+
+            if(!self::checkCmd("npm")) return ;
+            exec("npm install");
+        }
+
+        if(!self::checkCmd("fis3")) return ;
+
+        $log = ROOT_PATH."/storage/release";
+        if(!is_writable($log)){
+            Log::error($log." can not writable");
+            return ;
+        }
+
+        $fisPath = ROOT_PATH."/public/release/".date('YmdHis');
+
+        RunMode::init();
+        if(RunMode::getRunMode() == RunMode::RUN_MODE_TEST){
+            $fisPath = ROOT_PATH."/public/release/_source";
+        }
+        if($daemonize){
+            $cmdStr = "fis3 release prod -d ".$fisPath;
+        }else{
+            $cmdStr = "fis3 release -d ".$fisPath;
+        }
+        exec($cmdStr);
+        file_put_contents($log, $fisPath);
+    }
+
+    protected static function checkCmd($cmd)
+    {
+        $cmdStr = "command -v ".$cmd;
+        exec($cmdStr, $check);
+        if(!$check){
+            Log::error("command {$cmd} Not Found");
+            return "";
+        }else{
+            return current($check);
+        }
     }
 
 }

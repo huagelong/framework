@@ -216,4 +216,23 @@ class Dir
         }
         return $files;
     }
+
+    public static function getTempDir()
+    {
+        // @codeCoverageIgnoreStart
+        if (function_exists('sys_get_temp_dir')) {
+            $tmp = sys_get_temp_dir();
+        } elseif (!empty($_SERVER['TMP'])) {
+            $tmp = $_SERVER['TMP'];
+        } elseif (!empty($_SERVER['TEMP'])) {
+            $tmp = $_SERVER['TEMP'];
+        } elseif (!empty($_SERVER['TMPDIR'])) {
+            $tmp = $_SERVER['TMPDIR'];
+        } else {
+            $tmp = getcwd();
+        }
+        // @codeCoverageIgnoreEnd
+
+        return $tmp;
+    }
 }

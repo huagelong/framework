@@ -11,7 +11,7 @@ class FileViewFinder implements ViewFinderInterface
     /**
      * The filesystem instance.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @var \Trendi\Mvc\View\Engine\Blade\Filesystem
      */
     protected $files;
 
@@ -46,7 +46,7 @@ class FileViewFinder implements ViewFinderInterface
     /**
      * Create a new file view loader instance.
      *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  \Trendi\Mvc\View\Engine\Blade\Filesystem  $files
      * @param  array  $paths
      * @param  array  $extensions
      * @return void
@@ -146,9 +146,27 @@ class FileViewFinder implements ViewFinderInterface
      */
     protected function getPossibleViewFiles($name)
     {
-        return array_map(function ($extension) use ($name) {
-            return str_replace('.', '/', $name).'.'.$extension;
-        }, $this->extensions);
+//        return array_map(function ($extension) use ($name) {
+//            return str_replace('.', '/', $name).'.'.$extension;
+//        }, $this->extensions);
+
+        $arr = array();
+        $name = ltrim($name, ".");
+        $name = preg_replace('/\.blade\.php$/', "", $name);
+        $parts = explode(".", $name);
+
+        foreach($this->extensions as $extension) {
+            $len = sizeof($parts);
+            $i = 0;
+            $dir = "";
+            for(; $i < $len; $i++) {
+                $basename = join(".", array_slice($parts, $i));
+                $arr[] = $dir.$basename.".".$extension;
+                $dir .= $parts[$i]."/";
+            }
+        }
+
+        return $arr;
     }
 
     /**
@@ -238,7 +256,7 @@ class FileViewFinder implements ViewFinderInterface
     /**
      * Get the filesystem instance.
      *
-     * @return \Illuminate\Filesystem\Filesystem
+     * @return \Trendi\Mvc\View\Engine\Blade\Filesystem
      */
     public function getFilesystem()
     {

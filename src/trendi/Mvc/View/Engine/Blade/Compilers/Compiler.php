@@ -10,7 +10,7 @@ abstract class Compiler
     /**
      * The Filesystem instance.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @var \Trendi\Mvc\View\Engine\Blade\Filesystem
      */
     protected $files;
 
@@ -24,7 +24,7 @@ abstract class Compiler
     /**
      * Create a new compiler instance.
      *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  \Trendi\Mvc\View\Engine\Blade\Filesystem  $files
      * @param  string  $cachePath
      * @return void
      *

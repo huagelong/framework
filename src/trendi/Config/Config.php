@@ -91,6 +91,7 @@ class Config implements ConfigInterface
                 $keyString = substr($file, strlen($dir), -4);
                 if (preg_match("/_\w*/", $keyString)) continue;
                 $loadedConfig = require_once($file);
+                if($loadedConfig === true) continue;
                 if (!is_array($loadedConfig)) {
                     throw new InvalidArgumentException("syntax error find in config file: " . $file);
                 }

@@ -20,7 +20,7 @@ class Di implements DiInterface
     /**
      *  Container instance
      *
-     * @var \Symfony\Component\DependencyInjection\ContainerBuilder
+     * @var \Trendi\Di\Base\ContainerBuilder
      */
     protected static $containerInstance = null;
 
@@ -40,7 +40,7 @@ class Di implements DiInterface
     /**
      * get Container
      *
-     * @return \Symfony\Component\DependencyInjection\ContainerBuilder
+     * @return \Trendi\Di\Base\ContainerBuilder
      */
     public static function getContainer()
     {
@@ -61,7 +61,7 @@ class Di implements DiInterface
      *
      * @param bool $isShare
      * @param bool $isLazy
-     * @return null|\Symfony\Component\DependencyInjection\Definition
+     * @return null|\Trendi\Di\Base\Definition
      */
     private static function register($name, $options, $shared = true, $lazy = true)
     {
@@ -111,7 +111,7 @@ class Di implements DiInterface
      *
      * @param $name
      * @param $options
-     * @return null|\Symfony\Component\DependencyInjection\Definition
+     * @return null|\Trendi\Di\Base\Definition
      */
     public static function set($name, $options)
     {
