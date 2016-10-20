@@ -138,7 +138,6 @@ class Application
             new Command\Server\Restart(),
             new Command\Server\Status(),
             new Command\Server\Stop(),
-            new Command\Artisan\CreateProject(),
         ];
         $config = CConfig::get("app.command");
         if ($config) {
