@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout/layout.blade.php')
 @require('/resource/static/js/test.js')
 @section('title', 'Page Title')
 
@@ -20,7 +20,6 @@
     @else
         I don't have any records!
     @endif
-
 @endsection
 
 

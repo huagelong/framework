@@ -15,9 +15,6 @@ This is the master sidebar.
 <div class="container">
     @yield('content')
 </div>
-@script()
-
-@endscript
 @placeholder('framework')
 @placeholder('scripts')
 </body>

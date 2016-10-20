@@ -1020,23 +1020,6 @@ class BladeCompiler extends Compiler implements CompilerInterface
     }
 
     /**
-     * Compile the extends statements into valid PHP.
-     *
-     * @param  string  $expression
-     * @return string
-     */
-    protected function _compileExtends($expression)
-    {
-        $expression = $this->stripParentheses($expression);
-
-        $data = "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
-
-        $this->footer[] = $data;
-
-        return '';
-    }
-
-    /**
      * Compile the include statements into valid PHP.
      *
      * @param  string  $expression
@@ -1055,6 +1038,23 @@ class BladeCompiler extends Compiler implements CompilerInterface
         $expression = join(",", $params);
         $this->_compileExtends($expression);
         return "";
+    }
+
+    /**
+     * Compile the extends statements into valid PHP.
+     *
+     * @param  string  $expression
+     * @return string
+     */
+    protected function _compileExtends($expression)
+    {
+        $expression = $this->stripParentheses($expression);
+
+        $data = "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
+
+        $this->footer[] = $data;
+
+        return '';
     }
 
     protected function compileFramework($expression) {

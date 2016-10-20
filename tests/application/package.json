@@ -13,19 +13,24 @@
   "keywords": [
     "fis",
     "scaffold",
-    "laravel",
+    "trendi",
     "blade"
   ],
-  "author": "fis",
+  "author": "trendi",
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/trendi/framework/issues"
   },
   "homepage": "https://github.com/trendi/framework",
-  "dependencies": {
+  "devDependencies": {
+    "fis-parser-babel-5.x": "^1.4.0",
     "fis3-hook-commonjs": "0.1.0",
     "fis-parser-utc": "0.0.2",
     "fis3-preprocessor-extlang": "1.0.8",
-    "fis-parser-jdists":"1.0.1"
+    "fis3-postpackager-loader": "2.1.4",
+    "fis3-hook-node_modules": "2.2.8"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
   }
 }

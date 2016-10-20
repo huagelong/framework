@@ -232,9 +232,7 @@ class FisResource {
         if ($pkg && isset($node['pkg'])) {
             $node = $this->getNode($node['pkg'], "pkg");
         }
-
         $uri = $node['uri'];
-
         return $uri;
     }
 

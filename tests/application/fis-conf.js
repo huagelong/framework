@@ -1,6 +1,7 @@
 // 按需编译，只编译用到的资源
 fis.set('project.files', ['*.blade.php', 'map.json']);
 fis.set('project.ignore', ['public/**', 'config/**', 'route/**', 'src/**', 'storage/**','node_modules/**', 'output/**', '.git/**', 'fis-conf.js']);
+
 // 采用 commonjs 规范支持模块化组建开发
 fis.hook('commonjs', {
   packages: [
@@ -9,9 +10,26 @@ fis.hook('commonjs', {
       location: '/resource/static/modules'
     }
   ],
+  extList: ['.js', '.jsx', '.es', '.ts', '.tsx'],
   paths: {
-    $: '/modules/jquery/jquery-1.11.2.js'
+   // "jquery": "/resource/static/modules/jquery/jquery-3.1.1.min.js"
   }
+});
+fis.hook('node_modules');
+
+// 设置成是模块化 js
+fis.match('/{node_modules}/**.{js,jsx.json}', {
+  isMod: true,
+  useSameNameRequire: true
+});
+
+fis.match('{/resource/static/modules/**.js,*.jsx}', {
+  // parser: fis.plugin('typescript'),。
+  parser: fis.plugin('babel-5.x', {
+    sourceMaps: true,
+    optional: ["es7.decorators", "es7.classProperties"]
+  }),
+  rExt: '.js'
 });
 
 
@@ -21,7 +39,7 @@ fis.match('/resource/static/**.{js,css,png,jpg,gif}', {
 });
 
 // 让所有的 js 都用模块化的方式开发。
-fis.match('/resource/static/**.js', {
+fis.match('/resource/static/modules/**.js', {
   isMod: true
 });
 // 默认认为所有的资源都是静态资源
@@ -53,11 +71,6 @@ fis.match('/resource/map/map.json', {
   release: '/resource/map/map.json',
 });
 
-// static/js 下面放非模块化 js
-fis.match('/resource/static/js/*.js', {
-  isMod: false,
-});
-
 // 给组件下面的 js 设置同名依赖
 fis.match('/resource/static/components/**.js', {
   useSameNameRequire: true
@@ -83,14 +96,5 @@ fis.media('prod')
   })
   // libs 目录下面的 js 打成一个
   .match('/resource/static/modules/**.js', {
-    packTo: '/resource/static/pkg/modules.js'
+    packTo: '/resource/static/pkg/libs.js'
   })
-  // components 目录下面的打成一个。
-  .match('/resource/static/components/**.js', {
-    packTo: '/resource/static/pkg/components.js'
-  })
-  .match('*.js', {
-      parser: fis.plugin('jdists', {
-        remove: "debug"
-      })
-   })

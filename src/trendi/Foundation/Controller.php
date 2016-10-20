@@ -57,9 +57,9 @@ class Controller
             $fis = Config::get("app.view.fis.view_path");
             $viewRoot = Dir::formatPath($fisPath).$fis;
         }else{
-            $viewRoot = Config::get("app.view.path"); 
+            $viewRoot = Config::get("app.view.path");
         }
-        
+
         $theme = Config::get("app.view.theme");
         $realViewRoot = Dir::formatPath($viewRoot).$theme;
         Template::setViewRoot($realViewRoot);
