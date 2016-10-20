@@ -114,7 +114,7 @@ class HttpSendFile
         if (!$staticPath) {
             throw new InvalidArgumentException(" config httpserver.static_path not config");
         }
-
+        
         $staticPath = rtrim($staticPath, DIRECTORY_SEPARATOR);
 
         $filePath = $staticPath . $pathinfo;

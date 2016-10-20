@@ -56,7 +56,7 @@ class Application
 
     protected function initRelease()
     {
-        $release = ROOT_PATH."/storage/release";
+        $release = ROOT_PATH."/storage/tmp/fis";
         if(is_file($release)){
             $releaseContent = @file_get_contents($release);
             if($releaseContent) CConfig::set("_release.path", $releaseContent);

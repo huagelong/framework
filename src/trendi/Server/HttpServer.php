@@ -74,7 +74,7 @@ class HttpServer
     public function onManagerStart(SwooleServer $serv)
     {
         swoole_set_process_name($this->serverName . "-manage");
-        Log::sysinfo($this->serverName . " httpd manage start ......");
+        Log::sysinfo($this->serverName . " manage start ......");
     }
 
     /**
@@ -110,7 +110,7 @@ class HttpServer
     public function onStart(SwooleServer $swooleServer)
     {
         swoole_set_process_name($this->serverName . "-master");
-        Log::sysinfo($this->serverName . " httpd server start ......");
+        Log::sysinfo($this->serverName . " server start ......");
         $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
         
         Reload::load($this->serverName . "-master", $memRebootRate, $this->config);
@@ -118,7 +118,7 @@ class HttpServer
 
     public function onShutdown(SwooleServer $swooleServer)
     {
-        Log::sysinfo($this->serverName . " httpd server shutdown ...... ");
+        Log::sysinfo($this->serverName . " server shutdown ...... ");
     }
 
     /**
@@ -139,10 +139,10 @@ class HttpServer
 
         if ($workerId >= $this->config["worker_num"]) {
             swoole_set_process_name($this->serverName . "-task-worker");
-            Log::sysinfo($this->serverName . " httpd task worker start ..... ");
+            Log::sysinfo($this->serverName . " task worker start ..... ");
         } else {
             swoole_set_process_name($this->serverName . "-worker");
-            Log::sysinfo($this->serverName . " httpd worker start ..... ");
+            Log::sysinfo($this->serverName . " worker start ..... ");
         }
         $this->adapter->httpBoostrap();
 
@@ -155,12 +155,12 @@ class HttpServer
 
     public function onWorkerStop(SwooleServer $swooleServer, $workerId)
     {
-        Log::sysinfo($this->serverName . " httpd worker stop ..... ");
+        Log::sysinfo($this->serverName . " worker stop ..... ");
     }
 
     public function onWorkerError(SwooleServer $swooleServer, $workerId, $workerPid, $exitCode)
     {
-        Log::sysinfo($this->serverName . " httpd worker error ..... ");
+        Log::sysinfo($this->serverName . " worker error ..... ");
         Log::sysinfo("======================");
         Log::error(socket_strerror($exitCode) . "");
 

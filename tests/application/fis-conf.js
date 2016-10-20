@@ -4,8 +4,6 @@ fis.set('project.ignore', ['public/**', 'config/**', 'route/**', 'src/**', 'stor
 // 采用 commonjs 规范支持模块化组建开发
 fis.hook('commonjs', {
   packages: [
-    // 短路径支持
-    // 可以通过 require('/libs/alert') 依赖 `static/libs/alert.js`
     {
       name: 'modules',
       location: '/resource/static/modules'
@@ -73,31 +71,25 @@ fis.match('/resource/static/*.tmpl', {
 });
 
 // 在 prod 环境下，开启各种压缩和打包。
-fis
-  .media('prod')
-
+fis.media('prod')
   .match('/resource/static/*.js', {
     optimizer: fis.plugin('uglify-js')
   })
-
   .match('/resource/static/*.css', {
     optimizer: fis.plugin('clean-css')
   })
-
   .match('/resource/static/*.png', {
     optimizer: fis.plugin('png-compressor')
   })
-
   // libs 目录下面的 js 打成一个
   .match('/resource/static/modules/**.js', {
     packTo: '/resource/static/pkg/modules.js'
   })
-
   // components 目录下面的打成一个。
   .match('/resource/static/components/**.js', {
     packTo: '/resource/static/pkg/components.js'
   })
-    .match('*.js', {
+  .match('*.js', {
       parser: fis.plugin('jdists', {
         remove: "debug"
       })

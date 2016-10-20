@@ -15,7 +15,7 @@ return [
             'daemonize' => 0,
 //            "mem_reboot_rate" => 0.8,//可用内存达到多少自动重启
             "auto_reload"=>"10:00",//每天10点重启
-            "log_file" => ROOT_PATH . "/storage/log",
+            "log_file" => ROOT_PATH . "/storage/tmp/log",
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 1,
             /**
@@ -28,7 +28,7 @@ return [
             "dispatch_mode" => 2,
             //reactor数量，推荐2
             'reactor_num' => 2,
-            'static_path' => ROOT_PATH . '/public',
+            'static_path' => ROOT_PATH . '/storage/public',
             "gzip" => 4,
             "static_expire_time" => 86400,
             "task_worker_num" => 5,
@@ -55,7 +55,7 @@ return [
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
             "auto_reload"=>"10:00",//每天10点重启
-            "log_file" => ROOT_PATH . "/storage/log",
+            "log_file" => ROOT_PATH . "/storage/tmp/log",
             //worker数量，推荐设置和cpu核数相等
             'worker_num' => 2,
             /**
@@ -71,7 +71,7 @@ return [
             "gzip" => 4,
             "static_expire_time" => 86400,
             "task_worker_num" => 5,
-            "task_fail_log" => ROOT_PATH . "/storage/rpc_task_fail_log",
+            "task_fail_log" => ROOT_PATH . "/storage/tmp/rpc_task_fail_log",
             "task_retry_count" => 2,
             "serialization" => 1,
             "maxRequests" => 10000,
@@ -89,7 +89,7 @@ return [
         "server" => [
             "host" => "0.0.0.0",
             "port" => "9001",
-            "log_file" => ROOT_PATH . "/storage/log",
+            "log_file" => ROOT_PATH . "/storage/tmp/log",
             //是否后台运行, 推荐设置0
             'daemonize' => 0,
             "auto_reload"=>"10:00",//每天4点重启

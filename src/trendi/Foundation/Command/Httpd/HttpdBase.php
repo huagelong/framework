@@ -24,8 +24,6 @@ class HttpdBase
 
         $root = Dir::formatPath(ROOT_PATH);
 
-        self::setRelease();
-
         $config = Config::get("server.httpd");
         $appName = Config::get("server.name");
 
@@ -65,7 +63,7 @@ class HttpdBase
 
     protected static function setRelease()
     {
-        $release = ROOT_PATH . "/storage/release";
+        $release = ROOT_PATH . "/storage/tmp/fis";
         if (is_file($release)) {
             $releaseContent = file_get_contents($release);
             Config::set("_release.path", $releaseContent);
@@ -102,11 +100,6 @@ class HttpdBase
 
         $config['server'] = Arr::merge($defaultConfig, $config['server']);
 
-        $fisPath = Config::get("_release.path");
-        if ($fisPath) {
-            $config['server']['_release.path'] = $fisPath;
-        }
-
         $serverName = $appName . "-httpd-master";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
@@ -120,6 +113,13 @@ class HttpdBase
             self::addRelease($config['server']['daemonize']);
         }
 
+        self::setRelease();
+
+        $fisPath = Config::get("_release.path");
+        if ($fisPath) {
+            $config['server']['_release.path'] = $fisPath;
+        }
+        
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
             Log::sysinfo("[$serverName] not run");
             return;
@@ -184,18 +184,14 @@ class HttpdBase
 
         if(!self::checkCmd("fis3")) return ;
 
-        $log = ROOT_PATH."/storage/release";
+        $log = ROOT_PATH."/storage/tmp/fis";
         $fopen = fopen($log, "w");
         if(!$fopen){
             Log::error($log." can not writable");
             return ;
         }
 
-        $fisPath = ROOT_PATH."/public/release/".date('YmdHis');
-
-        if(RunMode::getRunMode() == RunMode::RUN_MODE_TEST){
-            $fisPath = ROOT_PATH."/public/release/_source";
-        }
+        $fisPath = ROOT_PATH."/storage/public/_source";
         if($daemonize){
             $cmdStr = "fis3 release prod -d ".$fisPath;
         }else{
@@ -207,7 +203,7 @@ class HttpdBase
 
     protected static function removeRelease()
     {
-        $log = ROOT_PATH."/storage/release";
+        $log = ROOT_PATH."/storage/tmp/fis";
         if(is_file($log)){
             unlink($log);
             return ;
