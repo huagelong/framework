@@ -8,7 +8,7 @@
 
 * 先安装 swoole,mbstring,posix扩展
 
-* 根据 boilerplate 样板 安装 [see](https://github.com/trendi/boilerplate)
+* 根据 boilerplate 样板 安装 [代码](https://github.com/trendi/boilerplate)
 
 ``
 sudo composer require trendi/boilerplate
