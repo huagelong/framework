@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/trendi/framework"
+    "url": "https://github.com/trendi/boilerplate"
   },
   "keywords": [
     "fis",
@@ -19,16 +19,14 @@
   "author": "trendi",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/trendi/framework/issues"
+    "url": "https://github.com/trendi/boilerplate/issues"
   },
-  "homepage": "https://github.com/trendi/framework",
+  "homepage": "https://github.com/trendi/boilerplate",
   "devDependencies": {
-    "fis-parser-babel-5.x": "^1.4.0",
-    "fis3-hook-commonjs": "0.1.0",
+    "fis3-hook-commonjs": "0.1.25",
     "fis-parser-utc": "0.0.2",
     "fis3-preprocessor-extlang": "1.0.8",
-    "fis3-postpackager-loader": "2.1.4",
-    "fis3-hook-node_modules": "2.2.8"
+    "fis3-packager-deps-pack":"0.1.2"
   },
   "dependencies": {
     "jquery": "^3.1.1"

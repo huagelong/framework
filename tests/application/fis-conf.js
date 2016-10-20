@@ -12,24 +12,9 @@ fis.hook('commonjs', {
   ],
   extList: ['.js', '.jsx', '.es', '.ts', '.tsx'],
   paths: {
-   // "jquery": "/resource/static/modules/jquery/jquery-3.1.1.min.js"
+   "jquery": "/resource/static/modules/jquery/jquery-3.1.1.min.js",
+    $: "/resource/static/modules/jquery/jquery-3.1.1.min.js"
   }
-});
-fis.hook('node_modules');
-
-// 设置成是模块化 js
-fis.match('/{node_modules}/**.{js,jsx.json}', {
-  isMod: true,
-  useSameNameRequire: true
-});
-
-fis.match('{/resource/static/modules/**.js,*.jsx}', {
-  // parser: fis.plugin('typescript'),。
-  parser: fis.plugin('babel-5.x', {
-    sourceMaps: true,
-    optional: ["es7.decorators", "es7.classProperties"]
-  }),
-  rExt: '.js'
 });
 
 
@@ -94,7 +79,39 @@ fis.media('prod')
   .match('/resource/static/*.png', {
     optimizer: fis.plugin('png-compressor')
   })
-  // libs 目录下面的 js 打成一个
-  .match('/resource/static/modules/**.js', {
-    packTo: '/resource/static/pkg/libs.js'
+  .match('::package', {
+    packager: fis.plugin('map', {
+      '/resource/static/pkg/third.js': [
+        '/node_modules/**.js'
+      ],
+      '/resource/static/pkg/app.js':[
+        '/resource/static/modules/**.js',
+      ]
+    })
   })
+//     .match('::packager', {
+//   packager: fis.plugin('deps-pack', {
+//
+//     'pkg/hello.js': [
+//
+//       // 将 main.js 加入队列
+//       '/static/hello/src/main.js',
+//
+//       // main.js 的所有同步依赖加入队列
+//       '/static/hello/src/main.js:deps',
+//
+//       // 将 main.js 所以异步依赖加入队列
+//       '/static/hello/src/main.js:asyncs',
+//
+//       // 移除 comp.js 所有同步依赖
+//       '!/static/hello/src/comp.js:deps'
+//     ],
+//
+//     // 也可以从将 js 依赖中 css 命中。
+//     'pkg/hello.css': [
+//       // main.js 的所有同步依赖加入队列
+//       '/static/hello/src/main.js:deps',
+//     ]
+//
+//   })
+// });
