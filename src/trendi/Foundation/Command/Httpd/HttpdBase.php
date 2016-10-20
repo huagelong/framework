@@ -180,6 +180,7 @@ class HttpdBase
         if (!is_dir($nodeModulesPath)) {
             if(!self::checkCmd("npm")) return ;
             Log::sysinfo("dir 'node_modules' not found , please run 'npm install' ");
+            return ;
         }
 
         if(!self::checkCmd("fis3")) return ;
