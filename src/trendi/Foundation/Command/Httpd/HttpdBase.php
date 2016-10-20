@@ -170,7 +170,7 @@ class HttpdBase
         foreach ($file as $f) {
             $path = ROOT_PATH . "/" . $f;
             if (!is_file($path)) {
-                Log::sysinfo($path . " not found   ---->----->");
+                Log::sysinfo($path . " not found, program will run with not supports fis ---->----->");
                 self::removeRelease();
                 return;
             }
@@ -179,7 +179,7 @@ class HttpdBase
         $nodeModulesPath = ROOT_PATH . "/node_modules";
         if (!is_dir($nodeModulesPath)) {
             if(!self::checkCmd("npm")) return ;
-            exec("npm install");
+            Log::sysinfo("dir 'node_modules' not found , please run 'npm install' ");
         }
 
         if(!self::checkCmd("fis3")) return ;
