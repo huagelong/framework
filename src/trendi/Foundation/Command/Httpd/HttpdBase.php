@@ -102,6 +102,15 @@ class HttpdBase
             mkdir(dirname($config['server']['log_file']), "0777", true);
         }
 
+        if(isset($config['server']['static_path']) && !is_dir($config['server']['static_path'])){
+            mkdir($config['server']['static_path'], "0777", true);
+        }
+
+        $viewCachePath = Config::get("app.view.compile_path");
+        if(!is_dir($viewCachePath)){
+            mkdir(dirname($viewCachePath), "0777", true);
+        }
+
         $serverName = $appName . "-httpd-master";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;

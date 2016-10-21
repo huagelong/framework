@@ -77,10 +77,6 @@ class Controller
         $content = syscache()->get($syscacheKey);
         if($content) return $content;
 
-        if(!is_dir($viewCachePath)){
-            mkdir($viewCachePath, 0777, true);
-        }
-
         $content = Template::render($viewPath, $assign);
         syscache()->set($syscacheKey, $content, 300);
         
