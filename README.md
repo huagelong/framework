@@ -11,12 +11,11 @@
 * 根据 boilerplate 样板 安装 [代码](https://github.com/trendi/boilerplate)
 
 ``
-sudo composer require trendi/boilerplate
-``
 
-* 执行
+sudo git clone https://github.com/trendi/boilerplate
 
-```
+cd boilerplate
+
 sudo composer install
 
 sudo chmod 0777 trendi
