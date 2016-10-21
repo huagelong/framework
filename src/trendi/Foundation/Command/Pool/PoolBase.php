@@ -90,6 +90,10 @@ class PoolBase
 
         $config['server'] = Arr::merge($defaultConfig, $config['server']);
 
+        if(isset($config['server']['log_file']) && !is_file($config['server']['log_file'])){
+            mkdir(dirname($config['server']['log_file']), "0777", true);
+        }
+        
         $serverName = $appName . "-pool-master";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
