@@ -10,7 +10,7 @@
 
 * 根据 boilerplate 样板 安装 [代码](https://github.com/trendi/boilerplate)
 
-``
+```
 
 sudo git clone https://github.com/trendi/boilerplate
 
