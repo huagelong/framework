@@ -11,7 +11,6 @@
 
 namespace Trendi\Console;
 
-use Trendi\Console\Exception\ExceptionInterface;
 use Trendi\Console\Helper\DebugFormatterHelper;
 use Trendi\Console\Helper\ProcessHelper;
 use Trendi\Console\Helper\QuestionHelper;
@@ -30,13 +29,8 @@ use Trendi\Console\Command\HelpCommand;
 use Trendi\Console\Command\ListCommand;
 use Trendi\Console\Helper\HelperSet;
 use Trendi\Console\Helper\FormatterHelper;
-//use Trendi\Console\Event\ConsoleCommandEvent;
-//use Trendi\Console\Event\ConsoleExceptionEvent;
-//use Trendi\Console\Event\ConsoleTerminateEvent;
 use Trendi\Console\Exception\CommandNotFoundException;
 use Trendi\Console\Exception\LogicException;
-use Symfony\Component\Debug\Exception\FatalThrowableError;
-//use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * An Application is the container for a collection of commands.

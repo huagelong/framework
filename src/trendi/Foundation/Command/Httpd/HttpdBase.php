@@ -14,7 +14,6 @@ use Trendi\Support\Arr;
 use Trendi\Support\Dir;
 use Trendi\Support\ElapsedTime;
 use Trendi\Support\Log;
-use Trendi\Support\RunMode;
 
 class HttpdBase
 {
@@ -63,10 +62,9 @@ class HttpdBase
 
     protected static function setRelease()
     {
-        $release = ROOT_PATH . "/storage/tmp/fis";
-        if (is_file($release)) {
-            $releaseContent = file_get_contents($release);
-            Config::set("_release.path", $releaseContent);
+        $release = Config::get("app.view.fis.compile_path");
+        if(is_dir($release)){
+            Config::set("_release.path", $release);
         }
     }
 
@@ -186,29 +184,45 @@ class HttpdBase
 
         if(!self::checkCmd("fis3")) return ;
 
-        $log = ROOT_PATH."/storage/tmp/fis";
-        $fopen = fopen($log, "w");
-        if(!$fopen){
-            Log::error($log." can not writable");
-            return ;
-        }
-
-        $fisPath = ROOT_PATH."/storage/public/_source";
+        $fisPath = Config::get("app.view.fis.compile_path");
         if($daemonize){
             $cmdStr = "fis3 release prod -d ".$fisPath;
         }else{
             $cmdStr = "fis3 release -d ".$fisPath;
         }
         exec($cmdStr);
-        file_put_contents($log, $fisPath);
     }
 
     protected static function removeRelease()
     {
-        $log = ROOT_PATH."/storage/tmp/fis";
-        if(is_file($log)){
-            unlink($log);
+        $release = Config::get("app.view.fis.compile_path");
+        if(is_dir($release)){
+            self::deldir($release);
             return ;
+        }
+    }
+
+
+    protected static function deldir($dir) {
+        //先删除目录下的文件：
+        $dh=opendir($dir);
+        while ($file=readdir($dh)) {
+            if($file!="." && $file!="..") {
+                $fullpath=$dir."/".$file;
+                if(!is_dir($fullpath)) {
+                    @unlink($fullpath);
+                } else {
+                    self::deldir($fullpath);
+                }
+            }
+        }
+
+        closedir($dh);
+        //删除当前文件夹：
+        if(rmdir($dir)) {
+            return true;
+        } else {
+            return false;
         }
     }
 

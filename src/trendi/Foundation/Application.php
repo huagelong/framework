@@ -23,10 +23,6 @@ use Trendi\Support\ElapsedTime;
 
 class Application
 {
-    /**
-     * frame work version
-     */
-    const VERSION = '1.0';
 
     /**
      * 项目路径
@@ -56,10 +52,9 @@ class Application
 
     protected function initRelease()
     {
-        $release = ROOT_PATH."/storage/tmp/fis";
-        if(is_file($release)){
-            $releaseContent = @file_get_contents($release);
-            if($releaseContent) CConfig::set("_release.path", $releaseContent);
+        $release = CConfig::get("app.view.fis.compile_path");
+        if(is_dir($release)){
+           CConfig::set("_release.path", $release);
         }
     }
 
@@ -149,6 +144,7 @@ class Application
         foreach ($commands as $v) {
             $application->add($v);
         }
+       
         $application->run();
     }
 
