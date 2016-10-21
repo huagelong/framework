@@ -20,6 +20,7 @@ use Trendi\Coroutine\Event;
 use Trendi\Support\Facade;
 use Trendi\Support\Log;
 use Trendi\Support\Exception;
+use Trendi\Support\ElapsedTime;
 
 class HttpServer
 {
@@ -113,7 +114,7 @@ class HttpServer
         Log::sysinfo($this->serverName . " server start ......");
         $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
         
-        Reload::load($this->serverName . "-master", $memRebootRate, $this->config);
+        Reload::load($this->serverName , $memRebootRate, $this->config);
     }
 
     public function onShutdown(SwooleServer $swooleServer)
@@ -133,6 +134,10 @@ class HttpServer
             apc_clear_cache();
         }
 
+        if (function_exists("apcu_clear_cache")) {
+            apcu_clear_cache();
+        }
+        
         if (function_exists("opcache_reset")) {
             opcache_reset();
         }
@@ -177,9 +182,14 @@ class HttpServer
      */
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
+        ElapsedTime::setStartTime("sys_elapsed_time");
+
+      
         $request = new Request($swooleHttpRequest);
+       
         $response = new Response($swooleHttpResponse);
 
+    
         if (Facade::getFacadeApplication()) {
             Context::clear();
             Context::set("response", $response);
@@ -187,14 +197,17 @@ class HttpServer
             $request = Context::request();
             $response = Context::response();
         }
-
+      
         $httpSendFile = new HttpSendFile($request, $response);
         $httpSendFile->setConfig($this->config);
-        list($isFile, , ,) = $httpSendFile->analyse();
+        list($isFile,,,,) = $httpSendFile->analyse();
+        
         if ($isFile) {
             $httpSendFile->sendFile();
         } else {
+     
             $this->response($request, $response);
+
             if (Facade::getFacadeApplication()) {
                 Context::clear();
             }
@@ -231,6 +244,7 @@ class HttpServer
         if ($gzip) {
             $response->gzip($gzip);
         }
+       
         $response->header("Content-Type", "text/html;charset=utf-8");
         return $this->adapter->start($request, $response);
     }

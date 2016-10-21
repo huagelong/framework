@@ -17,6 +17,7 @@ use Trendi\Http\Request;
 use Trendi\Http\Response;
 use Trendi\Mvc\Route\Exception\PageNotFoundException;
 use Trendi\Support\Arr;
+use Trendi\Support\Log;
 use Trendi\Coroutine\Event;
 use Trendi\Mvc\Route\Base;
 use Trendi\Foundation\Bootstrap\Session;
@@ -105,11 +106,20 @@ class RouteMatch
      */
     public function url($routeName, $params = [])
     {
+        $sysCacheKey = md5($routeName.serialize($params));
+
+        $url = syscache()->get($sysCacheKey);
+
+        if($url) return $url;
+
         $rootCollection = $this->getRootCollection();
         $context = new RequestContext();
         $context->fromRequest(Request::createFromGlobals());
         $generator = new UrlGenerator($rootCollection, $context);
         $url = $generator->generate($routeName, $params);
+        
+        syscache()->set($sysCacheKey, $url, 60);
+
         return $url;
     }
 
@@ -124,10 +134,17 @@ class RouteMatch
     {
         Event::fire("controller.call.before", [$url]);
         Event::fire("http.controller.call.before", [$url, $request, $response]);
-        
+  
         $this->sessionStart($request, $response);
-        
-        $parameters = $this->match($url);
+
+        $sysCacheKey = md5(__CLASS__.$url);
+
+        $parameters = syscache()->get($sysCacheKey);
+
+        if(!$parameters){
+            $parameters = $this->match($url);
+            syscache()->set($sysCacheKey, $parameters, 300);
+        }
 
         if ($parameters) {
             $secondReq = [];
@@ -136,8 +153,9 @@ class RouteMatch
                     $secondReq[$k] = $v;
                 }
             }
+          
             $request->overrideGlobals();
-
+    
             $require = [$request, $response, $secondReq];
 
             return $this->runBase($require, $parameters);
@@ -170,8 +188,17 @@ class RouteMatch
     {
         Event::fire("controller.call.before", [$url]);
         Event::fire("rpc.controller.call.before", [$url, $requestData]);
-        
-        $parameters = $this->match($url);
+
+
+        $sysCacheKey = md5($url);
+
+        $parameters = syscache()->get($sysCacheKey);
+
+        if(!$parameters){
+            $parameters = $this->match($url);
+            syscache()->set($sysCacheKey, $parameters, 300);
+        }
+
         if ($parameters) {
             $require = [];
             foreach ($parameters as $k => $v) {
@@ -197,6 +224,7 @@ class RouteMatch
      */
     private function runBase($require, $parameters)
     {
+
         if ($parameters) {
             $controller = isset($parameters['_controller']) ? $parameters['_controller'] : null;
             if ($controller) {
@@ -220,6 +248,7 @@ class RouteMatch
                     if (stristr($controller, "@")) {
                         list($controller, $action) = explode("@", $controller);
                         //如果是http服务器
+                     
                         if(isset($require[0]) && ($require[0] instanceof Request)){
                             $obj = new $controller($require[0],$require[1]);
                             $content = call_user_func_array([$obj, $action], $require[2]);
@@ -227,6 +256,7 @@ class RouteMatch
                             $obj = new $controller();
                             $content = call_user_func_array([$obj, $action], $require);
                         }
+           
                         Event::fire("controller.call.after", [$content]);
                         Event::fire("clear");
                         return $content;

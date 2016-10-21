@@ -98,6 +98,13 @@ class HttpSendFile
 
         $pathinfo = $this->request->getPathInfo();
 
+        $sysCacheKey = md5($pathinfo);
+
+        $analyse = syscache()->get(__CLASS__.$sysCacheKey);
+        if($analyse){
+            return $this->analyse = $analyse;
+        }
+
         $arr = pathinfo($pathinfo);
         $extension = isset($arr['extension']) ? $arr['extension'] : '';
         $isFile = 0;
@@ -134,7 +141,12 @@ class HttpSendFile
             }
             $notFound = 1;
         }
-        return $this->analyse = [$isFile, $filePath, $extension, $mime[$extension], $notFound];
+
+        $this->analyse = [$isFile, $filePath, $extension, $mime[$extension], $notFound];
+
+        syscache()->set($sysCacheKey, $this->analyse, 300);
+
+        return $this->analyse;
     }
 
 }

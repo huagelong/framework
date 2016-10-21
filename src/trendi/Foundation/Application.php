@@ -18,7 +18,7 @@ use Trendi\Foundation\Command;
 use Trendi\Mvc\Route\RouteMatch;
 use Trendi\Support\Dir;
 use Trendi\Support\Arr;
-use Trendi\Support\ElapsedTime;
+use Trendi\Support\Log;
 
 
 class Application
@@ -85,13 +85,18 @@ class Application
      */
     public function start($request, $response)
     {
-        ElapsedTime::setStartTime("sys_elapsed_time");
-        
+       
         $url = $request->getPathInfo();
+        
         $routeObj = RouteMatch::getInstance();
+       
         $middlewareConfig = CConfig::get("app.middleware");
+        
         $routeObj->setMiddlewareConfig($middlewareConfig);
-        return $routeObj->run($url, $request, $response);
+       
+        $resut = $routeObj->run($url, $request, $response);
+        
+        return $resut;
     }
 
     /**

@@ -66,6 +66,17 @@ if (!function_exists('cache')) {
     }
 }
 
+if (!function_exists('syscache')) {
+    /**
+     * 缓存对象
+     * @return \Trendi\Cache\Adapter\ApcCache;
+     */
+    function syscache()
+    {
+        return new \Trendi\Cache\Adapter\ApcCache();
+    }
+}
+
 
 if (!function_exists('dump')) {
     /**

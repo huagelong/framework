@@ -15,6 +15,7 @@ use Trendi\Http\Response;
 use Trendi\Http\Request;
 use Trendi\Mvc\AssignData;
 use Trendi\Mvc\Template;
+use Trendi\Support\Log;
 
 class Controller
 {
@@ -52,6 +53,7 @@ class Controller
      */
     public function render($viewPath, $assign = [])
     {
+
         $fisPath = Config::get("_release.path");
         if($fisPath){
             $fis = Config::get("app.view.fis.view_path");
@@ -66,7 +68,15 @@ class Controller
         Template::setViewCacheRoot(Config::get("app.view.compile_path"));
         Template::setEngine(Config::get("app.view.engine"));
         $assign = Arr::merge($assign, $this->view->getAssignData());
+    
+        $syscacheKey = md5(serialize($viewPath).serialize($assign));
+        
+        $content = syscache()->get($syscacheKey);
+        if($content) return $content;
+
         $content = Template::render($viewPath, $assign);
+        syscache()->set($syscacheKey, $content, 300);
+        
         return $content;
     }
     

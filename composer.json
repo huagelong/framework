@@ -34,14 +34,16 @@
     "suggest": {
         "ext-msgpack": "data serialize tool",
         "ext-igbinary":"data serialize tool",
-        "ext-hprose":"data serialize tool"
+        "ext-hprose":"data serialize tool",
+        "ext-apc":"php opcode cache , not support7",
+        "ext-apcu":"php7 support "
     },
     "autoload-dev": {
         "psr-4": {
             "Trendi\\Test\\": "tests/application/src"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "repositories": {
         "packagist": {
             "type": "composer",

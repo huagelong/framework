@@ -16,6 +16,7 @@ use Trendi\Coroutine\Event;
 use Trendi\Support\Facade;
 use Trendi\Support\Exception as ExceptionFormat;
 use Trendi\Support\Log;
+use Trendi\Support\ElapsedTime;
 
 class SocketServer
 {
@@ -70,6 +71,7 @@ class SocketServer
 
     public function onReceive(SwooleServer $serv, $fd, $from_id, $data)
     {
+        ElapsedTime::setStartTime("sys_elapsed_time");
         try {
             $this->adapter->perform($data, $serv, $fd, $from_id);
         } catch (\Exception $e) {
@@ -119,6 +121,10 @@ class SocketServer
             apc_clear_cache();
         }
 
+        if (function_exists("apcu_clear_cache")) {
+            apcu_clear_cache();
+        }
+        
         if (function_exists("opcache_reset")) {
             opcache_reset();
         }
