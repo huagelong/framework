@@ -65,7 +65,10 @@ class Controller
         $theme = Config::get("app.view.theme");
         $realViewRoot = Dir::formatPath($viewRoot).$theme;
         Template::setViewRoot($realViewRoot);
-        Template::setViewCacheRoot(Config::get("app.view.compile_path"));
+
+        $viewCachePath = Config::get("app.view.compile_path");
+
+        Template::setViewCacheRoot($viewCachePath);
         Template::setEngine(Config::get("app.view.engine"));
         $assign = Arr::merge($assign, $this->view->getAssignData());
     
@@ -73,6 +76,10 @@ class Controller
         
         $content = syscache()->get($syscacheKey);
         if($content) return $content;
+
+        if(!is_dir($viewCachePath)){
+            mkdir($viewCachePath, 0777, true);
+        }
 
         $content = Template::render($viewPath, $assign);
         syscache()->set($syscacheKey, $content, 300);
