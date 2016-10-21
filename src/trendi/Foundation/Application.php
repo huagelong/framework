@@ -138,6 +138,8 @@ class Application
             new Command\Server\Restart(),
             new Command\Server\Status(),
             new Command\Server\Stop(),
+            new Command\Artisan\Optimize(),
+            new Command\Artisan\Clean(),
         ];
         $config = CConfig::get("app.command");
         if ($config) {

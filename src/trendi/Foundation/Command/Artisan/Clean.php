@@ -19,7 +19,7 @@ class Clean extends Base
 {
     protected function configure()
     {
-        $this->setName('tool:clean')
+        $this->setName('clean')
             ->setDescription('clean project');
     }
 
