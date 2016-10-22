@@ -108,7 +108,7 @@ class HttpdBase
 
         $viewCachePath = Config::get("app.view.compile_path");
         if(!is_dir($viewCachePath)){
-            mkdir(dirname($viewCachePath), "0777", true);
+            mkdir($viewCachePath, "0777", true);
         }
 
         $serverName = $appName . "-httpd-master";
