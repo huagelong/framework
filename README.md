@@ -8,6 +8,8 @@
 
 * 先安装 swoole,mbstring,posix扩展
 
+* 更好体验建议安装 apc ,msgpack 扩展
+
 * 根据 boilerplate 样板 安装 [代码](https://github.com/trendi/boilerplate)
 
 ```
