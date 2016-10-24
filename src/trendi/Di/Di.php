@@ -86,7 +86,6 @@ class Di implements DiInterface
             $autowire = isset($options['autowire']) ? $options['autowire'] : null;
             $autowiringTypes = isset($options['autowiring_types']) ? $options['autowiring_types'] : null;
             $shared = isset($options['shared']) ? $options['shared'] : true;
-            $lazy = isset($options['lazy']) ? $options['lazy'] : true;
 
             if (!$className) {
                 throw new DiNotDefinedException(" Container object is not found ~");
