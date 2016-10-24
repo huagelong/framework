@@ -71,14 +71,8 @@ class Controller
         Template::setViewCacheRoot($viewCachePath);
         Template::setEngine(Config::get("app.view.engine"));
         $assign = Arr::merge($assign, $this->view->getAssignData());
-    
-        $syscacheKey = md5(serialize($viewPath).serialize($assign));
-        
-        $content = syscache()->get($syscacheKey);
-        if($content) return $content;
 
         $content = Template::render($viewPath, $assign);
-        syscache()->set($syscacheKey, $content, 3600);
         
         return $content;
     }

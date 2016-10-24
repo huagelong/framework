@@ -26,14 +26,6 @@ class Factory
      */
     protected $finder;
 
-
-    /**
-     * The IoC container instance.
-     *
-     * @var \Illuminate\Contracts\Container\Container
-     */
-//    protected $container;
-
     /**
      * Data that should be available to all templates.
      *
@@ -138,7 +130,7 @@ class Factory
      * @param  string $path
      * @param  array $data
      * @param  array $mergeData
-     * @return \Illuminate\Contracts\View\View
+     * @return 
      */
     public function file($path, $data = [], $mergeData = [])
     {
@@ -164,9 +156,18 @@ class Factory
         }
 
         $view = $this->normalizeName($view);
-
-        $path = $this->finder->find($view);
-
+        
+        if(function_exists("syscache")){
+            $sysCacheKey = md5(__CLASS__.serialize($view));
+            $path = syscache()->get($sysCacheKey);
+            if(!$path){
+                $path = $this->finder->find($view);
+                syscache()->set($sysCacheKey, $path, 3600);
+            }
+        }else{
+            $path = $this->finder->find($view);
+        }
+        
         $data = array_merge($mergeData, $this->parseData($data));
 
         $view = new View($this, $this->getEngineFromPath($path), $path, $path, $data);
@@ -208,7 +209,7 @@ class Factory
      *
      * @param  string $view
      * @param  mixed $data
-     * @return \Illuminate\Contracts\View\View
+     * @return 
      */
     public function of($view, $data = [])
     {
@@ -345,28 +346,7 @@ class Factory
             $this->share($innerKey, $innerValue);
         }
     }
-
-
-    /**
-     * Build a class based container callback Closure.
-     *
-     * @param  string $class
-     * @param  string $prefix
-     * @return \Closure
-     */
-    protected function buildClassEventCallback($class, $prefix)
-    {
-        list($class, $method) = $this->parseClassEvent($class, $prefix);
-
-        // Once we have the class and method name, we can build the Closure to resolve
-        // the instance out of the IoC container and call the method on it with the
-        // given arguments that are passed to the Closure as the composer's data.
-        return function () use ($class, $method) {
-            $callable = [$this->container->make($class), $method];
-
-            return call_user_func_array($callable, func_get_args());
-        };
-    }
+    
 
     /**
      * Parse a class based composer name.
@@ -817,27 +797,6 @@ class Factory
     {
         $this->finder = $finder;
     }
-
-    /**
-     * Get the IoC container instance.
-     *
-     * @return \Illuminate\Contracts\Container\Container
-     */
-//    public function getContainer()
-//    {
-//        return $this->container;
-//    }
-
-    /**
-     * Set the IoC container instance.
-     *
-     * @param  \Illuminate\Contracts\Container\Container $container
-     * @return void
-     */
-//    public function setContainer($container)
-//    {
-//        $this->container = $container;
-//    }
 
     /**
      * Get an item from the shared data.
