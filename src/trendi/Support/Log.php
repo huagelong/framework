@@ -47,14 +47,19 @@ class Log
      * @param null $background_color
      * @return string
      */
-    protected function getColoredString($string, $foreground_color = null)
+    protected function getColoredString($string, $foreground_color = null, $clean=0)
     {
+        
+        
         $foreground_colors = $this->init();
         $colored_string = "";
         $ip = swoole_get_local_ip();
         $elapsedTime = ElapsedTime::runtime("sys_elapsed_time");
         $preStr ="[". date('Y-m-d H:i:s')."][".posix_getpid()."][".current($ip)."][".$elapsedTime."ms]";
         // Check if given foreground color found
+        if($clean){
+            $preStr = "";
+        }
         if (isset($foreground_colors[$foreground_color])) {
             $colored_string .= "\033[" . $foreground_colors[$foreground_color] . "m".$preStr;
         }
@@ -83,6 +88,9 @@ class Log
                 break;
             case 'debug':
                 echo self::$instance->getColoredString($pre.$arguments[0], 'green')."\n";
+                break;
+            case 'show':
+                echo self::$instance->getColoredString($arguments[0], 'green', true)."\n";
                 break;
             case 'error':
                 echo self::$instance->getColoredString($pre.$arguments[0], 'red')."\n";
