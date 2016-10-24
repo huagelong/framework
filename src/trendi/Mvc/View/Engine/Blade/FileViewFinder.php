@@ -72,7 +72,7 @@ class FileViewFinder implements ViewFinderInterface
         $sysCacheKey = md5(__CLASS__.$name);
         if(function_exists("syscache")){
             $path = syscache()->get($sysCacheKey);
-            return $path;
+            if($path) return $path;
         }
         if (isset($this->views[$name])) {
             return $this->views[$name];
