@@ -78,7 +78,7 @@ class Controller
         if($content) return $content;
 
         $content = Template::render($viewPath, $assign);
-        syscache()->set($syscacheKey, $content, 300);
+        syscache()->set($syscacheKey, $content, 3600);
         
         return $content;
     }

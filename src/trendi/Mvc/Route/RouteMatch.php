@@ -118,7 +118,7 @@ class RouteMatch
         $generator = new UrlGenerator($rootCollection, $context);
         $url = $generator->generate($routeName, $params);
         
-        syscache()->set($sysCacheKey, $url, 60);
+        syscache()->set($sysCacheKey, $url, 3600);
 
         return $url;
     }
@@ -143,7 +143,7 @@ class RouteMatch
 
         if(!$parameters){
             $parameters = $this->match($url);
-            syscache()->set($sysCacheKey, $parameters, 300);
+            syscache()->set($sysCacheKey, $parameters, 3600);
         }
 
         if ($parameters) {
@@ -196,7 +196,7 @@ class RouteMatch
 
         if(!$parameters){
             $parameters = $this->match($url);
-            syscache()->set($sysCacheKey, $parameters, 300);
+            syscache()->set($sysCacheKey, $parameters, 3600);
         }
 
         if ($parameters) {

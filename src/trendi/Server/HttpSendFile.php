@@ -144,7 +144,7 @@ class HttpSendFile
 
         $this->analyse = [$isFile, $filePath, $extension, $mime[$extension], $notFound];
 
-        syscache()->set($sysCacheKey, $this->analyse, 300);
+        syscache()->set($sysCacheKey, $this->analyse, 3600);
 
         return $this->analyse;
     }
