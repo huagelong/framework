@@ -156,17 +156,8 @@ class Factory
         }
 
         $view = $this->normalizeName($view);
-        
-        if(function_exists("syscache")){
-            $sysCacheKey = md5(__CLASS__.serialize($view));
-            $path = syscache()->get($sysCacheKey);
-            if(!$path){
-                $path = $this->finder->find($view);
-                syscache()->set($sysCacheKey, $path, 3600);
-            }
-        }else{
-            $path = $this->finder->find($view);
-        }
+    
+        $path = $this->finder->find($view);
         
         $data = array_merge($mergeData, $this->parseData($data));
 

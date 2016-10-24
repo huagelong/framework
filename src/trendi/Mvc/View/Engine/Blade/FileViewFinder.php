@@ -69,6 +69,11 @@ class FileViewFinder implements ViewFinderInterface
      */
     public function find($name)
     {
+        $sysCacheKey = md5(__CLASS__.$name);
+        if(function_exists("syscache")){
+            $path = syscache()->get($sysCacheKey);
+            return $path;
+        }
         if (isset($this->views[$name])) {
             return $this->views[$name];
         }
@@ -76,8 +81,12 @@ class FileViewFinder implements ViewFinderInterface
         if ($this->hasHintInformation($name = trim($name))) {
             return $this->views[$name] = $this->findNamedPathView($name);
         }
+        $this->views[$name] = $this->findInPaths($name, $this->paths);
 
-        return $this->views[$name] = $this->findInPaths($name, $this->paths);
+        if(function_exists("syscache")){
+            syscache()->set($sysCacheKey, $this->views[$name], 3600);
+        }
+        return $this->views[$name];
     }
 
     /**
