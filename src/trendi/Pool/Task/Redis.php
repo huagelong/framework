@@ -13,7 +13,7 @@ use Predis\Client;
 class Redis
 {
     private static $config = [];
-
+    private static $client = null;
 
     public static function setConfig($config)
     {
@@ -43,11 +43,13 @@ class Redis
         $options = self::$config['options'];
 
         try {
-            $client = new Client($servers, $options);
+            if(!self::$client){
+                self::$client = new Client($servers, $options);
+            }
             if (isset($params[1])) {
-                return $client->$cmd(...$params[1]);
+                return self::$client->$cmd(...$params[1]);
             } else {
-                return $client->$cmd();
+                return self::$client->$cmd();
             }
         } catch (\Exception $e) {
             throw $e;
