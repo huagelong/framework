@@ -9,7 +9,9 @@
 
 namespace Trendi\Foundation\Bootstrap;
 
+use Trendi\Support\Exception;
 use Trendi\Support\Log;
+use Trendi\Coroutine\Event;
 
 class ErrorHandleBootstrap
 {
@@ -61,6 +63,7 @@ class ErrorHandleBootstrap
             }
         }
         Log::warn($message);
+        Event::fire("404");
     }
 
     /**
@@ -71,6 +74,8 @@ class ErrorHandleBootstrap
     public function handleException($e)
     {
         restore_exception_handler();
+        Exception::formatException($e);
+        Event::fire("404");
     }
 
     /**
@@ -107,6 +112,7 @@ class ErrorHandleBootstrap
                         $log .= "{$t['function']}()\n";
                     }
                 Log::error($log);
+                Event::fire("404");
                 default:
                     break;
             }

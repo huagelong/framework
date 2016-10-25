@@ -90,3 +90,13 @@ if (!function_exists('dump')) {
     }
 }
 
+if (!function_exists('page404')) {
+    /**
+     * 404错误
+     */
+    function page404()
+    {
+        \Trendi\Coroutine\Event::fire("404");
+    }
+}
+
