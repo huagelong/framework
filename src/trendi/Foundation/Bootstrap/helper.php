@@ -100,3 +100,13 @@ if (!function_exists('page404')) {
     }
 }
 
+if (!function_exists('throwExit')) {
+    /**
+     * 404错误
+     */
+    function throwExit()
+    {
+        throw new \Trendi\Http\Exception\RuntimeExitException("exit");
+    }
+}
+

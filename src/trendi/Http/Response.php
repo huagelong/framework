@@ -160,7 +160,7 @@ class Response
         $this->header("Location", $url);
         $this->status(302);
         $this->end('');
-        //抛异常断点
+        //抛异常中断执行
         throw new RedirectException('redirect '. $url);
     }
 
