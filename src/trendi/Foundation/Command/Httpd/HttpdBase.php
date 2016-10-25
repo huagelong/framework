@@ -130,7 +130,7 @@ class HttpdBase
         if ($fisPath) {
             $config['server']['_release.path'] = $fisPath;
         }
-        
+
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
             Log::sysinfo("[$serverName] not run");
             return;

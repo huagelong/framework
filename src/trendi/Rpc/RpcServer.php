@@ -42,6 +42,11 @@ class RpcServer implements SocketInterface
         $obj = new Application($this->root);
         $obj->rpcBootstrap();
     }
+    
+    public function getSerialize()
+    {
+        return $this->serialize;
+    }
 
     public function perform($data, $serv, $fd, $from_id)
     {

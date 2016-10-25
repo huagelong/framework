@@ -1,7 +1,7 @@
 <?php
 /**
- * socket server 
- * 
+ * socket server
+ *
  * User: Peter Wang
  * Date: 16/9/18
  * Time: 下午6:20
@@ -10,16 +10,16 @@
 namespace Trendi\Server;
 
 use swoole_server as SwooleServer;
+use Trendi\Coroutine\Event;
+use Trendi\Mvc\Route\Base\Exception\ResourceNotFoundException;
 use Trendi\Server\Facade\Context;
 use Trendi\Server\Facade\Task as FacadeTask;
-use Trendi\Coroutine\Event;
-use Trendi\Support\Facade;
-use Trendi\Support\Exception as ExceptionFormat;
-use Trendi\Support\Log;
 use Trendi\Support\ElapsedTime;
-use Trendi\Support\Exception\RuntimeExitException;
-use Trendi\Mvc\Route\Base\Exception\ResourceNotFoundException;
+use Trendi\Support\Exception as ExceptionFormat;
 use Trendi\Support\Exception\Page404Exception;
+use Trendi\Support\Exception\RuntimeExitException;
+use Trendi\Support\Facade;
+use Trendi\Support\Log;
 
 class SocketServer
 {
@@ -77,13 +77,13 @@ class SocketServer
         ElapsedTime::setStartTime("sys_elapsed_time");
         try {
             $this->adapter->perform($data, $serv, $fd, $from_id);
-        } catch (Page404Exception $e){
-            Event::fire("404",[$e,"Page404Exception",$data]);
-        }catch (ResourceNotFoundException $e){
-            Event::fire("404",[$e,"ResourceNotFoundException",$data]);
-        }catch (RuntimeExitException $e){
-            Log::syslog("RuntimeExitException:".$e->getMessage());
-        }catch (\Exception $e) {
+        } catch (Page404Exception $e) {
+            Event::fire("404", [$e, "Page404Exception", [$serv, $fd, $this->adapter]]);
+        } catch (ResourceNotFoundException $e) {
+            Event::fire("404", [$e, "ResourceNotFoundException", [$serv, $fd, $this->adapter]]);
+        } catch (RuntimeExitException $e) {
+            Log::syslog("RuntimeExitException:" . $e->getMessage());
+        } catch (\Exception $e) {
             Log::error(ExceptionFormat::formatException($e));
         } catch (\Error $e) { //php7.0兼容
             Log::error(ExceptionFormat::formatException($e));
@@ -95,9 +95,9 @@ class SocketServer
     {
         try {
             return FacadeTask::start($data);
-        } catch (RuntimeExitException $e){
-            Log::syslog("RuntimeExitException:".$e->getMessage());
-        }catch (\Exception $e) {
+        } catch (RuntimeExitException $e) {
+            Log::syslog("RuntimeExitException:" . $e->getMessage());
+        } catch (\Exception $e) {
             $exception = ExceptionFormat::formatException($e);
             Log::error($exception);
             return [false, $data, $exception];
@@ -117,7 +117,7 @@ class SocketServer
     {
         swoole_set_process_name($this->serverName . "-master");
         Log::sysinfo($this->serverName . " server start ......");
-        $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
+        $memRebootRate = isset($this->config['mem_reboot_rate']) ? $this->config['mem_reboot_rate'] : 0;
         Reload::load($this->serverName . "-master", $memRebootRate, $this->config);
     }
 
@@ -135,11 +135,11 @@ class SocketServer
         if (function_exists("apcu_clear_cache")) {
             apcu_clear_cache();
         }
-        
+
         if (function_exists("opcache_reset")) {
             opcache_reset();
         }
-        
+
         if ($workerId >= $this->config["worker_num"]) {
             swoole_set_process_name($this->serverName . "-task-worker");
             Log::sysinfo($this->serverName . " task worker start ..... ");

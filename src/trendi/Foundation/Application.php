@@ -35,19 +35,11 @@ class Application
     {
         self::$rootPath = Dir::formatPath($rootPath);
     }
-
-    public function baseBoostrap()
-    {
-        Bootstrap::getInstance(self::$rootPath);
-    }
-
-
+    
     public function httpBoostrap()
     {
-        $this->baseBoostrap();
         $this->initRelease();
         RouteBootstrap::getInstance();
-
     }
 
     protected function initRelease()
@@ -63,7 +55,6 @@ class Application
      */
     public function rpcBootstrap()
     {
-        $this->baseBoostrap();
         RouteBootstrap::getInstance();
     }
 
@@ -72,7 +63,6 @@ class Application
      */
     public function poolBootstrap()
     {
-        Bootstrap::getInstance(self::$rootPath);
         PoolBootstrap::getInstance();
     }
 

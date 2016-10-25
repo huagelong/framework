@@ -36,7 +36,7 @@ class Controller
     protected $response = null;
 
 
-    public function __construct(Request $request, Response $response)
+    public function __construct(Request $request=null, Response $response=null)
     {
         $this->request = $request;
         $this->response = $response;

@@ -10,6 +10,7 @@ namespace Trendi\Http;
 use swoole_http_response as SwooleHttpResponse;
 use Trendi\Http\Exception\ContextErrorException;
 use Trendi\Support\Exception\RuntimeExitException;
+use Trendi\Support\Log;
 
 class Response
 {
@@ -33,7 +34,11 @@ class Response
         self::$response = $response;
     }
 
-
+    public function setHasEnd($hasEnd)
+    {
+        $this->hasEnd = $hasEnd;
+    }
+    
     /**
      * 设置cookie
      * @param $key
@@ -117,7 +122,7 @@ class Response
     public function end($html = '')
     {
         if ($this->hasEnd) {
-            throw new RuntimeExitException("http has send");
+            return Log::sysinfo("http has send");
         }
         
         $this->hasEnd = 1;

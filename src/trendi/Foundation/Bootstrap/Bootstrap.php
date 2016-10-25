@@ -19,6 +19,11 @@ use Trendi\Support\Arr;
 use Trendi\Support\Facade;
 use Trendi\Support\RunMode;
 use Trendi\Support\Dir;
+use Trendi\Coroutine\Event;
+use Trendi\Http\Response;
+use Trendi\Foundation\Controller as HttpController;
+use Trendi\Rpc\Controller as RpcController;
+use Trendi\Support\Log;
 
 class Bootstrap
 {
@@ -49,6 +54,39 @@ class Bootstrap
         $this->initDi();
         $this->initFacade();
         $this->initTask();
+        $this->init404();
+    }
+
+    /**
+     * 404  处理
+     */
+    protected function init404()
+    {
+        Event::bind("404",function($allParams){
+            list($e, $errorName, $params) = $allParams;
+            $config = Config::get("app.view.page404");
+
+            if($errorName == "Page404Exception"){
+                Log::debug($e->getMessage());
+            }
+
+            if($params instanceof Response){
+                $controller = new HttpController();
+                if($config){
+                    $content = $controller->render($config);
+                }else{
+                    $content = "Page Not Found";
+                }
+                $params->end($content);
+            }else{
+                list($server, $fd, $adapter) = $params;
+                $controller = new RpcController();
+                $content = $controller->response("", RpcController::RESPONSE_NORMAL_ERROR_CODE, "API Not Found");
+                $content = $adapter->getSerialize()->format($content);
+                $server->send($content);
+                $server->close($fd);
+            }
+        });
     }
 
     /**

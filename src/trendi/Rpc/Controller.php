@@ -15,6 +15,7 @@ class Controller
 {
 
     const RESPONSE_CODE = 200;
+    const RESPONSE_NORMAL_ERROR_CODE = 500;
 
     /**
      * 数据返回
