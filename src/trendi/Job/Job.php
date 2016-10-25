@@ -15,6 +15,7 @@ use Trendi\Job\Exception\InvalidArgumentException;
 use Trendi\Server\Reload;
 use Trendi\Support\Exception;
 use Trendi\Support\Log;
+use Trendi\Support\Exception\RuntimeExitException;
 
 class Job
 {
@@ -92,7 +93,9 @@ class Job
             $this->storage->del($checkKey);
             $sleep = $pv['sleep'] ? $pv['sleep'] : 1;
             sleep($sleep);
-        } catch (\Exception $e) {
+        } catch (RuntimeExitException $e){
+            Log::syslog("RuntimeExitException:".$e->getMessage());
+        }catch (\Exception $e) {
             Log::error("Job ERROR : \n" . Exception::formatException($e));
         } catch (\Error $e) {
             Log::error("Job ERROR : \n" . Exception::formatException($e));

@@ -21,6 +21,9 @@ use Trendi\Support\Facade;
 use Trendi\Support\Log;
 use Trendi\Support\Exception;
 use Trendi\Support\ElapsedTime;
+use Trendi\Support\Exception\RuntimeExitException;
+use Trendi\Mvc\Route\Base\Exception\ResourceNotFoundException;
+use Trendi\Support\Exception\Page404Exception;
 
 class HttpServer
 {
@@ -220,7 +223,13 @@ class HttpServer
         try {
             $content = $this->requestHtmlHandle($request, $response);
             $response->end($content);
-        } catch (\Exception $e) {
+        }catch (Page404Exception $e){
+            Event::fire("404",[$e,"Page404Exception",$response]);
+        }catch (ResourceNotFoundException $e){
+            Event::fire("404",[$e,"ResourceNotFoundException",$response]);
+        }catch (RuntimeExitException $e){
+            Log::syslog("RuntimeExitException:".$e->getMessage());
+        }catch (\Exception $e) {
             $response->status(500);
             $response->end();
             Log::error(Exception::formatException($e));

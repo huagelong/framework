@@ -17,6 +17,9 @@ use Trendi\Support\Facade;
 use Trendi\Support\Exception as ExceptionFormat;
 use Trendi\Support\Log;
 use Trendi\Support\ElapsedTime;
+use Trendi\Support\Exception\RuntimeExitException;
+use Trendi\Mvc\Route\Base\Exception\ResourceNotFoundException;
+use Trendi\Support\Exception\Page404Exception;
 
 class SocketServer
 {
@@ -74,7 +77,13 @@ class SocketServer
         ElapsedTime::setStartTime("sys_elapsed_time");
         try {
             $this->adapter->perform($data, $serv, $fd, $from_id);
-        } catch (\Exception $e) {
+        } catch (Page404Exception $e){
+            Event::fire("404",[$e,"Page404Exception",$data]);
+        }catch (ResourceNotFoundException $e){
+            Event::fire("404",[$e,"ResourceNotFoundException",$data]);
+        }catch (RuntimeExitException $e){
+            Log::syslog("RuntimeExitException:".$e->getMessage());
+        }catch (\Exception $e) {
             Log::error(ExceptionFormat::formatException($e));
         } catch (\Error $e) { //php7.0兼容
             Log::error(ExceptionFormat::formatException($e));
@@ -86,7 +95,9 @@ class SocketServer
     {
         try {
             return FacadeTask::start($data);
-        } catch (\Exception $e) {
+        } catch (RuntimeExitException $e){
+            Log::syslog("RuntimeExitException:".$e->getMessage());
+        }catch (\Exception $e) {
             $exception = ExceptionFormat::formatException($e);
             Log::error($exception);
             return [false, $data, $exception];

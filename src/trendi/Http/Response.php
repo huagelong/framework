@@ -9,7 +9,7 @@ namespace Trendi\Http;
 
 use swoole_http_response as SwooleHttpResponse;
 use Trendi\Http\Exception\ContextErrorException;
-use Trendi\Http\Exception\RedirectException;
+use Trendi\Support\Exception\RuntimeExitException;
 
 class Response
 {
@@ -117,9 +117,7 @@ class Response
     public function end($html = '')
     {
         if ($this->hasEnd) {
-            return ;
-            //TODO
-//            throw new ContextErrorException("http has send");
+            throw new RuntimeExitException("http has send");
         }
         
         $this->hasEnd = 1;
@@ -161,7 +159,7 @@ class Response
         $this->status(302);
         $this->end('');
         //抛异常中断执行
-        throw new RedirectException('redirect '. $url);
+        throw new RuntimeExitException('redirect->'. $url);
     }
 
 }

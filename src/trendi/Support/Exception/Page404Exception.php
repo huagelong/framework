@@ -7,9 +7,9 @@
  * Time: 上午11:16
  */
 
-namespace Trendi\Foundation\Exception;
+namespace Trendi\Support\Exception;
 
-class RuntimeExitException extends \Exception
+class Page404Exception extends \Exception
 {
 
 }

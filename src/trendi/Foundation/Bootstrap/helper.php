@@ -94,9 +94,9 @@ if (!function_exists('page404')) {
     /**
      * 404错误
      */
-    function page404()
+    function page404($str='')
     {
-        \Trendi\Coroutine\Event::fire("404");
+        throw new \Trendi\Support\Exception\Page404Exception($str);
     }
 }
 
@@ -106,7 +106,7 @@ if (!function_exists('throwExit')) {
      */
     function throwExit()
     {
-        throw new \Trendi\Http\Exception\RuntimeExitException("exit");
+        throw new \Trendi\Support\Exception\RuntimeExitException("exit");
     }
 }
 
