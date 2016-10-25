@@ -43,12 +43,6 @@ class Config implements ConfigInterface
 
         self::$allConfig = self::getDirAll(self::$configPath);
 
-        //add private dir
-        if ("online" == RunMode::getRunMode()) {
-            $tmp = self::getDirAll(self::$configPath . ".private");
-            self::$allConfig = Arr::merge(self::$allConfig, $tmp);
-        }
-
         return self::$allConfig;
     }
 
