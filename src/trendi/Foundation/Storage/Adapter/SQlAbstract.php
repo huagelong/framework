@@ -26,6 +26,8 @@ abstract class SQlAbstract
 
     public abstract function exec($sql, $connType);
 
+    public abstract function lastInsertId();
+
     public function __construct()
     {
 
@@ -36,7 +38,13 @@ abstract class SQlAbstract
     {
         $className = get_called_class();
         $table = $className::$tableName;
+        $table = $this->prefix.$table;
         return $this->tableName = $table;
+    }
+
+    public function getPrefix()
+    {
+        return $this->prefix;
     }
 
     /**
@@ -98,13 +106,7 @@ abstract class SQlAbstract
         $lastInsertId = $this->lastInsertId();
         return $lastInsertId;
     }
-
-
-    public function lastInsertId()
-    {
-        $result = $this->selectRow("SELECT LAST_INSERT_ID() as lastid");
-        return $result['lastid'];
-    }
+    
 
     /**
      * 根据条件，有则更新，无则插入
