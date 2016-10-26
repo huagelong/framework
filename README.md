@@ -46,5 +46,6 @@ sudo ./trendi server:restart
 
 在浏览器 打开 http://127.0.0.1:7000/, 可以看到静态css,js 已经包含进去了
 
+* 欢迎大家发起pull request, 一起完善项目.
 
 [文档](doc/index.md)
