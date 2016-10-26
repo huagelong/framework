@@ -62,6 +62,6 @@ class PhpEngine implements EngineInterface
             ob_end_clean();
         }
 //        throw $e;
-        Log::error($e->getMessage());
+        Log::error(\Trendi\Support\Exception::formatException($e));
     }
 }

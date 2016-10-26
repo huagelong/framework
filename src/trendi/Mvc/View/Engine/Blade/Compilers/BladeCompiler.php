@@ -170,7 +170,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         // template inheritance via the extends keyword that should be appended.
         if (count($this->footer) > 0) {
             $result = ltrim($result, PHP_EOL)
-                    .PHP_EOL.implode(PHP_EOL, array_reverse($this->footer));
+                .PHP_EOL.implode(PHP_EOL, array_reverse($this->footer));
         }
 
         return $result;
@@ -636,7 +636,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
         return "<?php {$empty} = true; {$initLoop} foreach(\$__currentLoopData as {$iteration}): {$iterateLoop} {$empty} = false; ?>";
     }
-    
+
 
     /**
      * Compile the if statements into valid PHP.
@@ -1057,6 +1057,14 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return '';
     }
 
+    protected function compileUri($expression) {
+        return "<?php echo \Trendi\Mvc\Route\RouteMatch::getInstance()->url{$expression}; ?>";
+    }
+
+    protected function compileUrl($expression) {
+        return "\Trendi\Mvc\Route\RouteMatch::getInstance()->url{$expression}";
+    }
+
     protected function compileFramework($expression) {
         return "<?php \$__fis->setFramework{$expression}; ?>";
     }
@@ -1075,11 +1083,11 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return $this->_compileInclude($expression);
     }
 
-    protected function compileUri($expression) {
+    protected function compileFuri($expression) {
         return "<?php echo \$__fis->uri{$expression}; ?>";
     }
 
-    protected function compileUrl($expression) {
+    protected function compileFurl($expression) {
         return "\$__fis->uri{$expression}";
     }
 

@@ -73,7 +73,7 @@ class ErrorHandleBootstrap
     public function handleException($e)
     {
         restore_exception_handler();
-        Exception::formatException($e);
+        Log::error(Exception::formatException($e));
     }
 
     /**
