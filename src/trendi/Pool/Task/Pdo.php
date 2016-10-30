@@ -41,6 +41,9 @@ class Pdo
         $conn = $this->setConn($dnType);
         if (!$method) {
             $conn->exec($sql);
+            if($method){
+                $conn->$method();
+            }
             if ($conn->errorCode() != '00000') {
                 $error = $conn->errorInfo();
                 throw new \Exception('ERROR: [' . $error['1'] . '] ' . $error['2']);

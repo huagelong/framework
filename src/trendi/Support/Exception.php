@@ -24,7 +24,10 @@ class Exception
         $message = "Exception Error : " . $e->getMessage();
         $message .= " in " . $e->getFile() . ":" . $e->getLine() . "\n";
         $message .= "Stack trace\n";
-        $message .= $e->getTraceAsString();
+
+        $trace = explode("\n", $e->getTraceAsString());
+        $trace = array_slice($trace,0,7);
+        $message .= implode("\n", $trace);
         return $message;
     }
 

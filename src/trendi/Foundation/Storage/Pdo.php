@@ -113,7 +113,7 @@ class Pdo extends SQlAdapter
      * @param unknown_type $sql
      * @param unknown_type $data
      */
-    public function exec($sql, $connType = self::CONN_MASTER)
+    public function exec($sql, $connType = self::CONN_MASTER, $isInsert=false)
     {
         if (!$sql) {
             return false;
@@ -131,10 +131,18 @@ class Pdo extends SQlAdapter
         if($this->type == self::ADAPTER_DEFAULT){
             $conn = $this->setConn($connType);
             $conn->exec($sql);
+            if($isInsert){
+                return $conn->lastInsertId(); 
+            }else{
+                return true;
+            }
         }else{
+            $method = "";
+            $isInsert && $method = "lastInsertId";
             $params = [
                 $sql,
-                $connType
+                $connType,
+                $method
             ];
             $data = self::$client->get("pdo", $params);
             return $data;

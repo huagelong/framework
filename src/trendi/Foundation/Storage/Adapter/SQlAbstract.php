@@ -102,9 +102,7 @@ abstract class SQlAbstract
             $sql = str_replace(":" . $k . ":", $v, $sql);
         }
         self::$_sql[] = $sql;
-        $this->exec($sql, self::CONN_MASTER);
-        $lastInsertId = $this->lastInsertId();
-        return $lastInsertId;
+        return $this->exec($sql, self::CONN_MASTER, true);
     }
     
 
@@ -131,9 +129,7 @@ abstract class SQlAbstract
             $sql = str_replace(":" . $k . ":", $v, $sql);
         }
         self::$_sql[] = $sql;
-        $this->exec($sql, self::CONN_MASTER);
-
-        return true;
+        return $this->exec($sql, self::CONN_MASTER, true);
     }
 
     /**
