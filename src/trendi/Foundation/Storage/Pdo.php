@@ -195,11 +195,6 @@ class Pdo extends SQlAdapter
         }
     }
 
-    public function lastInsertId()
-    {
-        $result = $this->fetch("SELECT LAST_INSERT_ID() as lastid", self::CONN_MASTER);
-        return $result['lastid'];
-    }
 
     public function __destruct()
     {

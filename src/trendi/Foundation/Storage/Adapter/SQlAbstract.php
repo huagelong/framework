@@ -26,8 +26,6 @@ abstract class SQlAbstract
 
     public abstract function exec($sql, $connType);
 
-    public abstract function lastInsertId();
-
     public function __construct()
     {
 

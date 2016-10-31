@@ -76,6 +76,11 @@ class Log
             self::$instance = new self();
         }
         $pre = "[$name] ";
+
+        if(!is_string($arguments[0])){
+            $arguments[0] = print_r($arguments[0],true);
+        }
+        
         switch ($name) {
             case 'info':
                 echo self::$instance->getColoredString($pre.$arguments[0], 'light_gray')."\n";
