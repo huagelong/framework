@@ -4,11 +4,20 @@
 
 ### 快速体验:
 
-* 只支持linux
+* 只支持linux, 以下以ubuntu为例
 
-* 先安装 swoole,mbstring,posix扩展
+* 先安装或者开启swoole,mbstring,posix扩展
+```
+sudo pecl install swoole
+sudo pecl install posix
+```
+打开php.ini,开启php_mbstring扩展
 
-* 更好体验建议安装 apc ,msgpack 扩展
+```
+extension=php_mbstring.so
+```
+
+* 更好体验建议安装 apc ,msgpack 扩展, 安装apc提速30%
 
 * 根据 boilerplate 样板 安装 [代码](https://github.com/trendi/boilerplate)
 
