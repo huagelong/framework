@@ -56,6 +56,18 @@ class HttpdBase
             exit(0);
         }
 
+        //连接池处理
+        $poolConfig = Config::get("server.pool");
+        $poolWorkrNumber = 0;
+        $poolWorkrNumberConfig = $poolConfig['pool_worker_number'];
+        if ($poolWorkrNumberConfig) {
+            foreach ($poolWorkrNumberConfig as $v) {
+                $poolWorkrNumber += $v;
+            }
+        }
+        $poolConfig['pool_worker_number'] = $poolWorkrNumber;
+        $config['server']['pool'] = $poolConfig;
+
         $adapter = new Application($root);
         self::doOperate($cmd, $config, $adapter, $root, $appName);
     }
@@ -111,6 +123,10 @@ class HttpdBase
             mkdir($viewCachePath, "0777", true);
         }
 
+        if(isset($config['server']['pool']['pool_worker_number']) && $config['server']['pool']['pool_worker_number']){
+            $config['server']['task_worker_num'] = $config['server']['task_worker_num']+$config['server']['pool']['pool_worker_number'];
+        }
+        
         $serverName = $appName . "-httpd-master";
         exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;

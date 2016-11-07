@@ -3,10 +3,10 @@
  *  连接池连接pdo服务器
  *
  * User: Peter Wang
- * Date: 16/9/19
- * Time: 下午7:04
+ * Date: 16/9/18
+ * Time: 上午11:10
  */
-namespace Trendi\Pool\Task;
+namespace Trendi\Server\Task;
 
 class Pdo
 {
@@ -39,10 +39,10 @@ class Pdo
     {
         if (!$sql) return null;
         $conn = $this->setConn($dnType);
-        if (!$method) {
+        if (!$method || $method=='lastInsertId') {
             $conn->exec($sql);
             if($method){
-                $conn->$method();
+                return $conn->$method();
             }
             if ($conn->errorCode() != '00000') {
                 $error = $conn->errorInfo();

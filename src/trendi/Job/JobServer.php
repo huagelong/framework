@@ -20,8 +20,6 @@ class JobServer
     public function __construct(array $config, $root)
     {
         $this->config = $config;
-        $obj = new Application($root);
-        $obj->baseBoostrap();
     }
 
     /**

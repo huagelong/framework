@@ -10,8 +10,8 @@
 namespace Trendi\Foundation\Bootstrap;
 
 use Trendi\Config\Config;
-use Trendi\Pool\Task\Pdo;
-use Trendi\Pool\Task\Redis;
+use Trendi\Server\Task\Pdo;
+use Trendi\Server\Task\Redis;
 
 class PoolBootstrap
 {

@@ -40,6 +40,7 @@ class Application
     {
         $this->initRelease();
         RouteBootstrap::getInstance();
+        PoolBootstrap::getInstance();
     }
 
     protected function initRelease()
@@ -56,13 +57,6 @@ class Application
     public function rpcBootstrap()
     {
         RouteBootstrap::getInstance();
-    }
-
-    /**
-     * 连接池初始化
-     */
-    public function poolBootstrap()
-    {
         PoolBootstrap::getInstance();
     }
 
@@ -115,10 +109,6 @@ class Application
             new Command\Rpc\Restart(),
             new Command\Rpc\Status(),
             new Command\Rpc\Stop(),
-            new Command\Pool\Start(),
-            new Command\Pool\Restart(),
-            new Command\Pool\Status(),
-            new Command\Pool\Stop(),
             new Command\Job\Start(),
             new Command\Job\Restart(),
             new Command\Job\Status(),

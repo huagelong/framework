@@ -5,14 +5,14 @@
  * Time: 下午12:49
  */
 
-namespace Trendi\Foundation\Storage;
+namespace Kerisy\Foundation\Storage;
 
 use Config;
 use Trendi\Foundation\Exception\ConfigNotFoundException;
 use Trendi\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
-use Trendi\Pool\PoolClient;
 use Trendi\Coroutine\Event;
 use Trendi\Support\Log;
+use Trendi\Server\Pool;
 
 class Pdo extends SQlAdapter
 {
@@ -27,17 +27,16 @@ class Pdo extends SQlAdapter
 
     protected static $client = null;
     private static $conn = [];
-    
+
     public function __construct()
     {
-        $type = Config::get("app.adapter.database");
+        $type = Config::get("storage.pdo.adapter");
         $this->type = $type;
         if($this->type == self::ADAPTER_DEFAULT){
             $this->initializeDefault();
         }else{
             $this->initializePool();
         }
-
         parent::__construct();
     }
 
@@ -48,21 +47,12 @@ class Pdo extends SQlAdapter
 
     protected function initializePool()
     {
-        if(self::$client) return;
-
-        $config = Config::get("client.pool");
-        if (!$config) {
-            throw new ConfigNotFoundException("client.pool not config");
-        }
-        $prefix = isset($config['pdo']['prefix']) ? $config['pdo']['prefix'] : null;
-        if (!$prefix) {
-            $prefix = Config::get("storage.pdo.prefix");
-        }
-
+        $prefix = Config::get("storage.pdo.prefix");
         $this->prefix = $prefix;
 
-//        Log::sysinfo("new pdo client conn");
-        self::$client = new PoolClient($config['host'], $config['port'], $config['serialization'],$config);
+        if(self::$client) return;
+        $poolConfig = Config::get("server.pool");
+        self::$client = new Pool($poolConfig);
     }
 
 
@@ -121,7 +111,11 @@ class Pdo extends SQlAdapter
 
         if (!(strtolower(substr($sql, 0, 6)) == 'insert' || strtolower(substr($sql, 0, 4)) == 'update'
             || strtolower(substr($sql, 0, 4)) == 'drop' || strtolower(substr($sql, 0, 4)) == 'delete'
-            || strtolower(substr($sql, 0, 4)) == 'create')
+            || strtolower(substr($sql, 0, 4)) == 'create'
+            || strtolower(substr($sql, 0, 5)) == 'begin'
+            || strtolower(substr($sql, 0, 6)) == 'commit'
+            || strtolower(substr($sql, 0, 8)) == 'rollback'
+        )
         ) {
             throw new \Exception("only run on select , show");
         }
@@ -132,7 +126,7 @@ class Pdo extends SQlAdapter
             $conn = $this->setConn($connType);
             $conn->exec($sql);
             if($isInsert){
-                return $conn->lastInsertId(); 
+                return $conn->lastInsertId();
             }else{
                 return true;
             }
@@ -168,7 +162,7 @@ class Pdo extends SQlAdapter
                 "fetchAll"
             ];
             $data = self::$client->get("pdo", $params);
-            return $data; 
+            return $data;
         }
     }
 
@@ -191,7 +185,7 @@ class Pdo extends SQlAdapter
                 "fetch"
             ];
             $data = self::$client->get("pdo", $params);
-            return $data; 
+            return $data;
         }
     }
 

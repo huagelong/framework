@@ -5,13 +5,14 @@
  * Time: 下午12:49
  */
 
-namespace Trendi\Foundation\Storage;
+namespace Kerisy\Foundation\Storage;
 
 use Trendi\Config\Config;
 use Trendi\Foundation\Exception\ConfigNotFoundException;
-use Trendi\Pool\PoolClient;
 use Trendi\Support\Log;
 use Predis\Client;
+use Trendi\Server\Pool;
+use Trendi\Support\Exception as SupportException;
 
 class Redis
 {
@@ -20,45 +21,42 @@ class Redis
     const ADAPTER_DEFAULT = "default";
     const ADAPTER_POOL = "pool";
     private $type = self::ADAPTER_DEFAULT;
-    
+
     protected static $conn = null;
 
     public function __construct()
     {
-        $type = Config::get("app.adapter.redis");
+        $type = Config::get("storage.redis.adapter");
         $this->type = $type;
         if($this->type == self::ADAPTER_DEFAULT){
             $this->initializeDefault();
         }else{
-            $this->initializePool(); 
+            $this->initializePool();
         }
     }
-    
+
     protected function initializeDefault()
     {
         if(self::$conn) return ;
         $config = Config::get("storage.redis");
         $servers = $config['servers'];
+        if(!$servers) throw new ConfigNotFoundException("storage.redis.servers not config");
         $options = $config['options'];
         try {
             self::$conn = new Client($servers, $options);
         } catch (\Exception $e) {
-            throw $e;
+            Log::error(SupportException::formatException($e));
         }catch (\Error $e) {
-            throw $e;
+            Log::error(SupportException::formatException($e));
         }
     }
 
     protected function initializePool()
     {
         if(self::$client) return ;
-//        Log::sysinfo("new redis client conn");
-        $config = Config::get("client.pool");
-        if (!$config) {
-            throw new ConfigNotFoundException("client.pool not config");
-        }
 
-        self::$client = new PoolClient($config['host'], $config['port'], $config['serialization'], $config);
+        $poolConfig = Config::get("server.pool");
+        self::$client = new Pool($poolConfig);
     }
 
     public function __call($name, $arguments)
@@ -71,18 +69,18 @@ class Redis
                     return self::$conn->$name();
                 }
             } catch (\Exception $e) {
-                throw $e;
+                Log::error(SupportException::formatException($e));
             }catch (\Error $e) {
-                throw $e;
+                Log::error(SupportException::formatException($e));
             }
-            
+
         }else{
             $params = [
                 $name,
                 $arguments
             ];
             $data = self::$client->get("redis", $params);
-            return $data; 
+            return $data;
         }
     }
 

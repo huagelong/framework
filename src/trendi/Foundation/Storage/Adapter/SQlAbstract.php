@@ -35,7 +35,8 @@ abstract class SQlAbstract
     public function getTableName()
     {
         $className = get_called_class();
-        $table = $className::$tableName;
+        $obj = new $className;
+        $table = $obj->tableName;
         $table = $this->prefix.$table;
         return $this->tableName = $table;
     }
@@ -90,7 +91,7 @@ abstract class SQlAbstract
      */
     public function insert(array $data, $tableName = null)
     {
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
 
         $keys = array_keys($data);
         $sql = "INSERT INTO " . $tableName . "(" . implode(',', $keys) . ")
@@ -102,7 +103,7 @@ abstract class SQlAbstract
         self::$_sql[] = $sql;
         return $this->exec($sql, self::CONN_MASTER, true);
     }
-    
+
 
     /**
      * 根据条件，有则更新，无则插入
@@ -113,7 +114,7 @@ abstract class SQlAbstract
             return false;
         }
 
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
 
         $whereSql = $this->parseWhere($where);
 
@@ -135,7 +136,7 @@ abstract class SQlAbstract
      */
     public function delete($where = array(), $tableName = null)
     {
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
 
         $whereStr = $this->parseWhere($where);
         $whereStr = $whereStr ? " WHERE " . $whereStr : "";
@@ -153,7 +154,7 @@ abstract class SQlAbstract
      */
     public function update(array $data, $where = array(), $tableName = null)
     {
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
 
         $whereStr = $this->parseWhere($where);
         $whereStr = $whereStr ? " WHERE " . $whereStr : "";
@@ -178,7 +179,7 @@ abstract class SQlAbstract
      */
     public function inCrease($field, $where = array(), $number = 1, $tableName = null)
     {
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
 
         $whereSql = $this->parseWhere($where);
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
@@ -199,7 +200,7 @@ abstract class SQlAbstract
      */
     public function deCrement($field, $where = array(), $number = 1, $tableName = null)
     {
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
 
         $whereSql = $this->parseWhere($where);
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
@@ -384,7 +385,7 @@ abstract class SQlAbstract
         $whereSql = $this->parseWhere($where);
 
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
         $orderBySql = "";
         $groupBySql = "";
         $limitSql = "";
@@ -434,7 +435,7 @@ abstract class SQlAbstract
     {
         $whereSql = $this->parseWhere($where);
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
         $orderBySql = "";
         $groupBySql = "";
         $limitSql = "";
@@ -485,7 +486,7 @@ abstract class SQlAbstract
         $whereSql = $this->parseWhere($where);
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
 
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
 
         $sql = "SELECT * FROM `{$tableName}` " . $whereSql;
         if ($orderBy) {
@@ -511,7 +512,7 @@ abstract class SQlAbstract
     {
         $whereSql = $this->parseWhere($where);
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
-        $tableName = $this->prefix . $tableName ? $this->prefix . $tableName : $this->getTableName();
+        $tableName = $tableName ? $this->prefix . $tableName : $this->getTableName();
         $groupBySql = "";
         if ($groupBy) {
             $groupBySql = " GROUP BY " . $groupBy;
@@ -524,7 +525,8 @@ abstract class SQlAbstract
 
     protected function quote($value)
     {
-        return addslashes($value);
+        $data = addslashes($value);
+        return "'".$data."'";
     }
 
     /**

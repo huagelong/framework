@@ -1,12 +1,12 @@
 <?php
 /**
- * redis pool 连接 redis服务器
+ *  redis pool 连接 redis服务器
+ *
  * User: Peter Wang
- * Date: 16/9/23
- * Time: 上午11:30
+ * Date: 16/9/18
+ * Time: 上午11:10
  */
-
-namespace Trendi\Pool\Task;
+namespace Trendi\Server\Task;
 
 use Predis\Client;
 
