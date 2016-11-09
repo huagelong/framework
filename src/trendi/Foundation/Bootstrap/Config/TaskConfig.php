@@ -16,8 +16,6 @@ class TaskConfig
     {
         return [
             "email" => \Trendi\Foundation\Bootstrap\Task\Email::class,
-            "pdo" => \Trendi\Server\Task\Pdo::class,
-            "redis" => \Trendi\Server\Task\Redis::class,
         ];
     }
 

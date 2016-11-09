@@ -12,7 +12,6 @@ namespace Trendi\Foundation;
 use Trendi\Console\Application as CmdApplication;
 use Trendi\Config\Config as CConfig;
 use Trendi\Foundation\Bootstrap\Bootstrap;
-use Trendi\Foundation\Bootstrap\PoolBootstrap;
 use Trendi\Foundation\Bootstrap\RouteBootstrap;
 use Trendi\Foundation\Command;
 use Trendi\Mvc\Route\RouteMatch;
@@ -40,7 +39,6 @@ class Application
     {
         $this->initRelease();
         RouteBootstrap::getInstance();
-        PoolBootstrap::getInstance();
     }
 
     protected function initRelease()
@@ -57,7 +55,6 @@ class Application
     public function rpcBootstrap()
     {
         RouteBootstrap::getInstance();
-        PoolBootstrap::getInstance();
     }
 
     /**

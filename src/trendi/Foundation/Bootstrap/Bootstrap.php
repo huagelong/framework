@@ -6,7 +6,7 @@
  * Time: 下午5:27
  */
 
-namespace Kerisy\Foundation\Bootstrap;
+namespace Trendi\Foundation\Bootstrap;
 
 use Trendi\Config\Config;
 use Trendi\Di\Di;
@@ -14,7 +14,6 @@ use Trendi\Foundation\Bootstrap\Config\AliasConfig;
 use Trendi\Foundation\Bootstrap\Config\DiConfig;
 use Trendi\Foundation\Bootstrap\Config\TaskConfig;
 use Trendi\Server\Task;
-use Trendi\Server\Pool;
 use Trendi\Support\AliasLoader;
 use Trendi\Support\Arr;
 use Trendi\Support\Facade;
@@ -61,12 +60,7 @@ class Bootstrap
 
     public function initEvent()
     {
-        /**
-         * 请求结束清空连接池与worker进程对应关系
-         */
-        Event::bind("request.end", function($workerId){
-            unset(Pool::$poolTaskData[$workerId]);
-        });
+        
     }
 
     /**

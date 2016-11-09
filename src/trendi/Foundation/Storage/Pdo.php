@@ -5,54 +5,29 @@
  * Time: 下午12:49
  */
 
-namespace Kerisy\Foundation\Storage;
+namespace Trendi\Foundation\Storage;
 
 use Config;
-use Trendi\Foundation\Exception\ConfigNotFoundException;
 use Trendi\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
 use Trendi\Coroutine\Event;
 use Trendi\Support\Log;
-use Trendi\Server\Pool;
 
 class Pdo extends SQlAdapter
 {
     const CONN_MASTER = 0;//写服务器
     const CONN_SLAVE = 1;//读服务器
-
-    //适配器类型
-    const ADAPTER_DEFAULT = "default";
-    const ADAPTER_POOL = "pool";
-
-    private $type = self::ADAPTER_DEFAULT;
-
-    protected static $client = null;
+    
     private static $conn = [];
 
     public function __construct()
     {
-        $type = Config::get("storage.pdo.adapter");
-        $this->type = $type;
-        if($this->type == self::ADAPTER_DEFAULT){
-            $this->initializeDefault();
-        }else{
-            $this->initializePool();
-        }
+        $this->initializeDefault();
         parent::__construct();
     }
 
     protected function initializeDefault()
     {
         $this->prefix = Config::get("storage.pdo.prefix");
-    }
-
-    protected function initializePool()
-    {
-        $prefix = Config::get("storage.pdo.prefix");
-        $this->prefix = $prefix;
-
-        if(self::$client) return;
-        $poolConfig = Config::get("server.pool");
-        self::$client = new Pool($poolConfig);
     }
 
 
@@ -121,25 +96,13 @@ class Pdo extends SQlAdapter
         }
 
         self::$_sql[] = $sql;
-
-        if($this->type == self::ADAPTER_DEFAULT){
-            $conn = $this->setConn($connType);
-            $conn->exec($sql);
-            if($isInsert){
-                return $conn->lastInsertId();
-            }else{
-                return true;
-            }
+        
+        $conn = $this->setConn($connType);
+        $conn->exec($sql);
+        if($isInsert){
+            return $conn->lastInsertId();
         }else{
-            $method = "";
-            $isInsert && $method = "lastInsertId";
-            $params = [
-                $sql,
-                $connType,
-                $method
-            ];
-            $data = self::$client->get("pdo", $params);
-            return $data;
+            return true;
         }
     }
 
@@ -150,20 +113,10 @@ class Pdo extends SQlAdapter
             return false;
         }
         self::$_sql[] = $sql;
-
-        if($this->type == self::ADAPTER_DEFAULT){
-            $conn = $this->setConn($connType);
-            $query = $conn->query($sql);
-            return $query->fetchAll();
-        }else{
-            $params = [
-                $sql,
-                $connType,
-                "fetchAll"
-            ];
-            $data = self::$client->get("pdo", $params);
-            return $data;
-        }
+        
+        $conn = $this->setConn($connType);
+        $query = $conn->query($sql);
+        return $query->fetchAll();
     }
 
 
@@ -173,20 +126,10 @@ class Pdo extends SQlAdapter
             return false;
         }
         self::$_sql[] = $sql;
-
-        if($this->type == self::ADAPTER_DEFAULT){
-            $conn = $this->setConn($connType);
-            $query = $conn->query($sql);
-            return $query->fetch();
-        }else{
-            $params = [
-                $sql,
-                $connType,
-                "fetch"
-            ];
-            $data = self::$client->get("pdo", $params);
-            return $data;
-        }
+        
+        $conn = $this->setConn($connType);
+        $query = $conn->query($sql);
+        return $query->fetch();
     }
 
 
@@ -195,6 +138,5 @@ class Pdo extends SQlAdapter
         Event::bind("clear", function () {
             self::clearStaticData();
         });
-//        self::$client->close();
     }
 }
