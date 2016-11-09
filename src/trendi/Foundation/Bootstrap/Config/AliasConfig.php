@@ -27,6 +27,8 @@ class AliasConfig
             "Job" => \Trendi\Foundation\Bootstrap\Facade\Job::class,
             "Log" => \Trendi\Foundation\Bootstrap\Facade\Log::class,
             "Session" => \Trendi\Foundation\Bootstrap\Facade\Session::class,
+            "Controller"=>\Trendi\Foundation\Controller::class,
+            "RpcController"=>\Trendi\Rpc\Controller::class,
         ];
     }
 

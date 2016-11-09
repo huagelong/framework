@@ -11,6 +11,7 @@ use Config;
 use Trendi\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
 use Trendi\Coroutine\Event;
 use Trendi\Support\Log;
+use Trendi\Support\ElapsedTime;
 
 class Pdo extends SQlAdapter
 {
@@ -95,10 +96,14 @@ class Pdo extends SQlAdapter
             throw new \Exception("only run on select , show");
         }
 
-        self::$_sql[] = $sql;
-        
+        $key = uniqid(time());
+        self::$_sql[$key]['sql'] = $sql;
+
+        ElapsedTime::setStartTime("pdo.elapsed.time");
         $conn = $this->setConn($connType);
-        $conn->exec($sql);
+        $result = $conn->exec($sql);
+        $elapseTime = ElapsedTime::runtime("pdo.elapsed.time");
+        self::$_sql[$key]['elapseTime'] = $elapseTime;
         if($isInsert){
             return $conn->lastInsertId();
         }else{
@@ -112,11 +117,16 @@ class Pdo extends SQlAdapter
         if (empty($sql)) {
             return false;
         }
-        self::$_sql[] = $sql;
         
+        $key = uniqid(time());
+        self::$_sql[$key]['sql'] = $sql;
+        ElapsedTime::setStartTime("pdo.elapsed.time");
         $conn = $this->setConn($connType);
         $query = $conn->query($sql);
-        return $query->fetchAll();
+        $result = $query->fetchAll();
+        $elapseTime = ElapsedTime::runtime("pdo.elapsed.time");
+        self::$_sql[$key]['elapseTime'] = $elapseTime;
+        return $result;
     }
 
 
@@ -125,11 +135,15 @@ class Pdo extends SQlAdapter
         if (empty($sql)) {
             return false;
         }
-        self::$_sql[] = $sql;
-        
+        $key = uniqid(time());
+        self::$_sql[$key]['sql'] = $sql;
+        ElapsedTime::setStartTime("pdo.elapsed.time");
         $conn = $this->setConn($connType);
         $query = $conn->query($sql);
-        return $query->fetch();
+        $result = $query->fetch();
+        $elapseTime = ElapsedTime::runtime("pdo.elapsed.time");
+        self::$_sql[$key]['elapseTime'] = $elapseTime;
+        return $result;
     }
 
 

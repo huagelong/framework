@@ -100,7 +100,7 @@ abstract class SQlAbstract
             $v = $v === null ? "null" : $this->quote($v);
             $sql = str_replace(":" . $k . ":", $v, $sql);
         }
-        self::$_sql[] = $sql;
+
         return $this->exec($sql, self::CONN_MASTER, true);
     }
 
@@ -127,7 +127,7 @@ abstract class SQlAbstract
             $v = $v === null ? "null" : $this->quote($v);
             $sql = str_replace(":" . $k . ":", $v, $sql);
         }
-        self::$_sql[] = $sql;
+
         return $this->exec($sql, self::CONN_MASTER, true);
     }
 
@@ -142,7 +142,7 @@ abstract class SQlAbstract
         $whereStr = $whereStr ? " WHERE " . $whereStr : "";
 
         $sql = "DELETE FROM `" . $tableName . "`" . $whereStr;
-        self::$_sql[] = $sql;
+
         $return = $this->exec($sql, self::CONN_MASTER);
 
         return $return;
@@ -166,7 +166,7 @@ abstract class SQlAbstract
         }
         $sql = rtrim($sql, ',');
         $sql .= $whereStr;
-        self::$_sql[] = $sql;
+ 
 
         return $this->exec($sql, self::CONN_MASTER);
     }
@@ -185,7 +185,7 @@ abstract class SQlAbstract
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
 
         $sql = "UPDATE `{$tableName}` SET {$field} = {$field} +{$number} " . $whereSql;
-        self::$_sql[] = $sql;
+
         $this->exec($sql, self::CONN_MASTER);
 
         return true;
@@ -206,7 +206,7 @@ abstract class SQlAbstract
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
 
         $sql = "UPDATE `{$tableName}` SET {$field} = {$field} - {$number} " . $whereSql;
-        self::$_sql[] = $sql;
+    
         $this->exec($sql, self::CONN_MASTER);
         return true;
     }
