@@ -80,13 +80,18 @@ if (!function_exists('syscache')) {
 
 if (!function_exists('dump')) {
     /**
-     * 缓存对象
-     * @return \Trendi\Support\Log;
+     * 输出
+     * @return string;
      */
-    function dump($str)
+    function dump($str, $isReturn=false)
     {
-        $str = print_r($str, true);
-        return \Trendi\Support\Log::debug($str);
+        if(!$isReturn){
+            return \Trendi\Support\Log::debug($str);
+        }
+        ob_start();
+        \Trendi\Support\Log::debug($str);
+        $msg = ob_get_clean();
+        return $msg;
     }
 }
 
