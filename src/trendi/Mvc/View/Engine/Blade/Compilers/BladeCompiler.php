@@ -4,6 +4,7 @@ namespace Trendi\Mvc\View\Engine\Blade\Compilers;
 
 use Trendi\Mvc\View\Engine\Blade\Support\Arr;
 use Trendi\Mvc\View\Engine\Blade\Support\Str;
+use Trendi\Support\Lang;
 
 class BladeCompiler extends Compiler implements CompilerInterface
 {
@@ -1089,6 +1090,10 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     protected function compileFurl($expression) {
         return "\$__fis->uri{$expression}";
+    }
+
+    protected function compileL($expression) {
+        return "\Trendi\Support\Lang::get{$expression}";
     }
 
     protected function compileWidget($expression, $match) {

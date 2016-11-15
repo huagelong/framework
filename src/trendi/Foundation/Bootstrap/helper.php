@@ -107,12 +107,22 @@ if (!function_exists('page404')) {
 
 if (!function_exists('throwExit')) {
     /**
-     * 404错误
+     * 断点
      */
     function throwExit($str=null)
     {
         $str && dump($str);
         throw new \Trendi\Support\Exception\RuntimeExitException("exit");
+    }
+}
+
+if (!function_exists('l')) {
+    /**
+     * 多语言
+     */
+    function l($str, $params=[])
+    {
+        return \Trendi\Support\Lang::get($str, $params);
     }
 }
 
