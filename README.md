@@ -10,13 +10,13 @@
 
 * 更好体验建议安装 apc ,msgpack 扩展, 安装apc提速30%
 
-* 根据 boilerplate 样板 安装 [代码](https://github.com/trensy/boilerplate)
+* 执行下面命令
 
 ```
 
-sudo git clone https://github.com/trensy/boilerplate
+sudo composer create-project --prefer-dist kerisy/trensy
 
-cd boilerplate
+cd trensy
 
 sudo composer install
 
