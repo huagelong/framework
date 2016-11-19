@@ -1,5 +1,5 @@
 {
-    "name": "trendi/framework",
+    "name": "trensy/framework",
     "description": "a fast php framework",
     "type": "library",
     "license": "MIT",
@@ -19,16 +19,16 @@
 
     },
     "bin": [
-        "trendi"
+        "trensy"
     ],
     "require-dev": {
     },
     "autoload": {
         "psr-4": {
-            "Trendi\\": "src/trendi"
+            "Trensy\\": "src/trensy"
         },
         "files":[
-            "src/trendi/Support/Predis.php"
+            "src/trensy/Support/Predis.php"
         ]
     },
     "suggest": {
@@ -40,7 +40,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Trendi\\Test\\": "tests/application/src"
+            "Trensy\\Test\\": "tests/application/src"
         }
     },
     "minimum-stability": "stable",
