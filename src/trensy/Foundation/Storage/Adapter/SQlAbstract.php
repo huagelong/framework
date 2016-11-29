@@ -485,6 +485,42 @@ abstract class SQlAbstract
         return $result;
     }
 
+    /**
+     * 获取分页数据
+     * @param array $where
+     * @param int $page
+     * @param int $pageSize
+     * @param string $orderBy
+     * @param string $groupBy
+     * @return array
+     */
+    function pager($where = array(), $page=1,$pageSize=20, $orderBy = "", $groupBy = ""){
+        $page = $page?$page:1;
+        $limit = ($page-1)*$pageSize;
+        $list = $this->gets($where,$orderBy,$limit,$pageSize,$groupBy,true);
+        $count = $this->getTotal();
+        $totalPage = ceil($count/$pageSize);
+        return array($list,$count, $totalPage);
+    }
+
+    /**
+     * 获取分页数据
+     * @param $sql
+     * @param int $page
+     * @param int $pageSize
+     * @return array
+     * @throws \Exception
+     */
+    function pagerSql($sql,$page=1,$pageSize=20){
+        $page = $page?$page:1;
+        $limit = ($page-1)*$pageSize;
+        $sql .= " LIMIT ".$limit.", ".$pageSize;
+        $list = $this->selectAll($sql,array(),true);
+        $count = $this->getTotal();
+        $totalPage = ceil($count/$pageSize);
+        return array($list,$count, $totalPage);
+    }
+
 
     /**
      *
