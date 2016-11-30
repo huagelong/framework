@@ -12,7 +12,7 @@ namespace Trensy\Server;
 use swoole_server as SwooleServer;
 use Trensy\Coroutine\Event;
 use Trensy\Mvc\Route\Base\Exception\ResourceNotFoundException;
-use Trensy\Server\Facade\Context;
+use Trensy\Server\Facade\Context as FContext;
 use Trensy\Server\Facade\Task as FacadeTask;
 use Trensy\Support\ElapsedTime;
 use Trensy\Support\Exception as ExceptionFormat;
@@ -169,7 +169,7 @@ class SocketServer
         }
         $this->adapter->bootstrap();
         if (Facade::getFacadeApplication()) {
-            Context::set("server", $swooleServer, true, true);
+            FContext::set("server", $swooleServer, true, true);
         }
     }
 

@@ -16,6 +16,7 @@ abstract class SQlAbstract
     protected static $sqlinstance = array();
     protected $tableName = null;
     protected static $prefix = "";
+    protected $field = null;
 
     const CONN_MASTER = "master";
     const CONN_SLAVE = "slave";
@@ -166,7 +167,7 @@ abstract class SQlAbstract
         }
         $sql = rtrim($sql, ',');
         $sql .= $whereStr;
- 
+
 
         return $this->exec($sql, self::CONN_MASTER);
     }
@@ -206,7 +207,7 @@ abstract class SQlAbstract
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
 
         $sql = "UPDATE `{$tableName}` SET {$field} = {$field} - {$number} " . $whereSql;
-    
+
         $this->exec($sql, self::CONN_MASTER);
         return true;
     }
@@ -260,7 +261,13 @@ abstract class SQlAbstract
         if ($returnCount) {
             $sqlCount = 'SELECT FOUND_ROWS() as cnt';
             $rsCount = $this->fetch($sqlCount, self::CONN_SLAVE);
+            if ($rsCount instanceof \Generator) {
+                $rsCount = yield $rsCount;
+            }
             $this->_total = $rsCount['cnt'];
+        }
+        if ($rs instanceof \Generator) {
+            $rs = yield $rs;
         }
         return $rs;
     }
@@ -291,7 +298,6 @@ abstract class SQlAbstract
      */
     public function parseWhere($where = array())
     {
-
         if (count($where) < 1) {
             return "";
         }
@@ -396,20 +402,31 @@ abstract class SQlAbstract
             $orderBySql = " ORDER BY " . $orderBy;
         }
 
-        if ($offset) {
+        if ($limit) {
             $limit = intval($limit);
             $offset = intval($offset);
-            $limitSql = " LIMIT {$limit} , {$offset} ";
+            $limitSql = " LIMIT {$offset} , {$limit} ";
         }
 
-        $sql = "SELECT *  FROM `{$tableName}` " . $whereSql . $groupBySql . $orderBySql . $limitSql;
+        $field = $this->field?$this->field:"*";
 
+        $sql = "SELECT {$field}  FROM `{$tableName}` " . $whereSql . $groupBySql . $orderBySql . $limitSql;
+
+        $this->field = null;
         $rs = $this->fetchAll($sql, self::CONN_SLAVE);
         if ($returnCount) {
             $sqlCount = "SELECT count(*) as cnt FROM  `{$tableName}` " . $whereSql;
             $rsCount = $this->fetch($sqlCount, self::CONN_SLAVE);
+            if ($rsCount instanceof \Generator) {
+                $rsCount = yield $rsCount;
+            }
             $this->_total = $rsCount['cnt'];
         }
+
+        if ($rs instanceof \Generator) {
+            $rs = yield $rs;
+        }
+
         return $rs;
     }
 
@@ -439,26 +456,37 @@ abstract class SQlAbstract
             $orderBySql = " ORDER BY " . $orderBy;
         }
 
-        if ($offset) {
+        if ($limit) {
             $limit = intval($limit);
             $offset = intval($offset);
-            $limitSql = " LIMIT {$limit} , {$offset} ";
+            $limitSql = " LIMIT {$offset} , {$limit} ";
         }
         $resultKeyStr = $resultKey ? $resultKey . "," : "";
         $sql = "SELECT " . $resultKeyStr . " " . $field . "  FROM `{$tableName}` " . $whereSql . $groupBySql . $orderBySql . $limitSql;
 
         if ($isMore) {
             $rs = $this->fetchAll($sql, self::CONN_SLAVE);
+            if ($rs instanceof \Generator) {
+                $rs = yield $rs;
+            }
             if (!$rs) {
                 return array();
             }
             $result = array();
+
             foreach ($rs as $key => $value) {
-                $result[$value[$resultKey]] = $value[$field];
+                if(isset($value[$resultKey])){
+                    $result[$value[$resultKey]] = $value[$field];
+                }else{
+                    $result[] = $value[$field];
+                }
             }
             return $result;
         } else {
             $rs = $this->fetch($sql, self::CONN_SLAVE);
+            if ($rs instanceof \Generator) {
+                $rs = yield $rs;
+            }
             $result = $rs ? $rs[$field] : "";
             return $result;
         }
@@ -477,13 +505,18 @@ abstract class SQlAbstract
 
         $tableName = $tableName ? self::$prefix . $tableName : $this->getTableName();
 
-        $sql = "SELECT * FROM `{$tableName}` " . $whereSql;
+        $field = $this->field?$this->field:"*";
+
+        $sql = "SELECT {$field} FROM `{$tableName}` " . $whereSql;
         if ($orderBy) {
             $sql .= " ORDER BY " . $orderBy;
         }
-        $result = $this->fetch($sql, self::CONN_SLAVE);
-        return $result;
+
+        $this->field = null;
+
+        return $this->fetch($sql, self::CONN_SLAVE);
     }
+
 
     /**
      * 获取分页数据
@@ -497,9 +530,12 @@ abstract class SQlAbstract
     function pager($where = array(), $page=1,$pageSize=20, $orderBy = "", $groupBy = ""){
         $page = $page?$page:1;
         $limit = ($page-1)*$pageSize;
-        $list = $this->gets($where,$orderBy,$limit,$pageSize,$groupBy,true);
+        $list = $this->gets($where,$orderBy,$pageSize,$limit,$groupBy,true);
+        if ($list instanceof \Generator) {
+            $list = yield $list;
+        }
         $count = $this->getTotal();
-        $totalPage = ceil($count/$pageSize);
+        $totalPage = $count==0?0:ceil($count/$pageSize);
         return array($list,$count, $totalPage);
     }
 
@@ -516,8 +552,11 @@ abstract class SQlAbstract
         $limit = ($page-1)*$pageSize;
         $sql .= " LIMIT ".$limit.", ".$pageSize;
         $list = $this->selectAll($sql,array(),true);
+        if ($list instanceof \Generator) {
+            $list = yield $list;
+        }
         $count = $this->getTotal();
-        $totalPage = ceil($count/$pageSize);
+        $totalPage = $count==0?0:ceil($count/$pageSize);
         return array($list,$count, $totalPage);
     }
 
@@ -538,12 +577,22 @@ abstract class SQlAbstract
         }
         $sql = "SELECT count(*) as cnt FROM `{$tableName}` " . $whereSql . $groupBySql;
         $return = $this->fetch($sql, self::CONN_SLAVE);
-
+        if ($return instanceof \Generator) {
+            $return = yield $return;
+        }
         return $return['cnt'];
     }
 
+
+    public function field($fieldStr){
+        $this->field = $fieldStr;
+        return $this;
+    }
+
+
     protected function quote($value)
     {
+        if(!is_string($value)) return $value;
         $data = addslashes($value);
         return "'".$data."'";
     }

@@ -81,6 +81,7 @@ class CoroutineTask{
                     }
                 }else{
                     $this->routine->send($value);
+                    return false;
                 }
 
             } catch (\Exception $e) {

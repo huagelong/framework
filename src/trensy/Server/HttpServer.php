@@ -14,7 +14,7 @@ use swoole_http_response as SwooleHttpResponse;
 use swoole_http_server as SwooleServer;
 use Trensy\Http\Request;
 use Trensy\Http\Response;
-use Trensy\Server\Facade\Context;
+use Trensy\Server\Facade\Context as FContext;
 use Trensy\Server\Facade\Task as FacadeTask;
 use Trensy\Coroutine\Event;
 use Trensy\Support\Facade;
@@ -168,7 +168,7 @@ class HttpServer
         $this->adapter->httpBoostrap();
 
         if (Facade::getFacadeApplication()) {
-            Context::set("server", $swooleServer, true, true);
+            FContext::set("server", $swooleServer, true, true);
         }
     }
 
@@ -190,7 +190,7 @@ class HttpServer
      * @param SwooleHttpRequest $swooleHttpRequest
      * @param SwooleHttpResponse $swooleHttpResponse
      * @throws Exception\InvalidArgumentException
-     * @throws \Trensy\Http\Exception\ContextErrorException
+     * @throws \Trensy\Http\Exception\FContextErrorException
      */
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
@@ -200,11 +200,11 @@ class HttpServer
         $response = new Response($swooleHttpResponse);
         
         if (Facade::getFacadeApplication()) {
-            Context::clear();
-            Context::set("response", $response);
-            Context::set("request", $request);
-            $request = Context::request();
-            $response = Context::response();
+            FContext::clear();
+            FContext::set("response", $response);
+            FContext::set("request", $request);
+            $request = FContext::request();
+            $response = FContext::response();
         }
 
         $httpSendFile = new HttpSendFile($request, $response);
@@ -216,7 +216,7 @@ class HttpServer
         } else {
             $this->response($request, $response);
             if (Facade::getFacadeApplication()) {
-                Context::clear();
+                FContext::clear();
             }
             Event::fire("clear");
         }

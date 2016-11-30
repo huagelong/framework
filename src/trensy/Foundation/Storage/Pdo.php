@@ -8,28 +8,22 @@
 namespace Trensy\Foundation\Storage;
 
 use Config;
-use Trensy\Coroutine\Db\PdoDirect;
-use Trensy\Coroutine\Db\DbCoroutine;
 use Trensy\Coroutine\Event;
 use Trensy\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
 
 class Pdo extends SQlAdapter
 {
-    private static $coroutine = null;
-    
     private static $conn = [];
 
     public function __construct($config=null)
     {
-        if(!self::$coroutine){
+        if(!self::$conn){
             if(!$config){
                 $config = Config::get("storage.server.pdo");
             }
             self::$prefix = $config['prefix'];
             parent::__construct();
-            $clients = $this->initConn($config);
-            $pdoPool = new PdoDirect($clients);
-            self::$coroutine = new DbCoroutine($pdoPool);
+            $this->initConn($config);
         }
     }
 
@@ -96,7 +90,7 @@ class Pdo extends SQlAdapter
 
         self::$_sql['sql'] = $sql;
         $func = $isInsert?"lastInsertId":"";
-        yield self::$coroutine->set($sql, $connType, $func);
+        return $this->set($sql, $connType, $func);
     }
 
 
@@ -108,7 +102,7 @@ class Pdo extends SQlAdapter
 
         self::$_sql['sql'] = $sql;
         $func = "fetchAll";
-        yield self::$coroutine->set($sql, $connType, $func);
+        return $this->set($sql, $connType, $func);
     }
 
 
@@ -120,7 +114,35 @@ class Pdo extends SQlAdapter
 
         self::$_sql['sql'] = $sql;
         $func = "fetch";
-        yield self::$coroutine->set($sql, $connType, $func);
+        return $this->set($sql, $connType, $func);
+    }
+
+
+    protected function set($sql, $connType, $method)
+    {
+        $result = [];
+        if (!$method || $method == 'lastInsertId') {
+            self::$conn[$connType]->exec($sql);
+            if ($method) {
+                $result = self::$conn[$connType]->$method();
+            }
+            if (self::$conn[$connType]->errorCode() != '00000') {
+                $error = self::$conn[$connType]->errorInfo();
+                $errorMsg = 'ERROR: [' . $error['1'] . '] ' . $error['2'];
+                throw new \Exception($errorMsg);
+            }
+            return $result;
+        } else {
+            $query = self::$conn[$connType]->query($sql);
+            $result = $query->$method();
+
+            if (self::$conn[$connType]->errorCode() != '00000') {
+                $error = self::$conn[$connType]->errorInfo();
+                $errorMsg = 'ERROR: [' . $error['1'] . '] ' . $error['2'];
+                throw new \Exception($errorMsg);
+            }
+            return $result;
+        }
     }
 
     public function __destruct()
