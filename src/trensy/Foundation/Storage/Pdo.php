@@ -1,8 +1,13 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/9/22
- * Time: 下午12:49
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Foundation\Storage;
@@ -14,16 +19,24 @@ use Trensy\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
 class Pdo extends SQlAdapter
 {
     private static $conn = [];
+    protected $config = null;
 
     public function __construct($config=null)
     {
+        $this->config = $config;
+        $this->conn();
+    }
+
+
+    protected function conn()
+    {
         if(!self::$conn){
-            if(!$config){
-                $config = Config::get("storage.server.pdo");
+            if(!$this->config){
+                $this->config = Config::get("storage.server.pdo");
             }
-            self::$prefix = $config['prefix'];
+            self::$prefix = $this->config['prefix'];
             parent::__construct();
-            $this->initConn($config);
+            $this->initConn($this->config);
         }
     }
 
@@ -85,7 +98,7 @@ class Pdo extends SQlAdapter
             || strtolower(substr($sql, 0, 8)) == 'rollback'
         )
         ) {
-            throw new \Exception("only run on select , show");
+            throw new \Exception("only run on select");
         }
 
         self::$_sql['sql'] = $sql;
@@ -117,39 +130,79 @@ class Pdo extends SQlAdapter
         return $this->set($sql, $connType, $func);
     }
 
-
-    protected function set($sql, $connType, $method)
-    {
-        $result = [];
-        if (!$method || $method == 'lastInsertId') {
-            self::$conn[$connType]->exec($sql);
-            if ($method) {
-                $result = self::$conn[$connType]->$method();
-            }
-            if (self::$conn[$connType]->errorCode() != '00000') {
-                $error = self::$conn[$connType]->errorInfo();
-                $errorMsg = 'ERROR: [' . $error['1'] . '] ' . $error['2'];
-                throw new \Exception($errorMsg);
-            }
-            return $result;
-        } else {
-            $query = self::$conn[$connType]->query($sql);
-            $result = $query->$method();
-
-            if (self::$conn[$connType]->errorCode() != '00000') {
-                $error = self::$conn[$connType]->errorInfo();
-                $errorMsg = 'ERROR: [' . $error['1'] . '] ' . $error['2'];
-                throw new \Exception($errorMsg);
-            }
-            return $result;
-        }
-    }
-
     public function __destruct()
     {
         Event::bind("clear", function () {
             self::clearStaticData();
         });
+    }
+
+
+    protected function set($sql, $connType, $method)
+    {
+        try{
+            $result = [];
+            if (!$method || $method == 'lastInsertId') {
+                self::$conn[$connType]->exec($sql);
+                if ($method) {
+                    $result = self::$conn[$connType]->$method();
+                }
+                if (self::$conn[$connType]->errorCode() != '00000') {
+                    $error = self::$conn[$connType]->errorInfo();
+                    $errorMsg = 'ERROR: [' . $error['1'] . '] ' . $error['2'];
+                    throw new \Exception($errorMsg, self::$conn[$connType]->errorCode());
+                }
+                return $result;
+            } else {
+                $query = self::$conn[$connType]->query($sql);
+//                dump('1');
+//                dump($query);
+                if($query === false){
+                    throw new \Exception("server has gone away");
+                }
+                $result = $query->$method();
+//                dump('2');
+//                dump(self::$conn[$connType]->errorCode());
+                if (self::$conn[$connType]->errorCode() != '00000') {
+                    $error = self::$conn[$connType]->errorInfo();
+                    $errorMsg = 'ERROR: [' . $error['1'] . '] ' . $error['2'];
+                    throw new \Exception($errorMsg, self::$conn[$connType]->errorCode());
+                }
+                return $result;
+            }
+        }catch (\Error $e){
+//            dump('3');
+//            dump($e->getCode());
+            if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
+                throw new \Exception($e->getMessage());
+            }
+            //重新连接
+            self::$conn = [];
+            $this->conn();
+//            dump('4');
+//            dump(self::$conn);
+            if(self::$conn){
+                return $this->set($sql, $connType, $method);
+            }else{
+                throw new \Exception($e->getMessage());
+            }
+        }catch (\Exception $e){
+//            dump('3');
+//            dump($e->getCode());
+            if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
+                throw new \Exception($e->getMessage());
+            }
+            //重新连接
+            self::$conn = [];
+            $this->conn();
+//            dump('4');
+//            dump(self::$conn);
+            if(self::$conn){
+                return $this->set($sql, $connType, $method);
+            }else{
+                throw new \Exception($e->getMessage());
+            }
+        }
     }
 
 }

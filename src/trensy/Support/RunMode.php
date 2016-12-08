@@ -1,9 +1,14 @@
 <?php
 /**
  * runmode 环境切换
- * User: Peter Wang
- * Date: 16/9/8
- * Time: 下午6:20
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Support;
@@ -44,13 +49,13 @@ class RunMode
     public static function init()
     {
         if (self::$runMode) return self::$runMode;
-        $env = getenv("TRENDI_RUNMODE");//test.dev
+        $env = getenv("KERISY_RUNMODE");//test.dev
         if (!$env) {
-            $env = get_cfg_var("TRENDI_RUNMODE");
+            $env = get_cfg_var("KERISY_RUNMODE");
         }
 
-        if(defined("TRENDI_RUNMODE")){
-            $env = TRENDI_RUNMODE;
+        if(defined("KERISY_RUNMODE")){
+            $env = KERISY_RUNMODE;
         }
 
         if ($env) {

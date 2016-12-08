@@ -1,8 +1,13 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/10/19
- * Time: 下午3:06
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Foundation\Command;
@@ -17,4 +22,14 @@ class Base extends Command
       parent::__construct();
       Bootstrap::getInstance(ROOT_PATH);
   }
+
+    /**
+     * @param $cmdName
+     * @return \Trensy\Console\Input\InputDefinition
+     */
+    public function getCmdDefinition($cmdName)
+    {
+        $result = $this->getApplication()->find($cmdName);
+        return $result->getDefinition();
+    }
 }

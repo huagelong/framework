@@ -2,9 +2,14 @@
 /**
  * 上下文
  *
- * User: Peter Wang
- * Date: 16/9/18
- * Time: 上午9:27
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Server;
@@ -28,7 +33,7 @@ class Context
         }
     }
 
-    public function hasSet($key)
+    public static function hasSet($key)
     {
         return isset(self::$map[$key][0]);
     }

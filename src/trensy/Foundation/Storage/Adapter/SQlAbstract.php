@@ -1,9 +1,14 @@
 <?php
 
 /**
- * User: Peter Wang
- * Date: 16/9/20
- * Time: 上午10:52
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Foundation\Storage\Adapter;
@@ -167,7 +172,7 @@ abstract class SQlAbstract
         }
         $sql = rtrim($sql, ',');
         $sql .= $whereStr;
-
+ 
 
         return $this->exec($sql, self::CONN_MASTER);
     }
@@ -207,7 +212,7 @@ abstract class SQlAbstract
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
 
         $sql = "UPDATE `{$tableName}` SET {$field} = {$field} - {$number} " . $whereSql;
-
+    
         $this->exec($sql, self::CONN_MASTER);
         return true;
     }
@@ -261,13 +266,7 @@ abstract class SQlAbstract
         if ($returnCount) {
             $sqlCount = 'SELECT FOUND_ROWS() as cnt';
             $rsCount = $this->fetch($sqlCount, self::CONN_SLAVE);
-            if ($rsCount instanceof \Generator) {
-                $rsCount = yield $rsCount;
-            }
             $this->_total = $rsCount['cnt'];
-        }
-        if ($rs instanceof \Generator) {
-            $rs = yield $rs;
         }
         return $rs;
     }
@@ -417,16 +416,9 @@ abstract class SQlAbstract
         if ($returnCount) {
             $sqlCount = "SELECT count(*) as cnt FROM  `{$tableName}` " . $whereSql;
             $rsCount = $this->fetch($sqlCount, self::CONN_SLAVE);
-            if ($rsCount instanceof \Generator) {
-                $rsCount = yield $rsCount;
-            }
             $this->_total = $rsCount['cnt'];
         }
-
-        if ($rs instanceof \Generator) {
-            $rs = yield $rs;
-        }
-
+        
         return $rs;
     }
 
@@ -466,14 +458,11 @@ abstract class SQlAbstract
 
         if ($isMore) {
             $rs = $this->fetchAll($sql, self::CONN_SLAVE);
-            if ($rs instanceof \Generator) {
-                $rs = yield $rs;
-            }
             if (!$rs) {
                 return array();
             }
             $result = array();
-
+            
             foreach ($rs as $key => $value) {
                 if(isset($value[$resultKey])){
                     $result[$value[$resultKey]] = $value[$field];
@@ -484,9 +473,6 @@ abstract class SQlAbstract
             return $result;
         } else {
             $rs = $this->fetch($sql, self::CONN_SLAVE);
-            if ($rs instanceof \Generator) {
-                $rs = yield $rs;
-            }
             $result = $rs ? $rs[$field] : "";
             return $result;
         }
@@ -511,9 +497,8 @@ abstract class SQlAbstract
         if ($orderBy) {
             $sql .= " ORDER BY " . $orderBy;
         }
-
         $this->field = null;
-
+        
         return $this->fetch($sql, self::CONN_SLAVE);
     }
 
@@ -531,9 +516,6 @@ abstract class SQlAbstract
         $page = $page?$page:1;
         $limit = ($page-1)*$pageSize;
         $list = $this->gets($where,$orderBy,$pageSize,$limit,$groupBy,true);
-        if ($list instanceof \Generator) {
-            $list = yield $list;
-        }
         $count = $this->getTotal();
         $totalPage = $count==0?0:ceil($count/$pageSize);
         return array($list,$count, $totalPage);
@@ -552,9 +534,6 @@ abstract class SQlAbstract
         $limit = ($page-1)*$pageSize;
         $sql .= " LIMIT ".$limit.", ".$pageSize;
         $list = $this->selectAll($sql,array(),true);
-        if ($list instanceof \Generator) {
-            $list = yield $list;
-        }
         $count = $this->getTotal();
         $totalPage = $count==0?0:ceil($count/$pageSize);
         return array($list,$count, $totalPage);
@@ -577,9 +556,6 @@ abstract class SQlAbstract
         }
         $sql = "SELECT count(*) as cnt FROM `{$tableName}` " . $whereSql . $groupBySql;
         $return = $this->fetch($sql, self::CONN_SLAVE);
-        if ($return instanceof \Generator) {
-            $return = yield $return;
-        }
         return $return['cnt'];
     }
 
@@ -588,7 +564,7 @@ abstract class SQlAbstract
         $this->field = $fieldStr;
         return $this;
     }
-
+    
 
     protected function quote($value)
     {

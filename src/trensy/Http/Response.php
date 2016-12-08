@@ -1,8 +1,13 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/9/13
- * Time: 下午6:29
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Http;
@@ -19,18 +24,12 @@ class Response
     protected $headerStack = [];
 
     /**
-     * @var \Trensy\Http\View;
-     */
-    public $view;
-
-    /**
      * 初始化
      * Response constructor.
      * @param SwooleHttpResponse $response
      */
     public function __construct(SwooleHttpResponse $response)
     {
-        $this->view = new View();
         $this->response = $response;
     }
 

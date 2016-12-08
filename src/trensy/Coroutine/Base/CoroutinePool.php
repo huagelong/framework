@@ -2,14 +2,18 @@
 /**
  * 池子处理
  *
- * User: Peter Wang
- * Date: 16/9/8
- * Time: 下午5:27
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 
 namespace Trensy\Coroutine\Base;
-
 
 abstract class CoroutinePool
 {
@@ -56,7 +60,7 @@ abstract class CoroutinePool
     {
         $callback = self::$callBacks[$data['token']];
         unset(self::$callBacks[$data['token']]);
-        if ($callback != null) {
+        if ($callback !== null) {
             call_user_func_array($callback, ['data' => $data['result']]);
         }
     }

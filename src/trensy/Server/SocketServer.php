@@ -2,9 +2,14 @@
 /**
  * socket server
  *
- * User: Peter Wang
- * Date: 16/9/18
- * Time: 下午6:20
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Server;
@@ -91,7 +96,7 @@ class SocketServer
             Event::fire("404", [$e, "ResourceNotFoundException", [$serv, $fd, $this->adapter]]);
         } catch (RuntimeExitException $e) {
             Event::fire("request.end",$workerId);
-            Log::syslog("RuntimeExitException:" . $e->getMessage());
+            Log::sysinfo("RuntimeExitException:" . $e->getMessage());
         } catch (\Exception $e) {
             Event::fire("request.end",$workerId);
             Log::error(ExceptionFormat::formatException($e));
@@ -108,7 +113,7 @@ class SocketServer
             $result = FacadeTask::start($data);
             return [true, $result, ''];
         } catch (RuntimeExitException $e) {
-            Log::syslog("RuntimeExitException:" . $e->getMessage());
+            Log::sysinfo("RuntimeExitException:" . $e->getMessage());
         } catch (\Exception $e) {
             $exception = ExceptionFormat::formatException($e);
             Log::error($exception);
@@ -153,16 +158,8 @@ class SocketServer
         Task::setConfig($this->config);
 
         if ($workerId >= $this->config["worker_num"]) {
-            $poolNumber = isset($this->config['pool']["pool_worker_number"])?$this->config['pool']["pool_worker_number"]:0;
-            $taskNumber = $this->config["task_worker_num"]-$poolNumber;
-            $taskNumber = $taskNumber+$this->config["worker_num"];
-            if($workerId >=$taskNumber){
-                swoole_set_process_name($this->serverName . "-task-worker");
-                Log::sysinfo($this->serverName . " task worker start ..... ");
-            }else{
-                swoole_set_process_name($this->serverName . "-pool-worker");
-                Log::sysinfo($this->serverName . " pool worker start ..... ");
-            }
+            swoole_set_process_name($this->serverName . "-task-worker");
+            Log::sysinfo($this->serverName . " task worker start ..... ");
         } else {
             swoole_set_process_name($this->serverName . "-worker");
             Log::sysinfo($this->serverName . " worker start ..... ");

@@ -2,9 +2,14 @@
 /** 
  * 路由初始化
  * 
- * User: Peter Wang
- * Date: 16/9/13
- * Time: 下午3:38
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Foundation\Bootstrap;
@@ -78,8 +83,20 @@ class RouteBootstrap
      */
     private function loadOneRouteConfig($config)
     {
-        $isGroup = isset($config['name']) && $config['name'] &&
-            isset($config['prefix']) && $config['prefix'];
+        $isGroup = false;
+
+        if((isset($config['name']) && $config['name']) ||
+            (isset($config['prefix']) && $config['prefix']) ||
+            (isset($config['domain']) && $config['domain']) ||
+            (isset($config['middleware']) && $config['middleware']) ||
+            (isset($config['methods']) && $config['methods'])
+        ){
+            $isGroup = true;
+            if(!isset($config['name']) || !$config['name']){
+                $config['name'] = md5(serialize($config));
+            }
+        }
+
         if($isGroup){
             Route::group($config,function() use($config){
                 $this->loadSingle($config);

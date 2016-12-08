@@ -1,8 +1,13 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/9/18
- * Time: 下午7:34
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Support\Serialization\Adapter;
@@ -37,5 +42,25 @@ class DefaultSerialization extends SerializationAbstract
         }
         $result = unserialize($body);
         return $result;
+    }
+
+    /**
+     * 常规序列化
+     * @param $data
+     * @return mixed
+     */
+    public function trans($data)
+    {
+        return serialize($data);
+    }
+
+    /**
+     * 常规反序列化
+     * @param $data
+     * @return mixed
+     */
+    public function xtrans($data)
+    {
+        return unserialize($data);
     }
 }

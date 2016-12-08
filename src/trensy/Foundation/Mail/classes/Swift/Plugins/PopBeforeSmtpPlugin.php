@@ -27,7 +27,14 @@ class Swift_Plugins_PopBeforeSmtpPlugin implements Swift_Events_TransportChangeL
     /** Encryption type to use (if any) */
     private $_crypto;
 
-    /** Username to use (if any) */
+    /** Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
     private $_username;
 
     /** Password to use (if any) */

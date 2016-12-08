@@ -1,9 +1,14 @@
 <?php
 use Trensy\Mvc\View\Engine\Blade\Support\Arr;
 /**
- * User: Peter Wang
- * Date: 16/10/8
- * Time: 下午3:36
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 if (!function_exists('e')) {
     function e($value)

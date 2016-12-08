@@ -1,8 +1,13 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/9/9
- * Time: 下午12:18
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 if (!function_exists('url')) {
@@ -63,6 +68,17 @@ if (!function_exists('cache')) {
     function cache()
     {
         return new \Trensy\Cache\Adapter\RedisCache();
+    }
+}
+
+if (!function_exists('mcache')) {
+    /**
+     * 缓存对象
+     * @return \Trensy\Cache\Adapter\MemCache;
+     */
+    function mcache()
+    {
+        return new \Trensy\Cache\Adapter\MemCache();
     }
 }
 
@@ -145,7 +161,7 @@ if (!function_exists('l')) {
 
 if (!function_exists('array_isset')) {
     /**
-     * isset
+     * isset 
      */
     function array_isset($arr, $key, $default=null)
     {
@@ -153,4 +169,23 @@ if (!function_exists('array_isset')) {
     }
 }
 
+if (!function_exists('trans')) {
+    /**
+     * isset
+     */
+    function trans($arr)
+    {
+        return  \Trensy\Support\Serialization\Serialization::get()->trans($arr);
+    }
+}
+
+if (!function_exists('xtrans')) {
+    /**
+     * isset
+     */
+    function xtrans($arr)
+    {
+        return  \Trensy\Support\Serialization\Serialization::get()->xtrans($arr);
+    }
+}
 

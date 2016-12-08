@@ -1,7 +1,5 @@
 <?php
 /**
- * redis k/v 缓存
- *
  * Trensy Framework
  *
  * PHP Version 7
@@ -15,10 +13,9 @@
 namespace Trensy\Cache\Adapter;
 
 use Trensy\Cache\CacheInterface;
-use Trensy\Foundation\Storage\Redis;
-use Trensy\Support\Serialization\Serialization;
+use Trensy\Foundation\Storage\Memcached;
 
-class RedisCache implements CacheInterface
+class MemCache implements CacheInterface
 {
 
     /**
@@ -30,10 +27,9 @@ class RedisCache implements CacheInterface
      */
     public function get($key, $default = null)
     {
-        $obj = new Redis();
+        $obj = new Memcached();
         $result = $obj->get($key);
         if (!$result) return $default;
-        $result = Serialization::get()->xtrans($result);
         return $result;
     }
 
@@ -45,17 +41,10 @@ class RedisCache implements CacheInterface
      * @param int $expire  过期时间 单位s
      * @return mixed
      */
-    public function set($key, $value, $expire = -1)
+    public function set($key, $value, $expire = 0)
     {
-        $obj = new Redis();
-        
-        $value = Serialization::get()->trans($value);
-        
-        if ($expire > 0) {
-            $result = $obj->setex($key, $expire, $value);
-        } else {
-            $result = $obj->set($key, $value);
-        }
+        $obj = new Memcached();
+        $result = $obj->set($key, $value, $expire);
         return $result;
     }
 
@@ -67,8 +56,8 @@ class RedisCache implements CacheInterface
      */
     public function del($key)
     {
-        $obj = new Redis();
-        return $obj->del($key);
+        $obj = new Memcached();
+        return $obj->delete($key);
     }
 
 }

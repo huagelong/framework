@@ -2,9 +2,14 @@
 /**
  * 根据内存使用比率自动重启服务器
  *
- * User: Peter Wang
- * Date: 16/9/14
- * Time: 下午6:28
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Server;

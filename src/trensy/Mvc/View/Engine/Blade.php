@@ -1,9 +1,14 @@
 <?php
 /**
  *  laravel blade 模板
- * User: Peter Wang
- * Date: 16/9/13
- * Time: 下午2:01
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 namespace Trensy\Mvc\View\Engine;
 
@@ -79,6 +84,7 @@ class Blade implements ViewInterface
 
         $fisConfig = "";
         $fisPath = Config::get("_release.path");
+        
         if($fisPath){
             $fisConfig = Dir::formatPath($fisPath).Config::get("app.view.fis.map_path");
         }

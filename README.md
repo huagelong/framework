@@ -14,7 +14,7 @@
 
 ```
 
-sudo composer create-project --prefer-dist kerisy/trensy
+sudo composer create-project --prefer-dist trensy/trensy
 
 cd trensy
 

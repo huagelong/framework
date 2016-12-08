@@ -1,8 +1,13 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/9/14
- * Time: 下午1:57
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Server;
@@ -141,8 +146,8 @@ class HttpSendFile
             }
             $notFound = 1;
         }
-
-        $this->analyse = [$isFile, $filePath, $extension, $mime[$extension], $notFound];
+        $mimeMap = array_isset($mime,$extension);
+        $this->analyse = [$isFile, $filePath, $extension, $mimeMap, $notFound];
 
         syscache()->set($sysCacheKey, $this->analyse, 3600);
 

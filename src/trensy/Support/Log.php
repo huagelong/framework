@@ -1,12 +1,18 @@
 <?php
 /**
  *
- * User: Peter Wang
- * Date: 16/9/29
- * Time: 上午11:30
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 namespace Trensy\Support;
 
+use Trensy\Server\Context as Content;
 use Trensy\Server\Facade\Context as FContent;
 
 class Log
@@ -58,7 +64,7 @@ class Log
 
     protected static function getOlineIp()
     {
-        if(FContent::hasSet("request")){
+        if(Content::hasSet("request")){
             $ip = FContent::request()->server->get("HTTP_X_FORWARDED_FOR");
             if(!$ip){
                 $ip = FContent::request()->server->get("REMOTE_ADDR");
@@ -111,12 +117,7 @@ class Log
     {
         $msg = isset($arguments[0])?$arguments[0]:"";
         if(!is_string($arguments[0])){
-            ob_start();
-            var_dump($arguments[0]);
-            $msg = ob_get_clean();
-            $msg = explode("\n",$msg);
-            array_shift($msg);
-            $msg = implode("\n",$msg);
+            $msg = print_r($arguments[0], true);
         }
 
         $data = self::preData();

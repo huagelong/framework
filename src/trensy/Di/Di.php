@@ -1,8 +1,13 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/9/8
- * Time: 下午3:22
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Di;
@@ -131,6 +136,18 @@ class Di implements DiInterface
             throw new DiNotDefinedException(" Container is not defined ~");
         }
         return $service;
+    }
+
+    /**
+     * 是否存在
+     *
+     * @param $name
+     * @return bool
+     */
+    public static function has($name)
+    {
+        $service = self::$containerInstance->has($name);
+        return $service?true:false;
     }
 
     /**

@@ -1,9 +1,14 @@
 <?php
 /**
  * route 处理
- * User: Peter Wang
- * Date: 16/9/12
- * Time: 下午6:12
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Mvc\Route;
@@ -22,26 +27,25 @@ class Route
     public static function group($params, $callback)
     {
         $obj = new RouteGroup();
-
         if (is_array($params)) {
 
-            if (isset($params['name'])) {
+            if (isset($params['name']) && $params['name']) {
                 $obj->setName($params['name']);
             }
 
-            if (isset($params['prefix'])) {
+            if (isset($params['prefix']) && $params['prefix']) {
                 $obj->setPrefix($params['prefix']);
             }
 
-            if (isset($params['domain'])) {
+            if (isset($params['domain']) && $params['domain']) {
                 $obj->setDomain($params['domain']);
             }
 
-            if (isset($params['middleware'])) {
+            if (isset($params['middleware']) && $params['middleware']) {
                 $obj->setMiddleware($params['middleware']);
             }
 
-            if (isset($params['methods'])) {
+            if (isset($params['methods']) && $params['methods']) {
                 $obj->setMethods($params['methods']);
             }
 
@@ -89,23 +93,23 @@ class Route
         $obj->match($_method, $path, $closureOrArr);
 //        dump($obj->getResult());
         if (is_array($closureOrArr)) {
-            if (isset($closureOrArr['name'])) {
+            if (isset($closureOrArr['name']) && $closureOrArr['name']) {
                 $obj->name($closureOrArr['name']);
             }
 
-            if (isset($closureOrArr['uses'])) {
+            if (isset($closureOrArr['uses']) && $closureOrArr['uses']) {
                 $obj->defaults(["_controller" => $closureOrArr['uses']]);
             }
 
-            if (isset($closureOrArr['domain'])) {
+            if (isset($closureOrArr['domain']) && $closureOrArr['domain']) {
                 $obj->domain($closureOrArr['domain']);
             }
 
-            if (isset($closureOrArr['middleware'])) {
+            if (isset($closureOrArr['middleware']) && $closureOrArr['middleware']) {
                 $obj->middleware($closureOrArr['middleware']);
             }
 
-            if (isset($closureOrArr['where'])) {
+            if (isset($closureOrArr['where']) && $closureOrArr['where']) {
                 $obj->where($closureOrArr['where']);
             }
 

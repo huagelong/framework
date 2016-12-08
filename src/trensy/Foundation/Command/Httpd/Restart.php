@@ -1,9 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: wangkaihui
- * Date: 16/7/22
- * Time: 下午6:27
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Foundation\Command\Httpd;
@@ -21,8 +26,10 @@ class Restart extends Base
             ->setName('httpd:restart')
             ->setDescription('restart the http server');
         $this->addOption('--daemonize', '-d', InputOption::VALUE_NONE, 'Is daemonize ?');
+        $this->addOption('--usefis', '-u', InputOption::VALUE_NONE, 'use fis ?');
+        $this->addOption('--releasefis', '-r', InputOption::VALUE_OPTIONAL, 'release fis ?');
     }
-
+    
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         HttpdBase::operate("restart", $output, $input);

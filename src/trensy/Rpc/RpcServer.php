@@ -2,9 +2,14 @@
 /**
  * rpc server
  *
- * User: Peter Wang
- * Date: 16/9/18
- * Time: 下午6:51
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 namespace Trensy\Rpc;
 

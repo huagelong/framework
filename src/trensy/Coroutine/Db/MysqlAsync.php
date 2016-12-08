@@ -1,8 +1,13 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/11/14
- * Time: 上午11:30
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Coroutine\Db;
@@ -46,15 +51,16 @@ class MysqlAsync extends CoroutinePool
                         throw new \Exception("[mysql_client Error]:" . $client->error . "[sql]:" . $data['sql']);
                     }
                 } else {
+
                     if($func == 'lastInsertId'){
                         $data['result'] = $client->insert_id;
-                    }elseif($func == 'fetch'){
+                    }
+                    elseif($func == 'fetch'){
                         $data['result'] = $result?current($result):null;
                     }
                     else{
                         $data['result'] = $result;
                     }
-
 //                    $data['result']['client_id'] = $client->client_id;
 //                    $data['result']['result'] = $result;
 //                    $data['result']['affected_rows'] = $client->affected_rows;
@@ -92,7 +98,7 @@ class MysqlAsync extends CoroutinePool
             'password' => $serverConfig['password'],
             'database' => $serverConfig['db_name'],
         );
-
+        
         $nowConnectNo = self::$maxCount;
         $client->connect($set, function ($client, $result) use ($tmpClient, $nowConnectNo, $data) {
             try {

@@ -2,14 +2,20 @@
 /**
  *  session handle
  *
- * User: Peter Wang
- * Date: 16/9/23
- * Time: 下午5:40
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Http;
 
 use Trensy\Support\Log;
+use Trensy\Support\Serialization\Serialization;
 
 class Session
 {
@@ -76,7 +82,9 @@ class Session
      */
     public function get($key)
     {
-        return $this->server->hget(self::$sid, $key);
+        $result = $this->server->hget(self::$sid, $key);
+        if(!$result) return $result;
+        return Serialization::get()->xtrans($result);
     }
 
     /**
@@ -86,6 +94,7 @@ class Session
      */
     public function set($key, $value)
     {
+        $value = Serialization::get()->trans($value);
         $this->server->hset(self::$sid, $key, $value);
     }
 

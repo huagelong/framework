@@ -2,9 +2,14 @@
 /**
  * 匹配route
  *
- * User: Peter Wang
- * Date: 16/9/10
- * Time: 下午4:51
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Mvc\Route;
@@ -83,6 +88,24 @@ class RouteMatch
     }
 
     /**
+     * 修复首页匹配问题
+     * @param $url
+     * @return mixed
+     */
+    protected function groupFilter($url)
+    {
+        $groupPrefixs = RouteGroup::getGroupPrefixs();
+        if(!$groupPrefixs) return $url;
+        $urlTmp = ltrim($url,"/");
+
+        if(in_array($urlTmp,$groupPrefixs))
+        {
+            return $url."/";
+        }
+        return $url;
+    }
+
+    /**
      * 获取匹配数据
      * @param $url
      * @return array
@@ -93,6 +116,7 @@ class RouteMatch
         $context = new RequestContext();
         $context->fromRequest(Request::createFromGlobals());
         $matcher = new UrlMatcher($rootCollection, $context);
+        $url = $this->groupFilter($url);
         $parameters = $matcher->match($url);
         return $parameters;
     }
@@ -138,7 +162,7 @@ class RouteMatch
         $sysCacheKey = md5(__CLASS__ . $url);
 
         $parameters = syscache()->get($sysCacheKey);
-
+        
         if (!$parameters) {
             $parameters = $this->match($url);
             syscache()->set($sysCacheKey, $parameters, 3600);
@@ -218,21 +242,28 @@ class RouteMatch
      */
     private function runBase($require, $parameters, $otherData = null)
     {
-
         if ($parameters) {
             $controller = isset($parameters['_controller']) ? $parameters['_controller'] : null;
             if ($controller) {
                 $middleware = isset($parameters['_middleware']) ? $parameters['_middleware'] : null;
+
                 if ($middleware) {
                     $midd = self::$middlewareConfig;
                     if ($midd) {
-                        foreach ($middleware as $v) {
-                            if (isset($midd[$v])) {
-                                $class = $midd[$v];
-                                $obj = new $class();
-                                $rs = call_user_func_array([$obj, "perform"], $require);
-                                if (!$rs) return;
+                        if(is_array($middleware)){
+                            foreach ($middleware as $v) {
+                                if (isset($midd[$v])) {
+                                    $class = $midd[$v];
+                                    $obj = new $class();
+                                    $rs = call_user_func_array([$obj, "perform"], $require);
+                                    if (!$rs) return;
+                                }
                             }
+                        }elseif(is_string($middleware)){
+                            $class = $midd[$middleware];
+                            $obj = new $class();
+                            $rs = call_user_func_array([$obj, "perform"], $require);
+                            if (!$rs) return;
                         }
                     }
                 }

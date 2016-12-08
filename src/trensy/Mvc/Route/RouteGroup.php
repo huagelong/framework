@@ -2,9 +2,14 @@
 /**
  * goup 处理
  * 
- * User: Peter Wang
- * Date: 16/9/10
- * Time: 下午4:50
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Mvc\Route;
@@ -21,7 +26,13 @@ class RouteGroup
     protected $methods = [];
     protected static $result = [];
     protected static $groupHash = null;
+    protected static $groupPrefixs = null;
 
+    public static function getGroupPrefixs()
+    {
+        return self::$groupPrefixs;
+    }
+    
     public function setName($name)
     {
         $this->name = $name;
@@ -77,11 +88,14 @@ class RouteGroup
         $result = RouteBase::getResult($key);
 
         if (!$result) return [];
-
+        
         foreach ($result as $k => $v) {
-            $name = $this->name . $k;
+//            $name = $this->name . $k;// todo
+            $name = $k;
             $subCollection->add($name, $v);
         }
+        
+        if($this->prefix) self::$groupPrefixs[] = $this->prefix;
 
         $subCollection->addPrefix($this->prefix);
         $subCollection->addDefaults($this->defaults);

@@ -1,8 +1,13 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/9/30
- * Time: 下午5:07
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Mvc;
@@ -20,5 +25,10 @@ class AssignData
     public function __set($name, $value)
     {
         $this->assignData[$name] = $value;
+    }
+    
+    public function __get($name)
+    {
+        return isset($this->assignData[$name])?$this->assignData[$name]:null;
     }
 }
