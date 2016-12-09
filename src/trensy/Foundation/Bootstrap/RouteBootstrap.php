@@ -38,29 +38,7 @@ class RouteBootstrap
      */
     public function __construct()
     {
-        $this->load();
         $this->loadFromConfig();
-    }
-
-    /**
-     * 路由导入
-     *
-     * @throws \Trensy\Support\Exception\InvalidArgumentException
-     */
-    public function load()
-    {
-        $path = Config::get("route.load_path");
-
-        if ($path) {
-            $dir = Dir::formatPath($path);
-            if (is_dir($dir)) {
-                $configFiles = Dir::glob($dir, '*.php', Dir::SCAN_BFS);
-
-                foreach ($configFiles as $file) {
-                    require_once $file;
-                }
-            }
-        }
     }
 
     /**
@@ -68,7 +46,7 @@ class RouteBootstrap
      */
     public function loadFromConfig()
     {
-        $config = Config::get("route.routes");
+        $config = Config::get("route");
         //route 方式自定义
         $myRoute = Config::get("app.route");
         if($myRoute){
@@ -119,12 +97,37 @@ class RouteBootstrap
     private function loadSingle($config)
     {
         $routes = isset($config['routes'])?$config['routes']:[];
+        $namespace = array_isset($config, "namespace");
         if($routes){
             foreach ($routes as $v){
-                if(!isset($v['path'])&&!isset($v['method'])){
-                    list($path,$method,$uses,$name,$where,$domain,$middleware) = $v;
+                if(!isset($v['path'])){
+                    $method = array_isset($v, 0);
+                    $path = array_isset($v, 1);
+                    $uses = array_isset($v, 2);
+                    $name = array_isset($v, 3);
+                    $middleware = array_isset($v, 4);
+                    $domain = array_isset($v, 5);
+
                     $v['method'] = $method;
+                    $where = [];
+                    if (stristr($path, "{")) {
+                        $regStr = "\{(.*?)\:([^\}]+)\}";
+                        preg_match_all("/{$regStr}/", $path, $matches, PREG_SET_ORDER);
+                        if ($matches) {
+                            foreach ($matches as $match) {
+                                $key = array_isset($match, 1);
+                                $value = array_isset($match, 2);
+                                if ($key && $value) {
+                                    $where[$key] = $value;
+                                }
+                            }
+                        }
+                        $path = preg_replace("/{$regStr}/", '{$1}', $path);
+                    }
                     $v['path'] = $path;
+                    if($namespace){
+                        $uses = $namespace.$uses;
+                    }
                     $v['uses'] = $uses;
                     $v['name'] = $name;
                     $v['where'] = $where;
