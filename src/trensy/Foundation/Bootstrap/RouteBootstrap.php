@@ -69,6 +69,12 @@ class RouteBootstrap
     public function loadFromConfig()
     {
         $config = Config::get("route.routes");
+        //route 方式自定义
+        $myRoute = Config::get("app.route");
+        if($myRoute){
+            $obj = new $myRoute;
+            $config = $obj->perform($config);
+        }
         if ($config) {
             foreach ($config as $value){
                 $this->loadOneRouteConfig($value);
