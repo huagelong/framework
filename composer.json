@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.4.30",
-        "ext-swoole" : "1.8.*",
+        "ext-swoole" : ">=1.8.*",
         "ext-mbstring": "*",
         "ext-posix":"*"
     },
@@ -43,7 +43,7 @@
             "Trensy\\Test\\": "tests/application/src"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "repositories": {
         "packagist": {
             "type": "composer",
