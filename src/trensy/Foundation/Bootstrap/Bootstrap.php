@@ -51,7 +51,12 @@ class Bootstrap
     public function __construct($path)
     {
         $this->initEnv();
-        $this->initConfig($path);
+        if(defined('APPLICATION_PATH')){
+            $configPath = APPLICATION_PATH;
+        }else{
+            $configPath = $path;
+        }
+        $this->initConfig($configPath);
         $this->iniSet();
         $this->initLog();
         $this->initMonitor();
