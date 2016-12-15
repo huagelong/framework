@@ -103,6 +103,7 @@ class Bootstrap
 
             if($params instanceof Response){
                 $controller = new HttpController();
+                $controller->view->msg = $e->getMessage();
                 if($config){
                     $content = $controller->render($config);
                 }else{

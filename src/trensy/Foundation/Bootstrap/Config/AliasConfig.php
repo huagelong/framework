@@ -34,6 +34,8 @@ class AliasConfig
             "Session" => \Trensy\Foundation\Bootstrap\Facade\Session::class,
             "Controller"=>\Trensy\Foundation\Controller::class,
             "RpcController"=>\Trensy\Rpc\Controller::class,
+            "WSSController"=>\Trensy\Server\WebSocket\WSServer::class,
+            "WSClient"=>\Trensy\Server\WebSocket\WSClient::class,
             "Lang"=>\Trensy\Support\Lang::class,
         ];
     }

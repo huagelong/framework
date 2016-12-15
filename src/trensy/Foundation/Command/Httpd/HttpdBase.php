@@ -16,6 +16,7 @@ use Trensy\Config\Config;
 use Trensy\Foundation\Application;
 use Trensy\Mvc\View\Engine\Blade\Compilers\BladeCompiler;
 use Trensy\Server\HttpServer;
+use Trensy\Server\WebSocket\WSServer;
 use Trensy\Support\Arr;
 use Trensy\Support\Dir;
 use Trensy\Support\ElapsedTime;
@@ -207,8 +208,8 @@ class HttpdBase
 
     protected static function start($config, $adapter, $appName)
     {
-        $swooleServer = new \swoole_http_server($config['server']['host'], $config['server']['port']);
-        $obj = new HttpServer($swooleServer, $config['server'], $adapter, $appName);
+        $swooleServer = new \swoole_websocket_server($config['server']['host'], $config['server']['port']);
+        $obj = new WSServer($swooleServer, $config['server'], $adapter, $appName);
         $obj->start();
     }
 
