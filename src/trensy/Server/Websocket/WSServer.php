@@ -25,6 +25,7 @@ class WSServer extends HttpServer
 
     public function onOpen(\swoole_websocket_server $server, \swoole_http_request $request)
     {
+        //todo 保存到redis
         self::$allFd[$request->fd] = $request->fd;//首次连上时存起来
     }
 
