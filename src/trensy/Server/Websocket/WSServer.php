@@ -16,7 +16,7 @@ class WSServer extends HttpServer
 {
     const RESPONSE_CODE = 200;
     const RESPONSE_NORMAL_ERROR_CODE = 500;
-    protected static $allFd = [];
+    public static $allFd = [];
     
     public function __construct(SwooleServer $swooleServer, array $config, $adapter, $serverName)
     {
@@ -43,7 +43,6 @@ class WSServer extends HttpServer
     public function onClose(\swoole_server $server, $fd)
     {
         unset(self::$allFd[$fd]);
-        $server->close($fd);
     }
 
     protected function render($data='', $errorCode = self::RESPONSE_CODE, $errodMsg = '')

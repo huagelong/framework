@@ -51,6 +51,24 @@ class Controller
     }
 
     /**
+     * 广播
+     *
+     * @param $data
+     * @param int $errorCode
+     * @param string $errodMsg
+     */
+    public function broadcast($data, $errorCode = self::RESPONSE_CODE, $errodMsg = '')
+    {
+        $data = $this->render($data, $errorCode, $errodMsg);
+        $clients = WSServer::$allFd;
+        if($clients){
+            foreach ($clients as $v){
+                $this->server->push($v, $data);
+            }
+        }
+    }
+
+    /**
      * @param $data
      * @param int $errorCode
      * @param string $errodMsg
@@ -59,5 +77,13 @@ class Controller
     {
         $data = $this->render($data, $errorCode, $errodMsg);
         $this->server->push($this->fd, $data);
+    }
+
+    /**
+     * 关闭连接
+     */
+    public function close()
+    {
+        $this->server->close($this->fd);
     }
 }

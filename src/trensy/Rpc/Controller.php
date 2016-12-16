@@ -59,6 +59,6 @@ class Controller
     {
         $data = $this->render($data, $errorCode, $errodMsg);
         $this->server->send($this->fd, $data);
-        $this->server->close($this->fd);
+//        $this->server->close($this->fd);
     }
 }
