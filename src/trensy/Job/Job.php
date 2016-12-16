@@ -21,7 +21,6 @@ use Trensy\Server\Reload;
 use Trensy\Support\Exception;
 use Trensy\Support\Log;
 use Trensy\Support\Exception\RuntimeExitException;
-use Trensy\Coroutine\Base\CoroutineTask;
 
 class Job
 {
@@ -87,12 +86,7 @@ class Job
                     if(!is_object($jobObj)){
                         continue;
                     }
-                    $result = $jobObj->perform();
-                    if ($result instanceof \Generator) {
-                        $task = new CoroutineTask($result);
-                        $task->work($task->getRoutine());
-                        unset($task);
-                    }
+                    $jobObj->perform();
                     $this->storage->zrem($key, $v);
                     if ($schedule) {
                         $cron = CronExpression::factory($schedule);

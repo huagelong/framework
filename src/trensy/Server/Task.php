@@ -18,7 +18,6 @@ use Trensy\Server\Exception\InvalidArgumentException;
 use Trensy\Server\Facade\Context as FacedeContext;
 use Trensy\Coroutine\Event;
 use Trensy\Support\ElapsedTime;
-use Trensy\Coroutine\Base\CoroutineTask;
 
 class Task
 {
@@ -117,12 +116,6 @@ class Task
                 throw new InvalidArgumentException(" task method perform not config ");
             }
             $result = call_user_func_array([$obj, "perform"], $params);
-
-            if ($result instanceof \Generator) {
-                $task = new CoroutineTask($result);
-                $task->work($task->getRoutine());
-                unset($task);
-            }
             return [true, $result, ''];
         }
         return [true, "", ''];

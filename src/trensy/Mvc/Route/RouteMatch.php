@@ -14,8 +14,6 @@
 
 namespace Trensy\Mvc\Route;
 
-use Trensy\Coroutine\Base\CoroutineScheduler;
-use Trensy\Coroutine\Base\CoroutineTask;
 use Trensy\Coroutine\Event;
 use Trensy\Foundation\Bootstrap\Session;
 use Trensy\Http\Request;
@@ -268,12 +266,7 @@ class RouteMatch
                     }
                 }
                 if ($controller instanceof \Closure) {
-                    $generator = call_user_func($controller, $require);
-                    if ($generator instanceof \Generator) {
-                        $task = new CoroutineTask($generator);
-                        $task->work($task->getRoutine());
-                        unset($task);
-                    }
+                    call_user_func($controller, $require);
                 } elseif (is_string($controller)) {
                     if (stristr($controller, "@")) {
                         list($controller, $action) = explode("@", $controller);
@@ -285,16 +278,9 @@ class RouteMatch
                             //tcp
                             list($serv, $fd) = $otherData;
                             $obj = new $controller($serv, $fd);
-                            $content = call_user_func_array([$obj, $action], $require);
+                            call_user_func_array([$obj, $action], $require);
                         }
-                        if ($content instanceof \Generator) {
-//                            $scheduler = new CoroutineScheduler();
-//                            $scheduler->newTask($content);
-//                            $scheduler->run();
-                            $task = new CoroutineTask($content);
-                            $task->work($task->getRoutine());
-                            unset($task);
-                        }
+                        
                         Event::fire("clear");
                     } else {
                         throw new PageNotFoundException("page not found!");
