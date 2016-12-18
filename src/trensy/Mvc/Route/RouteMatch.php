@@ -245,27 +245,12 @@ class RouteMatch
             if ($controller) {
                 $middleware = isset($parameters['_middleware']) ? $parameters['_middleware'] : null;
 
-                if ($middleware) {
-                    $midd = self::$middlewareConfig;
-                    if ($midd) {
-                        if(is_array($middleware)){
-                            foreach ($middleware as $v) {
-                                if (isset($midd[$v])) {
-                                    $class = $midd[$v];
-                                    $obj = new $class();
-                                    $rs = call_user_func_array([$obj, "perform"], $require);
-                                    if (!$rs) return;
-                                }
-                            }
-                        }elseif(is_string($middleware)){
-                            $class = $midd[$middleware];
-                            $obj = new $class();
-                            $rs = call_user_func_array([$obj, "perform"], $require);
-                            if (!$rs) return;
-                        }
-                    }
-                }
+                $isClosure = 0;
                 if ($controller instanceof \Closure) {
+                    $isClosure = 1;
+                }
+
+                if ($isClosure) {
                     call_user_func($controller, $require);
                 } elseif (is_string($controller)) {
                     if (stristr($controller, "@")) {
@@ -273,11 +258,16 @@ class RouteMatch
                         //如果是http服务器
                         if (isset($require[0]) && ($require[0] instanceof Request)) {
                             $obj = new $controller($require[0], $require[1]);
-                            $content = call_user_func_array([$obj, $action], $require[2]);
+                            $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
+                            if(!$check) return ;
+                            call_user_func_array([$obj, $action], $require[2]);
                         } else {
                             //tcp
                             list($serv, $fd) = $otherData;
                             $obj = new $controller($serv, $fd);
+                            $postData = $otherData+$require;
+                            $check = $this->todoMiddleWare($obj, $action, $middleware, $postData);
+                            if(!$check) return ;
                             call_user_func_array([$obj, $action], $require);
                         }
                         
@@ -292,6 +282,59 @@ class RouteMatch
                 throw new PageNotFoundException("page not found!");
             }
         }
+    }
+
+    protected function todoMiddleWare($obj, $action, $middleware, $require)
+    {
+        $whiteAction = [];
+        if(method_exists($obj, "whiteActions")){
+            $whiteAction = $obj->whiteAction();
+        }
+        $runMidd = 0;
+        if($whiteAction){
+            if(!in_array($action, $whiteAction)){
+                $runMidd=1;
+            }
+        }else{
+            $runMidd = 1;
+        }
+
+        if($runMidd){
+            $check = $this->runMiddleware($middleware, $require);
+            if(!$check) return false;
+        }
+        return true;
+    }
+
+    /**
+     * 执行中间件
+     * @param $middleware
+     * @param $require
+     * @return bool
+     */
+    protected function runMiddleware($middleware, $require)
+    {
+        if ($middleware) {
+            $midd = self::$middlewareConfig;
+            if ($midd) {
+                if(is_array($middleware)){
+                    foreach ($middleware as $v) {
+                        if (isset($midd[$v])) {
+                            $class = $midd[$v];
+                            $obj = new $class();
+                            $rs = call_user_func_array([$obj, "perform"], $require);
+                            if (!$rs) return false;
+                        }
+                    }
+                }elseif(is_string($middleware)){
+                    $class = $midd[$middleware];
+                    $obj = new $class();
+                    $rs = call_user_func_array([$obj, "perform"], $require);
+                    if (!$rs) return false;
+                }
+            }
+        }
+        return true;
     }
 
     public function __destruct()
