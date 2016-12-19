@@ -11,6 +11,7 @@ namespace Trensy\Server\WebSocket;
 use Trensy\Server\HttpServer;
 use Trensy\Support\ElapsedTime;
 use Trensy\Mvc\Route\RouteMatch;
+use swoole_http_server as SwooleServer;
 
 class WSServer extends HttpServer
 {
@@ -29,7 +30,7 @@ class WSServer extends HttpServer
         self::$allFd[$request->fd] = $request->fd;//首次连上时存起来
     }
 
-    public function onWsMessage(\swoole_server $server, \swoole_websocket_frame $frame)
+    public function onWsMessage(\swoole_websocket_server $server, \swoole_websocket_frame $frame)
     {
         if($frame->data){
             list($path, $params) = json_decode($frame->data, true);
@@ -40,7 +41,7 @@ class WSServer extends HttpServer
         }
     }
 
-    public function onClose(\swoole_server $server, $fd)
+    public function onClose(swoole_server $server, $fd)
     {
         unset(self::$allFd[$fd]);
     }

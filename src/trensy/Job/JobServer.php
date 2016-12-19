@@ -13,7 +13,7 @@
 
 namespace Trensy\Job;
 
-use Trensy\Foundation\Application;
+use Trensy\Foundation\Bootstrap\Facade\Job as FJob;
 use Trensy\Foundation\Storage\Redis;
 use Trensy\Server\ProcessServer;
 use Trensy\Support\Log;
@@ -55,14 +55,27 @@ class JobServer
         $job = new Job($this->config);
         $perform = $this->config['perform'];
 
-        $processServer = new ProcessServer($this->config['server'],true);
+        $processServer = new ProcessServer($this->config['server'], false);
         $name = $preName . "-worker";
 
+        //载入初始化job
+        $jobs = isset($this->config['jobs']) ? $this->config['jobs'] : null;
+        if ($jobs) {
+            Log::sysinfo("loading init jobs ...");
+            foreach ($jobs as $k => $v) {
+                $obj = array_isset($v, 0);
+                $startTime = array_isset($v, 1);
+                $cronStr = array_isset($v, 2);
+                $tagName = array_isset($v, 3);
+                $tagName = $tagName?$tagName:$k;
+                FJob::add($k, $obj, $startTime, $cronStr, $tagName);
+            }
+        }
         foreach ($perform as $key => $v) {
             $processServer->add(
                 function (\swoole_process $worker) use ($key, $job, $name) {
                     $worker->name($name);
-                    Log::sysinfo("[$name] start ...");
+                    Log::sysinfo("$name start ...");
                     $job->start($key);
                 }
             );
