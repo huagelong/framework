@@ -288,7 +288,7 @@ class RouteMatch
     {
         $whiteAction = [];
         if(method_exists($obj, "whiteActions")){
-            $whiteAction = $obj->whiteAction();
+            $whiteAction = $obj->whiteActions();
         }
         $runMidd = 0;
         if($whiteAction){

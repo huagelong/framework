@@ -30,12 +30,15 @@ class JobServer
     /**
      * 清空所有job
      */
-    public function clear()
+    public function clear($isInit=0)
     {
         $perform = $this->config['perform'];
         $storage = new Redis();
         foreach ($perform as $queueName => $v) {
             $key = Job::JOB_KEY_PRE . ":" . $queueName;
+            if($isInit){
+                $key = "INIT_".$key;
+            }
             $storage->del($key);
         }
     }
@@ -59,6 +62,7 @@ class JobServer
         $name = $preName . "-worker";
 
         //载入初始化job
+        $this->clear(1);
         $jobs = isset($this->config['jobs']) ? $this->config['jobs'] : null;
         if ($jobs) {
             Log::sysinfo("loading init jobs ...");
@@ -68,7 +72,7 @@ class JobServer
                 $cronStr = array_isset($v, 2);
                 $tagName = array_isset($v, 3);
                 $tagName = $tagName?$tagName:$k;
-                FJob::add($k, $obj, $startTime, $cronStr, $tagName);
+                FJob::add($k, $obj, $startTime, $cronStr, 1);
             }
         }
         foreach ($perform as $key => $v) {
