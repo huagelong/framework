@@ -24,7 +24,7 @@ use Trensy\Support\Arr;
 use Trensy\Support\Facade;
 use Trensy\Support\RunMode;
 use Trensy\Support\Dir;
-use Trensy\Coroutine\Event;
+use Trensy\Support\Event;
 use Trensy\Http\Response;
 use Trensy\Foundation\Controller as HttpController;
 use Trensy\Rpc\Controller as RpcController;
@@ -102,7 +102,7 @@ class Bootstrap
             }
 
             if($params instanceof Response){
-                $controller = new HttpController();
+                $controller = new HttpController(null, $params);
                 $controller->view->msg = $e->getMessage();
                 if($config){
                     $content = $controller->render($config);

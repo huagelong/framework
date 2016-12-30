@@ -21,7 +21,7 @@ use Trensy\Http\Request;
 use Trensy\Http\Response;
 use Trensy\Server\Facade\Context as FContext;
 use Trensy\Server\Facade\Task as FacadeTask;
-use Trensy\Coroutine\Event;
+use Trensy\Support\Event;
 use Trensy\Support\Facade;
 use Trensy\Support\Log;
 use Trensy\Support\Exception;

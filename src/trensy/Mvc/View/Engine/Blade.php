@@ -25,6 +25,7 @@ use Trensy\Support\Dir;
 class Blade implements ViewInterface
 {
     protected static $instance = null;
+    protected $config = null;
 
     /**
      * Engine Resolver
@@ -58,6 +59,11 @@ class Blade implements ViewInterface
         $this->cachePath = $path;
     }
 
+    public function setConfig($config)
+    {
+        $this->config = $config;
+    }
+
     public function getView()
     {
         return $this->engineResolver->resolve('blade');
@@ -80,15 +86,10 @@ class Blade implements ViewInterface
         foreach (['php', 'blade'] as $engine) {
             $this->{'register'.ucfirst($engine).'Engine'}($resolver);
         }
-        $finder = new FileViewFinder([$path]);
-
-        $fisConfig = "";
-        $fisPath = Config::get("_release.path");
+        $path = is_array($path)?$path:[$path];
+        $finder = new FileViewFinder($path);
         
-        if($fisPath){
-            $fisConfig = Dir::formatPath($fisPath).Config::get("app.view.fis.map_path");
-        }
-        $factory = new Factory($resolver, $finder, $fisConfig);
+        $factory = new Factory($resolver, $finder, $this->config);
         
         $result= $factory->make($view, $data, [])->render();
 

@@ -15,7 +15,7 @@
 namespace Trensy\Server;
 
 use swoole_server as SwooleServer;
-use Trensy\Coroutine\Event;
+use Trensy\Support\Event;
 use Trensy\Mvc\Route\Base\Exception\ResourceNotFoundException;
 use Trensy\Server\Facade\Context as FContext;
 use Trensy\Server\Facade\Task as FacadeTask;

@@ -10,9 +10,9 @@
  * @version         1.0.7
  */
 
-namespace Trensy\Cache\Adapter;
+namespace Trensy\Storage\Cache\Adapter;
 
-use Trensy\Cache\CacheInterface;
+use Trensy\Storage\Cache\CacheInterface;
 use Trensy\Foundation\Storage\Memcached;
 
 class MemCache implements CacheInterface

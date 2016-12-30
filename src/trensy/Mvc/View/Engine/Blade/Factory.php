@@ -9,6 +9,7 @@ use Trensy\Mvc\View\Engine\Blade\Engines\EngineResolver;
 use Trensy\Mvc\View\Engine\Blade\Support\Arr;
 use Trensy\Mvc\View\Engine\Blade\Support\Str;
 use Trensy\Di\Di;
+use Trensy\Support\Dir;
 
 class Factory
 {
@@ -103,6 +104,14 @@ class Factory
      */
     protected $renderCount = 0;
 
+    protected $staticFile = [];
+
+    protected $staticSource = [];
+    
+    protected $staticVersionFile = [];
+
+    protected $config = [];
+
     /**
      * Create a new view factory instance.
      *
@@ -110,19 +119,64 @@ class Factory
      * @param  \Trensy\Mvc\View\Engine\Blade\ViewFinderInterface $finder
      * @return void
      */
-    public function __construct(EngineResolver $engines, ViewFinderInterface $finder, $fisConfig="")
+    public function __construct(EngineResolver $engines, ViewFinderInterface $finder, $config)
     {
         $this->finder = $finder;
         $this->engines = $engines;
+        $this->config = $config;
         
-        if($fisConfig){
-            Di::set("fis", ["class"=>\Trensy\Mvc\View\Engine\Blade\FisResource::class]);
-            $fis = Di::get("fis");
-            $fis->setPath($fisConfig);
-            $this->share('__fis', $fis);
-        }
-
         $this->share('__env', $this);
+    }
+    
+    
+    public function requireStatic($path)
+    {
+        $path = trim($path, '\'');
+        $path = trim($path, '\"');
+        $path = trim($path, "/");
+        $path = "/".$path;
+        $pathArr = pathinfo($path);
+        $extension = array_isset($pathArr, "extension");
+        $this->staticFile[strtolower($extension)][]= $path;
+    }
+
+    public function jsHolder($name="all")
+    {
+
+        list($staticPath, $staticMap) = $this->config;
+        $staticFile = isset($this->staticFile["js"])?$this->staticFile["js"]:"";
+        if(!$staticFile) return ;
+        $staticFile = array_reverse($staticFile);
+        foreach ($staticFile as $v){
+            $realFile = trim($v,"/");
+            $realFile = "/static/".$staticMap."/".$realFile;
+            echo "<script src=\"" . $realFile . "\"></script>" . PHP_EOL;
+        }
+    }
+
+    public function cssHolder($name="all")
+    {
+        list($staticPath, $staticMap) = $this->config;
+        $staticFile = isset($this->staticFile["css"])?$this->staticFile["css"]:"";
+        if(!$staticFile) return ;
+        $staticFile = array_reverse($staticFile);
+        foreach ($staticFile as $v){
+            $realFile = trim($v,"/");
+            $realFile = "/static/".$staticMap."/".$realFile;
+            echo "<link rel=\"stylesheet\" type='text/css' href=\"" . $realFile . "\"/>" . PHP_EOL;
+        }
+    }
+
+    public function startStatic()
+    {
+        ob_start();
+    }
+
+    public function endStatic($type='js')
+    {
+        $data = ob_get_contents();
+        ob_end_clean();
+        $this->staticSource[$type][] = $data;
     }
 
     /**

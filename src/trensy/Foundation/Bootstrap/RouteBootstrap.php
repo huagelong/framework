@@ -51,6 +51,9 @@ class RouteBootstrap
         $myRoute = Config::get("app.route");
         if($myRoute){
             $obj = new $myRoute;
+            if(!method_exists($obj, "perform")){
+                throw new \Exception(" 'perform' method must defined");
+            }
             $config = $obj->perform($config);
         }
         if ($config) {

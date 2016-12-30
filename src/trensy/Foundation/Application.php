@@ -42,16 +42,7 @@ class Application
     
     public function httpBoostrap()
     {
-//        $this->initRelease();
         RouteBootstrap::getInstance();
-    }
-
-    protected function initRelease()
-    {
-        $release = CConfig::get("app.view.fis.compile_path");
-        if(is_dir($release)){
-           CConfig::set("_release.path", $release);
-        }
     }
 
     /**

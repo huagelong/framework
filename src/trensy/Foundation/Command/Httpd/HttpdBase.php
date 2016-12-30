@@ -15,19 +15,19 @@ namespace Trensy\Foundation\Command\Httpd;
 use Trensy\Config\Config;
 use Trensy\Foundation\Application;
 use Trensy\Mvc\View\Engine\Blade\Compilers\BladeCompiler;
-use Trensy\Server\HttpServer;
 use Trensy\Server\WebSocket\WSServer;
 use Trensy\Support\Arr;
 use Trensy\Support\Dir;
 use Trensy\Support\ElapsedTime;
 use Trensy\Support\Log;
+use Trensy\Support\Tool;
 
 class HttpdBase
 {
     public static function operate($cmd, $output, $input)
     {
         ElapsedTime::setStartTime(ElapsedTime::SYS_START);
-        
+
         $root = Dir::formatPath(ROOT_PATH);
 
         $config = Config::get("server.httpd");
@@ -48,24 +48,11 @@ class HttpdBase
             exit(0);
         }
 
-        $config['server']['usefis'] = 0;
-        $config['server']['releasefis'] = 0;
-
         if ($input->hasOption("daemonize")) {
             $daemonize = $input->getOption('daemonize');
             $config['server']['daemonize'] = $daemonize == 0 ? 0 : 1;
         }
 
-        if ($input->hasOption("usefis")) {
-            $usefis = $input->getOption('usefis');
-            $config['server']['usefis'] = $usefis == 0 ? 0 : 1;
-        }
-
-        if ($input->hasOption("releasefis")) {
-            $releasefis = $input->getOption('releasefis');
-            $config['server']['releasefis'] = $releasefis?$releasefis:null;
-        }
-        
         if (!isset($config['server']['host'])) {
             Log::sysinfo("httpd.server.host config not config");
             exit(0);
@@ -78,14 +65,6 @@ class HttpdBase
 
         $adapter = new Application($root);
         self::doOperate($cmd, $config, $adapter, $root, $appName);
-    }
-
-    protected static function setRelease()
-    {
-        $release = Config::get("app.view.fis.compile_path");
-        if (is_dir($release)) {
-            Config::set("_release.path", $release);
-        }
     }
 
 
@@ -111,7 +90,7 @@ class HttpdBase
             'package_length_type' => 'N',
             'package_length_offset' => 0,
             'package_body_offset' => 4,
-            'package_max_length' => 8*1024*1024,//默认8M
+            'package_max_length' => 8 * 1024 * 1024,//默认8M
             "pid_file" => "/tmp/pid",
             'open_tcp_nodelay' => 1,
         ];
@@ -142,20 +121,6 @@ class HttpdBase
         }
 
         self::BladeCompileInit();
-
-        if($config['server']['usefis']){
-            self::setRelease();
-            $fisPath = Config::get("_release.path");
-            if ($fisPath) {
-                $config['server']['_release.path'] = $fisPath;
-            }
-            self::useFis();
-        }
-
-        $releasePath = Config::get("app.view.fis.compile_path");
-        if (($config['server']['releasefis']!=null) && $releasePath && ($command == "start" || $command == 'restart')) {
-            self::addRelease($config['server']['releasefis']);
-        }
 
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
             Log::sysinfo("[$serverName] not run");
@@ -208,53 +173,10 @@ class HttpdBase
 
     protected static function start($config, $adapter, $appName)
     {
+        self::staticRelealse($config['server']);
         $swooleServer = new \swoole_websocket_server($config['server']['host'], $config['server']['port']);
         $obj = new WSServer($swooleServer, $config['server'], $adapter, $appName);
         $obj->start();
-    }
-
-    protected static function addRelease($releasefis = null)
-    {
-        $file = [
-            "fis-conf.js", "package.json"
-        ];
-
-        foreach ($file as $f) {
-            $path = ROOT_PATH . "/" . $f;
-            if (!is_file($path)) {
-                Log::sysinfo($path . " not found, program will run with not supports fis ---->----->");
-                self::removeRelease();
-                return;
-            }
-        }
-
-        $nodeModulesPath = ROOT_PATH . "/node_modules";
-        if (!is_dir($nodeModulesPath)) {
-            if (!self::checkCmd("npm")) return;
-            Log::error("dir 'node_modules' not found , please run 'npm install' ");
-            self::removeRelease();
-            return;
-        }
-
-        if (!self::checkCmd("fis3")) return;
-
-        $fisPath = Config::get("app.view.fis.compile_path");
-        if ($releasefis !=null) {
-            $cmdStr = "fis3 release {$releasefis} -d " . $fisPath;
-        } else {
-            $cmdStr = "fis3 release -d " . $fisPath;
-        }
-//        dump($cmdStr);
-        exec($cmdStr);
-    }
-
-    protected static function removeRelease()
-    {
-        $release = Config::get("app.view.fis.compile_path");
-        if (is_dir($release)) {
-            self::deldir($release);
-            return;
-        }
     }
 
 
@@ -292,6 +214,93 @@ class HttpdBase
         } else {
             return current($check);
         }
+    }
+
+    /**
+     * 静态文件发布
+     * @param $staticPath
+     * @param $staticMap
+     * @param $staticCompilePath
+     */
+    protected static function staticRelealse($config)
+    {
+        $staticPath = rtrim(array_isset($config, "static_path"), "/");
+        $staticCompilePath = Dir::formatPath(array_isset($config, "static_public_path"));
+
+        if (!$staticPath) {
+            Log::error("server.httpd.server.static_path not set");
+            return;
+        }
+
+        if (!$staticCompilePath) {
+            Log::error("server.httpd.server.static_public_path not set");
+            return;
+        }
+
+        $staticCompilePath = $staticCompilePath."static/";
+        if (!is_dir($staticCompilePath)) mkdir($staticCompilePath, 0777, true);
+
+        $staticCompileExt = array_isset($config, "static_compile_ext");
+
+        $versionFile = $staticCompilePath . "/version.php";
+        $exts = ["js", "css", "png", "gif", "jpg"];
+        if (!$staticCompileExt) {
+            $staticCompileExt = $exts;
+        }
+
+        //分析文件指纹
+        $dirHash = self::getFileHash($staticPath, $staticCompileExt);
+        if (is_file($versionFile)) {
+            $version = file_get_contents($versionFile);
+            if ($version == $dirHash) return;
+        }
+
+        $targetPath = $staticCompilePath . $dirHash;
+        self::createLink($staticPath, $targetPath);
+        file_put_contents($versionFile, $dirHash);
+    }
+
+    /**
+     * 创建软连接
+     * @param $staticPath
+     * @param $targetPath
+     */
+    protected static function createLink($staticPath, $targetPath)
+    {
+        $linkName = basename($staticPath);
+        $linkFile = Dir::formatPath($targetPath) . $linkName;
+        if (is_dir($linkFile)) return;
+        $cmdStr = "ln -s " . $staticPath . " " . $targetPath;
+        exec($cmdStr, $check);
+        Log::sysinfo("create link:" . $targetPath);
+    }
+
+    /**
+     * 获取目录hash
+     * @param $dir
+     * @param $exts
+     * @return bool|string
+     */
+    protected static function getFileHash($dir, $exts)
+    {
+        if (!is_dir($dir)) {
+            return false;
+        }
+        $filemd5s = array();
+        $d = dir($dir);
+        while (false !== ($entry = $d->read())) {
+            if ($entry != '.' && $entry != '..' && $entry != '.svn' && $entry != '.git') {
+                if (is_dir($dir . '/' . $entry)) {
+                    $filemd5s[] = self::getFileHash($dir . '/' . $entry, $exts);
+                } else {
+                    $file = $dir . '/' . $entry;
+                    $ext = pathinfo($file, PATHINFO_EXTENSION);
+                    if (in_array($ext, $exts)) $filemd5s[] = filemtime($file);
+                }
+            }
+        }
+        $d->close();
+        return Tool::encode(implode('', $filemd5s));
     }
 
 }

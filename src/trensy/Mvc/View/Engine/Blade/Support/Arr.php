@@ -10,6 +10,37 @@ class Arr
     use Macroable;
 
     /**
+     *  merge multiple array
+     *
+     * @return array
+     */
+    public static function merge()
+    {
+        $total = func_num_args();
+        if (0 === $total) {
+            return [];
+        }
+
+        $result = func_get_arg(0);
+        for ($i = 1; $i < $total; $i++) {
+            foreach (func_get_arg($i) as $key => $val) {
+                if (!isset($result[$key])) {
+                    $result[$key] = $val;
+                    continue;
+                }
+
+                if (is_array($val) && is_array($result[$key])) {
+                    $result[$key] = Arr::merge($result[$key], $val);
+                } else {
+                    $result[$key] = $val;
+                }
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Determine whether the given value is array accessible.
      *
      * @param  mixed  $value

@@ -14,22 +14,10 @@
 
 namespace Trensy\Mvc\View;
 
+use Trensy\Mvc\View\Engine\Blade;
+
 class View
 {
-    const DEFAULT_ENGINE = "blade";
-
-    protected static $engine = self::DEFAULT_ENGINE;
-
-    /**
-     * 设置引擎
-     *
-     * @param $engine
-     */
-    public static function setEngine($engine)
-    {
-        self::$engine = $engine;
-    }
-
     /**
      * 获取引擎对象
      *
@@ -37,9 +25,7 @@ class View
      */
     public static function getViewObj()
     {
-        $engine = ucfirst(self::$engine);
-        $objstr = "Trensy\\Mvc\\View\\Engine\\" . $engine;
-        return $objstr::getInstance();
+        return Blade::getInstance();
     }
 
 }

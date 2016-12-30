@@ -23,7 +23,7 @@ class Session
     protected $sid = null;
 
     /**
-     * @var \Trensy\Cache\Adapter\RedisCache
+     * @var \Trensy\Storage\Cache\Adapter\RedisCache
      */
     private $server = null;
     private $config = [];

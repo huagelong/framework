@@ -12,7 +12,7 @@
  * @version         1.0.7
  */
 
-namespace Trensy\Coroutine;
+namespace Trensy\Support;
 
 
 class Event

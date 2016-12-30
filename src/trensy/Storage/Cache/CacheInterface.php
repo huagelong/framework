@@ -10,7 +10,7 @@
  * @version         1.0.7
  */
 
-namespace Trensy\Cache;
+namespace Trensy\Storage\Cache;
 
 
 interface CacheInterface

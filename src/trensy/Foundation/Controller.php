@@ -41,6 +41,8 @@ class Controller
      * @var \Trensy\Http\Response
      */
     protected $response = null;
+    
+    protected static $staticMap = null;
 
 
     public function __construct(Request $request = null, Response $response = null)
@@ -60,26 +62,53 @@ class Controller
      */
     public function render($viewPath, $assign = [])
     {
+        $viewRoot = Config::get("app.view.path");
+        $realViewRoot = Dir::formatPath($viewRoot);
 
-        $fisPath = Config::get("_release.path");
-        if ($fisPath) {
-            $fis = Config::get("app.view.fis.view_path");
-            $viewRoot = Dir::formatPath($fisPath) . $fis;
-        } else {
-            $viewRoot = Config::get("app.view.path");
+        $diyView = Config::get("app.view.diy");
+        if($diyView){
+            $obj = new $diyView;
+            if(!method_exists($obj, "perform")){
+                throw new \Exception(" 'perform' method must defined");
+            }
+            $diyViewRoot = $obj->perform(get_class($this));
+            if($diyViewRoot) $realViewRoot = Arr::merge($realViewRoot, $diyViewRoot);
         }
-
-        $theme = Config::get("app.view.theme");
-        $realViewRoot = Dir::formatPath($viewRoot) . $theme;
-        Template::setViewRoot($realViewRoot);
-
+        $template = new Template();
+        $template->setViewRoot($realViewRoot);
         $viewCachePath = Config::get("app.view.compile_path");
 
-        Template::setViewCacheRoot($viewCachePath);
-        Template::setEngine(Config::get("app.view.engine"));
+        $template->setViewCacheRoot($viewCachePath);
         $assign = Arr::merge($assign, $this->view->getAssignData());
+        $assign = Arr::merge($assign, $this->response->view->getAssignData());
+        
+        $staticPath = rtrim(Config::get("server.httpd.server.static_path"), "/");
+        $staticCompilePath = Config::get("server.httpd.server.static_public_path");
 
-        $content = Template::render($viewPath, $assign);
+        if (!$staticPath) {
+            Log::error("server.httpd.server.static_path not set");
+            return;
+        }
+
+        if (!$staticCompilePath) {
+            Log::error("server.httpd.server.static_public_path not set");
+            return;
+        }
+
+        $linkName = basename($staticPath);
+
+        $staticMapPath = Dir::formatPath($staticCompilePath)."/static/version.php";
+        
+        if(!self::$staticMap && is_file($staticMapPath)){
+            self::$staticMap = file_get_contents($staticMapPath);
+        }
+
+        $staticPath = str_replace(Dir::formatPath(ROOT_PATH), "", $staticPath);
+        
+        $config = [$staticPath, self::$staticMap];
+        $template->setConfig($config);
+
+        $content = $template->render($viewPath, $assign);
         return $content;
     }
 

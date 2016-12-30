@@ -13,7 +13,7 @@
 namespace Trensy\Foundation\Storage;
 
 use Config;
-use Trensy\Coroutine\Event;
+use Trensy\Support\Event;
 use Trensy\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
 
 class Pdo extends SQlAdapter

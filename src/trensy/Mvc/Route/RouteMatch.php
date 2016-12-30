@@ -14,7 +14,7 @@
 
 namespace Trensy\Mvc\Route;
 
-use Trensy\Coroutine\Event;
+use Trensy\Support\Event;
 use Trensy\Foundation\Bootstrap\Session;
 use Trensy\Http\Request;
 use Trensy\Http\Response;
@@ -251,7 +251,9 @@ class RouteMatch
                 }
 
                 if ($isClosure) {
-                    call_user_func($controller, $require);
+                    $result = call_user_func($controller, $require);
+                    Event::fire("clear");
+                    return $result;
                 } elseif (is_string($controller)) {
                     if (stristr($controller, "@")) {
                         list($controller, $action) = explode("@", $controller);
@@ -260,7 +262,7 @@ class RouteMatch
                             $obj = new $controller($require[0], $require[1]);
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
                             if(!$check) return ;
-                            call_user_func_array([$obj, $action], $require[2]);
+                            $result = call_user_func_array([$obj, $action], $require[2]);
                         } else {
                             //tcp
                             list($serv, $fd) = $otherData;
@@ -268,10 +270,11 @@ class RouteMatch
                             $postData = $otherData+$require;
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $postData);
                             if(!$check) return ;
-                            call_user_func_array([$obj, $action], $require);
+                            $result = call_user_func_array([$obj, $action], $require);
                         }
                         
                         Event::fire("clear");
+                        return $result;
                     } else {
                         throw new PageNotFoundException("page not found!");
                     }

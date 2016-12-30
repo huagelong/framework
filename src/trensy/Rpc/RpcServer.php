@@ -16,7 +16,7 @@ namespace Trensy\Rpc;
 use Trensy\Foundation\Application;
 use Trensy\Server\SocketInterface;
 use Trensy\Server\SocketServer;
-use Trensy\Coroutine\Event;
+use Trensy\Support\Event;
 use Trensy\Support\ElapsedTime;
 use Trensy\Rpc\Exception\InvalidArgumentException;
 use Trensy\Mvc\Route\RouteMatch;

@@ -63,33 +63,33 @@ if (!function_exists('session')) {
 if (!function_exists('cache')) {
     /**
      * 缓存对象
-     * @return \Trensy\Cache\Adapter\RedisCache;
+     * @return \Trensy\Storage\Cache\Adapter\RedisCache;
      */
     function cache()
     {
-        return new \Trensy\Cache\Adapter\RedisCache();
+        return new \Trensy\Storage\Cache\Adapter\RedisCache();
     }
 }
 
 if (!function_exists('mcache')) {
     /**
      * 缓存对象
-     * @return \Trensy\Cache\Adapter\MemCache;
+     * @return \Trensy\Storage\Cache\Adapter\MemCache;
      */
     function mcache()
     {
-        return new \Trensy\Cache\Adapter\MemCache();
+        return new \Trensy\Storage\Cache\Adapter\MemCache();
     }
 }
 
 if (!function_exists('syscache')) {
     /**
      * 缓存对象
-     * @return \Trensy\Cache\Adapter\ApcCache;
+     * @return \Trensy\Storage\Cache\Adapter\ApcCache;
      */
     function syscache()
     {
-        return new \Trensy\Cache\Adapter\ApcCache();
+        return new \Trensy\Storage\Cache\Adapter\ApcCache();
     }
 }
 

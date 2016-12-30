@@ -7,8 +7,9 @@ use Trensy\Mvc\View\Engine\Blade\Support\Str;
 
 class BladeCompiler extends Compiler implements CompilerInterface
 {
-    protected static $isFis = false;
     protected static $staticPath = null;
+    protected $staticFile = [];
+    protected $staticSource = [];
     /**
      * All of the registered extensions.
      *
@@ -101,10 +102,6 @@ class BladeCompiler extends Compiler implements CompilerInterface
     protected $forelseCounter = 0;
 
 
-    public static function setIsFis($isFis)
-    {
-        self::$isFis = $isFis;
-    }
 
     public static function setStaticPath($staticPath)
     {
@@ -428,18 +425,6 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return "<?php echo \$__env->renderEach{$expression}; ?>";
     }
 
-    /**
-     * Compile the inject statements into valid PHP.
-     *
-     * @param  string $expression
-     * @return string
-     */
-//    protected function compileInject($expression)
-//    {
-//        $segments = explode(',', preg_replace("/[\(\)\\\"\']/", '', $expression));
-//
-//        return '<?php $'.trim($segments[0])." = app('".trim($segments[1])."'); ? >";
-//    }
 
     /**
      * Compile the yield statements into valid PHP.
@@ -539,28 +524,6 @@ class BladeCompiler extends Compiler implements CompilerInterface
     {
         return '<?php endif; ?>';
     }
-
-    /**
-     * Compile the lang statements into valid PHP.
-     *
-     * @param  string $expression
-     * @return string
-     */
-//    protected function compileLang($expression)
-//    {
-//        return "<?php echo app('translator')->get$expression; ? >";
-//    }
-
-    /**
-     * Compile the choice statements into valid PHP.
-     *
-     * @param  string $expression
-     * @return string
-     */
-//    protected function compileChoice($expression)
-//    {
-//        return "<?php echo app('translator')->choice$expression; ? >";
-//    }
 
     /**
      * Compile the else statements into valid PHP.
@@ -1032,51 +995,16 @@ class BladeCompiler extends Compiler implements CompilerInterface
         $this->echoFormat = $format;
     }
 
-    /**
-     * Compile the include statements into valid PHP.
-     *
-     * @param  string $expression
-     * @return string
-     */
-    protected function _compileInclude($expression)
-    {
-        $expression = $this->stripParentheses($expression);
-
-        return "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
-    }
-
+    /**===============================标签定义=======================**/
     protected function compileExtends($expression, $match)
     {
-        if(self::$isFis){
-            $params = explode(",", $match[4]);
-            $params[0] = "\$__fis->uri({$params[0]})";
-            $expression = join(",", $params);
-            $this->_compileExtends($expression);
-            return "";
-        }else{
-            $params = explode(",", $match[4]);
-            $expression = join(",", $params);
-            $this->_compileExtends($expression);
-            return "";
-        }
-
-    }
-
-    /**
-     * Compile the extends statements into valid PHP.
-     *
-     * @param  string $expression
-     * @return string
-     */
-    protected function _compileExtends($expression)
-    {
+        $params = explode(",", $match[4]);
+        $expression = join(",", $params);
         $expression = $this->stripParentheses($expression);
-
         $data = "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
 
         $this->footer[] = $data;
-
-        return '';
+        return "";
     }
 
     protected function compileUri($expression)
@@ -1089,73 +1017,24 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return "\Trensy\Mvc\Route\RouteMatch::getInstance()->url{$expression}";
     }
 
-    protected function compileFramework($expression)
-    {
-        if (self::$isFis) {
-            return "<?php \$__fis->setFramework{$expression}; ?>";
-        }else{
-            return "";
-        }
-    }
-
     protected function compileRequire($expression, $match)
     {
         $params = explode(",", $match[4]);
-
-        if (self::$isFis) {
-            $params[0] = "<?php echo {$params[0]} ?>";
-            $expression = join(", ", $params);
-            return "<!--f.r(".$expression.")-->";
-        } else {
-            $params[0] = trim($params[0], '\'');
-            $params[0] = trim($params[0], '\"');
-            self::$staticPath = trim(self::$staticPath,"/");
-            $path = str_replace(self::$staticPath,"",$params[0]);
-            $path = trim($path, "/");
-            $path = "/".$path;
-            $pathArr = pathinfo($path);
-            $extension = array_isset($pathArr, "extension");
-            if (strtolower($extension) == 'js') {
-                return "<script src=\"" . $path . "\"></script>" . PHP_EOL;
-            } elseif (strtolower($extension) == 'css') {
-                return "<link rel=\"stylesheet\" type='text/css' href=\"" . $path . "\"/>" . PHP_EOL;
-            } elseif (strtolower($extension) == 'ico') {
-                return "<link rel=\"shortcut icon\" href=\"" . $path . "\">" . PHP_EOL;
-            }
-            return self::$staticPath;
+        return "<?php echo \$__env->requireStatic($params[0]); ?>";
+        /*self::$staticPath = trim(self::$staticPath,"/");
+        $path = str_replace(self::$staticPath,"",$params[0]);
+        $path = trim($path, "/");
+        $path = "/".$path;
+        $pathArr = pathinfo($path);
+        $extension = array_isset($pathArr, "extension");
+        if (strtolower($extension) == 'js') {
+            return "<script src=\"" . $path . "\"></script>" . PHP_EOL;
+        } elseif (strtolower($extension) == 'css') {
+            return "<link rel=\"stylesheet\" type='text/css' href=\"" . $path . "\"/>" . PHP_EOL;
+        } elseif (strtolower($extension) == 'ico') {
+            return "<link rel=\"shortcut icon\" href=\"" . $path . "\">" . PHP_EOL;
         }
-    }
-
-    protected function compileInclude($expression, $match)
-    {
-        if (self::$isFis) {
-            $params = explode(",", $match[4]);
-            $params[0] = "\$__fis->uri({$params[0]})";
-            $expression = join(",", $params);
-            return $this->_compileInclude($expression);
-        }else{
-            $params = explode(",", $match[4]);
-            $expression = join(",", $params);
-            return $this->_compileInclude($expression);
-        }
-    }
-
-    protected function compileFuri($expression)
-    {
-        if (self::$isFis) {
-            return "<?php echo \$__fis->uri{$expression}; ?>";
-        }else{
-            return "";
-        }
-    }
-
-    protected function compileFurl($expression)
-    {
-        if (self::$isFis) {
-            return "\$__fis->uri{$expression}";
-        }else{
-            return "";
-        }
+        return self::$staticPath;*/
     }
 
     protected function compileL($expression)
@@ -1165,60 +1044,42 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     protected function compileWidget($expression, $match)
     {
-        if (self::$isFis) {
-            $params = explode(",", $match[4]);
-            $params[0] = "\$__fis->uri({$params[0]})";
-            $expression = join(",", $params);
-            return $this->_compileInclude($expression);
-        }else{
-            $params = explode(",", $match[4]);
-            $expression = join(",", $params);
-            return $this->_compileInclude($expression);
-        }
+        $params = explode(",", $match[4]);
+        $expression = join(",", $params);
+        $expression = $this->stripParentheses($expression);
+
+        return "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
     }
 
-    protected function compilePlaceholder($expression)
+    protected function compileJsholder($expression)
     {
-        if (self::$isFis) {
-            return "<?php echo \$__fis->placeholder{$expression}; ?>";
-        }else{
-            return "";
-        }
+        return "<?php \$__env->jsHolder{$expression}; ?>";
+    }
+    
+    protected function compileCssholder($expression)
+    {
+        return "<?php \$__env->cssHolder{$expression}; ?>";
     }
 
-    protected function compileScript($expression)
+    protected function compileJs($expression)
     {
-        if (self::$isFis) {
-            return "<?php \$__fis->startScript(); ?>";
-        } else {
-            return "<script type='application/javascript'>";
-        }
+        return '<?php $__env->startStatic(); ?>';
+//        return "<script type='application/javascript'>";
     }
 
-    protected function compileStyle($expression)
+    protected function compileCss($expression)
     {
-        if (self::$isFis) {
-            return "<?php \$__fis->startStyle(); ?>";
-        } else {
-            return "<style type='text/css'>";
-        }
+//        return "<style type='text/css'>";
+        return '<?php $__env->startStatic(); ?>';
     }
 
-    protected function compileEndscript($expression)
+    protected function compileEndjs($expression)
     {
-        if (self::$isFis) {
-            return "<?php \$__fis->endScript(); ?>";
-        } else {
-            return "</script>";
-        }
+        return '<?php $__env->endStatic("js"); ?>';
     }
 
-    protected function compileEndstyle($expression)
+    protected function compileEndcss($expression)
     {
-        if (self::$isFis) {
-            return "<?php \$__fis->endStyle(); ?>";
-        } else {
-            return "</style>";
-        }
+        return '<?php $__env->endStatic("css"); ?>';
     }
 }

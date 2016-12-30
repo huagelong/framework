@@ -21,45 +21,45 @@ class Template
      * @var \Trensy\Mvc\View\View
      */
     protected static $view = null;
-    protected static $viewRoot = null;
-    protected static $viewCacheRoot = null;
-    protected static $engine = View::DEFAULT_ENGINE;
+    protected  $viewRoot = null;
+    protected  $viewCacheRoot = null;
+    protected  $config=null;
 
-
-    public static function setViewRoot($viewRoot)
+    public function setConfig($config)
     {
-        self::$viewRoot = $viewRoot;
+        $this->config = $config;
     }
 
-    public static function getViewRoot()
+    public function getConfig()
     {
-        return self::$viewRoot;
+        return $this->config;
     }
 
-    public static function getViewCacheRoot()
+    public function setViewRoot($viewRoot)
     {
-        return self::$viewCacheRoot;
+        $this->viewRoot = $viewRoot;
     }
 
-    public static function setViewCacheRoot($viewCacheRoot)
+    public  function getViewRoot()
     {
-        self::$viewCacheRoot = $viewCacheRoot;
+        return $this->viewRoot;
+    }
+
+    public  function getViewCacheRoot()
+    {
+        return $this->viewCacheRoot;
+    }
+
+    public function setViewCacheRoot($viewCacheRoot)
+    {
+        $this->viewCacheRoot = $viewCacheRoot;
     }
 
     public static function setView($view)
     {
         self::$view = $view;
     }
-
-    public static function setEngine($engine)
-    {
-        self::$engine = $engine;
-    }
-
-    public static function getEngine()
-    {
-        return self::$engine;
-    }
+    
 
     public static function getView()
     {
@@ -74,18 +74,18 @@ class Template
      * @return mixed
      * @throws InvalidArgumentException
      */
-    public static function render($viewPath, $assign = [])
+    public function render($viewPath, $assign = [])
     {
         $tpl = self::getView();
 
         if (!$tpl) {
-            View::setEngine(self::getEngine());
             $tpl = View::getViewObj();
             self::setView($tpl);
         }
 
-        $rootPath = self::getViewRoot();
-        $cacheRootPath = self::getViewCacheRoot();
+        $rootPath = $this->getViewRoot();
+        $cacheRootPath = $this->getViewCacheRoot();
+        $config = $this->getConfig();
 
         if (!$rootPath) {
             throw new InvalidArgumentException("view root path not found");
@@ -97,6 +97,8 @@ class Template
 
         $tpl->setViewRootPath($rootPath);
         $tpl->setCachePath($cacheRootPath);
+        $tpl->setConfig($config);
+        
         return $tpl->render($viewPath, $assign);
     }
 

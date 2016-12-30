@@ -16,7 +16,7 @@ namespace Trensy\Server;
 
 use Trensy\Server\Exception\InvalidArgumentException;
 use Trensy\Server\Facade\Context as FacedeContext;
-use Trensy\Coroutine\Event;
+use Trensy\Support\Event;
 use Trensy\Support\ElapsedTime;
 
 class Task

@@ -16,7 +16,7 @@ namespace Trensy\Foundation\Bootstrap;
 
 use Trensy\Support\Exception;
 use Trensy\Support\Log;
-use Trensy\Coroutine\Event;
+use Trensy\Support\Event;
 
 class ErrorHandleBootstrap
 {
@@ -58,16 +58,13 @@ class ErrorHandleBootstrap
     {
         restore_error_handler();
         $message = "WARNING  with message '{$message}' in " . $file . ':' . $line . "\n";
-        $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
-        if ($trace) {
-            foreach ($trace as $v) {
-                $class = isset($v['class']) ? $v['class'] : "";
-                $type = isset($v['type']) ? $v['type'] : "";
-                $function = isset($v['function']) ? $v['function'] : "";
-                $message .= $v['file'] . "(" . $v['line'] . "): " . $class . $type . $function . "\n";
-            }
+        $compile = config()->get("app.view.compile_path");
+        $compile = realpath($compile);
+        if(stristr($file, $compile)){
+            echo($message);
+        }else{
+            Log::warn($message);
         }
-        Log::warn($message);
     }
 
     /**

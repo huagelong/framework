@@ -5,14 +5,13 @@
  * PHP Version 7
  *
  * @author          kaihui.wang <hpuwang@gmail.com>
- * @copyright       trensy, Inc.
+ * @copyright      trensy, Inc.
  * @package         trensy/framework
  * @version         1.0.7
  */
+namespace Trensy\Storage\Cache\Adapter;
 
-namespace Trensy\Cache\Adapter;
-
-use Trensy\Cache\CacheInterface;
+use Trensy\Storage\Cache\CacheInterface;
 
 class ApcCache implements CacheInterface
 {

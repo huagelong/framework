@@ -1,7 +1,5 @@
 <?php
 /**
- * redis k/v 缓存
- *
  * Trensy Framework
  *
  * PHP Version 7
@@ -11,10 +9,9 @@
  * @package         trensy/framework
  * @version         1.0.7
  */
+namespace Trensy\Storage\Cache\Adapter;
 
-namespace Trensy\Cache\Adapter;
-
-use Trensy\Cache\CacheInterface;
+use Trensy\Storage\Cache\CacheInterface;
 use Trensy\Foundation\Storage\Redis;
 use Trensy\Support\Serialization\Serialization;
 

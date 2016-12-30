@@ -14,7 +14,7 @@
 
 namespace Trensy\Server;
 
-use Trensy\Coroutine\Event;
+use Trensy\Support\Event;
 class Context
 {
     private static $map = [];
