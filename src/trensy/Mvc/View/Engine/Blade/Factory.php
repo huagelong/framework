@@ -9,6 +9,7 @@ use Trensy\Mvc\View\Engine\Blade\Engines\EngineResolver;
 use Trensy\Mvc\View\Engine\Blade\Support\Arr;
 use Trensy\Mvc\View\Engine\Blade\Support\Str;
 use Trensy\Di\Di;
+use Trensy\Server\Facade\Task;
 use Trensy\Support\Dir;
 use Trensy\Support\Tool;
 
@@ -115,6 +116,8 @@ class Factory
 
     protected static $staticDo = [];
 
+    protected $viewPath = null;
+
     /**
      * Create a new view factory instance.
      *
@@ -145,45 +148,72 @@ class Factory
 
     public function jsHolder($name="all")
     {
-        list($staticPath, $staticMap, $staticCompilePath) = $this->config;
-        $staticFile = isset($this->staticFile["js"])?$this->staticFile["js"]:"";
-        if(!$staticFile) return ;
-        $staticFile = array_reverse($staticFile);
-        foreach ($staticFile as $v){
-            $realFile = trim($v,"/");
-            $realFile = "/static/".$staticMap."/".$realFile;
-            echo "<script src=\"" . $realFile . "\"></script>" . PHP_EOL;
+        if(!$this->viewPath) return ;
+        $allStatic = [];
+        if(isset(self::$staticDo['js'][$this->viewPath])){
+            $allStatic = self::$staticDo['js'][$this->viewPath];
+        }else{
+            list($staticPath, $staticMap, $staticCompilePath) = $this->config;
+            $staticFile = isset($this->staticFile["js"])?$this->staticFile["js"]:"";
+            if($staticFile){
+                $staticFile = array_reverse($staticFile);
+                foreach ($staticFile as $v){
+                    $realFile = trim($v,"/");
+                    $realFile = "/static/".$staticMap."/".$realFile;
+                    $allStatic[]="<script src=\"" . $realFile . "\"></script>" . PHP_EOL;
+                }
+                $staticSource = isset($this->staticSource["js"])?$this->staticSource["js"]:"";
+                if($staticSource){
+                    $str = implode("\n",$staticSource);
+                    $hash = Tool::encode($str);
+                    $sourceFile = "static/".$name."_{$hash}.js";
+                    $file = $staticCompilePath.$sourceFile;
+                    file_put_contents($file,$str);
+                    $allStatic[]="<script src=\"/" . $sourceFile . "\"></script>" . PHP_EOL;
+                }
+            }
+            self::$staticDo['js'] = $allStatic;
         }
-        $staticSource = isset($this->staticSource["js"])?$this->staticSource["js"]:"";
-        if(!$staticSource) return ;
-        $str = implode("\n",$staticSource);
-        $hash = Tool::encode($str);
-        $sourceFile = "static/".$name."_{$hash}.js";
-        $file = $staticCompilePath.$sourceFile;
-        file_put_contents($file,$str);
-        echo "<script src=\"/" . $sourceFile . "\"></script>" . PHP_EOL;
+        if(!$allStatic) return ;
+        foreach ($allStatic as $v){
+            echo "<script src=\"" . $v . "\"></script>" . PHP_EOL;
+        }
     }
 
     public function cssHolder($name="all")
     {
-        list($staticPath, $staticMap, $staticCompilePath) = $this->config;
-        $staticFile = isset($this->staticFile["css"])?$this->staticFile["css"]:"";
-        if(!$staticFile) return ;
-        $staticFile = array_reverse($staticFile);
-        foreach ($staticFile as $v){
-            $realFile = trim($v,"/");
-            $realFile = "/static/".$staticMap."/".$realFile;
-            echo "<link rel=\"stylesheet\" type='text/css' href=\"" . $realFile . "\"/>" . PHP_EOL;
+        if(!$this->viewPath) return ;
+        $allStatic = [];
+        if(isset(self::$staticDo['css'][$this->viewPath])){
+            $allStatic = self::$staticDo['css'][$this->viewPath];
+        }else{
+            list($staticPath, $staticMap, $staticCompilePath) = $this->config;
+            $staticFile = isset($this->staticFile["css"])?$this->staticFile["css"]:"";
+            if($staticFile){
+                $staticFile = array_reverse($staticFile);
+                foreach ($staticFile as $v){
+                    $realFile = trim($v,"/");
+                    $realFile = "/static/".$staticMap."/".$realFile;
+                    $allStatic = "<link rel=\"stylesheet\" type='text/css' href=\"" . $realFile . "\"/>" . PHP_EOL;
+                }
+
+                $staticSource = isset($this->staticSource["css"])?$this->staticSource["css"]:"";
+                if($staticSource){
+                    $str = implode("\n",$staticSource);
+                    $hash = Tool::encode($str);
+                    $sourceFile = "static/".$name."_{$hash}.css";
+                    $file = $staticCompilePath.$sourceFile;
+                    file_put_contents($file,$str);
+                    $allStatic = "<link rel=\"stylesheet\" type='text/css' href=\"" . $sourceFile . "\"/>" . PHP_EOL;
+                }
+            }
+            self::$staticDo['css'] = $allStatic;
         }
 
-        $staticSource = isset($this->staticSource["css"])?$this->staticSource["css"]:"";
-        if(!$staticSource) return ;
-        $str = implode("\n",$staticSource);
-        $hash = Tool::encode($str);
-        $sourceFile = "static/".$name."_{$hash}.css";
-        $file = $staticCompilePath.$sourceFile;
-        file_put_contents($file,$str);
-        echo "<link rel=\"stylesheet\" type='text/css' href=\"" . $sourceFile . "\"/>" . PHP_EOL;
+        if(!$allStatic) return ;
+        foreach ($allStatic as $v){
+            echo "<link rel=\"stylesheet\" type='text/css' href=\"" . $v . "\"/>" . PHP_EOL;
+        }
     }
 
     public function startStatic()
@@ -232,7 +262,9 @@ class Factory
         $view = $this->normalizeName($view);
     
         $path = $this->finder->find($view);
-        
+
+        if($path) $this->viewPath = $path;
+
         $data = array_merge($mergeData, $this->parseData($data));
 
         $view = new View($this, $this->getEngineFromPath($path), $path, $path, $data);
