@@ -1017,7 +1017,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         return "\Trensy\Mvc\Route\RouteMatch::getInstance()->url{$expression}";
     }
 
-    protected function compileRequire($expression, $match)
+    protected function compileStatic($expression, $match)
     {
         $params = explode(",", $match[4]);
         return "<?php echo \$__env->requireStatic($params[0]); ?>";

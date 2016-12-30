@@ -10,6 +10,7 @@ use Trensy\Mvc\View\Engine\Blade\Support\Arr;
 use Trensy\Mvc\View\Engine\Blade\Support\Str;
 use Trensy\Di\Di;
 use Trensy\Support\Dir;
+use Trensy\Support\Tool;
 
 class Factory
 {
@@ -112,6 +113,8 @@ class Factory
 
     protected $config = [];
 
+    protected static $staticDo = [];
+
     /**
      * Create a new view factory instance.
      *
@@ -142,8 +145,7 @@ class Factory
 
     public function jsHolder($name="all")
     {
-
-        list($staticPath, $staticMap) = $this->config;
+        list($staticPath, $staticMap, $staticCompilePath) = $this->config;
         $staticFile = isset($this->staticFile["js"])?$this->staticFile["js"]:"";
         if(!$staticFile) return ;
         $staticFile = array_reverse($staticFile);
@@ -152,11 +154,19 @@ class Factory
             $realFile = "/static/".$staticMap."/".$realFile;
             echo "<script src=\"" . $realFile . "\"></script>" . PHP_EOL;
         }
+        $staticSource = isset($this->staticSource["js"])?$this->staticSource["js"]:"";
+        if(!$staticSource) return ;
+        $str = implode("\n",$staticSource);
+        $hash = Tool::encode($str);
+        $sourceFile = "static/".$name."_{$hash}.js";
+        $file = $staticCompilePath.$sourceFile;
+        file_put_contents($file,$str);
+        echo "<script src=\"/" . $sourceFile . "\"></script>" . PHP_EOL;
     }
 
     public function cssHolder($name="all")
     {
-        list($staticPath, $staticMap) = $this->config;
+        list($staticPath, $staticMap, $staticCompilePath) = $this->config;
         $staticFile = isset($this->staticFile["css"])?$this->staticFile["css"]:"";
         if(!$staticFile) return ;
         $staticFile = array_reverse($staticFile);
@@ -165,6 +175,15 @@ class Factory
             $realFile = "/static/".$staticMap."/".$realFile;
             echo "<link rel=\"stylesheet\" type='text/css' href=\"" . $realFile . "\"/>" . PHP_EOL;
         }
+
+        $staticSource = isset($this->staticSource["css"])?$this->staticSource["css"]:"";
+        if(!$staticSource) return ;
+        $str = implode("\n",$staticSource);
+        $hash = Tool::encode($str);
+        $sourceFile = "static/".$name."_{$hash}.css";
+        $file = $staticCompilePath.$sourceFile;
+        file_put_contents($file,$str);
+        echo "<link rel=\"stylesheet\" type='text/css' href=\"" . $sourceFile . "\"/>" . PHP_EOL;
     }
 
     public function startStatic()

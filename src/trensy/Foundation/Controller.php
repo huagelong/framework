@@ -95,9 +95,8 @@ class Controller
             return;
         }
 
-        $linkName = basename($staticPath);
-
-        $staticMapPath = Dir::formatPath($staticCompilePath)."/static/version.php";
+        $staticCompilePath = Dir::formatPath($staticCompilePath);
+        $staticMapPath = $staticCompilePath."/static/version.php";
         
         if(!self::$staticMap && is_file($staticMapPath)){
             self::$staticMap = file_get_contents($staticMapPath);
@@ -105,7 +104,7 @@ class Controller
 
         $staticPath = str_replace(Dir::formatPath(ROOT_PATH), "", $staticPath);
         
-        $config = [$staticPath, self::$staticMap];
+        $config = [$staticPath, self::$staticMap, $staticCompilePath];
         $template->setConfig($config);
 
         $content = $template->render($viewPath, $assign);
