@@ -72,6 +72,11 @@ class ImgCaptcha
         $this->randomContent();
     }
 
+    public function setFont($font)
+    {
+        $this->font = $font;
+    }
+
     public function setFontSize($font_size)
     {
         $this->font_size = $font_size;
@@ -142,7 +147,7 @@ class ImgCaptcha
                 $this->font_angles[rand(0, count($this->font_angles) - 1)],
                 $x, $y,
                 $this->colors['blue'],
-                __DIR__.'/_fonts/' . $this->font,    //加上了字体的相对路径
+                $this->font,    //加上了字体的相对路径
                 $this->v_code_str[$i]
             );
         }
