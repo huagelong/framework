@@ -20,11 +20,12 @@ use Trensy\Mvc\Template;
 use Trensy\Support\Arr;
 use Trensy\Support\Dir;
 use Trensy\Support\ElapsedTime;
+use Trensy\Support\Tool;
 
 class Controller
 {
 
-    const RESPONSE_CODE = 200;
+    const RESPONSE_SUCCESS_CODE = 200;
     const RESPONSE_NORMAL_ERROR_CODE = 500;
 
     /**
@@ -52,6 +53,16 @@ class Controller
         $this->view = new AssignData();
     }
 
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
     /**
      * 模板render
      *
@@ -62,10 +73,10 @@ class Controller
      */
     public function render($viewPath, $assign = [])
     {
-        $viewRoot = Config::get("app.view.path");
+        $viewRoot = Config::get("server.httpd.server.view.path");
         $realViewRoot = Dir::formatPath($viewRoot);
 
-        $diyView = Config::get("app.view.diy");
+        $diyView = Config::get("server.httpd.server.view.diy");
         if($diyView){
             $obj = new $diyView;
             if(!method_exists($obj, "perform")){
@@ -74,9 +85,10 @@ class Controller
             $diyViewRoot = $obj->perform(get_class($this));
             if($diyViewRoot) $realViewRoot = Arr::merge($realViewRoot, $diyViewRoot);
         }
+
         $template = new Template();
         $template->setViewRoot($realViewRoot);
-        $viewCachePath = Config::get("app.view.compile_path");
+        $viewCachePath = Config::get("server.httpd.server.view.compile_path");
 
         $template->setViewCacheRoot($viewCachePath);
         $assign = Arr::merge($assign, $this->view->getAssignData());
@@ -96,18 +108,19 @@ class Controller
         }
 
         $staticCompilePath = Dir::formatPath($staticCompilePath);
-        $staticMapPath = $staticCompilePath."/static/version.php";
+        $staticMapPath = $staticCompilePath."/static/map.php";
         
         if(!self::$staticMap && is_file($staticMapPath)){
-            self::$staticMap = file_get_contents($staticMapPath);
+            self::$staticMap = include($staticMapPath);
         }
 
-        $staticPath = str_replace(Dir::formatPath(ROOT_PATH), "", $staticPath);
-        
-        $config = [$staticPath, self::$staticMap, $staticCompilePath];
+//        $staticPath = str_replace(Dir::formatPath(ROOT_PATH), "", $staticPath);
+        $bladexEx = Config::get("server.httpd.server.view.bladex_ex");
+        $config = [self::$staticMap, $bladexEx];
         $template->setConfig($config);
 
         $content = $template->render($viewPath, $assign);
+       
         return $content;
     }
 
@@ -116,29 +129,30 @@ class Controller
      * @param $viewPath
      * @param array $assign
      */
-    public function display($viewPath, $assign = [])
+    public function display($viewPath, $assign = [], $useZip=0)
     {
         $content = $this->render($viewPath, $assign);
-        $this->response->end($content);
+        $this->response->end($content, $useZip);
     }
 
 
     /**
      * @param $data
      * @param int $errorCode
-     * @param string $errodMsg
+     * @param string $errorMsg
      */
-    public function response($data, $errorCode = self::RESPONSE_CODE, $errodMsg = '')
+    public function response($data=[], $errorCode = self::RESPONSE_SUCCESS_CODE, $errorMsg = '', $useZip=0)
     {
         $elapsedTime = ElapsedTime::runtime("sys_elapsed_time");
         $result = [];
         $result['result'] = $data;
-        $result['errorCode'] = $errorCode;
-        $result['errodMsg'] = $errodMsg;
+        $result['statusCode'] = $errorCode;
+        $result['msg'] = $errorMsg;
         $result['elapsedTime'] = $elapsedTime;
         $this->response->header("Content-type", "application/json");
-        $content = json_encode($result, JSON_UNESCAPED_UNICODE);
-        $this->response->end($content);
+        //JSON_NUMERIC_CHECK
+        $content = Tool::my_json_encode($result);
+        $this->response->end($content, $useZip);
     }
 
 }

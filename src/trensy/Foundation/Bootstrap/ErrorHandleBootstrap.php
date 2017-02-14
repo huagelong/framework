@@ -14,9 +14,9 @@
 
 namespace Trensy\Foundation\Bootstrap;
 
+use Trensy\Config\Config;
 use Trensy\Support\Exception;
 use Trensy\Support\Log;
-use Trensy\Support\Event;
 
 class ErrorHandleBootstrap
 {
@@ -58,7 +58,7 @@ class ErrorHandleBootstrap
     {
         restore_error_handler();
         $message = "WARNING  with message '{$message}' in " . $file . ':' . $line . "\n";
-        $compile = config()->get("app.view.compile_path");
+        $compile = Config::get("server.httpd.server.view.compile_path");
         $compile = realpath($compile);
         if(stristr($file, $compile)){
             echo($message);

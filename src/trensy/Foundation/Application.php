@@ -62,15 +62,22 @@ class Application
      */
     public function start($request, $response)
     {
-       
         $url = $request->getPathInfo();
-        
+        //pathinfo 处理
+        $pathinfoMiddle = CConfig::get("app.pathinfo");
+        if($pathinfoMiddle){
+            $obj = new $pathinfoMiddle;
+            if(!method_exists($obj, "perform")){
+                throw new \Exception(" 'perform' method must defined");
+            }
+            $url = $obj->perform($url);
+        }
         $routeObj = RouteMatch::getInstance();
        
         $middlewareConfig = CConfig::get("app.middleware");
         
         $routeObj->setMiddlewareConfig($middlewareConfig);
-       
+    
         $resut = $routeObj->run($url, $request, $response);
         return $resut;
     }
@@ -115,7 +122,11 @@ class Application
         ];
         $config = CConfig::get("app.command");
         if ($config) {
-            $commands = Arr::merge($commands, $config);
+            $commandsTmp = [];
+            foreach ($config as $cv){
+                $commandsTmp[] = new $cv;
+            }
+            $commands = Arr::merge($commands, $commandsTmp);
         }
         $application = new CmdApplication();
         foreach ($commands as $v) {

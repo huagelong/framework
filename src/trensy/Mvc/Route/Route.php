@@ -93,12 +93,22 @@ class Route
         $obj->match($_method, $path, $closureOrArr);
 //        dump($obj->getResult());
         if (is_array($closureOrArr)) {
+
             if (isset($closureOrArr['name']) && $closureOrArr['name']) {
                 $obj->name($closureOrArr['name']);
             }
 
+            $defaults = [];
             if (isset($closureOrArr['uses']) && $closureOrArr['uses']) {
-                $obj->defaults(["_controller" => $closureOrArr['uses']]);
+                $defaults['_controller'] = $closureOrArr['uses'];
+            }
+
+            if (isset($closureOrArr['defaults']) && $closureOrArr['defaults']) {
+                $defaults = array_merge($closureOrArr['defaults'], $defaults);
+            }
+
+            if($defaults){
+                $obj->defaults($defaults);
             }
 
             if (isset($closureOrArr['domain']) && $closureOrArr['domain']) {

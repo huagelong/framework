@@ -12,10 +12,11 @@ use Trensy\Server\HttpServer;
 use Trensy\Support\ElapsedTime;
 use Trensy\Mvc\Route\RouteMatch;
 use swoole_http_server as SwooleServer;
+use Trensy\Support\Tool;
 
 class WSServer extends HttpServer
 {
-    const RESPONSE_CODE = 200;
+    const RESPONSE_SUCCESS_CODE = 200;
     const RESPONSE_NORMAL_ERROR_CODE = 500;
     public static $allFd = [];
     
@@ -46,15 +47,15 @@ class WSServer extends HttpServer
         unset(self::$allFd[$fd]);
     }
 
-    protected function render($data='', $errorCode = self::RESPONSE_CODE, $errodMsg = '')
+    protected function render($data='', $errorCode = self::RESPONSE_SUCCESS_CODE, $errorMsg = '')
     {
         $elapsedTime = ElapsedTime::runtime("sys_elapsed_time");
         $result = [];
         $result['result'] = $data;
-        $result['errorCode'] = $errorCode;
-        $result['errodMsg'] = $errodMsg;
+        $result['statusCode'] = $errorCode;
+        $result['msg'] = $errorMsg;
         $result['elapsedTime'] = $elapsedTime;
-        return json_encode($result);
+        return Tool::my_json_encode($result);
     }
 
 }

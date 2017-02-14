@@ -13,6 +13,7 @@
 namespace Trensy\Support\Serialization\Adapter;
 
 use Trensy\Support\Serialization\SerializationAbstract;
+use Trensy\Support\Tool;
 
 class JsonSerialization extends SerializationAbstract
 {
@@ -49,7 +50,7 @@ class JsonSerialization extends SerializationAbstract
      */
     public function trans($data)
     {
-        return json_encode($data);
+        return Tool::my_json_encode($data);
     }
 
     /**

@@ -41,7 +41,7 @@ class FileViewFinder implements ViewFinderInterface
      *
      * @var array
      */
-    protected $extensions = ['bladex.php', 'php'];
+    protected $extensions = ['blade.php', 'php'];
 
     /**
      * Create a new file view loader instance.
@@ -162,7 +162,7 @@ class FileViewFinder implements ViewFinderInterface
 
         $arr = array();
         $name = ltrim($name, ".");
-        $name = preg_replace('/\.bladex\.php$/', "", $name);
+        $name = preg_replace('/\.blade\.php$/', "", $name);
         $parts = explode(".", $name);
 
         foreach($this->extensions as $extension) {

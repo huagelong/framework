@@ -19,7 +19,7 @@ class Mime
 
     const MIME = [
         "text/html" => "html htm shtml",
-        "text/css" => "css",
+        "text/css" => "css map",
         "text/xml" => "xml",
         "image/gif" => "gif",
         "image/jpeg" => "jpeg jpg",

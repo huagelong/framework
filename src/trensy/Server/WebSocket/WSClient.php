@@ -8,6 +8,8 @@
 namespace Trensy\Server\WebSocket;
 
 
+use Trensy\Support\Tool;
+
 class WSClient extends BaseClient
 {
 
@@ -21,7 +23,7 @@ class WSClient extends BaseClient
         $requestData = [];
         $requestData[] = $path;
         $requestData[] = $params;
-        $jsonStr = json_encode($requestData);
+        $jsonStr = Tool::my_json_encode($requestData);
         try{
             $data = $this->connect();
             if(!$data) throw new \Exception("websocket_connect_error:connect fail!");

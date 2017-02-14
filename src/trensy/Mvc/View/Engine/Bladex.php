@@ -90,9 +90,9 @@ class Bladex implements ViewInterface
         $finder = new FileViewFinder($path);
         
         $factory = new Factory($resolver, $finder, $view, $this->config);
-        
-        $result= $factory->make($view, $data, [])->render();
 
+        $result= $factory->make($view, $data, [])->render();
+        
         return $result;
     }
 

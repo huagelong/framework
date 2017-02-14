@@ -90,7 +90,7 @@ class Task
     private function log($exception, $returnData)
     {
         //超过次数,记录日志
-        $msg = date('Y-m-d H:i:s') . " " . json_encode($returnData);
+        $msg = date('Y-m-d H:i:s') . " " . json_encode($returnData, JSON_UNESCAPED_UNICODE);
         if ($exception) {
             $msg .= "\n================================================\n" .
                 $exception .

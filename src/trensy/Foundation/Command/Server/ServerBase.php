@@ -40,21 +40,14 @@ class ServerBase
             return;
         }
 
-        $str = '
-██╗  ██╗███████╗██████╗ ██╗███████╗██╗   ██╗
-██║ ██╔╝██╔════╝██╔══██╗██║██╔════╝╚██╗ ██╔╝
-█████╔╝ █████╗  ██████╔╝██║███████╗ ╚████╔╝ 
-██╔═██╗ ██╔══╝  ██╔══██╗██║╚════██║  ╚██╔╝  
-██║  ██╗███████╗██║  ██║██║███████║   ██║   
-╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝   ╚═╝                                                    
-        ';
+        $str = 'Welcome To Trensy!';
         Log::show($str);
         self::doOperate($cmd, $options, $config, $cmdObj);
         sleep(1);
         exit(0);
     }
-
-
+    
+    
     public static function doOperate($command, $options, array $config, $cmdObj)
     {
         self::runCmd($command, $config, $options, $cmdObj);

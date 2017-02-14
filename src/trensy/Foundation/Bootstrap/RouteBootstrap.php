@@ -103,43 +103,50 @@ class RouteBootstrap
         $namespace = array_isset($config, "namespace");
         if($routes){
             foreach ($routes as $v){
-                if(!isset($v['path'])){
-                    $method = array_isset($v, 0);
-                    $path = array_isset($v, 1);
-                    $uses = array_isset($v, 2);
-                    $name = array_isset($v, 3);
-                    $middleware = array_isset($v, 4);
-                    $domain = array_isset($v, 5);
-
-                    $v['method'] = $method;
-                    $where = [];
-                    if (stristr($path, "{")) {
-                        $regStr = "\{(.*?)\:([^\}]+)\}";
-                        preg_match_all("/{$regStr}/", $path, $matches, PREG_SET_ORDER);
-                        if ($matches) {
-                            foreach ($matches as $match) {
-                                $key = array_isset($match, 1);
-                                $value = array_isset($match, 2);
-                                if ($key && $value) {
-                                    $where[$key] = $value;
-                                }
+                $path = array_isset($v, "path");
+                $uses = array_isset($v, "uses");
+                $middleware = array_isset($v, "middleware");
+                $defaults = array_isset($v, "defaults");
+                
+                $where = [];
+                if (stristr($path, "<")) {
+                    $regStr = "\<(.*?)\:([^\>]+)\>";
+                    preg_match_all("/{$regStr}/", $path, $matches, PREG_SET_ORDER);
+            
+                    if ($matches) {
+                        foreach ($matches as $match) {
+                            $key = array_isset($match, 1);
+                            if(stristr($key, "=")){
+                                list($key,$_v) = explode("=", $key);
+                                $defaults[$key] = $_v;
+                            }
+                            $value = array_isset($match, 2);
+                            if ($key && $value) {
+                                $where[$key] = $value;
                             }
                         }
-                        $path = preg_replace("/{$regStr}/", '{$1}', $path);
                     }
-                    $v['path'] = $path;
-                    if($namespace){
-                        $uses = $namespace.$uses;
-                    }
-                    $v['uses'] = $uses;
-                    $v['name'] = $name;
-                    $v['where'] = $where;
-                    $v['domain'] = $domain;
-                    $v['middleware'] = $middleware;
+                    $path = preg_replace_callback("/{$regStr}/", function($match){
+                        $key = array_isset($match, 1);
+                        if(stristr($key, "=")){
+                            list($key,$_v) = explode("=", $key);
+                        }
+                        return "{".$key."}";
+                    },$path);
                 }
+                $v['path'] = $path;
+                if($namespace){
+                    $uses = $namespace.$uses;
+                }
+                $v['uses'] = $uses;
+                $v['where'] = $where;
+                $v['middleware'] = $middleware;
+                $v['defaults'] = $defaults;
+                
                 $method = isset($v['method'])?$v['method']:[];
                 $_method = $method=="*"?"any":$method;
                 $_method = $_method?$_method:"any";
+                $v['method'] = $method;
                 Route::bind($_method, [$v['path'],$v]);
             }
         }

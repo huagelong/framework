@@ -40,7 +40,7 @@ if (!function_exists('config')) {
     /**
      *  config 对象
      *
-     * @return mixed
+     * @return \Trensy\Config\Config
      */
     function config()
     {
@@ -52,7 +52,7 @@ if (!function_exists('session')) {
     /**
      *  session 对象
      *
-     * @return mixed
+     * @return \Trensy\Http\Session
      */
     function session()
     {
@@ -68,17 +68,6 @@ if (!function_exists('cache')) {
     function cache()
     {
         return new \Trensy\Storage\Cache\Adapter\RedisCache();
-    }
-}
-
-if (!function_exists('mcache')) {
-    /**
-     * 缓存对象
-     * @return \Trensy\Storage\Cache\Adapter\MemCache;
-     */
-    function mcache()
-    {
-        return new \Trensy\Storage\Cache\Adapter\MemCache();
     }
 }
 
@@ -102,6 +91,8 @@ if (!function_exists('dump')) {
     function dump($str, $isReturn=false)
     {
         if(!$isReturn){
+            list($line, $func) = debug_backtrace(2, 2);
+            \Trensy\Support\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
             return \Trensy\Support\Log::show($str);
         }
         ob_start();
@@ -144,6 +135,10 @@ if (!function_exists('throwExit')) {
      */
     function throwExit($str=null)
     {
+        if(!$str){
+            list($line, $func) = debug_backtrace(2, 2);
+            \Trensy\Support\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
+        }
         $str && dump($str);
         throw new \Trensy\Support\Exception\RuntimeExitException("exit");
     }
@@ -189,3 +184,23 @@ if (!function_exists('xtrans')) {
     }
 }
 
+if (!function_exists('responseEnd')) {
+    /**
+     * 输出后清除变量
+     */
+    function responseEnd($callback)
+    {
+        \Trensy\Support\Event::bind("request.end",$callback);
+    }
+}
+
+//non-blocking
+if (!function_exists('nonBlock')) {
+    /**
+     * 非阻塞程序处理
+     */
+    function nonBlock($callback,$interval=1)
+    {
+        \Trensy\Support\Timer::after($interval,$callback);
+    }
+}

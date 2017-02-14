@@ -34,7 +34,7 @@ class Flash
             'success',
             'warning',
             'danger',
-            'alert'
+            'error'
         ];
         if(in_array($type, $methods)){
             $data = [];

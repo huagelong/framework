@@ -14,7 +14,7 @@ namespace Trensy\Foundation\Command\Httpd;
 
 use Trensy\Config\Config;
 use Trensy\Foundation\Application;
-use Trensy\Mvc\View\Engine\Blade\Compilers\BladeCompiler;
+use Trensy\Mvc\View\Engine\Bladex\Compilers\BladexCompiler;
 use Trensy\Server\WebSocket\WSServer;
 use Trensy\Support\Arr;
 use Trensy\Support\Dir;
@@ -105,7 +105,7 @@ class HttpdBase
             mkdir($config['server']['static_path'], "0777", true);
         }
 
-        $viewCachePath = Config::get("app.view.compile_path");
+        $viewCachePath = Config::get("server.httpd.server.view.compile_path");
         if (!is_dir($viewCachePath)) {
             mkdir($viewCachePath, "0777", true);
         }
@@ -156,13 +156,9 @@ class HttpdBase
         $viewStaticPath = Dir::formatPath($viewStaticPath);
         $rootPath = Dir::formatPath(ROOT_PATH);
         $staticPath = "/" . str_replace($rootPath, "", $viewStaticPath);
-        BladeCompiler::setStaticPath($staticPath);
+        BladexCompiler::setStaticPath($staticPath);
     }
-
-    protected static function useFis()
-    {
-        BladeCompiler::setIsFis(true);
-    }
+    
 
 
     protected static function stop($appName)
@@ -225,7 +221,14 @@ class HttpdBase
     protected static function staticRelealse($config)
     {
         $staticPath = rtrim(array_isset($config, "static_path"), "/");
-        $staticCompilePath = Dir::formatPath(array_isset($config, "static_public_path"));
+        $staticCompilePath = array_isset($config, "static_public_path");
+
+        $viewPath = isset($config['view']['path']) ? $config['view']['path'] : "";
+
+        if (!$viewPath) {
+            Log::error("server.httpd.server.view.path not set");
+            return;
+        }
 
         if (!$staticPath) {
             Log::error("server.httpd.server.static_path not set");
@@ -237,70 +240,24 @@ class HttpdBase
             return;
         }
 
-        $staticCompilePath = $staticCompilePath."static/";
+        $viewPath = Dir::formatPath($viewPath);
+        $staticCompilePath = Dir::formatPath($staticCompilePath);
+
+        $staticCompilePath = $staticCompilePath . "static/";
         if (!is_dir($staticCompilePath)) mkdir($staticCompilePath, 0777, true);
 
         $staticCompileExt = array_isset($config, "static_compile_ext");
 
-        $versionFile = $staticCompilePath . "/version.php";
         $exts = ["js", "css", "png", "gif", "jpg"];
         if (!$staticCompileExt) {
             $staticCompileExt = $exts;
         }
 
-        //分析文件指纹
-        $dirHash = self::getFileHash($staticPath, $staticCompileExt);
-        if (is_file($versionFile)) {
-            $version = file_get_contents($versionFile);
-            if ($version == $dirHash) return;
-        }
+        $staticDir = basename($staticPath);
 
-        $targetPath = $staticCompilePath . $dirHash;
-        self::createLink($staticPath, $targetPath);
-        file_put_contents($versionFile, $dirHash);
-    }
-
-    /**
-     * 创建软连接
-     * @param $staticPath
-     * @param $targetPath
-     */
-    protected static function createLink($staticPath, $targetPath)
-    {
-        $linkName = basename($staticPath);
-        $linkFile = Dir::formatPath($targetPath) . $linkName;
-        if (is_dir($linkFile)) return;
-        $cmdStr = "ln -s " . $staticPath . " " . $targetPath;
-        exec($cmdStr, $check);
-        Log::sysinfo("create link:" . $targetPath);
-    }
-
-    /**
-     * 获取目录hash
-     * @param $dir
-     * @param $exts
-     * @return bool|string
-     */
-    protected static function getFileHash($dir, $exts)
-    {
-        if (!is_dir($dir)) {
-            return false;
-        }
-        $filemd5s = array();
-        $d = dir($dir);
-        while (false !== ($entry = $d->read())) {
-            if ($entry != '.' && $entry != '..' && $entry != '.svn' && $entry != '.git') {
-                if (is_dir($dir . '/' . $entry)) {
-                    $filemd5s[] = self::getFileHash($dir . '/' . $entry, $exts);
-                } else {
-                    $file = $dir . '/' . $entry;
-                    $ext = pathinfo($file, PATHINFO_EXTENSION);
-                    if (in_array($ext, $exts)) $filemd5s[] = filemtime($file);
-                }
-            }
-        }
-        $d->close();
-        return Tool::encode(implode('', $filemd5s));
+        $obj = new \Trensy\Mvc\View\Engine\Bladex\Asset();
+        $staticPath = Dir::formatPath($staticPath);
+        $obj->createDiffAsset($staticPath, $staticCompilePath, $staticCompileExt, $viewPath, $staticDir, [$staticPath.'ui/node_modules']);
     }
 
 }

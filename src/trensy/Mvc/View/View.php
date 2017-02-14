@@ -14,7 +14,7 @@
 
 namespace Trensy\Mvc\View;
 
-use Trensy\Mvc\View\Engine\Blade;
+use Trensy\Mvc\View\Engine\Bladex;
 
 class View
 {
@@ -25,7 +25,7 @@ class View
      */
     public static function getViewObj()
     {
-        return Blade::getInstance();
+        return Bladex::getInstance();
     }
 
 }

@@ -49,13 +49,13 @@ class RunMode
     public static function init()
     {
         if (self::$runMode) return self::$runMode;
-        $env = getenv("KERISY_RUNMODE");//test.dev
+        $env = getenv("TRENSY_RUNMODE");//test.dev
         if (!$env) {
-            $env = get_cfg_var("KERISY_RUNMODE");
+            $env = get_cfg_var("TRENSY_RUNMODE");
         }
 
-        if(defined("KERISY_RUNMODE")){
-            $env = KERISY_RUNMODE;
+        if(defined("TRENSY_RUNMODE")){
+            $env = TRENSY_RUNMODE;
         }
 
         if ($env) {

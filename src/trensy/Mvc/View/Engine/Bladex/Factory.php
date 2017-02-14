@@ -55,7 +55,7 @@ class Factory
      *
      * @var array
      */
-    protected $extensions = ['bladex.php' => 'bladex', 'php' => 'php'];
+    protected $extensions = ['blade.php' => 'bladex', 'php' => 'php'];
 
     /**
      * The view composer events.
@@ -161,7 +161,7 @@ class Factory
                     }else{
                         $realFile = $v;
                     }
-                    echo "<script src=\"" . $realFile . "\"></script>" . PHP_EOL;
+                    echo "<link rel=\"stylesheet\" href=\"" . $realFile . "\">" . PHP_EOL;
                 }
             }
         }
@@ -217,6 +217,7 @@ class Factory
         $data = array_merge($mergeData, $this->parseData($data));
 
         $view = new View($this, $this->getEngineFromPath($path), $path, $path, $data);
+        
         return $view;
     }
 

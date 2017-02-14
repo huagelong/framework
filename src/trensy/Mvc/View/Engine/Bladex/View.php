@@ -75,9 +75,10 @@ class View
      */
     public function render(callable $callback = null)
     {
+
         try {
             $contents = $this->renderContents();
-            
+
             $response = isset($callback) ? call_user_func($callback, $this, $contents) : null;
 
             // Once we have the contents of the view, we will flush the sections if we are

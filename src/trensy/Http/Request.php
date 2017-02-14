@@ -20,6 +20,7 @@ use Trensy\Http\HttpBase\Request as BaseRequest;
 class Request extends BaseRequest
 {
 
+    protected $swooleRequest = null;
     /**
      * 初始化
      * Request constructor.
@@ -27,6 +28,8 @@ class Request extends BaseRequest
      */
     public function __construct($swooleRequest)
     {
+        $this->swooleRequest = $swooleRequest;
+
         $get = isset($swooleRequest->get) ? $swooleRequest->get : [];
         $post = isset($swooleRequest->post) ? $swooleRequest->post : [];
         $attributes = [];
@@ -55,5 +58,12 @@ class Request extends BaseRequest
                 $this->request = new ParameterBag($data);
             }
         }
+        //覆盖$_GET,$_POST等
+//        parent::overrideGlobals();
+    }
+
+    public function getSwooleRequest()
+    {
+        return $this->swooleRequest;
     }
 }

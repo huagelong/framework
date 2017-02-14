@@ -18,6 +18,7 @@ use Trensy\Di\Di;
 use Trensy\Foundation\Bootstrap\Config\AliasConfig;
 use Trensy\Foundation\Bootstrap\Config\DiConfig;
 use Trensy\Foundation\Bootstrap\Config\TaskConfig;
+use Trensy\Foundation\Exception\InvalidArgumentException;
 use Trensy\Server\Task;
 use Trensy\Support\AliasLoader;
 use Trensy\Support\Arr;
@@ -66,7 +67,19 @@ class Bootstrap
         $this->initFacade();
         $this->initTask();
         $this->init404();
-        $this->initEvent();
+        $this->initDiy();
+    }
+
+    protected function initDiy()
+    {
+        $config = Config::get("app.init");
+        if ($config) {
+            $obj = new $config;
+            if (!method_exists($obj, "perform")) {
+                throw new InvalidArgumentException(" log class perform not config ");
+            }
+            call_user_func_array([$obj, "perform"], []);
+        }
     }
 
     protected function initLog()
@@ -83,11 +96,6 @@ class Bootstrap
         }
     }
 
-    public function initEvent()
-    {
-        
-    }
-
     /**
      * 404  处理
      */
@@ -95,7 +103,7 @@ class Bootstrap
     {
         Event::bind("404",function($allParams){
             list($e, $errorName, $params) = $allParams;
-            $config = Config::get("app.view.page404");
+            $config = Config::get("server.httpd.server.view.page404");
 
             if($errorName == "Page404Exception"){
                 Log::debug($e->getMessage());

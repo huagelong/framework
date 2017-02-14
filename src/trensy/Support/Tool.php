@@ -11,7 +11,7 @@ namespace Trensy\Support;
 class Tool
 {
 
-    public static function xCopy($source, $destination, $child = 1)
+    public static function xCopy($source, $destination, $child = 1, $except=[])
     {
         if (!is_dir($source)) {
             return false;
@@ -20,14 +20,18 @@ class Tool
             mkdir($destination, 0777, true);
         }
         $handle = dir($source);
+        $source = Dir::formatPath($source);
         while ($entry = $handle->read()) {
             if (($entry != ".") && ($entry != "..")) {
-                if (is_dir($source . "/" . $entry)) {
+                if (is_dir($source . $entry)) {
                     if ($child) {
-                        self::xCopy($source . "/" . $entry, $destination . "/" . $entry, $child);
+                        if($except && in_array($source . $entry, $except)){
+                            continue;
+                        }
+                        self::xCopy($source . $entry, $destination . "/" . $entry, $child, $except);
                     }
                 } else {
-                    copy($source . "/" . $entry, $destination . "/" . $entry);
+                    copy($source . $entry, $destination . "/" . $entry);
                 }
             }
         }
@@ -53,4 +57,28 @@ class Tool
         }
         return $encode;
     }
+
+    /**
+     * 自定义jsoncode
+     * @param $json
+     * @return mixed
+     */
+    public static function my_json_encode($json)
+    {
+        array_walk_recursive($json, function (&$value, $key)
+        {
+            if(is_string($value) && is_numeric($value))
+            {
+                // check if value doesn't starts with 0 or +
+                if(!preg_match('/^(\+|0)/', $value))
+                {
+                    // cast $value to int or float
+                    $value   += 0;
+                }
+            }
+        });
+        //JSON_NUMERIC_CHECK
+        return json_encode($json, JSON_UNESCAPED_UNICODE);
+    }
+
 }

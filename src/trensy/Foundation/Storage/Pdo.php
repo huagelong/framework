@@ -12,13 +12,14 @@
 
 namespace Trensy\Foundation\Storage;
 
-use Config;
+use Trensy\Config\Config;
+use Trensy\Foundation\Exception\ConfigNotFoundException;
 use Trensy\Support\Event;
 use Trensy\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
 
 class Pdo extends SQlAdapter
 {
-    private static $conn = [];
+    public static $conn = [];
     protected $config = null;
 
     public function __construct($config=null)
@@ -33,6 +34,7 @@ class Pdo extends SQlAdapter
         if(!self::$conn){
             if(!$this->config){
                 $this->config = Config::get("storage.server.pdo");
+                if(!$this->config) throw new ConfigNotFoundException("storage.server.pdo not config");
             }
             self::$prefix = $this->config['prefix'];
             parent::__construct();

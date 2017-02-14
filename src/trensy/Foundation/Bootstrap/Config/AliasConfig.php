@@ -37,6 +37,8 @@ class AliasConfig
             "WSSController"=>\Trensy\Server\WebSocket\WSServer::class,
             "WSClient"=>\Trensy\Server\WebSocket\WSClient::class,
             "Lang"=>\Trensy\Support\Lang::class,
+            "Flash"=>\Trensy\Support\Flash::class,
+            "Timer"=>\Trensy\Support\Timer::class,
         ];
     }
 

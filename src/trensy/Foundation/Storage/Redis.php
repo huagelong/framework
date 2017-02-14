@@ -20,19 +20,30 @@ use Trensy\Support\Exception as SupportException;
 
 class Redis
 {
-    protected static $conn = null;
+    public static $conn = null;
+    protected $config = null;
 
-    public function __construct()
+    public function __construct($config=null)
     {
-        $this->initializeDefault();
+        $this->config = $config;
+        $this->conn();
     }
 
-    protected function initializeDefault()
+    protected function conn()
+    {
+        if(!self::$conn){
+            if(!$this->config){
+                $this->config = Config::get("storage.server.redis");
+                if(!$this->config) throw new ConfigNotFoundException("storage.server.redis not config");
+            }
+            $this->initialize($this->config);
+        }
+    }
+
+    protected function initialize($config)
     {
         if(self::$conn) return ;
-        $config = Config::get("storage.server.redis");
         $servers = $config['servers'];
-        if(!$servers) throw new ConfigNotFoundException("storage.server.redis.servers not config");
         $options = $config['options'];
         try {
             self::$conn = new Client($servers, $options);
@@ -76,7 +87,6 @@ class Redis
             $result =  $result->getPayload();
             $result = $result=='OK'?true:false;
         }
-
         return $result;
     }
 
@@ -86,7 +96,7 @@ class Redis
         }
         //重新连接
         self::$conn = [];
-        $this->initializeDefault();
+        $this->conn();
     }
     
 }

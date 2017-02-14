@@ -23,7 +23,7 @@ class Asset
 
     protected static $map = null;
 
-    public function createDiffAsset($path, $targetPath, $exts, $viewPath, $staticDir = "static")
+    public function createDiffAsset($path, $targetPath, $exts, $viewPath, $staticDir = "static", $except=[])
     {
 //        var_dump(func_get_args());
         if (!is_dir($targetPath)) mkdir($targetPath, 0777, true);
@@ -34,7 +34,7 @@ class Asset
         $map = $targetPath . "map.php";
         $this->getMap($map);
         //转移静态文件到发布目录
-        Tool::xCopy($path, $targetPath);
+        Tool::xCopy($path, $targetPath, 1, $except);
         Log::sysinfo("copy static success!");
         $this->checkmtime($targetPath, [$targetPath, $path, $staticDir], $exts);
         Log::sysinfo("check file mtime success!");
@@ -60,10 +60,10 @@ class Asset
                     $this->releaseMap($dir . '/' . $entry, $viewRoot, $targetPath, $staticDir, $result);
                 } else {
                     $filePath = realpath($dir . '/' . $entry);
-                    $ext = substr($filePath, -11);
-                    if (strtolower($ext) != ".bladex.php") continue;
+                    $ext = substr($filePath, -10);
+                    if (strtolower($ext) != ".blade.php") continue;
                     $tmpPath = str_replace($viewRoot, "", $filePath);
-                    $viewPathKey = substr($tmpPath, 0, -11);
+                    $viewPathKey = substr($tmpPath, 0, -10);
                     $result[$viewPathKey] = $this->parseStatic($filePath, $viewRoot, $targetPath, $staticDir);
                 }
             }
@@ -135,7 +135,7 @@ class Asset
 
         $jscode = implode("\n", $result);
         $hash = Tool::encode($jscode);
-        $tmpName = str_replace("/", "_", substr(str_replace($viewRoot, "" ,$filePath), 0, -11));
+        $tmpName = str_replace("/", "_", substr(str_replace($viewRoot, "" ,$filePath), 0, -10));
         $file = "/{$staticDir}/glob/js/" .$tmpName . "_" . $hash . ".js";
         $realDir = $targetPath."glob/js/";
         if(!is_dir($realDir)) mkdir($realDir, 0777, true);
@@ -160,7 +160,7 @@ class Asset
 
         $cssCode = implode("\n", $result);
         $hash = Tool::encode($cssCode);
-        $tmpName = str_replace("/", "_", substr(str_replace($viewRoot, "" ,$filePath), 0, -11));
+        $tmpName = str_replace("/", "_", substr(str_replace($viewRoot, "" ,$filePath), 0, -10));
         $file = "/{$staticDir}/glob/css/" .$tmpName . "_" . $hash . ".css";
         $realDir = $targetPath."glob/css/";
         if(!is_dir($realDir)) mkdir($realDir, 0777, true);
