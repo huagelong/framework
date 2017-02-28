@@ -17,6 +17,7 @@ namespace Trensy\Server;
 use swoole_http_request as SwooleHttpRequest;
 use swoole_http_response as SwooleHttpResponse;
 use swoole_http_server as SwooleServer;
+use Trensy\Config\Config;
 use Trensy\Http\Request;
 use Trensy\Http\Response;
 use Trensy\Server\Facade\Context as FContext;
@@ -155,6 +156,7 @@ class HttpServer
      */
     public function onWorkerStart(SwooleServer $swooleServer, $workerId)
     {
+//        dump(get_included_files());
         if (function_exists("apc_clear_cache")) {
             apc_clear_cache();
         }
@@ -181,6 +183,9 @@ class HttpServer
         if (Facade::getFacadeApplication()) {
             FContext::set("server", $swooleServer, true, true);
         }
+        
+        //配置重载
+        Config::reload();
     }
 
     public function onWorkerStop(SwooleServer $swooleServer, $workerId)

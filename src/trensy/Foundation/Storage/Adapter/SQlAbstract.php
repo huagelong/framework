@@ -13,6 +13,8 @@
 
 namespace Trensy\Foundation\Storage\Adapter;
 
+use Trensy\Support\Log;
+
 abstract class SQlAbstract
 {
     protected $hasTran = 0;//是否有事务
@@ -590,4 +592,84 @@ abstract class SQlAbstract
     {
         self::$_sql = [];
     }
+
+    /**
+     *  导入
+     *  
+     * @param $sqlPath
+     * @param string $old_prefix
+     * @param string $new_prefix
+     * @return bool
+     */
+    function import($sqlPath,$old_prefix="",$new_prefix=""){
+        if(is_file($sqlPath)){
+            $txt = file_get_contents($sqlPath);
+            if(!$txt) return true;
+            $sqlArr = $this->clearSql($txt,$old_prefix,$new_prefix);
+//            dump($sqlArr);
+            if($sqlArr){
+                foreach ($sqlArr as $sv){
+                    Log::show($sv);
+                    $this->exec($sv);
+                }
+            }
+        }
+        return true;
+    }
+
+    /*
+		参数：
+		$old_prefix:原表前缀；
+		$new_prefix:新表前缀；
+		$separator:分隔符 参数可为";\n"或";\r\n"或";\r"
+	*/
+    function clearSql($content,$old_prefix="",$new_prefix="",$separator=";\n")
+    {
+        $commenter = array('#','--','\/\*');
+        $content = str_replace(array($old_prefix, "\r"), array($new_prefix, "\n"), $content);//替换前缀
+        //通过sql语法的语句分割符进行分割
+        $segment = explode($separator,trim($content));
+        //去掉注释和多余的空行
+        $data=array();
+        foreach($segment as  $statement)
+        {
+            $sentence = explode("\n",$statement);
+            $newStatement = array();
+            foreach($sentence as $subSentence)
+            {
+                if('' != trim($subSentence))
+                {
+                    //判断是会否是注释
+                    $isComment = false;
+                    foreach($commenter as $comer)
+                    {
+                        if(preg_match("/^(".$comer.")/is",trim($subSentence)))
+                        {
+                            $isComment = true;
+                            break;
+                        }
+                    }
+                    //如果不是注释，则认为是sql语句
+                    if(!$isComment)
+                        $newStatement[] = $subSentence;
+                }
+            }
+            $data[] = $newStatement;
+        }
+        //组合sql语句
+        foreach($data as  $statement)
+        {
+            $newStmt = '';
+            foreach($statement as $sentence)
+            {
+                $newStmt = $newStmt.trim($sentence)."\n";
+            }
+            if(!empty($newStmt))
+            {
+                $result[] = $newStmt;
+            }
+        }
+        return $result;
+    }
+
 }

@@ -63,9 +63,9 @@ class Config implements ConfigInterface
         $dir = Dir::formatPath($dir);
         $sharePath = $dir . "share";
         $shareConfig = self::getDirConfig($sharePath);
-
         $env = RunMode::getEnv();
         $envPath = $dir . $env;
+//        var_dump($shareConfig);
         $envConfig = self::getDirConfig($envPath);
 
         $config = Arr::merge($shareConfig, $envConfig);
@@ -83,13 +83,12 @@ class Config implements ConfigInterface
     {
         $dir = Dir::formatPath($dir);
         $config = [];
-
         if (is_dir($dir)) {
             $configFiles = Dir::glob($dir, '*.php', Dir::SCAN_BFS);
             foreach ($configFiles as $file) {
                 $keyString = substr($file, strlen($dir), -4);
                 if (preg_match("/_\w*/", $keyString)) continue;
-                $loadedConfig = require_once($file);
+                $loadedConfig = require($file);
                 if($loadedConfig === true) continue;
                 if (!is_array($loadedConfig)) {
                     continue;
@@ -129,6 +128,8 @@ class Config implements ConfigInterface
         if (!self::$allConfig) {
             self::getAll();
         }
+//        var_dump(self::$configPath);
+//        var_dump(self::$allConfig);
         if (!$key) {
             return $default;
         }
@@ -136,8 +137,16 @@ class Config implements ConfigInterface
         return $result;
     }
 
+    /**
+     * 配置重新加载
+     *
+     */
+    public static function reload(){
+        self::$allConfig = null;
+    }
+
     public function __destruct()
     {
-        self::$configPath = null;
+        self::$allConfig = null;
     }
 }

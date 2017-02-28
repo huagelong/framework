@@ -15,6 +15,7 @@ namespace Trensy\Server;
 use Trensy\Http\Request;
 use Trensy\Http\Response;
 use Trensy\Server\Exception\InvalidArgumentException;
+use Trensy\Support\RunMode;
 
 class HttpSendFile
 {
@@ -119,14 +120,9 @@ class HttpSendFile
             $extension = 'php';
             return $this->analyse = [$isFile, $filePath, $extension, '', $notFound];
         }
-        
-        $staticPath = isset($this->config["static_public_path"]) ? $this->config["static_public_path"] : "";
-        
-        if (!$staticPath) {
-            throw new InvalidArgumentException(" config httpserver.static_public_path not config");
-        }
-        
-        $staticPath = rtrim($staticPath, DIRECTORY_SEPARATOR);
+
+        $staticPath = isset($this->config["static_path"]) ? $this->config["static_path"] : "";
+        $staticPath = dirname($staticPath);
 
         $filePath = $staticPath . $pathinfo;
         $mime = Mime::get();

@@ -114,9 +114,9 @@ class RpcBase
         switch ($command) {
             case 'status':
                 if ($masterPid) {
-                    Log::sysinfo("[$serverName] already running");
+                    Log::sysinfo("$serverName already running");
                 } else {
-                    Log::sysinfo("[$serverName] run");
+                    Log::sysinfo("$serverName run");
                 }
                 break;
             case 'start':
@@ -124,11 +124,15 @@ class RpcBase
                 break;
             case 'stop':
                 self::stop($appName);
-                Log::sysinfo("[$serverName] stop success ");
+                Log::sysinfo("$serverName stop success ");
                 break;
             case 'restart':
                 self::stop($appName);
                 self::start($config, $root, $appName);
+                break;
+            case 'reload':
+                self::reload($appName);
+                Log::sysinfo("$serverName reload success ");
                 break;
             default :
                 return "";
@@ -136,10 +140,16 @@ class RpcBase
     }
 
 
+    protected static function reload($appName)
+    {
+        $killStr = $appName . "-rpc-manage";
+        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -USR1");
+    }
+
     protected static function stop($appName)
     {
         $killStr = $appName . "-rpc";
-        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9", $masterPidArr);
+        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9");
     }
 
     protected static function start($config, $root, $appName)

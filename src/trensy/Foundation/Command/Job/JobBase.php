@@ -67,42 +67,49 @@ class JobBase
         $config['server'] = Arr::merge($defaultConfig, $config['server']);
         $config['server']['name'] = $appName;
 
-        $serverName = $appName . "-job-master";
-        exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
+        $serverName = $appName . "-job";
+        $serverMaster = $appName . "-job-master";
+        exec("ps axu|grep " . $serverMaster . "$|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {
-            Log::sysinfo("[$serverName] already running");
+            Log::sysinfo("$serverName already running");
             return;
         }
 
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
-            Log::sysinfo("[$serverName] not run");
+            Log::sysinfo("$serverName not run");
             return;
         }
         // execute command.
         switch ($command) {
             case 'status':
                 if ($masterPid) {
-                    Log::sysinfo("[$serverName] already running");
+                    Log::sysinfo("$serverName already running");
                 } else {
-                    Log::sysinfo("[$serverName] not run");
+                    Log::sysinfo("$serverName not run");
                 }
                 break;
             case 'clear':
                 $jobServer = new JobServer($config, $root);
                 $jobServer->clear();
+                Log::sysinfo("$serverName clear success ");
                 break;
             case 'start':
                 self::start($config, $root);
                 break;
             case 'stop':
                 self::stop($appName);
-                Log::sysinfo("[$serverName] stop success ");
+                Log::sysinfo("$serverName stop success ");
                 break;
             case 'restart':
                 self::stop($appName);
                self::start($config, $root);
+                break;
+            case 'reload':
+                self::reload($appName);
+                Log::sysinfo("$serverName reload success ");
+//                self::start($config, $root);
                 break;
             default :
                 exit(0);
@@ -112,7 +119,14 @@ class JobBase
     protected static function stop($appName)
     {
         $killStr = $appName . "-job";
-        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9", $masterPidArr);
+        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9");
+    }
+
+    protected static function reload($appName)
+    {
+        $killStr = $appName . "-job-worker";
+        $execStr = "ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -USR1";
+        exec($execStr);
     }
 
     protected static function start($config, $root)

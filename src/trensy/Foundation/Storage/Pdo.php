@@ -98,6 +98,8 @@ class Pdo extends SQlAdapter
             || strtolower(substr($sql, 0, 5)) == 'begin'
             || strtolower(substr($sql, 0, 6)) == 'commit'
             || strtolower(substr($sql, 0, 8)) == 'rollback'
+            || strtolower(substr($sql, 0, 3)) == 'set'
+            || strtolower(substr($sql, 0, 5)) == 'alter'
         )
         ) {
             throw new \Exception("only run on select");

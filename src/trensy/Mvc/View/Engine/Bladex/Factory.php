@@ -11,6 +11,7 @@ use Trensy\Mvc\View\Engine\Bladex\Support\Str;
 use Trensy\Di\Di;
 use Trensy\Server\Facade\Task;
 use Trensy\Support\Dir;
+use Trensy\Support\RunMode;
 use Trensy\Support\Tool;
 
 class Factory
@@ -109,6 +110,7 @@ class Factory
     protected $config = [];
 
     protected $viewPath = null;
+    
 
     /**
      * Create a new view factory instance.
@@ -127,57 +129,21 @@ class Factory
         $this->share('__env', $this);
     }
 
-    public function jsHolder()
+    public function requireStatic($path)
     {
-        if(!$this->viewPath) return ;
-        list($staticMap) = $this->config;
-        $viewPath = ltrim($this->viewPath, "/");
-        if(isset($staticMap['view'][$viewPath]['js'])){
-            $jsData = $staticMap['view'][$viewPath]['js'];
-            if($jsData){
-                foreach ($jsData as $v){
-                    if(isset($staticMap['file'][$v]['realPath'])){
-                        $realFile = $staticMap['file'][$v]['realPath'];
-                    }else{
-                        $realFile = $v;
-                    }
-                    echo "<script src=\"" . $realFile . "\"></script>" . PHP_EOL;
-                }
-            }
+        list($version, $bladexEx, $runMode) = $this->config;
+        if($runMode == RunMode::RUN_MODE_TEST) {
+            $version = time();
+        }
+        $ext = pathinfo($path, PATHINFO_EXTENSION);
+        if($ext == 'js'){
+            return "<script src=\"" . $path . "?".$version."\"></script>" . PHP_EOL;
+        }
+        if($ext == 'css'){
+            return "<link rel=\"stylesheet\" href=\"" . $path . "?".$version."\">" . PHP_EOL;
         }
     }
-
-    public function cssHolder()
-    {
-        if(!$this->viewPath) return ;
-        list($staticMap) = $this->config;
-        $viewPath = ltrim($this->viewPath, "/");
-        if(isset($staticMap['view'][$viewPath]['css'])){
-            $cssData = $staticMap['view'][$viewPath]['css'];
-            if($cssData){
-                foreach ($cssData as $v){
-                    if(isset($staticMap['file'][$v]['realPath'])){
-                        $realFile = $staticMap['file'][$v]['realPath'];
-                    }else{
-                        $realFile = $v;
-                    }
-                    echo "<link rel=\"stylesheet\" href=\"" . $realFile . "\">" . PHP_EOL;
-                }
-            }
-        }
-    }
-
-    public function startStatic()
-    {
-        ob_start();
-        return "";
-    }
-
-    public function endStatic($type='js')
-    {
-        ob_clean();
-        return "";
-    }
+    
 
     /**
      * Get the evaluated view contents for the given view.

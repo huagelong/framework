@@ -17,9 +17,11 @@ use Trensy\Http\Request;
 use Trensy\Http\Response;
 use Trensy\Mvc\AssignData;
 use Trensy\Mvc\Template;
+use Trensy\Mvc\View\Engine\Bladex\Factory;
 use Trensy\Support\Arr;
 use Trensy\Support\Dir;
 use Trensy\Support\ElapsedTime;
+use Trensy\Support\RunMode;
 use Trensy\Support\Tool;
 
 class Controller
@@ -42,8 +44,6 @@ class Controller
      * @var \Trensy\Http\Response
      */
     protected $response = null;
-    
-    protected static $staticMap = null;
 
 
     public function __construct(Request $request = null, Response $response = null)
@@ -95,32 +95,21 @@ class Controller
         $assign = Arr::merge($assign, $this->response->view->getAssignData());
         
         $staticPath = rtrim(Config::get("server.httpd.server.static_path"), "/");
-        $staticCompilePath = Config::get("server.httpd.server.static_public_path");
 
         if (!$staticPath) {
             Log::error("server.httpd.server.static_path not set");
             return;
         }
-
-        if (!$staticCompilePath) {
-            Log::error("server.httpd.server.static_public_path not set");
-            return;
-        }
-
-        $staticCompilePath = Dir::formatPath($staticCompilePath);
-        $staticMapPath = $staticCompilePath."/static/map.php";
         
-        if(!self::$staticMap && is_file($staticMapPath)){
-            self::$staticMap = include($staticMapPath);
-        }
-
-//        $staticPath = str_replace(Dir::formatPath(ROOT_PATH), "", $staticPath);
         $bladexEx = Config::get("server.httpd.server.view.bladex_ex");
-        $config = [self::$staticMap, $bladexEx];
+        //执行环境
+        $version = Config::get("server.httpd.server.view.static_version");
+        $runMode = RunMode::getRunMode();
+        $config = [$version, $bladexEx, $runMode];
         $template->setConfig($config);
 
         $content = $template->render($viewPath, $assign);
-       
+
         return $content;
     }
 

@@ -1021,8 +1021,8 @@ class BladexCompiler extends Compiler implements CompilerInterface
 
     protected function compileStatic($expression, $match)
     {
-//        $params = explode(",", $match[4]);
-//        return "<?php echo \$__env->requireStatic($params[0]); ? >";
+        $params = explode(",", $match[4]);
+        return "<?php echo \$__env->requireStatic($params[0]); ?>";
     }
 
     protected function compileL($expression)
@@ -1038,34 +1038,5 @@ class BladexCompiler extends Compiler implements CompilerInterface
 
         return "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
     }
-
-    protected function compileJsholder($expression)
-    {
-        return "<?php \$__env->jsHolder{$expression}; ?>";
-    }
     
-    protected function compileCssholder($expression)
-    {
-        return "<?php \$__env->cssHolder{$expression}; ?>";
-    }
-
-    protected function compileJs($expression)
-    {
-        return '<?php $__env->startStatic(); ?>';
-    }
-
-    protected function compileCss($expression)
-    {
-        return '<?php $__env->startStatic(); ?>';
-    }
-
-    protected function compileEndjs($expression)
-    {
-        return '<?php $__env->endStatic("js"); ?>';
-    }
-
-    protected function compileEndcss($expression)
-    {
-        return '<?php $__env->endStatic("css"); ?>';
-    }
 }

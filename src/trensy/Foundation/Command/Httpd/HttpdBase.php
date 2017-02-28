@@ -111,8 +111,9 @@ class HttpdBase
         }
 
 
-        $serverName = $appName . "-httpd-master";
-        exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
+        $serverName = $appName . "-httpd";
+        $serverMaster = $appName . "-httpd-master";
+        exec("ps axu|grep " . $serverMaster . "$|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {
@@ -123,15 +124,15 @@ class HttpdBase
         self::BladeCompileInit();
 
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
-            Log::sysinfo("[$serverName] not run");
+            Log::sysinfo("$serverName not run");
             return;
         }
         switch ($command) {
             case 'status':
                 if ($masterPid) {
-                    Log::sysinfo("[$serverName]  already running");
+                    Log::sysinfo("$serverName  already running");
                 } else {
-                    Log::sysinfo("[$serverName]  not run");
+                    Log::sysinfo("$serverName  not run");
                 }
                 break;
             case 'start':
@@ -139,11 +140,15 @@ class HttpdBase
                 break;
             case 'stop':
                 self::stop($appName);
-                Log::sysinfo("[$serverName] stop success ");
+                Log::sysinfo("$serverName stop success ");
                 break;
             case 'restart':
                 self::stop($appName);
                 self::start($config, $adapter, $appName);
+                break;
+            case 'reload':
+                self::reload($appName);
+                Log::sysinfo("$serverName reload success ");
                 break;
             default :
                 return "";
@@ -160,16 +165,22 @@ class HttpdBase
     }
     
 
+    protected static function reload($appName)
+    {
+        $killStr = $appName . "-httpd-manage";
+        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -USR1");
+    }
+
 
     protected static function stop($appName)
     {
         $killStr = $appName . "-httpd";
-        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9", $masterPidArr);
+        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9");
     }
 
     protected static function start($config, $adapter, $appName)
     {
-        self::staticRelealse($config['server']);
+//        self::staticRelealse($config['server']);
         $swooleServer = new \swoole_websocket_server($config['server']['host'], $config['server']['port']);
         $obj = new WSServer($swooleServer, $config['server'], $adapter, $appName);
         $obj->start();

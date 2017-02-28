@@ -15,6 +15,7 @@
 namespace Trensy\Server;
 
 use swoole_server as SwooleServer;
+use Trensy\Config\Config;
 use Trensy\Support\Event;
 use Trensy\Mvc\Route\Base\Exception\ResourceNotFoundException;
 use Trensy\Server\Facade\Context as FContext;
@@ -164,10 +165,13 @@ class SocketServer
             swoole_set_process_name($this->serverName . "-worker");
             Log::sysinfo($this->serverName . " worker start ..... ");
         }
+
         $this->adapter->bootstrap();
         if (Facade::getFacadeApplication()) {
             FContext::set("server", $swooleServer, true, true);
         }
+        //配置重载
+        Config::reload();
     }
 
     public function onWorkerStop(SwooleServer $swooleServer, $workerId)
