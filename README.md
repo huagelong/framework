@@ -36,4 +36,4 @@ http://127.0.0.1:7000/
 
 * 欢迎大家发起pull request, 一起完善项目.
 
-[文档](doc/index.md)
+[文档](https://github.com/trensy/doc)
