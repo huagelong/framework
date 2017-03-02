@@ -108,8 +108,6 @@ class Factory
     protected $renderCount = 0;
 
     protected $config = [];
-
-    protected $viewPath = null;
     
 
     /**
@@ -119,12 +117,11 @@ class Factory
      * @param  \Trensy\Mvc\View\Engine\Bladex\ViewFinderInterface $finder
      * @return void
      */
-    public function __construct(EngineResolver $engines, ViewFinderInterface $finder, $view, $config)
+    public function __construct(EngineResolver $engines, ViewFinderInterface $finder, $config)
     {
         $this->finder = $finder;
         $this->engines = $engines;
         $this->config = $config;
-        $this->viewPath = $view;
         
         $this->share('__env', $this);
     }

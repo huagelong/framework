@@ -124,6 +124,7 @@ class Application
             new Command\Artisan\Optimize(),
             new Command\Artisan\Clean(),
             new Command\Artisan\Dbsync(),
+            new Command\Artisan\Mysqlschema(),
             new Command\Monitor\Start(),
             new Command\Monitor\Restart(),
             new Command\Monitor\Status(),

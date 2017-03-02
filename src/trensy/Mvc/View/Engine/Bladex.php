@@ -89,7 +89,7 @@ class Bladex implements ViewInterface
         $path = is_array($path)?$path:[$path];
         $finder = new FileViewFinder($path);
         
-        $factory = new Factory($resolver, $finder, $view, $this->config);
+        $factory = new Factory($resolver, $finder, $this->config);
 
         $result= $factory->make($view, $data, [])->render();
         
