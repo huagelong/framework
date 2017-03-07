@@ -17,7 +17,7 @@ class Mime
 {
     protected static $mime = [];
 
-    const MIME = [
+    protected static $mimeArr = [
         "text/html" => "html htm shtml",
         "text/css" => "css map",
         "text/xml" => "xml",
@@ -108,7 +108,7 @@ class Mime
     {
         if (self::$mime) return self::$mime;
 
-        $mimeConfig = self::MIME;
+        $mimeConfig = self::$mimeArr;
 
         $tmp = [];
         foreach ($mimeConfig as $k => $v) {

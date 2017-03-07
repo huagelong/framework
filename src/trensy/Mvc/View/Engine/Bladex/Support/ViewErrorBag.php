@@ -77,7 +77,8 @@ class ViewErrorBag implements Countable
      */
     public function __call($method, $parameters)
     {
-        return $this->getBag('default')->$method(...$parameters);
+        return call_user_func_array([$this->getBag('default'), $method], $parameters);
+//        return $this->getBag('default')->$method(...$parameters);
     }
 
     /**

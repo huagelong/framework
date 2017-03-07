@@ -79,7 +79,8 @@ class Redis
     protected function run($name ,$arguments)
     {
         if ($arguments) {
-            $result = self::$conn->$name(...$arguments);
+            $result =  call_user_func_array([self::$conn, $name], $arguments);
+//            $result = self::$conn->$name(...$arguments);
         } else {
             $result = self::$conn->$name();
         }

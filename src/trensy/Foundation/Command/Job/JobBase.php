@@ -69,7 +69,7 @@ class JobBase
 
         $serverName = $appName . "-job";
         $serverMaster = $appName . "-job-master";
-        exec("ps axu|grep " . $serverMaster . "$|awk '{print $2}'", $masterPidArr);
+        exec("ps axu|grep " . $serverMaster . "$|grep -v grep|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {
@@ -119,13 +119,14 @@ class JobBase
     protected static function stop($appName)
     {
         $killStr = $appName . "-job";
-        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9");
+        exec("ps axu|grep " . $killStr . "|grep -v grep|awk '{print $2}'|xargs kill -9");
+        sleep(1);
     }
 
     protected static function reload($appName)
     {
         $killStr = $appName . "-job-worker";
-        $execStr = "ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -USR1";
+        $execStr = "ps axu|grep " . $killStr . "|grep -v grep|awk '{print $2}'|xargs kill -USR1";
         exec($execStr);
     }
 

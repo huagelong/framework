@@ -32,7 +32,6 @@ class Dbsync extends Base
             ->addArgument("config",InputArgument::OPTIONAL, "sync database config")
             ->addArgument("sqlpath",InputArgument::OPTIONAL, "sql file dir path")
             ->addArgument("prefix",InputArgument::OPTIONAL, "database table prefix")
-            ->addOption("--init", "-i", InputOption::VALUE_NONE, "dbsync init")
             ->setDescription('database sync project');
     }
 
@@ -51,27 +50,15 @@ class Dbsync extends Base
         $newPrefix = $inputConfig['prefix'];
         $this->tableName = "{$newPrefix}dbsync";
 
-        $init = $input->getOption("init");
-
         //判断表格是否存在
         $db = new Pdo($inputConfig);
         $sql =  "SHOW TABLES like '{$this->tableName}'";
         $checkData = $db->fetch($sql);
 
-        if($init){
-            if($checkData){
-                Log::error("dbSync initialize already done, please retry after removing table({$this->tableName})");
-                return ;
-            }
-            $sql = "CREATE TABLE `{$this->tableName}` ( `id` INT NOT NULL AUTO_INCREMENT , `filename` VARCHAR(100) NOT NULL , `created_at` TIMESTAMP NOT NULL , `updated_at` TIMESTAMP NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci";
+        if(!$checkData){
+            $sql = "CREATE TABLE `{$this->tableName}` ( `id` INT NOT NULL AUTO_INCREMENT , `filename` VARCHAR(100) NOT NULL DEFAULT '', `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci";
             $db->exec($sql);
             Log::sysinfo("dbSync initialize success!");
-            return ;
-        }
-
-        if(!$checkData){
-            Log::error("dbSync must initialize, please run 'dbsync --init'");
-            return ;
         }
 
         $this->importDb($inputConfig, $sqlpath, $prefix);
@@ -128,17 +115,15 @@ class Dbsync extends Base
             Log::sysinfo("no sql need import");
             return ;
         }
-
         foreach ($files as $v){
             $filePath = $sqlpath.$v.".sql";
             Log::sysinfo("start import :". $filePath);
             $db->import($filePath, $newPrefix, $prefix);
-            //todo
             $insertData = [];
             $insertData['filename'] = $v;
             $insertData['created_at'] = date('Y-m-d H:i:s');
             $insertData['updated_at'] = date('Y-m-d H:i:s');
-            $db->insert($insertData, "dbsync");
+             $db->insert($insertData, "dbsync");
         }
     }
 

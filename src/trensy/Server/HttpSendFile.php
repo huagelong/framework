@@ -85,8 +85,13 @@ class HttpSendFile
 
         if ($readFile) {
             $this->response->header("Content-Type", $mime);
-            $this->response->sendfile($filePath);
-
+            //bug macos sendfile slow
+            if(strtolower(PHP_OS) == 'darwin'){
+                $data = file_get_contents($filePath);
+                $this->response->end($data);
+            }else{
+                $this->response->sendfile($filePath);
+            }
         } else {
             $this->response->end();
         }

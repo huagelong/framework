@@ -74,11 +74,10 @@ class RpcBase
             //reactor数量，推荐2
             'reactor_num' => 2,
             "dispatch_mode" => 2,
-            'static_path' => $root . '/public',
             "gzip" => 4,
             "static_expire_time" => 86400,
             "task_worker_num" => 5,
-            "task_fail_log" => "/tmp/task_fail_log",
+            "task_fail_log" => "/tmp/trensy/task_fail_log",
             "task_retry_count" => 2,
             "serialization" => 1,
             "mem_reboot_rate" => 0,
@@ -88,6 +87,8 @@ class RpcBase
             'package_length_offset' => 0,
             'package_body_offset' => 4,
             'package_max_length' => 2000000,
+            "pid_file" => "/tmp/trensy/pid",
+            'open_tcp_nodelay' => 1,
         ];
 
         $config['server'] = Arr::merge($defaultConfig, $config['server']);
@@ -98,7 +99,7 @@ class RpcBase
         
         
         $serverName = $appName . "-rpc-master";
-        exec("ps axu|grep " . $serverName . "$|awk '{print $2}'", $masterPidArr);
+        exec("ps axu|grep " . $serverName . "$|grep -v grep|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {
@@ -143,13 +144,14 @@ class RpcBase
     protected static function reload($appName)
     {
         $killStr = $appName . "-rpc-manage";
-        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -USR1");
+        exec("ps axu|grep " . $killStr . "|grep -v grep|awk '{print $2}'|xargs kill -USR1");
     }
 
     protected static function stop($appName)
     {
         $killStr = $appName . "-rpc";
-        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9");
+        exec("ps axu|grep " . $killStr . "|grep -v grep|awk '{print $2}'|xargs kill -9");
+        sleep(1);
     }
 
     protected static function start($config, $root, $appName)

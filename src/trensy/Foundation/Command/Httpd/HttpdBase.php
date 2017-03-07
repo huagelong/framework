@@ -77,11 +77,11 @@ class HttpdBase
             "dispatch_mode" => 2,
             //reactor数量，推荐2
             'reactor_num' => 2,
-            'static_path' => $root . '/public',
+            'static_path' => '/tmp/trensy/resource/static',
             "gzip" => 4,
             "static_expire_time" => 86400,
             "task_worker_num" => 5,
-            "task_fail_log" => "/tmp/task_fail_log",
+            "task_fail_log" => "/tmp/trensy/task_fail_log",
             "task_retry_count" => 2,
             "serialization" => 1,
             "mem_reboot_rate" => 0,
@@ -91,7 +91,7 @@ class HttpdBase
             'package_length_offset' => 0,
             'package_body_offset' => 4,
             'package_max_length' => 8 * 1024 * 1024,//默认8M
-            "pid_file" => "/tmp/pid",
+            "pid_file" => "/tmp/trensy/pid",
             'open_tcp_nodelay' => 1,
         ];
 
@@ -113,7 +113,7 @@ class HttpdBase
 
         $serverName = $appName . "-httpd";
         $serverMaster = $appName . "-httpd-master";
-        exec("ps axu|grep " . $serverMaster . "$|awk '{print $2}'", $masterPidArr);
+        exec("ps axu|grep " . $serverMaster . "$|grep -v grep|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {
@@ -168,19 +168,19 @@ class HttpdBase
     protected static function reload($appName)
     {
         $killStr = $appName . "-httpd-manage";
-        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -USR1");
+        exec("ps axu|grep " . $killStr . "|grep -v grep|awk '{print $2}'|xargs kill -USR1");
     }
 
 
     protected static function stop($appName)
     {
         $killStr = $appName . "-httpd";
-        exec("ps axu|grep " . $killStr . "|awk '{print $2}'|xargs kill -9");
+        exec("ps axu|grep " . $killStr . "|grep -v grep|awk '{print $2}'|xargs kill -9");
+        sleep(1);
     }
 
     protected static function start($config, $adapter, $appName)
     {
-//        self::staticRelealse($config['server']);
         $swooleServer = new \swoole_websocket_server($config['server']['host'], $config['server']['port']);
         $obj = new WSServer($swooleServer, $config['server'], $adapter, $appName);
         $obj->start();
@@ -223,52 +223,5 @@ class HttpdBase
         }
     }
 
-    /**
-     * 静态文件发布
-     * @param $staticPath
-     * @param $staticMap
-     * @param $staticCompilePath
-     */
-    protected static function staticRelealse($config)
-    {
-        $staticPath = rtrim(array_isset($config, "static_path"), "/");
-        $staticCompilePath = array_isset($config, "static_public_path");
-
-        $viewPath = isset($config['view']['path']) ? $config['view']['path'] : "";
-
-        if (!$viewPath) {
-            Log::error("server.httpd.server.view.path not set");
-            return;
-        }
-
-        if (!$staticPath) {
-            Log::error("server.httpd.server.static_path not set");
-            return;
-        }
-
-        if (!$staticCompilePath) {
-            Log::error("server.httpd.server.static_public_path not set");
-            return;
-        }
-
-        $viewPath = Dir::formatPath($viewPath);
-        $staticCompilePath = Dir::formatPath($staticCompilePath);
-
-        $staticCompilePath = $staticCompilePath . "static/";
-        if (!is_dir($staticCompilePath)) mkdir($staticCompilePath, 0777, true);
-
-        $staticCompileExt = array_isset($config, "static_compile_ext");
-
-        $exts = ["js", "css", "png", "gif", "jpg"];
-        if (!$staticCompileExt) {
-            $staticCompileExt = $exts;
-        }
-
-        $staticDir = basename($staticPath);
-
-        $obj = new \Trensy\Mvc\View\Engine\Bladex\Asset();
-        $staticPath = Dir::formatPath($staticPath);
-        $obj->createDiffAsset($staticPath, $staticCompilePath, $staticCompileExt, $viewPath, $staticDir, [$staticPath.'ui/node_modules']);
-    }
 
 }

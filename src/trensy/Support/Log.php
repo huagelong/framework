@@ -65,10 +65,15 @@ class Log
     protected static function getOlineIp()
     {
         if(Content::hasSet("request")){
-            $ip = FContent::request()->server->get("HTTP_X_FORWARDED_FOR");
-            if(!$ip){
-                $ip = FContent::request()->server->get("REMOTE_ADDR");
-            }
+            $request = FContent::request();
+            $ip = $request->headers->get('x-forwarded-for');
+            !$ip && $ip = $request->headers->get('x-real-ip', '127.0.0.1');
+
+            is_array($ip) && $ip = $ip[0];
+
+            $ip = explode(',', $ip);
+            is_array($ip) && $ip = $ip[0];
+
             return $ip;
         }else{
             return "127.0.0.1";
