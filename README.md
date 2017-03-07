@@ -24,7 +24,7 @@ sudo chmod 0777 trensy
 
 sudo chmod -R 0777 storage
 
-sudo ./trensy server:restart
+sudo php trensy server:restart
 ```
 
 * 在浏览器打开地址
