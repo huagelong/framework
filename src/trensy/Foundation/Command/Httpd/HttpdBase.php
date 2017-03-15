@@ -101,8 +101,19 @@ class HttpdBase
             mkdir(dirname($config['server']['log_file']), "0777", true);
         }
 
-        if (isset($config['server']['static_path']) && !is_dir($config['server']['static_path'])) {
-            mkdir($config['server']['static_path'], "0777", true);
+        if (isset($config['server']['static_path']) && $config['server']['static_path']) {
+            $staticPathArr = $config['server']['static_path'];
+            if(!is_array($staticPathArr)){
+                if(!is_dir($staticPathArr)){
+                    mkdir($staticPathArr, "0777", true);
+                }
+            }else{
+                   foreach ($staticPathArr as $v){
+                       if(!is_dir($v)){
+                           mkdir($v, "0777", true);
+                       }
+                   }
+            }
         }
 
         $viewCachePath = Config::get("server.httpd.server.view.compile_path");
@@ -120,8 +131,6 @@ class HttpdBase
             Log::sysinfo("httpd server already running");
             return;
         }
-
-        self::BladeCompileInit();
 
         if ($command !== 'start' && $command !== 'restart' && !$masterPid) {
             Log::sysinfo("$serverName not run");
@@ -153,15 +162,6 @@ class HttpdBase
             default :
                 return "";
         }
-    }
-
-    protected static function BladeCompileInit()
-    {
-        $viewStaticPath = Config::get("server.httpd.server.static_path");
-        $viewStaticPath = Dir::formatPath($viewStaticPath);
-        $rootPath = Dir::formatPath(ROOT_PATH);
-        $staticPath = "/" . str_replace($rootPath, "", $viewStaticPath);
-        BladexCompiler::setStaticPath($staticPath);
     }
     
 

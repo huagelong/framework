@@ -48,7 +48,7 @@ class Controller
         $result['statusCode'] = $errorCode;
         $result['msg'] = $errorMsg;
         $result['elapsedTime'] = $elapsedTime;
-        return Tool::my_json_encode($result);
+        return Tool::myJsonEncode($result);
     }
 
     /**

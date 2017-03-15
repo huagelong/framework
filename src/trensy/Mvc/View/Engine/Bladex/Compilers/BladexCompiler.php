@@ -7,7 +7,6 @@ use Trensy\Mvc\View\Engine\Bladex\Support\Str;
 
 class BladexCompiler extends Compiler implements CompilerInterface
 {
-    protected static $staticPath = null;
     protected $staticFile = [];
     protected $staticSource = [];
     /**
@@ -101,12 +100,7 @@ class BladexCompiler extends Compiler implements CompilerInterface
      */
     protected $forelseCounter = 0;
 
-
-
-    public static function setStaticPath($staticPath)
-    {
-        self::$staticPath = $staticPath;
-    }
+    
 
     /**
      * Compile the view at the given path.
@@ -1011,12 +1005,12 @@ class BladexCompiler extends Compiler implements CompilerInterface
 
     protected function compileUri($expression)
     {
-        return "<?php echo \Trensy\Mvc\Route\RouteMatch::getInstance()->url{$expression}; ?>";
+        return "<?php echo \Trensy\Mvc\Route\RouteMatch::getInstance()->simpleUrl{$expression}; ?>";
     }
 
     protected function compileUrl($expression)
     {
-        return "\Trensy\Mvc\Route\RouteMatch::getInstance()->url{$expression}";
+        return "\Trensy\Mvc\Route\RouteMatch::getInstance()->simpleUrl{$expression}";
     }
 
     protected function compileStatic($expression, $match)

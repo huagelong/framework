@@ -26,6 +26,8 @@ use Trensy\Mvc\Route\Base\RouteCollection as BaseRouteCollection;
 use Trensy\Mvc\Route\Exception\PageNotFoundException;
 use Trensy\Support\Arr;
 use Trensy\Support\Log;
+use Trensy\Server\Facade\Context as FContext;
+
 
 class RouteMatch
 {
@@ -39,6 +41,13 @@ class RouteMatch
     protected static $collectionInstance = null;
 
     protected static $middlewareConfig = [];
+
+    protected static $dispatch = [];
+
+    public static function getDispatch()
+    {
+        return self::$dispatch;
+    }
 
     /**
      *  instance
@@ -113,11 +122,59 @@ class RouteMatch
     {
         $rootCollection = $this->getRootCollection();
         $context = new RequestContext();
-        $context->fromRequest(Request::createFromGlobals());
+        $request = FContext::request();
+        if(!$request){
+            $request = Request::createFromGlobals();
+        }
+        $context->fromRequest($request);
         $matcher = new UrlMatcher($rootCollection, $context);
         $url = $this->groupFilter($url);
         $parameters = $matcher->match($url);
+        $parameters['_matchinfo'] = $this->setDispatch($parameters);
         return $parameters;
+    }
+
+    /**
+     * 获取分派信息
+     *
+     * @param $parameters
+     * @return bool
+     */
+    protected function setDispatch($match)
+    {
+
+        $mathResult = [];
+        if(isset($match['_route']) && $match['_route']) {
+            $routeName = $match['_route'];
+            $mathResult['groupName'] = substr($routeName, 0, strpos($routeName, '@'));
+            $mathResult['routeName'] = substr($routeName, strpos($routeName, '@')+1);
+        }
+
+        if(isset($match['_controller']) && $match['_controller']) {
+            $controller = $match['_controller'];
+            $mathResult['controller'] = $controller;
+        }
+        return $mathResult;
+    }
+
+    /**
+     * 简化url调用
+     *
+     * @param $routeName
+     * @param array $params
+     * @param string $groupName
+     * @return mixed
+     */
+    public function simpleUrl($routeName, $params = [], $groupName='')
+    {
+        if($groupName){
+            $routeName = $groupName."@".$routeName;
+        }else{
+            if(isset(self::$dispatch['groupName']) && self::$dispatch['groupName']){
+                $routeName = self::$dispatch['groupName']."@".$routeName;
+            }
+        }
+        return $this->url($routeName, $params);
     }
 
 
@@ -140,7 +197,12 @@ class RouteMatch
 
         $rootCollection = $this->getRootCollection();
         $context = new RequestContext();
-        $context->fromRequest(Request::createFromGlobals());
+        $request = FContext::request();
+        if(!$request){
+            $request = Request::createFromGlobals();
+        }
+        $context->fromRequest($request);
+        
         $generator = new UrlGenerator($rootCollection, $context);
         $url = $generator->generate($routeName, $params);
 
@@ -160,15 +222,21 @@ class RouteMatch
     {
         $this->sessionStart($request, $response);
 
-        $sysCacheKey = md5(__CLASS__ . $url);
+        $serverStr = $request->server->get("REQUEST_METHOD");
+        $serverStr .= $request->server->get("HTTP_HOST");
+
+        $sysCacheKey = md5(__CLASS__ . $url.$serverStr);
 
         $parameters = syscache()->get($sysCacheKey);
-        
+
+
         if (!$parameters) {
             $parameters = $this->match($url);
             syscache()->set($sysCacheKey, $parameters, 3600);
         }
-        
+
+        self::$dispatch = $parameters['_matchinfo'];
+
         if ($parameters) {
             $secondReq = [];
             foreach ($parameters as $k => $v) {
@@ -226,9 +294,7 @@ class RouteMatch
                 }
             }
 
-            if ($requestData) $require = Arr::merge($require, $requestData);
-
-            return $this->runBase($require, $parameters, [$serv, $fd]);
+            return $this->runBase($require, $parameters, [$serv, $fd, $requestData]);
         }
         return "";
     }
@@ -269,10 +335,9 @@ class RouteMatch
                             $result = call_user_func_array([$obj, $action], $realParams);
                         } else {
                             //tcp
-                            list($serv, $fd) = $otherData;
-                            $obj = new $controller($serv, $fd);
-                            $postData = $otherData+$require;
-                            $check = $this->todoMiddleWare($obj, $action, $middleware, $postData);
+                            list($serv, $fd, $requestData) = $otherData;
+                            $obj = new $controller($serv, $fd, $requestData);
+                            $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
                             if(!$check) return ;
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require);
                             $result = call_user_func_array([$obj, $action], $realParams);

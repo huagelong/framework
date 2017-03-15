@@ -42,7 +42,7 @@ class Dbsync extends Base
         $inputConfig = $inputConfig?$inputConfig:$storageConfig;
 
         $sqlpath = $input->getArgument("sqlpath");
-        $sqlpath = $sqlpath?$sqlpath:APPLICATION_PATH."/resource/sql/";
+        $sqlpath = $sqlpath?$sqlpath:APPLICATION_PATH."/sql/";
 
         $prefix = $input->getArgument("prefix");
         $prefix = $prefix?$prefix:"";

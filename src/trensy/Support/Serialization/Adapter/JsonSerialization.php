@@ -50,7 +50,7 @@ class JsonSerialization extends SerializationAbstract
      */
     public function trans($data)
     {
-        return Tool::my_json_encode($data);
+        return Tool::myJsonEncode($data);
     }
 
     /**

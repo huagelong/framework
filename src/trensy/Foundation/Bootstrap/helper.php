@@ -16,11 +16,12 @@ if (!function_exists('url')) {
      *
      * @param $routeName
      * @param array $params
+     * @param string $groupName
      * @return string
      */
-    function url($routeName, $params = [])
+    function url($routeName, $params = [], $groupName='')
     {
-        return \Trensy\Mvc\Route\RouteMatch::getInstance()->url($routeName, $params);
+        return \Trensy\Mvc\Route\RouteMatch::getInstance()->simpleUrl($routeName, $params, $groupName);
     }
 }
 
@@ -91,8 +92,15 @@ if (!function_exists('dump')) {
     function dump($str, $isReturn=false)
     {
         if(!$isReturn){
-            list($line, $func) = debug_backtrace(2, 2);
-            \Trensy\Support\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
+            $data = debug_backtrace(2, 2);
+            $line = isset($data[0])?$data[0]:null;
+            $func = isset($data[1])?$data[1]:null;
+            if($func){
+                \Trensy\Support\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
+            }
+           else{
+               \Trensy\Support\Log::show(" {$line['file']} . (line:{$line['line']})");
+           }
             return \Trensy\Support\Log::show($str);
         }
         ob_start();

@@ -94,13 +94,6 @@ class Controller
         $assign = Arr::merge($assign, $this->view->getAssignData());
         $assign = Arr::merge($assign, $this->response->view->getAssignData());
         
-        $staticPath = rtrim(Config::get("server.httpd.server.static_path"), "/");
-
-        if (!$staticPath) {
-            Log::error("server.httpd.server.static_path not set");
-            return;
-        }
-        
         $bladexEx = Config::get("server.httpd.server.view.bladex_ex");
         //执行环境
         $version = Config::get("server.httpd.server.view.static_version");
@@ -140,7 +133,7 @@ class Controller
         $result['elapsedTime'] = $elapsedTime;
         $this->response->header("Content-type", "application/json");
         //JSON_NUMERIC_CHECK
-        $content = Tool::my_json_encode($result);
+        $content = Tool::myJsonEncode($result);
         $this->response->end($content, $useZip);
     }
 

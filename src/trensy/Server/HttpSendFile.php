@@ -126,9 +126,18 @@ class HttpSendFile
             return $this->analyse = [$isFile, $filePath, $extension, '', $notFound];
         }
 
-        $staticPath = isset($this->config["static_path"]) ? $this->config["static_path"] : "";
-        $staticPath = dirname($staticPath);
-
+        $staticPath = "";
+        $staticPathConfig = isset($this->config["static_path"]) ? $this->config["static_path"] : "";
+        if(is_array($staticPathConfig)){
+            foreach ($staticPathConfig as $k=>$v){
+                if(preg_match("/".$k."/", $pathinfo)){
+                    $staticPath = dirname($v);
+                    break;
+                }
+            }
+        }else{
+            $staticPath = dirname($staticPathConfig);
+        }
         $filePath = $staticPath . $pathinfo;
         $mime = Mime::get();
         if (is_file($filePath) && isset($mime[$extension])) {

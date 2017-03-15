@@ -34,6 +34,6 @@ class RpcSerialization
 
     public function format($data)
     {
-        $this->serializeObj->format($data);
+        return $this->serializeObj->format($data);
     }
 }

@@ -118,7 +118,7 @@ class Pagination
         $key = $this->_variables['key'];
         list($route, $params) = $routeData;
         $params[$key] = $page;
-        return RouteMatch::getInstance()->url($route, $params);
+        return RouteMatch::getInstance()->simpleUrl($route, $params);
     }
 
     /**

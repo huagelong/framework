@@ -23,7 +23,7 @@ class WSClient extends BaseClient
         $requestData = [];
         $requestData[] = $path;
         $requestData[] = $params;
-        $jsonStr = Tool::my_json_encode($requestData);
+        $jsonStr = Tool::myJsonEncode($requestData);
         try{
             $data = $this->connect();
             if(!$data) throw new \Exception("websocket_connect_error:connect fail!");
