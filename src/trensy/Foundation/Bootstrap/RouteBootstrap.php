@@ -26,29 +26,29 @@ class RouteBootstrap
      *  instance
      * @return \Trensy\Foundation\Bootstrap\RouteBootstrap
      */
-    public static function getInstance()
+    public static function getInstance($configKey='route')
     {
-        if (self::$instance) return self::$instance;
+        if (self::$instance[$configKey]) return self::$instance[$configKey];
 
-        return self::$instance = new self();
+        return self::$instance[$configKey] = new self($configKey);
     }
 
     /**
      * constructor.
      */
-    public function __construct()
+    public function __construct($configKey)
     {
-        $this->loadFromConfig();
+        $this->loadFromConfig($configKey);
     }
 
     /**
      * 通过配置加载route
      */
-    public function loadFromConfig()
+    public function loadFromConfig($configKey)
     {
-        $config = Config::get("route");
+        $config = Config::get($configKey);
         //route 方式自定义
-        $myRoute = Config::get("app.route");
+        $myRoute = Config::get("app.".$configKey);
         if($myRoute){
             $obj = new $myRoute;
             if(!method_exists($obj, "perform")){

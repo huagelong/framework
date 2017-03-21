@@ -157,8 +157,8 @@ class RpcBase
     protected static function start($config, $root, $appName)
     {
         $swooleServer = new \swoole_server($config['server']['host'], $config['server']['port']);
-        $route = new RpcSerialization($config['server']['serialization'], $config['server']['package_body_offset']);
-        $obj = new RpcServer($swooleServer, $route, $config, $root, $appName);
+        $routeSerialize = new RpcSerialization($config['server']['serialization'], $config['server']['package_body_offset']);
+        $obj = new RpcServer($swooleServer, $routeSerialize, $config, $root, $appName);
         $obj->start();
     }
 }

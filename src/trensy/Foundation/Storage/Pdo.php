@@ -103,7 +103,7 @@ class Pdo extends SQlAdapter
             || strtolower(substr($sql, 0, 5)) == 'alter'
         )
         ) {
-            throw new \Exception("only run on select");
+            throw new \Exception("only run on not select");
         }
 
         self::$_sql['sql'] = $sql;
@@ -148,7 +148,7 @@ class Pdo extends SQlAdapter
         try{
             $result = [];
             if (!$method || $method == 'lastInsertId') {
-                self::$conn[$connType]->exec($sql);
+                $result = self::$conn[$connType]->exec($sql);
                 if ($method) {
                     $result = self::$conn[$connType]->$method();
                 }

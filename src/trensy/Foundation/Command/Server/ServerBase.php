@@ -39,7 +39,6 @@ class ServerBase
             Log::sysinfo("server config not config");
             return;
         }
-
         $str = 'Welcome To Trensy!';
         Log::show($str);
         self::doOperate($cmd, $options, $config, $cmdObj);

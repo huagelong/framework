@@ -47,7 +47,7 @@ class Task
     public function __construct()
     {
         $serv = FacedeContext::server();
-
+ 
         if (!$serv) {
             throw new InvalidArgumentException(" swoole server is not get");
         }

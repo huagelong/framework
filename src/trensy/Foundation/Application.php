@@ -50,7 +50,7 @@ class Application
      */
     public function rpcBootstrap()
     {
-        RouteBootstrap::getInstance();
+        RouteBootstrap::getInstance("rpcroute");
     }
 
     /**
