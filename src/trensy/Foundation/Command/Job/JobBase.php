@@ -69,7 +69,7 @@ class JobBase
 
         $serverName = $appName . "-job";
         $serverMaster = $appName . "-job-master";
-        exec("ps axu|grep " . $serverMaster . "$|grep -v grep|awk '{print $2}'", $masterPidArr);
+        exec("ps axu|grep " . $serverMaster . "|grep -v grep|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {

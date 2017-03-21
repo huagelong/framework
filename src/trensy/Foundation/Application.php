@@ -129,19 +129,21 @@ class Application
             new Command\Monitor\Stop(),
             new Command\Monitor\Reload(),
         ];
+
         $config = CConfig::get("app.command");
         if ($config) {
             $commandsTmp = [];
             foreach ($config as $cv){
                 $commandsTmp[] = new $cv;
             }
-            $commands = Arr::merge($commands, $commandsTmp);
+            $commands = array_merge($commands, $commandsTmp);
         }
+
         $application = new CmdApplication();
         foreach ($commands as $v) {
             $application->add($v);
         }
-       
+
         $application->run();
     }
 

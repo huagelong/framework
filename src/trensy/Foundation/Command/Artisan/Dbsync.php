@@ -29,22 +29,22 @@ class Dbsync extends Base
     {
         //InputArgument
         $this->setName('dbsync')
-            ->addArgument("config",InputArgument::OPTIONAL, "sync database config")
-            ->addArgument("sqlpath",InputArgument::OPTIONAL, "sql file dir path")
-            ->addArgument("prefix",InputArgument::OPTIONAL, "database table prefix")
+            ->addOption('--config', '-c', InputOption::VALUE_OPTIONAL, 'sync database config')
+            ->addOption('--sqldir', '-d', InputOption::VALUE_OPTIONAL, 'sql file dir path')
+            ->addOption('--prefix', '-p', InputOption::VALUE_OPTIONAL, 'database table prefix')
             ->setDescription('database sync project');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $storageConfig = config()->get("storage.server.pdo");
-        $inputConfig = $input->getArgument("config");
+        $inputConfig = $input->getOption("config");
         $inputConfig = $inputConfig?$inputConfig:$storageConfig;
 
-        $sqlpath = $input->getArgument("sqlpath");
+        $sqlpath = $input->getOption("sqldir");
         $sqlpath = $sqlpath?$sqlpath:APPLICATION_PATH."/sql/";
 
-        $prefix = $input->getArgument("prefix");
+        $prefix = $input->getOption("prefix");
         $prefix = $prefix?$prefix:"";
 
         $newPrefix = $inputConfig['prefix'];
@@ -118,12 +118,12 @@ class Dbsync extends Base
         foreach ($files as $v){
             $filePath = $sqlpath.$v.".sql";
             Log::sysinfo("start import :". $filePath);
-            $db->import($filePath, $newPrefix, $prefix);
+            $db->import($filePath, $prefix, $newPrefix);
             $insertData = [];
             $insertData['filename'] = $v;
             $insertData['created_at'] = date('Y-m-d H:i:s');
             $insertData['updated_at'] = date('Y-m-d H:i:s');
-             $db->insert($insertData, "dbsync");
+            $db->insert($insertData, "dbsync");
         }
     }
 

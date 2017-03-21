@@ -99,7 +99,7 @@ class MonitorBase
         
         
         $serverName = $appName . "-monitor-master";
-        exec("ps axu|grep " . $serverName . "$|grep -v grep|awk '{print $2}'", $masterPidArr);
+        exec("ps axu|grep " . $serverName . "|grep -v grep|awk '{print $2}'", $masterPidArr);
         $masterPid = $masterPidArr ? current($masterPidArr) : null;
 
         if ($command === 'start' && $masterPid) {

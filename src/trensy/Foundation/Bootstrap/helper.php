@@ -212,3 +212,17 @@ if (!function_exists('nonBlock')) {
         \Trensy\Support\Timer::after($interval,$callback);
     }
 }
+
+if (!function_exists('di')) {
+    /**
+     *  依赖注入
+     *
+     * @param $str
+     * @return object
+     * @throws \Trensy\Di\Exception\DiNotDefinedException
+     */
+    function di($str)
+    {
+        return Trensy\Di\Di::get($str);
+    }
+}

@@ -17,7 +17,6 @@ use Trensy\Config\Config;
 use Trensy\Di\Di;
 use Trensy\Foundation\Bootstrap\Config\AliasConfig;
 use Trensy\Foundation\Bootstrap\Config\DiConfig;
-use Trensy\Foundation\Bootstrap\Config\TaskConfig;
 use Trensy\Foundation\Exception\InvalidArgumentException;
 use Trensy\Server\Task;
 use Trensy\Support\AliasLoader;
@@ -160,11 +159,9 @@ class Bootstrap
      */
     protected function initTask()
     {
-        $options = TaskConfig::getOptions();
 
-        $configOption = Config::get("app.task");
-        if ($configOption) $options = Arr::merge($options, $configOption);
-
+        $options = Config::get("app.task");
+        
         if (!$options) return true;
         Task::setTaskConfig($options);
 

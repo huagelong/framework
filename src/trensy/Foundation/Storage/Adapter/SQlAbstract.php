@@ -291,13 +291,28 @@ abstract class SQlAbstract
         return $rs;
     }
 
+    /**
+     * 解析where数据
+     * @param array $where
+     * @return string
+     */
+    public function parseWhere($where = array()){
+        $whereSql = $this->_parseWhere($where);
+        $whereSql = trim($whereSql);
+        $whereSql = trim($whereSql, "OR");
+        $whereSql = trim($whereSql, "AND");
+        return $whereSql;
+    }
+
+
 
     /**
      *
      * 解析where数据
      * @param array $where
+     * @param string $andOR
      */
-    public function parseWhere($where = array())
+    private function _parseWhere($where = array(), $andOR='AND')
     {
         if (count($where) < 1) {
             return "";
@@ -306,23 +321,26 @@ abstract class SQlAbstract
 
         foreach ($where as $k => $v) {
             $param = $k . " = ? ";
-            $andOR = "AND";
             $more = 0;
             if (is_array($v)) {
                 if (isset($v[0][0]) && $v[0][0] && (is_array($v[0]))) {
                     if ($v) {
                         foreach ($v as $kk => $vv) {
-                            $whereSql .= $this->joinSql($vv, $k, $andOR);
+                            $tmpWhere = [];
+                            $tmpWhere[$k] = $vv;
+                            $whereSql .= $this->_parseWhere($tmpWhere, $andOR);
                         }
                     }
                     $more = 1;
                 } else {
+
                     list($sign) = $v;
 
                     if (isset($v[2]) && $v[2]) {
                         $andOR = $v[2];
                     }
-                    if (isset($v[1])) {
+
+                    if (isset($v[1]) && $v[1] !== null) {
                         $param = $k . " " . $sign . " ? ";
                         $sign = strtolower($sign);
                         if ($sign == 'in') {
@@ -334,38 +352,15 @@ abstract class SQlAbstract
                     }
                     $andOR = strtoupper($andOR);
                 }
+
             }
             if (!$more) {
                 $whereSql .= " $andOR (" . $this->quoteInto($param, $v) . ")";
             }
         }
-        $whereSql = trim($whereSql);
-        $whereSql = trim($whereSql, "OR");
-        $whereSql = trim($whereSql, "AND");
         return $whereSql;
     }
 
-    public function joinSql($v, $feild, $andOR)
-    {
-        list($sign, $vl) = $v;
-
-        if (isset($v[2]) && $v[2]) {
-            $andOR = $v[2];
-        }
-        if ($vl !== '') {
-            $param = $feild . " " . $sign . " ? ";
-            $sign = strtolower($sign);
-            if ($sign == 'in') {
-                $param = $feild . " " . $sign . " (?) ";
-            }
-            $v = $vl;
-        } else {
-            $param = $feild . " " . $sign . " ";
-        }
-        $andOR = strtoupper($andOR);
-        $whereSql = " $andOR (" . $this->quoteInto($param, $v) . ")";
-        return $whereSql;
-    }
 
     public function quoteInto($param, $v)
     {
@@ -485,7 +480,7 @@ abstract class SQlAbstract
      * 根据条件获取一行
      * @param array $where
      */
-    public function get($where, $orderBy = "", $tableName = null)
+    public function get($where, $orderBy = "", $groupBy="", $tableName = null)
     {
 
         $whereSql = $this->parseWhere($where);
@@ -498,6 +493,9 @@ abstract class SQlAbstract
         $sql = "SELECT {$field} FROM `{$tableName}` " . $whereSql;
         if ($orderBy) {
             $sql .= " ORDER BY " . $orderBy;
+        }
+        if ($groupBy) {
+            $sql .= " GROUP BY " . $orderBy;
         }
         $this->field = null;
         
