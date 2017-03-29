@@ -101,8 +101,6 @@ class Task
 
     public function start($data)
     {
-        ElapsedTime::setStartTime(ElapsedTime::SYS_START);
-
         list($task, $params) = $data;
         if (is_string($task)) {
             $taskClass = isset(self::$taskConfig[$task]) ? self::$taskConfig[$task] : null;

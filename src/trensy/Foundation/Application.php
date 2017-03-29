@@ -46,14 +46,6 @@ class Application
     }
 
     /**
-     * rpc server 初始化
-     */
-    public function rpcBootstrap()
-    {
-        RouteBootstrap::getInstance("rpcroute");
-    }
-
-    /**
      * https server 路由开始匹配
      *
      * @param $request
@@ -105,17 +97,6 @@ class Application
             new Command\Httpd\Status(),
             new Command\Httpd\Stop(),
             new Command\Httpd\Reload(),
-            new Command\Rpc\Start(),
-            new Command\Rpc\Restart(),
-            new Command\Rpc\Status(),
-            new Command\Rpc\Stop(),
-            new Command\Rpc\Reload(),
-            new Command\Job\Start(),
-            new Command\Job\Restart(),
-            new Command\Job\Status(),
-            new Command\Job\Stop(),
-            new Command\Job\Reload(),
-            new Command\Job\Clear(),
             new Command\Server\Start(),
             new Command\Server\Restart(),
             new Command\Server\Status(),
@@ -123,11 +104,6 @@ class Application
             new Command\Server\Reload(),
             new Command\Artisan\Optimize(),
             new Command\Artisan\Dbsync(),
-            new Command\Monitor\Start(),
-            new Command\Monitor\Restart(),
-            new Command\Monitor\Status(),
-            new Command\Monitor\Stop(),
-            new Command\Monitor\Reload(),
         ];
 
         $config = CConfig::get("app.command");

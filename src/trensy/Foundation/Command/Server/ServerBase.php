@@ -66,9 +66,16 @@ class ServerBase
         $runFileName = $_SERVER['SCRIPT_FILENAME'];
         $phpbin = self::getPhpBinary();
         $servers = $config['servers'];
+
         if ($servers) {
+            $name = $config['name'];
             foreach ($servers as $v) {
-                $params = [$runFileName, $v . ":" . $type];
+                $cmdName = $v . ":" . $type;
+                $cmdDefined = $cmdObj->getApplication()->has($cmdName);
+                if(!$cmdDefined){
+                    $cmdName = $v;
+                }
+                $params = [$runFileName, $cmdName];
                 if ($daemonizeStr) array_push($params, $daemonizeStr);
                 if ($option) {
                     $optionTmp = explode(",", $option);
@@ -77,14 +84,13 @@ class ServerBase
                     }
                 }
                 self::process($phpbin, $params, $cmdObj);
-                self::check($config);
+                self::check($name);
             }
         }
     }
 
-    protected static function check($config)
+    protected static function check($name)
     {
-        $name = $config['name'];
         $count = -1;
         $time = time();
         while (1) {
@@ -117,6 +123,7 @@ class ServerBase
         $paramTmp = $param;
         $cmdName = array_isset($param, 1);
         if (!$cmdName) return;
+        
         $obj = $cmdObj->getCmdDefinition($cmdName);
         $op = array_slice($param, 2);
         $tmp = [];

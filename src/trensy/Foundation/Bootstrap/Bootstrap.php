@@ -21,13 +21,13 @@ use Trensy\Foundation\Exception\InvalidArgumentException;
 use Trensy\Server\Task;
 use Trensy\Support\AliasLoader;
 use Trensy\Support\Arr;
+use Trensy\Support\ElapsedTime;
 use Trensy\Support\Facade;
 use Trensy\Support\RunMode;
 use Trensy\Support\Dir;
 use Trensy\Support\Event;
 use Trensy\Http\Response;
 use Trensy\Foundation\Controller as HttpController;
-use Trensy\Rpc\Controller as RpcController;
 use Trensy\Support\Log;
 
 class Bootstrap
@@ -41,7 +41,7 @@ class Bootstrap
     public static function getInstance($path)
     {
         if (isset(self::$instance[$path]) && self::$instance[$path]) return self::$instance[$path];
-
+        
         return self::$instance[$path] = new self($path);
     }
 
@@ -50,6 +50,7 @@ class Bootstrap
      */
     public function __construct($path)
     {
+        ElapsedTime::setStartTime(ElapsedTime::SYS_START);
         $this->initEnv();
         if(defined('APPLICATION_PATH')){
             $configPath = APPLICATION_PATH;
@@ -118,9 +119,9 @@ class Bootstrap
                 }
                 $params->end($content);
             }else{
+                //tcp
                 list($server, $fd, $adapter) = $params;
-                $controller = new RpcController();
-                $content = $controller->response("", RpcController::RESPONSE_NORMAL_ERROR_CODE, "API Not Found");
+                $content = "API Not Found";
                 $content = $adapter->getSerialize()->format($content);
                 $server->send($content);
                 $server->close($fd);

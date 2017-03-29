@@ -26,9 +26,6 @@ class DiConfig
             "task" => [
                 "class" => \Trensy\Server\Task::class
             ],
-            "job" => [
-                "class" => \Trensy\Foundation\Bootstrap\JobBootstrap::class
-            ],
             "log" => [
                 "class" => \Trensy\Support\Log::class
             ],

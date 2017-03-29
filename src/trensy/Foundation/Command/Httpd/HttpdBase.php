@@ -26,8 +26,6 @@ class HttpdBase
 {
     public static function operate($cmd, $output, $input)
     {
-        ElapsedTime::setStartTime(ElapsedTime::SYS_START);
-
         $root = Dir::formatPath(ROOT_PATH);
 
         $config = Config::get("server.httpd");

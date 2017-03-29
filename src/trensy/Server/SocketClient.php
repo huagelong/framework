@@ -14,7 +14,7 @@
 
 namespace Trensy\Server;
 
-use Trensy\Rpc\Exception\ConnectionException;
+use Trensy\Server\Exception\ConnectionException;
 
 class SocketClient
 {

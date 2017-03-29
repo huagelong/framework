@@ -55,8 +55,7 @@ class Log
         $result = [];
         $result[] = date('Y-m-d H:i:s');
         $result[] = "pid:".posix_getpid();
-        $result[] = "server:".current($ip);
-        $result[] = "remote:".self::getOlineIp();
+        $result[] = "ip:".current($ip)."/".self::getOlineIp();
         $result[] = $elapsedTime;
 
         return $result;
