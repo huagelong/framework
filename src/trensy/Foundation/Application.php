@@ -104,6 +104,7 @@ class Application
             new Command\Server\Reload(),
             new Command\Artisan\Optimize(),
             new Command\Artisan\Dbsync(),
+            new Command\Artisan\BuildPhar()
         ];
 
         $config = CConfig::get("app.command");
