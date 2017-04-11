@@ -113,6 +113,9 @@ class Controller
      */
     public function display($viewPath, $assign = [], $useZip=0)
     {
+        responseEnd(function() {
+            $this->response->setHasEnd(0);
+        });
         $content = $this->render($viewPath, $assign);
         $this->response->end($content, $useZip);
     }

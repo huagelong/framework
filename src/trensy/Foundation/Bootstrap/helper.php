@@ -127,6 +127,24 @@ if (!function_exists('debug')) {
     }
 }
 
+if (!function_exists('backtrace')) {
+    function backtrace()
+    {
+        $data = debug_backtrace(2, 7);
+        if($data){
+            $data = array_splice($data, 2);
+            \Trensy\Support\Log::show('{');
+            foreach ($data as $v){
+                $str = implode(" ", $v);
+                \Trensy\Support\Log::show($str);
+            }
+            \Trensy\Support\Log::show('}');
+        }
+
+    }
+}
+
+
 if (!function_exists('page404')) {
     /**
      * 404错误

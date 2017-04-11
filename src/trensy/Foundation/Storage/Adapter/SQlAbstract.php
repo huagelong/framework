@@ -597,9 +597,10 @@ abstract class SQlAbstract
      * @param $sqlPath
      * @param string $old_prefix
      * @param string $new_prefix
+     * @param string $exceptTable 排除的table
      * @return bool
      */
-    function import($sqlPath,$old_prefix="",$new_prefix=""){
+    function import($sqlPath,$old_prefix="",$new_prefix="", $exceptTable=[]){
         if(is_file($sqlPath)){
             $txt = file_get_contents($sqlPath);
             if(!$txt) return true;
@@ -607,8 +608,21 @@ abstract class SQlAbstract
 //            dump($sqlArr);
             if($sqlArr){
                 foreach ($sqlArr as $sv){
-                    Log::show($sv);
-                    $this->exec($sv);
+                    $isExcept = 0;
+                    if($exceptTable){
+                        foreach ($exceptTable as $ev){
+                            if(preg_match_all("/`{$ev}`/i", $sv, $match)){
+                                dump($match);
+                                $isExcept = 1;
+                                continue;
+                            }
+                        }
+                    }
+                    if(!$isExcept){
+                        Log::show($sv);
+                        $this->exec($sv);
+                    }
+
                 }
             }
         }

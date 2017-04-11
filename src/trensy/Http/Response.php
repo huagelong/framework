@@ -56,7 +56,14 @@ class Response
      */
     public function cookie($key, $value = '', $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false)
     {
-        return $this->response->cookie($key, $value, $expire, $path, $domain, $secure, $httponly);
+        $value = $key . '=' . $value
+            . (empty($expire) ? '' : '; expires=' . gmdate('D, d-M-Y H:i:s', $expire) . ' GMT')
+            . (empty($path) ? '' : '; path=' . $path)
+            . (empty($domain) ? '' : '; domain=' . $domain)
+            . (!$secure ? '' : '; secure')
+            . (!$httponly ? '' : '; HttpOnly');
+
+        $this->header("Set-Cookie", $value, 1);
     }
 
     /**
@@ -73,7 +80,14 @@ class Response
      */
     public function rawcookie($key, $value = '', $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false)
     {
-        return $this->response->rawcookie($key, $value, $expire, $path, $domain, $secure, $httponly);
+        $value = rawurlencode($key) . '=' . rawurlencode($value)
+            . (empty($expire) ? '' : '; expires=' . gmdate('D, d-M-Y H:i:s', $expire) . ' GMT')
+            . (empty($path) ? '' : '; path=' . $path)
+            . (empty($domain) ? '' : '; domain=' . $domain)
+            . (!$secure ? '' : '; secure')
+            . (!$httponly ? '' : '; HttpOnly');
+
+        $this->header("Set-Cookie", $value, 1);
     }
 
     /**
@@ -101,9 +115,13 @@ class Response
      * @param $key
      * @param $value
      */
-    public function header($key, $value)
+    public function header($key, $value, $isArr=0)
     {
-        $this->headerStack[$key] = $value;
+        if(!$isArr){
+            $this->headerStack[$key] = $value;
+        }else{
+            $this->headerStack[$key][] = $value;
+        }
     }
 
     /**
@@ -141,10 +159,15 @@ class Response
         $this->hasEnd = 1;
         if ($this->headerStack) {
             foreach ($this->headerStack as $k => $v) {
-                $this->response->header($k, $v);
+                if(is_array($v)){
+                    foreach ($v as $subV){
+                        $this->response->header($k, $subV);
+                    }
+                }else{
+                    $this->response->header($k, $v);
+                }
             }
         }
-        
         if($useZip){
             $this->gzip($this->gzip);
         }
