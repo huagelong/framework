@@ -26,7 +26,6 @@ use Trensy\Support\Tool;
 
 class Controller
 {
-
     const RESPONSE_SUCCESS_CODE = 200;
     const RESPONSE_NORMAL_ERROR_CODE = 500;
 

@@ -56,14 +56,15 @@ class Response
      */
     public function cookie($key, $value = '', $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false)
     {
-        $value = $key . '=' . $value
-            . (empty($expire) ? '' : '; expires=' . gmdate('D, d-M-Y H:i:s', $expire) . ' GMT')
-            . (empty($path) ? '' : '; path=' . $path)
-            . (empty($domain) ? '' : '; domain=' . $domain)
-            . (!$secure ? '' : '; secure')
-            . (!$httponly ? '' : '; HttpOnly');
-
-        $this->header("Set-Cookie", $value, 1);
+//        $value = $key . '=' . $value
+//            . (empty($expire) ? '' : '; expires=' . gmdate('D, d-M-Y H:i:s', $expire) . ' GMT')
+//            . (empty($path) ? '' : '; path=' . $path)
+//            . (empty($domain) ? '' : '; domain=' . $domain)
+//            . (!$secure ? '' : '; secure')
+//            . (!$httponly ? '' : '; HttpOnly');
+//
+//        $this->header("Set-Cookie", $value, 1);
+        return $this->response->cookie($key, $value, $expire, $path, $domain, $secure, $httponly);
     }
 
     /**
@@ -80,14 +81,15 @@ class Response
      */
     public function rawcookie($key, $value = '', $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false)
     {
-        $value = rawurlencode($key) . '=' . rawurlencode($value)
-            . (empty($expire) ? '' : '; expires=' . gmdate('D, d-M-Y H:i:s', $expire) . ' GMT')
-            . (empty($path) ? '' : '; path=' . $path)
-            . (empty($domain) ? '' : '; domain=' . $domain)
-            . (!$secure ? '' : '; secure')
-            . (!$httponly ? '' : '; HttpOnly');
-
-        $this->header("Set-Cookie", $value, 1);
+//        $value = rawurlencode($key) . '=' . rawurlencode($value)
+//            . (empty($expire) ? '' : '; expires=' . gmdate('D, d-M-Y H:i:s', $expire) . ' GMT')
+//            . (empty($path) ? '' : '; path=' . $path)
+//            . (empty($domain) ? '' : '; domain=' . $domain)
+//            . (!$secure ? '' : '; secure')
+//            . (!$httponly ? '' : '; HttpOnly');
+//
+//        $this->header("Set-Cookie", $value, 1);
+        return $this->response->rawcookie($key, $value, $expire, $path, $domain, $secure, $httponly);
     }
 
     /**
