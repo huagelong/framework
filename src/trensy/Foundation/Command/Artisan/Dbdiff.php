@@ -87,7 +87,6 @@ class Dbdiff extends Base
                 foreach ($inner as $k => $iv) {
                     $innerStr .= " " . $k . "=" . $iv;
                 }
-
                 $cmd = $this->whichBin("php") . " " . $file . " " . $optionStr . " " . $innerStr . " " . $dbStr;
                 $this->exec($cmd);
                 Log::show("RUN [" . $cmd . "] Success!");

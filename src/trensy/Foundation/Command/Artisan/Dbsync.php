@@ -20,6 +20,7 @@ use Trensy\Foundation\Command\Base;
 use Trensy\Foundation\Storage\Pdo;
 use Trensy\Support\Dir;
 use Trensy\Support\Log;
+use Trensy\Support\Exception as SupportException;
 
 class Dbsync extends Base
 {
@@ -32,13 +33,12 @@ class Dbsync extends Base
             ->addOption('--config', '-c', InputOption::VALUE_OPTIONAL, 'sync database config')
             ->addOption('--sqldir', '-d', InputOption::VALUE_OPTIONAL, 'sql file dir path')
             ->addOption('--prefix', '-p', InputOption::VALUE_OPTIONAL, 'database table prefix')
-            ->addOption('--action', '-a', InputOption::VALUE_OPTIONAL, 'database migration action', "up")
+            ->addOption('--action', '-a', InputOption::VALUE_OPTIONAL, 'database migration action,"up" or "down" ', "up")
             ->setDescription('database sync project');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $inputConfig = $input->getOption("config");
         $inputConfig = $inputConfig?$inputConfig:"storage.server.pdo";
         $storageConfig = $this->config()->get($inputConfig);
@@ -50,36 +50,47 @@ class Dbsync extends Base
         $prefix = $prefix?$prefix:$storageConfig['sync_prefix'];
 
         $action = $input->getOption("action");
+        if(!in_array($action, ['up', 'down'])){
+            Log::error("database migration action must \"up\" or \"down\"");
+            return ;
+        }
 
         $newPrefix = $storageConfig['prefix'];
         $this->tableName = "{$newPrefix}dbsync";
 
         //判断表格是否存在
         $db = new Pdo($storageConfig);
-        $sql =  "SHOW TABLES like '{$this->tableName}'";
-        $checkData = $db->fetch($sql);
+        try{
+            $db->startTrans();
+            $sql =  "SHOW TABLES like '{$this->tableName}'";
+            $checkData = $db->fetch($sql);
 
-        if(!$checkData){
-            $sql = "CREATE TABLE `{$this->tableName}` ( `id` INT NOT NULL AUTO_INCREMENT , `filename` VARCHAR(100) NOT NULL DEFAULT '', `ftype` varchar(5) NULL DEFAULT 'up',`created_at` TIMESTAMP NULL , `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci";
-            $db->exec($sql);
-            Log::sysinfo("dbSync initialize success!");
+            if(!$checkData){
+                $sql = "CREATE TABLE `{$this->tableName}` ( `id` INT NOT NULL AUTO_INCREMENT , `filename` VARCHAR(100) NOT NULL DEFAULT '', `ftype` varchar(5) NULL DEFAULT 'up', `fstatus` TINYINT(1) NOT NULL DEFAULT '1' `created_at` TIMESTAMP NULL , `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci";
+                $db->exec($sql);
+                Log::sysinfo("dbSync initialize success!");
+            }
+
+            $this->importDb($storageConfig, $sqlpath, $prefix, $action);
+            $db->commit();
+            Log::sysinfo("sync completed!");
+        }catch (\Exception $e){
+            $db->rollback();
+            $exception = SupportException::formatException($e);
+            Log::error($exception);
         }
-
-        $this->importDb($storageConfig, $sqlpath, $prefix, $action);
-
-        Log::sysinfo("sync completed!");
     }
 
     protected function getImportFilePath($sqlpath, $db, $action)
     {
         if($action == 'down'){
-            $diffTime = $db->getField("created_at", [], false, "", "id DESC", "", "", "",'dbsync');
+            $diffTime = $db->getField("created_at", ['fstatus'=>1, 'ftype'=>'up'], false, "", "id DESC", "", "", "",'dbsync');
             if(!$diffTime) return ;
-            $diffFile = $db->getField("created_at", ["created_at"=>$diffTime], true, "", "id DESC", "", "", "",'dbsync');
-            return [$diffFile];
+            $diffFile = $db->getField("filename", ["created_at"=>$diffTime,'fstatus'=>1, 'ftype'=>'up'], true, "", "id DESC", "", "", "",'dbsync');
+            return is_array($diffFile)?$diffFile:[$diffFile];
         }
 
-        $importFileNames = $db->getField("filename", [], true, "", "", "", "", "",'dbsync');
+        $importFileNames = $db->getField("filename", ['fstatus'=>1, 'ftype'=>'up'], true, "", "", "", "", "",'dbsync');
 
         $this->getFiles($sqlpath, $files);
 
@@ -143,6 +154,12 @@ class Dbsync extends Base
             $insertData['ftype'] = $action;
             $insertData['updated_at'] = date('Y-m-d H:i:s');
             $db->insert($insertData, "dbsync");
+
+            $actionBack = $action == 'down'?"up":"down";
+            $update = [];
+            $update['fstatus'] = 0;
+            $db->update($update, ['filename'=>$v, 'ftype'=>$actionBack], 'dbsync');
+
         }
     }
 

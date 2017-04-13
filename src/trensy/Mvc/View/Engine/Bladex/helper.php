@@ -1,40 +1,29 @@
 <?php
-use Trensy\Mvc\View\Engine\Bladex\Support\Arr;
 /**
- * Trensy Framework
- *
- * PHP Version 7
- *
- * @author          kaihui.wang <hpuwang@gmail.com>
- * @copyright      trensy, Inc.
- * @package         trensy/framework
- * @version         1.0.7
+ * Created by PhpStorm.
+ * User: wangkaihui
+ * Date: 2017/4/13
+ * Time: 17:21
  */
-if (!function_exists('e')) {
-    function e($value)
+
+namespace Trensy\Mvc\View\Engine\Bladex;
+
+use Trensy\Mvc\View\Engine\Bladex\Support\Arr;
+
+class Helper
+{
+    public static function e($value)
     {
         if(method_exists($value, "toHtml")) return $value->toHtml();
 
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false);
     }
-}
 
-
-if (! function_exists('array_except')) {
-    /**
-     * Get all of the given array except for a specified array of items.
-     *
-     * @param  array  $array
-     * @param  array|string  $keys
-     * @return array
-     */
-    function array_except($array, $keys)
+    public static function array_except($array, $keys)
     {
         return Arr::except($array, $keys);
     }
-}
 
-if (! function_exists('data_get')) {
     /**
      * Get an item from an array or object using "dot" notation.
      *
@@ -43,7 +32,7 @@ if (! function_exists('data_get')) {
      * @param  mixed   $default
      * @return mixed
      */
-    function data_get($target, $key, $default = null)
+    public static function data_get($target, $key, $default = null)
     {
         if (is_null($key)) {
             return $target;
@@ -56,7 +45,7 @@ if (! function_exists('data_get')) {
                 if ($target instanceof Collection) {
                     $target = $target->all();
                 } elseif (! is_array($target)) {
-                    return value($default);
+                    return self::value($default);
                 }
 
                 $result = Arr::pluck($target, $key);
@@ -69,22 +58,20 @@ if (! function_exists('data_get')) {
             } elseif (is_object($target) && isset($target->{$segment})) {
                 $target = $target->{$segment};
             } else {
-                return value($default);
+                return self::value($default);
             }
         }
 
         return $target;
     }
-}
 
-if (! function_exists('value')) {
     /**
      * Return the default value of the given value.
      *
      * @param  mixed  $value
      * @return mixed
      */
-    function value($value)
+    public static function value($value)
     {
         return $value instanceof Closure ? $value() : $value;
     }

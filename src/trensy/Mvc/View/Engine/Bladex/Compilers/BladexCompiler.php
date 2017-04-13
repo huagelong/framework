@@ -70,7 +70,7 @@ class BladexCompiler extends Compiler implements CompilerInterface
      *
      * @var string
      */
-    protected $echoFormat = 'e(%s)';
+    protected $echoFormat = '\Trensy\Mvc\View\Engine\Bladex\Helper::e(%s)';
 
     /**
      * Array of footer lines to be added to template.
@@ -391,7 +391,7 @@ class BladexCompiler extends Compiler implements CompilerInterface
         $callback = function ($matches) {
             $whitespace = empty($matches[3]) ? '' : $matches[3] . $matches[3];
 
-            return $matches[1] ? $matches[0] : '<?php echo e(' . $this->compileEchoDefaults($matches[2]) . '); ?>' . $whitespace;
+            return $matches[1] ? $matches[0] : '<?php echo \Trensy\Mvc\View\Engine\Bladex\Helper::e(' . $this->compileEchoDefaults($matches[2]) . '); ?>' . $whitespace;
         };
 
         return preg_replace_callback($pattern, $callback, $value);
@@ -788,7 +788,7 @@ class BladexCompiler extends Compiler implements CompilerInterface
     {
         $expression = $this->stripParentheses($expression);
 
-        return "<?php if (\$__env->exists($expression)) echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
+        return "<?php if (\$__env->exists($expression)) echo \$__env->make($expression, \Trensy\Mvc\View\Engine\Bladex\Helper::array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
     }
 
     /**
@@ -997,7 +997,7 @@ class BladexCompiler extends Compiler implements CompilerInterface
         $params = explode(",", $match[4]);
         $expression = join(",", $params);
         $expression = $this->stripParentheses($expression);
-        $data = "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
+        $data = "<?php echo \$__env->make($expression, \Trensy\Mvc\View\Engine\Bladex\Helper::array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
 
         $this->footer[] = $data;
         return "";
@@ -1030,7 +1030,7 @@ class BladexCompiler extends Compiler implements CompilerInterface
         $expression = join(",", $params);
         $expression = $this->stripParentheses($expression);
 
-        return "<?php echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
+        return "<?php echo \$__env->make($expression, \Trensy\Mvc\View\Engine\Bladex\Helper::array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
     }
     
 }

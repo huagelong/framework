@@ -40,7 +40,7 @@ class Bladex implements ViewInterface
      */
     public function __construct()
     {
-        require_once __DIR__."/Bladex/helper.php";
+
     }
 
     public static function getInstance()
