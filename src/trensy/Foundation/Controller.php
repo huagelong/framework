@@ -26,6 +26,8 @@ use Trensy\Support\Tool;
 
 class Controller
 {
+    use Shortcut;
+
     const RESPONSE_SUCCESS_CODE = 200;
     const RESPONSE_NORMAL_ERROR_CODE = 500;
 
@@ -112,7 +114,7 @@ class Controller
      */
     public function display($viewPath, $assign = [], $useZip=0)
     {
-        responseEnd(function() {
+        $this->responseEnd(function() {
             $this->response->setHasEnd(0);
         });
         $content = $this->render($viewPath, $assign);

@@ -62,7 +62,6 @@ class Bootstrap
         $this->initLog();
         $this->initMonitor();
         $this->initAlias();
-        $this->initHelper();
         $this->initFacade();
         $this->initDi();
         $this->initTask();
@@ -167,18 +166,6 @@ class Bootstrap
         Task::setTaskConfig($options);
 
         return true;
-    }
-
-    /**
-     * 帮助函数初始化
-     */
-    protected function initHelper()
-    {
-        if(function_exists('url') && function_exists('redis') && function_exists('config')){
-
-        }else{
-            require_once "helper.php";
-        }
     }
 
     /**

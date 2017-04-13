@@ -42,14 +42,14 @@ class Dbdiff extends Base
                 throw  new \Exception("dbdiff not found, pls run `composer require dbdiff/dbdiff:@dev` ");
             }
 
-            if(!config()->get("dbdiff")){
+            if(!$this->config()->get("dbdiff")){
                 throw  new \Exception("config dbdiff not found");
             }
 
-            $server1 = config()->get("dbdiff.server1");
+            $server1 = $this->config()->get("dbdiff.server1");
             $dbServer1Str = $server1['user'] . ":" . $server1['password'] . "@" . $server1['host'] . ":" . $server1['port'];
 
-            $server2 = config()->get("dbdiff.server2");
+            $server2 = $this->config()->get("dbdiff.server2");
             $dbServer2Str = $server2['user'] . ":" . $server2['password'] . "@" . $server2['host'] . ":" . $server2['port'];
 
             $type = $input->getArgument("type");
@@ -59,8 +59,8 @@ class Dbdiff extends Base
                 throw  new \Exception("type must 'schema or data or all '");
             }
 
-            $nocomments = config()->get("dbdiff.nocomments");
-            $output = config()->get("dbdiff.output");
+            $nocomments = $this->config()->get("dbdiff.nocomments");
+            $output = $this->config()->get("dbdiff.output");
 
             $options = [];
             $options['--server1'] = $dbServer1Str;
@@ -93,6 +93,9 @@ class Dbdiff extends Base
                 Log::show("RUN [" . $cmd . "] Success!");
             }
 
+            $cmd = $this->whichBin("php") ." ". ROOT_PATH."/trensy db:sync --config storage.server.diff";
+            $this->exec($cmd);
+            Log::show("RUN [" . $cmd . "] Success!");
         } catch (\Exception $e) {
             Log::error($e->getMessage());
         }

@@ -12,6 +12,7 @@
 
 namespace Trensy\Server;
 
+use Trensy\Foundation\Shortcut;
 use Trensy\Http\Request;
 use Trensy\Http\Response;
 use Trensy\Server\Exception\InvalidArgumentException;
@@ -19,6 +20,7 @@ use Trensy\Support\RunMode;
 
 class HttpSendFile
 {
+    use Shortcut;
 
     protected $request = null;
     protected $response = null;
@@ -110,8 +112,8 @@ class HttpSendFile
         $pathinfo = $this->request->getPathInfo();
 
         $sysCacheKey = md5($pathinfo);
-
-        $analyse = syscache()->get(__CLASS__.$sysCacheKey);
+        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+        $analyse = $sysCache->get(__CLASS__.$sysCacheKey);
         if($analyse){
             return $this->analyse = $analyse;
         }
@@ -148,10 +150,10 @@ class HttpSendFile
             }
             $notFound = 1;
         }
-        $mimeMap = array_isset($mime,$extension);
+        $mimeMap = $this->array_isset($mime,$extension);
         $this->analyse = [$isFile, $filePath, $extension, $mimeMap, $notFound];
-
-        syscache()->set($sysCacheKey, $this->analyse, 3600);
+        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+        $sysCache->set($sysCacheKey, $this->analyse, 3600);
 
         return $this->analyse;
     }

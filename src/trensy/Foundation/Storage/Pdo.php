@@ -179,7 +179,7 @@ class Pdo extends SQlAdapter
 //            dump('3');
 //            dump($e->getCode());
             if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
-                dump($sql);
+                $this->dump($sql);
                 throw new \Exception(Exception::formatException($e));
             }
             //重新连接
@@ -190,14 +190,14 @@ class Pdo extends SQlAdapter
             if(self::$conn){
                 return $this->set($sql, $connType, $method);
             }else{
-                dump($sql);
+                $this->dump($sql);
                 throw new \Exception(Exception::formatException($e));
             }
         }catch (\Exception $e){
 //            dump('3');
 //            dump($e->getCode());
             if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
-                dump($sql);
+                $this->dump($sql);
                 throw new \Exception(Exception::formatException($e));
             }
             //重新连接
@@ -208,7 +208,7 @@ class Pdo extends SQlAdapter
             if(self::$conn){
                 return $this->set($sql, $connType, $method);
             }else{
-                dump($sql);
+                $this->dump($sql);
                 throw new \Exception(Exception::formatException($e));
             }
         }

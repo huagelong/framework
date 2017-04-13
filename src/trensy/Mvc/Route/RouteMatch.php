@@ -191,7 +191,8 @@ class RouteMatch
         
         $sysCacheKey = md5($routeName . serialize($params));
 
-        $url = syscache()->get($sysCacheKey);
+        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+        $url = $sysCache->get($sysCacheKey);
 
         if ($url) return $url;
 
@@ -206,7 +207,9 @@ class RouteMatch
         $generator = new UrlGenerator($rootCollection, $context);
         $url = $generator->generate($routeName, $params);
 
-        syscache()->set($sysCacheKey, $url, 3600);
+        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+
+        $sysCache->set($sysCacheKey, $url, 3600);
 
         return $url;
     }
@@ -227,12 +230,14 @@ class RouteMatch
 
         $sysCacheKey = md5(__CLASS__ . $url.$serverStr);
 
-        $parameters = syscache()->get($sysCacheKey);
+        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+        $parameters = $sysCache->get($sysCacheKey);
 
 
         if (!$parameters) {
             $parameters = $this->match($url);
-            syscache()->set($sysCacheKey, $parameters, 3600);
+            $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+            $sysCache->set($sysCacheKey, $parameters, 3600);
         }
 
         self::$dispatch = $parameters['_matchinfo'];
@@ -279,11 +284,14 @@ class RouteMatch
     {
         $sysCacheKey = md5($url);
 
-        $parameters = syscache()->get($sysCacheKey);
+        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+
+        $parameters = $sysCache->get($sysCacheKey);
 
         if (!$parameters) {
             $parameters = $this->match($url);
-            syscache()->set($sysCacheKey, $parameters, 3600);
+            $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+            $sysCache->set($sysCacheKey, $parameters, 3600);
         }
 
         if ($parameters) {

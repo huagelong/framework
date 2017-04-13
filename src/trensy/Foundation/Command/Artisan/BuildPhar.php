@@ -37,7 +37,7 @@ class BuildPhar extends Base
                 throw new \Exception('Please set phar.readonly to Off');
             }
 
-            $pharConfig = config()->get("app.phar");
+            $pharConfig = $this->config()->get("app.phar");
             if (!$pharConfig) {
                 throw new \Exception('app.phar not config');
             }

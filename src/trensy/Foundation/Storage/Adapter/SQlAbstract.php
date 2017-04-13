@@ -13,10 +13,13 @@
 
 namespace Trensy\Foundation\Storage\Adapter;
 
+use Trensy\Foundation\Shortcut;
 use Trensy\Support\Log;
 
 abstract class SQlAbstract
 {
+    use Shortcut;
+
     protected $hasTran = 0;//是否有事务
     protected $_total = 0;
     protected static $_sql = array();
@@ -612,7 +615,7 @@ abstract class SQlAbstract
                     if($exceptTable){
                         foreach ($exceptTable as $ev){
                             if(preg_match_all("/`{$ev}`/i", $sv, $match)){
-                                dump($match);
+                                $this->dump($match);
                                 $isExcept = 1;
                                 continue;
                             }

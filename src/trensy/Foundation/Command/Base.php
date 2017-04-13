@@ -14,9 +14,12 @@ namespace Trensy\Foundation\Command;
 
 use Trensy\Foundation\Bootstrap\Bootstrap;
 use Trensy\Console\Command\Command;
+use Trensy\Foundation\Shortcut;
 
 class Base extends Command
 {
+    use Shortcut;
+
   public function __construct()
   {
       parent::__construct();

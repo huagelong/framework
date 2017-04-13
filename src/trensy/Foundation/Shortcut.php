@@ -19,7 +19,7 @@ trait Shortcut
      * @param string $groupName
      * @return string
      */
-    function url($routeName, $params = [], $groupName='')
+     public static function url($routeName, $params = [], $groupName='')
     {
         return \Trensy\Mvc\Route\RouteMatch::getInstance()->simpleUrl($routeName, $params, $groupName);
     }
@@ -29,7 +29,7 @@ trait Shortcut
      *
      * @return \Trensy\Foundation\Storage\Redis
      */
-    function redis()
+     public static function redis()
     {
         return new \Trensy\Foundation\Storage\Redis();
     }
@@ -39,7 +39,7 @@ trait Shortcut
      *
      * @return \Trensy\Config\Config
      */
-    function config()
+     public static function config()
     {
         return new \Trensy\Config\Config();
     }
@@ -49,7 +49,7 @@ trait Shortcut
      *
      * @return \Trensy\Http\Session
      */
-    function session()
+     public static function session()
     {
         return \Trensy\Foundation\Bootstrap\Session::getInstance();
     }
@@ -58,7 +58,7 @@ trait Shortcut
      * 缓存对象
      * @return \Trensy\Storage\Cache\Adapter\RedisCache;
      */
-    function cache()
+     public static function cache()
     {
         return new \Trensy\Storage\Cache\Adapter\RedisCache();
     }
@@ -67,7 +67,7 @@ trait Shortcut
      * 缓存对象
      * @return \Trensy\Storage\Cache\Adapter\ApcCache;
      */
-    function syscache()
+     public static function syscache()
     {
         return new \Trensy\Storage\Cache\Adapter\ApcCache();
     }
@@ -76,7 +76,7 @@ trait Shortcut
      * 输出
      * @return string;
      */
-    function dump($str, $isReturn=false)
+     public static function dump($str, $isReturn=false)
     {
         if(!$isReturn){
             $data = debug_backtrace(2, 2);
@@ -100,7 +100,7 @@ trait Shortcut
      * 输出
      * @return string;
      */
-    function debug($str, $isReturn=false)
+     public static function debug($str, $isReturn=false)
     {
         if(!$isReturn){
             return \Trensy\Support\Log::debug($str);
@@ -111,7 +111,7 @@ trait Shortcut
         return $msg;
     }
 
-    function backtrace()
+     public static function backtrace()
     {
         $data = debug_backtrace(2, 7);
         if($data){
@@ -129,7 +129,7 @@ trait Shortcut
     /**
      * 404错误
      */
-    function page404($str='')
+     public static function page404($str='')
     {
         throw new \Trensy\Support\Exception\Page404Exception($str);
     }
@@ -137,20 +137,20 @@ trait Shortcut
     /**
      * 断点
      */
-    function throwExit($str=null)
+     public static function throwExit($str=null)
     {
         if(!$str){
             list($line, $func) = debug_backtrace(2, 2);
             \Trensy\Support\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
         }
-        $str && dump($str);
+        $str && self::dump($str);
         throw new \Trensy\Support\Exception\RuntimeExitException("exit");
     }
 
     /**
      * 多语言
      */
-    function l($str, $params=[])
+     public static function l($str, $params=[])
     {
         return \Trensy\Support\Lang::get($str, $params);
     }
@@ -158,7 +158,7 @@ trait Shortcut
     /**
      * isset
      */
-    function array_isset($arr, $key, $default=null)
+     public static function array_isset($arr, $key, $default=null)
     {
         return isset($arr[$key]) ? $arr[$key]:$default;
     }
@@ -166,7 +166,7 @@ trait Shortcut
     /**
      * isset
      */
-    function trans($arr)
+     public static function trans($arr)
     {
         return  \Trensy\Support\Serialization\Serialization::get()->trans($arr);
     }
@@ -174,7 +174,7 @@ trait Shortcut
     /**
      * isset
      */
-    function xtrans($arr)
+     public static function xtrans($arr)
     {
         return  \Trensy\Support\Serialization\Serialization::get()->xtrans($arr);
     }
@@ -182,7 +182,7 @@ trait Shortcut
     /**
      * 输出后清除变量
      */
-    function responseEnd($callback)
+     public static function responseEnd($callback)
     {
         \Trensy\Support\Event::bind("request.end",$callback);
     }
@@ -190,7 +190,7 @@ trait Shortcut
     /**
      * 非阻塞程序处理
      */
-    function nonBlock($callback,$interval=1)
+     public static function nonBlock($callback,$interval=1)
     {
         \Trensy\Support\Timer::after($interval,$callback);
     }
@@ -202,7 +202,7 @@ trait Shortcut
      * @return object
      * @throws \Trensy\Di\Exception\DiNotDefinedException
      */
-    function di($str)
+     public static function di($str)
     {
         return \Trensy\Di\Di::get($str);
     }

@@ -71,7 +71,8 @@ class FileViewFinder implements ViewFinderInterface
     {
         $sysCacheKey = md5(__CLASS__.$name);
         if(function_exists("syscache")){
-            $path = syscache()->get($sysCacheKey);
+            $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+            $path = $sysCache->get($sysCacheKey);
             if($path) return $path;
         }
         if (isset($this->views[$name])) {
@@ -85,7 +86,8 @@ class FileViewFinder implements ViewFinderInterface
         $this->views[$name] = $this->findInPaths($name, $this->paths);
 
         if(function_exists("syscache")){
-            syscache()->set($sysCacheKey, $this->views[$name], 3600);
+            $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+            $sysCache->set($sysCacheKey, $this->views[$name], 3600);
         }
         return $this->views[$name];
     }

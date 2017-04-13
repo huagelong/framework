@@ -15,8 +15,11 @@
 namespace Trensy\Server;
 
 
+use Trensy\Foundation\Shortcut;
+
 abstract class ProcessServer
 {
+    use Shortcut;
     protected $config = [];
     protected $redirectStdout = null;
     protected static $workers = [];

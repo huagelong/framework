@@ -13,12 +13,15 @@
 namespace Trensy\Foundation\Command\Server;
 
 use Trensy\Config\Config;
+use Trensy\Foundation\Shortcut;
 use Trensy\Support\Log;
 use Trensy\Support\PhpExecutableFinder;
 
 
 class ServerBase
 {
+    use Shortcut;
+
     protected static $cmdHelp = null;
 
     public static function operate($cmd, $cmdObj, $input)
@@ -50,7 +53,7 @@ class ServerBase
     public static function doOperate($command, $options, array $config, $cmdObj)
     {
         self::runCmd($command, $config, $options, $cmdObj);
-        $daemonizeStr = array_isset($options, "daemonize");
+        $daemonizeStr = self::array_isset($options, "daemonize");
         if ($daemonizeStr) {
             \swoole_process::wait(false);
         } else {
@@ -61,8 +64,8 @@ class ServerBase
 
     protected static function runCmd($type, $config, $options, $cmdObj)
     {
-        $daemonizeStr = array_isset($options, "daemonize");
-        $option = array_isset($options, "option");
+        $daemonizeStr = self::array_isset($options, "daemonize");
+        $option = self::array_isset($options, "option");
         $runFileName = $_SERVER['SCRIPT_FILENAME'];
         $phpbin = self::getPhpBinary();
         $servers = $config['servers'];
@@ -121,7 +124,7 @@ class ServerBase
     protected static function getCmdHelp($param, $cmdObj)
     {
         $paramTmp = $param;
-        $cmdName = array_isset($param, 1);
+        $cmdName = self::array_isset($param, 1);
         if (!$cmdName) return;
         
         $obj = $cmdObj->getCmdDefinition($cmdName);

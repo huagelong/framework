@@ -38,9 +38,10 @@ class Dbsync extends Base
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $storageConfig = config()->get("storage.server.pdo");
+
         $inputConfig = $input->getOption("config");
-        $inputConfig = $inputConfig?$inputConfig:$storageConfig;
+        $inputConfig = $inputConfig?$inputConfig:"storage.server.pdo";
+        $storageConfig = $this->config()->get($inputConfig);
 
         $sqlpath = $input->getOption("sqldir");
         $sqlpath = $sqlpath?$sqlpath:APPLICATION_PATH."/sql/";
@@ -50,11 +51,11 @@ class Dbsync extends Base
 
         $action = $input->getOption("action");
 
-        $newPrefix = $inputConfig['prefix'];
+        $newPrefix = $storageConfig['prefix'];
         $this->tableName = "{$newPrefix}dbsync";
 
         //判断表格是否存在
-        $db = new Pdo($inputConfig);
+        $db = new Pdo($storageConfig);
         $sql =  "SHOW TABLES like '{$this->tableName}'";
         $checkData = $db->fetch($sql);
 
@@ -64,7 +65,7 @@ class Dbsync extends Base
             Log::sysinfo("dbSync initialize success!");
         }
 
-        $this->importDb($inputConfig, $sqlpath, $prefix, $action);
+        $this->importDb($storageConfig, $sqlpath, $prefix, $action);
 
         Log::sysinfo("sync completed!");
     }
