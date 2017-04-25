@@ -350,7 +350,8 @@ class RouteMatch
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require);
                             $result = call_user_func_array([$obj, $action], $realParams);
                         }
-                        
+
+                        Event::fire("monitor", [$require[0], $require[1]]);
                         Event::fire("clear");
                         return $result;
                     } else {
