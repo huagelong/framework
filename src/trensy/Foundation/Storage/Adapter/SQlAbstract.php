@@ -688,6 +688,21 @@ abstract class SQlAbstract
     }
 
 
+    public function getSum($field, $where = array(), $groupBy = "", $tableName = null)
+    {
+        $whereSql = $this->parseWhere($where);
+        $whereSql = $whereSql ? " WHERE " . $whereSql : "";
+        $tableName = $tableName ? self::$prefix . $tableName : $this->getTableName();
+        $groupBySql = "";
+        if ($groupBy) {
+            $groupBySql = " GROUP BY " . $groupBy;
+        }
+        $sql = "SELECT SUM(".$field.") as cnt FROM `{$tableName}` " . $whereSql . $groupBySql;
+        $return = $this->fetch($sql, self::CONN_SLAVE);
+        return $return['cnt'];
+    }
+
+
     public function field($fieldStr){
         $this->field = $fieldStr;
         return $this;

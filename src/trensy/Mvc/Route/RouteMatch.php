@@ -341,6 +341,7 @@ class RouteMatch
                             if(!$check) return ;
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require[2]);
                             $result = call_user_func_array([$obj, $action], $realParams);
+                            Event::fire("monitor", [$require[0], $require[1]]);
                         } else {
                             //tcp
                             list($serv, $fd, $requestData) = $otherData;
@@ -349,9 +350,8 @@ class RouteMatch
                             if(!$check) return ;
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require);
                             $result = call_user_func_array([$obj, $action], $realParams);
+                            Event::fire("monitor", [$realParams]);
                         }
-
-                        Event::fire("monitor", [$require[0], $require[1]]);
                         Event::fire("clear");
                         return $result;
                     } else {
