@@ -63,7 +63,7 @@ class Config implements ConfigInterface
         $dir = Dir::formatPath($dir);
         $sharePath = $dir . "share";
         $shareConfig = self::getDirConfig($sharePath);
-        $env = RunMode::getEnv();
+        $env = RunMode::getRunMode();
         $envPath = $dir . $env;
 //        var_dump($shareConfig);
         $envConfig = self::getDirConfig($envPath);

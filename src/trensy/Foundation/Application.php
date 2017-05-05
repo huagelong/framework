@@ -105,7 +105,8 @@ class Application
             new Command\Artisan\Optimize(),
             new Command\Artisan\Dbsync(),
             new Command\Artisan\BuildPhar(),
-            new Command\Artisan\Dbdiff()
+            new Command\Artisan\Dbdiff(),
+            new Command\Artisan\Mysqldiff()
         ];
 
         $config = CConfig::get("app.command");

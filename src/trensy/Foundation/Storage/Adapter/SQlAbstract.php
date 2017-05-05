@@ -780,7 +780,7 @@ abstract class SQlAbstract
 	*/
     function clearSql($content,$old_prefix="",$new_prefix="",$separator=";\n")
     {
-        $commenter = array('#','--','\/\*');
+        $commenter = array('#','-','\/\*', '\+', '\@');
         $content = str_replace(array($old_prefix, "\r"), array($new_prefix, "\n"), $content);//替换前缀
         //通过sql语法的语句分割符进行分割
         $segment = explode($separator,trim($content));
