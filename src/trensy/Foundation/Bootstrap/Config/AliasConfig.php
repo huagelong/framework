@@ -24,7 +24,6 @@ class AliasConfig
             "RunMode" => \Trensy\Support\RunMode::class,
             "Arr" => \Trensy\Support\Arr::class,
             "Dir" => \Trensy\Support\Dir::class,
-            "Helper" => \Trensy\Support\Helper::class,
             "Config" => \Trensy\Config\Config::class,
             "Route" => \Trensy\Mvc\Route\Route::class,
             "Context" => \Trensy\Server\Facade\Context::class,

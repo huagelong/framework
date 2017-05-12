@@ -7,6 +7,7 @@ use Trensy\Mvc\View\Engine\Bladex\Support\Str;
 
 class BladexCompiler extends Compiler implements CompilerInterface
 {
+
     protected $staticFile = [];
     protected $staticSource = [];
     /**
@@ -1015,8 +1016,9 @@ class BladexCompiler extends Compiler implements CompilerInterface
 
     protected function compileStatic($expression, $match)
     {
-        $params = explode(",", $match[4]);
-        return "<?php echo \$__env->requireStatic($params[0]); ?>";
+//        $params = explode(",", $match[4]);
+//        $params1 = isset($params[1])?$params[1]:[];
+        return "<?php echo \$__env->requireStatic{$expression}; ?>";
     }
 
     protected function compileL($expression)

@@ -44,7 +44,9 @@ class Dbsync extends Base
         $storageConfig = $this->config()->get($inputConfig);
 
         $sqlpath = $input->getOption("sqldir");
-        $sqlpath = $sqlpath?$sqlpath:APPLICATION_PATH."/sql/";
+        $sqlPathConfig = $this->config()->get("storage.diff_output");
+        $sqlPathConfig = Dir::formatPath($sqlPathConfig);
+        $sqlpath = $sqlpath?$sqlpath:$sqlPathConfig;
 
         $prefix = $input->getOption("prefix");
         $prefix = $prefix?$prefix:$storageConfig['sync_prefix'];

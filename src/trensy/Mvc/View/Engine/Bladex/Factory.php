@@ -126,18 +126,30 @@ class Factory
         $this->share('__env', $this);
     }
 
-    public function requireStatic($path)
+    public function requireStatic($path, $other=[])
     {
         list($version, $bladexEx, $runMode) = $this->config;
-        if($runMode == RunMode::RUN_MODE_TEST) {
+        if($runMode != RunMode::RUN_MODE_ONLINE) {
             $version = time();
         }
         $ext = pathinfo($path, PATHINFO_EXTENSION);
+
+        $otherStr = "";
+        if($other){
+            foreach ($other as $k=>$v){
+                if(is_int($k)){
+                    $otherStr .= " ".$v;
+                }else{
+                    $otherStr .= " ".$k."='".$v."'";
+                }
+            }
+        }
+
         if($ext == 'js'){
-            return "<script src=\"" . $path . "?".$version."\"></script>" . PHP_EOL;
+            return "<script ".$otherStr." src=\"" . $path . "?".$version."\" type=\"text/javascript\"></script>" . PHP_EOL;
         }
         if($ext == 'css'){
-            return "<link rel=\"stylesheet\" href=\"" . $path . "?".$version."\">" . PHP_EOL;
+            return "<link  ".$otherStr." rel=\"stylesheet\" href=\"" . $path . "?".$version."\">" . PHP_EOL;
         }
     }
     

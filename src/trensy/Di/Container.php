@@ -35,6 +35,7 @@ class Container
         $class = new \ReflectionClass($class);
         $object = $class->newInstanceArgs($params);
 
+        //对对象进行初始化.对象都是应用
         if($relates){
             foreach ($relates as $relate){
                 if (!is_callable($relate)) {
