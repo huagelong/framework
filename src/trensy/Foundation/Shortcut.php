@@ -103,6 +103,16 @@ trait Shortcut
      public static function debug($str, $isReturn=false)
     {
         if(!$isReturn){
+            $data = debug_backtrace(2, 2);
+            $line = isset($data[0])?$data[0]:null;
+            $func = isset($data[1])?$data[1]:null;
+            if($func){
+                $strTmp = "{$func['function']}(): {$line['file']} . (line:{$line['line']})";
+            }
+            else{
+                $strTmp = " {$line['file']} . (line:{$line['line']})";
+            }
+            \Trensy\Support\Log::show($strTmp);
             return \Trensy\Support\Log::debug($str);
         }
         ob_start();

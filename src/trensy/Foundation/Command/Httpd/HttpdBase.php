@@ -14,6 +14,7 @@ namespace Trensy\Foundation\Command\Httpd;
 
 use Trensy\Config\Config;
 use Trensy\Foundation\Application;
+use Trensy\Foundation\Shortcut;
 use Trensy\Mvc\View\Engine\Bladex\Compilers\BladexCompiler;
 use Trensy\Server\WebSocket\WSServer;
 use Trensy\Support\Arr;
@@ -24,6 +25,7 @@ use Trensy\Support\Tool;
 
 class HttpdBase
 {
+    use Shortcut;
     public static function operate($cmd, $output, $input)
     {
         $root = Dir::formatPath(ROOT_PATH);
@@ -177,9 +179,21 @@ class HttpdBase
     {
         $killStr = $appName . "-httpd";
         exec("ps axu|grep " . $killStr . "|grep -v grep|awk '{print $2}'|xargs kill -9", $out, $result);
-        sleep(1);
-        return $result;
+        self::waitRunCmd("ps axu|grep " . $killStr . "|grep -v grep|awk '{print $2}'");
+        return true;
     }
+
+
+    protected static function waitRunCmd($cmd)
+    {
+        exec($cmd, $out, $result);
+        if($out){
+            sleep(1);
+            self::waitRunCmd($cmd);
+        }
+        return true;
+    }
+
 
     protected static function start($config, $adapter, $appName)
     {

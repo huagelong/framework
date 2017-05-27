@@ -26,7 +26,7 @@ class Exception
      */
     public static function formatException($e)
     {
-        $message = "Exception Error : " . $e->getMessage();
+        $message = "Exception Error : [".$e->getCode()."] " . $e->getMessage();
         $message .= " in " . $e->getFile() . ":" . $e->getLine() . "\n";
         $message .= "Stack trace\n";
 

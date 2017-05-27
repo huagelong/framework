@@ -94,6 +94,9 @@ class Log
         
         $msg = array_pop($data);
         if($type) array_unshift($data, $type);
+
+        $data = array_slice($data, 0, 2);
+
         if($type == 'show'){
             $string = $msg;
         }else{

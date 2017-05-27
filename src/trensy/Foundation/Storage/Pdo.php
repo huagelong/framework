@@ -17,6 +17,7 @@ use Trensy\Foundation\Exception\ConfigNotFoundException;
 use Trensy\Support\Event;
 use Trensy\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
 use Trensy\Support\Exception;
+use Trensy\Support\Log;
 
 class Pdo extends SQlAdapter
 {
@@ -56,7 +57,7 @@ class Pdo extends SQlAdapter
                 $masterConfig = $config['master'];
                 $dbh = new \PDO($config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '',
                     $masterConfig['user'], $masterConfig['password'],
-                    array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout']));
+                    array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout'],\PDO::ATTR_PERSISTENT=>true));
                 self::$conn[$this->key][self::CONN_MASTER] = $dbh;
                 self::$conn[$this->key][self::CONN_MASTER]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
                 self::$conn[$this->key][self::CONN_MASTER]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -65,7 +66,7 @@ class Pdo extends SQlAdapter
                 $slaveConfig = $config['slave'];
                 $slaveDBH = new \PDO($config['type'] . ':host=' . $slaveConfig['host'] . ';port=' . $slaveConfig['port'] . ';dbname=' . $slaveConfig['db_name'] . '',
                     $slaveConfig['user'], $slaveConfig['password'],
-                    array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout']));
+                    array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout'],\PDO::ATTR_PERSISTENT=>true));
                 self::$conn[$this->key][self::CONN_SLAVE] = $slaveDBH;
                 self::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
                 self::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -183,10 +184,12 @@ class Pdo extends SQlAdapter
         }catch (\Error $e){
 //            dump('3');
 //            dump($e->getCode());
-            if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
-                $this->dump($sql);
-                throw new \Exception(Exception::formatException($e));
-            }
+//            if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
+//                $this->dump($sql);
+//                throw new \Exception(Exception::formatException($e));
+//            }
+            $this->dump($sql);
+            Log::error($e->getMessage());
             //重新连接
             self::$conn[$this->key] = [];
             $this->conn();
@@ -199,12 +202,13 @@ class Pdo extends SQlAdapter
                 throw new \Exception(Exception::formatException($e));
             }
         }catch (\Exception $e){
-//            dump('3');
-//            dump($e->getCode());
-            if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
-                $this->dump($sql);
-                throw new \Exception(Exception::formatException($e));
-            }
+//            if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
+//                $this->dump($sql);
+//                throw new \Exception(Exception::formatException($e));
+//            }
+
+            $this->dump($sql);
+            Log::error($e->getMessage());
             //重新连接
             self::$conn[$this->key] = [];
             $this->conn();

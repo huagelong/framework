@@ -54,17 +54,30 @@ class ErrorHandleBootstrap
      * @param int $line
      * @param array $context
      */
-    public function handleError($level, $message, $file = '', $line = 0, $context = [])
+    public function handleError($errno, $message, $file = '', $line = 0, $context = [])
     {
         restore_error_handler();
-        $message = "WARNING  with message '{$message}' in " . $file . ':' . $line . "\n";
-        $compile = Config::get("server.httpd.server.view.compile_path");
-        $compile = realpath($compile);
-        if(stristr($file, $compile)){
-            echo($message);
-        }else{
-            Log::warn($message);
+
+        switch ($errno) {
+            case E_USER_ERROR:
+                throw new \ErrorException($message, $errno, null, $file, $line);
+                break;
+            case E_WARNING:
+            case E_USER_WARNING:
+                throw new \ErrorException($message, $errno, null, $file, $line);
+                break;
+            case E_NOTICE:
+            case E_USER_NOTICE:
+                throw new \ErrorException($message, $errno, null, $file, $line);
+                break;
+            default:
+                $message =  "Unknown error type: [".$errno."] ".$message." in " . $file . ":" . $line . "\n";
+                Log::error($message);
+                break;
         }
+
+        /* Don't execute PHP internal error handler */
+        return true;
     }
 
     /**
