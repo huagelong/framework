@@ -15,9 +15,7 @@ namespace Trensy\Foundation;
 use Trensy\Config\Config;
 use Trensy\Http\Request;
 use Trensy\Http\Response;
-use Trensy\Mvc\AssignData;
 use Trensy\Mvc\Template;
-use Trensy\Mvc\View\Engine\Bladex\Factory;
 use Trensy\Support\Arr;
 use Trensy\Support\Dir;
 use Trensy\Support\ElapsedTime;
@@ -39,26 +37,24 @@ class Controller
     /**
      * @var \Trensy\Http\Request
      */
-    protected $request = null;
+    public $request = null;
 
     /**
      * @var \Trensy\Http\Response
      */
-    protected $response = null;
+    public $response = null;
 
-
-    public function __construct(Request $request = null, Response $response = null)
-    {
-        $this->request = $request;
-        $this->response = $response;
-        $this->view = new AssignData();
-    }
-
+    /**
+     * @return Request
+     */
     public function getRequest()
     {
         return $this->request;
     }
 
+    /**
+     * @return Response
+     */
     public function getResponse()
     {
         return $this->response;
@@ -93,7 +89,6 @@ class Controller
 
         $template->setViewCacheRoot($viewCachePath);
         $assign = Arr::merge($assign, $this->view->getAssignData());
-        $assign = Arr::merge($assign, $this->response->view->getAssignData());
         
         $bladexEx = Config::get("server.httpd.server.view.bladex_ex");
         //执行环境

@@ -103,7 +103,7 @@ class HttpServer
 
         $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0;
 
-        Reload::load($this->serverName , $memRebootRate, $this->config);
+        Reload::load($this->serverName."-manage" , $memRebootRate, $this->config);
 
     }
 

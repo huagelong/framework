@@ -50,7 +50,6 @@ class Pdo extends SQlAdapter
 
     protected function initConn($config)
     {
-        $key = md5(serialize($config));
         if(isset(self::$conn[$this->key]) && self::$conn[$this->key]) return self::$conn[$this->key];
         try {
             if (isset($config['master']) && !isset(self::$conn[$this->key][self::CONN_MASTER])) {
@@ -58,6 +57,10 @@ class Pdo extends SQlAdapter
                 $dbh = new \PDO($config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '',
                     $masterConfig['user'], $masterConfig['password'],
                     array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout'],\PDO::ATTR_PERSISTENT=>true));
+                if((php_sapi_name() == 'cli') && strtolower($config['type'])=='mysql'){
+                    $query = $dbh->prepare("set session wait_timeout=90000,interactive_timeout=90000,net_read_timeout=90000");
+                    $query->execute();
+                }
                 self::$conn[$this->key][self::CONN_MASTER] = $dbh;
                 self::$conn[$this->key][self::CONN_MASTER]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
                 self::$conn[$this->key][self::CONN_MASTER]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -67,6 +70,10 @@ class Pdo extends SQlAdapter
                 $slaveDBH = new \PDO($config['type'] . ':host=' . $slaveConfig['host'] . ';port=' . $slaveConfig['port'] . ';dbname=' . $slaveConfig['db_name'] . '',
                     $slaveConfig['user'], $slaveConfig['password'],
                     array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout'],\PDO::ATTR_PERSISTENT=>true));
+                if((php_sapi_name() == 'cli') && strtolower($config['type'])=='mysql'){
+                    $query = $slaveDBH->prepare("set session wait_timeout=90000,interactive_timeout=90000,net_read_timeout=90000");
+                    $query->execute();
+                }
                 self::$conn[$this->key][self::CONN_SLAVE] = $slaveDBH;
                 self::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
                 self::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -182,45 +189,69 @@ class Pdo extends SQlAdapter
                 return $result;
             }
         }catch (\Error $e){
-//            dump('3');
-//            dump($e->getCode());
-//            if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
-//                $this->dump($sql);
-//                throw new \Exception(Exception::formatException($e));
-//            }
-            $this->dump($sql);
-            Log::error($e->getMessage());
-            //重新连接
-            self::$conn[$this->key] = [];
-            $this->conn();
-//            dump('4');
-//            dump(self::$conn[$this->key]);
-            if(isset(self::$conn[$this->key]) && self::$conn[$this->key]){
-                return $this->set($sql, $connType, $method);
-            }else{
+            $errorMsgStr = $e->getMessage();
+            if(!$this->checkErrors($errorMsgStr)){
                 $this->dump($sql);
-                throw new \Exception(Exception::formatException($e));
+                Log::error($e->getMessage());
+                throw new \Exception($e->getMessage());
             }
-        }catch (\Exception $e){
-//            if($e->getCode() != 'HY000' || !stristr($e->getMessage(), 'server has gone away')) {
-//                $this->dump($sql);
-//                throw new \Exception(Exception::formatException($e));
-//            }
 
             $this->dump($sql);
             Log::error($e->getMessage());
             //重新连接
             self::$conn[$this->key] = [];
             $this->conn();
-//            dump('4');
-//            dump(self::$conn[$this->key]);
             if(isset(self::$conn[$this->key]) && self::$conn[$this->key]){
                 return $this->set($sql, $connType, $method);
             }else{
                 $this->dump($sql);
-                throw new \Exception(Exception::formatException($e));
+                throw new \Exception($e->getMessage());
+            }
+        }catch (\Exception $e){
+            $errorMsgStr = $e->getMessage();
+            if(!$this->checkErrors($errorMsgStr)){
+                $this->dump($sql);
+                Log::error($e->getMessage());
+                throw new \Exception($e->getMessage());
+            }
+
+            $this->dump($sql);
+            Log::error($e->getMessage());
+            //重新连接
+            self::$conn[$this->key] = [];
+            $this->conn();
+            if(isset(self::$conn[$this->key]) && self::$conn[$this->key]){
+                return $this->set($sql, $connType, $method);
+            }else{
+                $this->dump($sql);
+                throw new \Exception($e->getMessage());
             }
         }
+
+    }
+
+    protected function checkErrors($errorMsgStr)
+    {
+        $needles = [
+            'server has gone away',
+            'no connection to the server',
+            'Lost connection',
+            'is dead or not enabled',
+            'Error while sending',
+            'decryption failed or bad record mac',
+            'server closed the connection unexpectedly',
+            'SSL connection has been closed unexpectedly',
+            'Error writing data to the connection',
+            'Resource deadlock avoided',
+            'Transaction() on null',
+        ];
+
+        foreach ($needles as $needle) {
+            if (mb_strpos($errorMsgStr, $needle) !== false) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

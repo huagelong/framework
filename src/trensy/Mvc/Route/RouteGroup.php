@@ -14,11 +14,13 @@
 
 namespace Trensy\Mvc\Route;
 
+use Trensy\Foundation\Shortcut;
 use Trensy\Mvc\Route\Base\RouteCollection as BaseRouteCollection;
 use Trensy\Support\Arr;
 
 class RouteGroup
 {
+    use Shortcut;
     protected $name = "";
     protected $prefix = "";
     protected $defaults = [];
@@ -98,7 +100,7 @@ class RouteGroup
         if($this->prefix) self::$groupPrefixs[] = $this->prefix;
 
         $subCollection->addPrefix($this->prefix);
-        $subCollection->addDefaults($this->defaults);
+        $subCollection->mergeDefaults($this->defaults);
         $subCollection->addRequirements([]);
         $subCollection->setHost($this->domain);
         $subCollection->setMethods($this->methods);

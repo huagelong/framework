@@ -24,6 +24,7 @@ class Mime
         "image/gif" => "gif",
         "image/jpeg" => "jpeg jpg",
         "application/x-javascript" => "js",
+        "application/json" => "json",
         "application/atom+xml" => "atom",
         "application/rss+xml" => "rss",
 
@@ -32,6 +33,7 @@ class Mime
         "text/vnd.sun.j2me.app-descriptor" => "jad",
         "text/vnd.wap.wml" => "wml",
         "text/x-component" => "htc",
+        "text/markdown"=>"md",
 
         "image/png" => "png",
         "image/tiff" => "tif tiff",

@@ -22,6 +22,9 @@ class Base extends Command
 
   public function __construct()
   {
+      ini_set('output_buffering', 0);
+      ini_set('implicit_flush', 1);
+      ob_implicit_flush(1);
       parent::__construct();
       Bootstrap::getInstance(ROOT_PATH);
   }

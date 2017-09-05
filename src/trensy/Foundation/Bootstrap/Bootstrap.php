@@ -109,13 +109,15 @@ class Bootstrap
             }
 
             if($params instanceof Response){
-                $controller = new HttpController(null, $params);
+                $controller = new HttpController();
+                $controller->view = $params->view;
                 $controller->view->msg = $e->getMessage();
                 if($config){
                     $content = $controller->render($config);
                 }else{
                     $content = "Page Not Found";
                 }
+                $params->status(404);
                 $params->end($content);
             }else{
                 //tcp

@@ -199,6 +199,15 @@ class RouteCollection implements \IteratorAggregate, \Countable
         }
     }
 
+    public function mergeDefaults(array $defaults)
+    {
+        if ($defaults) {
+            foreach ($this->routes as $route) {
+                $route->mergeDefaults($defaults);
+            }
+        }
+    }
+
     /**
      * Adds requirements to all routes.
      *

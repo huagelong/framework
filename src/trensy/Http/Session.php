@@ -48,7 +48,7 @@ class Session
 
         if (isset($config['cache_expire'])) {
             $expire = $config['cache_expire'];
-            $lifetime = time()+$expire * 2;
+            $lifetime = time()+$expire;
         } else {
             $expire = 60 * 60;
         }
@@ -60,17 +60,10 @@ class Session
 
         $sessionName = empty($config['name']) ? 'TSESSIONID' : $config['name'];
 
-        if ($request->query->get($sessionName)) {
-            $sid = $request->query->get($sessionName);
-        } elseif ($request->request->get($sessionName)) {
-            $sid = $request->request->get($sessionName);
-        } elseif ($request->cookies->get($sessionName)) {
-            $sid = $request->cookies->get($sessionName);
-        } else {
-            $sid = sha1($request->headers->get('user-agent') . $request->server->get('remote_addr') . uniqid(posix_getpid(), true));
-        }
+        $sid = $this->getSid();
+
         $response->rawcookie($sessionName, $sid, $lifetime, $path, $domain, $secure, $httponly);
-        $this->sid = $sid;
+
         $this->set("trensy_heart", 1);
         $this->server->expire($sid, $expire);
     }
@@ -107,6 +100,7 @@ class Session
      */
     public function getSid()
     {
+        if($this->sid) return $this->sid;
         $request = $this->request;
         $config = $this->config;
         $sessionName = empty($config['name']) ? 'TSESSIONID' : $config['name'];
@@ -119,6 +113,7 @@ class Session
         } else {
             $sid = sha1($request->headers->get('user-agent') . $request->server->get('remote_addr') . uniqid(posix_getpid(), true));
         }
+        $this->sid = $sid;
         return $sid;
     }
 

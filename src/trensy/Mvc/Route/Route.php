@@ -13,11 +13,12 @@
 
 namespace Trensy\Mvc\Route;
 
+use Trensy\Foundation\Shortcut;
 use Trensy\Mvc\Route\Exception\InvalidArgumentException;
 
 class Route
 {
-
+    use Shortcut;
     /**
      * route group
      *
@@ -91,7 +92,7 @@ class Route
         $closureOrArr = $args[1];
 
         $obj->match($_method, $path, $closureOrArr);
-//        dump($obj->getResult());
+
         if (is_array($closureOrArr)) {
 
             if (isset($closureOrArr['name']) && $closureOrArr['name']) {

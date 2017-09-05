@@ -60,14 +60,14 @@ class Redis
             $result = $this->run($name ,$arguments);
             return $result;
         } catch (\Exception $e) {
-            $this->reConn($e);
+            $this->reConn();
             if(self::$conn){
                 return $this->run($name ,$arguments);
             }else{
                 Log::error(SupportException::formatException($e));
             }
         }catch (\Error $e) {
-            $this->reConn($e);
+            $this->reConn();
             if(self::$conn){
                 return $this->run($name ,$arguments);
             }else{
@@ -91,11 +91,7 @@ class Redis
         return $result;
     }
 
-    protected function reConn($e){
-        if($e->getCode() != 0 || !stristr($e->getMessage(), 'No connections available in the pool')) {
-            throw new \Exception($e->getMessage());
-        }
-        //重新连接
+    protected function reConn(){
         self::$conn = [];
         $this->conn();
     }

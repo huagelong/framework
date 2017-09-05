@@ -392,6 +392,20 @@ class Route implements \Serializable
         return $this;
     }
 
+    public function mergeDefaults(array $defaults)
+    {
+        foreach ($defaults as $name => $default) {
+            if(isset($this->defaults[$name])){
+                $this->defaults[$name] = array_merge($this->defaults[$name], $default);
+            }else{
+                $this->defaults[$name] = $default;
+            }
+        }
+        $this->compiled = null;
+
+        return $this;
+    }
+
     /**
      * Gets a default value.
      *

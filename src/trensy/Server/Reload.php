@@ -51,11 +51,8 @@ class Reload
 
     protected static function reload($serverName)
     {
-        exec("ps axu|grep " . $serverName . "$|grep -v grep|awk '{print $2}'", $serverPidArr);
-        $masterPid = $serverPidArr ? current($serverPidArr) : null;
-        if ($masterPid) {
-            posix_kill($masterPid, SIGUSR1);
-        }
+        exec("ps axu|grep " . $serverName . "|grep -v grep|awk '{print $2}'|xargs kill -USR1", $serverPidArr);
+        Log::sysinfo($serverName. " stop ... ");
     }
 
     protected static function start($serverName, $rate, $showLog=false)

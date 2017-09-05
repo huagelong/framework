@@ -270,6 +270,9 @@ abstract class SQlAbstract
 //
         $rs = $this->fetchAll($sql, self::CONN_SLAVE);
         if ($returnCount) {
+            if(!stristr($sql, "SQL_CALC_FOUND_ROWS")){
+                throw new \Exception("return total count must contain SQL_CALC_FOUND_ROWS");
+            }
             $sqlCount = 'SELECT FOUND_ROWS() as cnt';
             $rsCount = $this->fetch($sqlCount, self::CONN_SLAVE);
             $this->_total = $rsCount['cnt'];

@@ -14,6 +14,8 @@
 
 namespace Trensy\Mvc\Route;
 
+use Trensy\Di\Di;
+use Trensy\Foundation\Shortcut;
 use Trensy\Support\Event;
 use Trensy\Foundation\Bootstrap\Session;
 use Trensy\Http\Request;
@@ -27,10 +29,14 @@ use Trensy\Mvc\Route\Exception\PageNotFoundException;
 use Trensy\Support\Arr;
 use Trensy\Support\Log;
 use Trensy\Server\Facade\Context as FContext;
+use Trensy\Storage\Cache\Adapter\ApcCache;
+use Trensy\Di\Instance;
 
 
 class RouteMatch
 {
+    use Shortcut;
+
     protected static $instance = null;
     /**
      * 所有路由数据
@@ -77,6 +83,7 @@ class RouteMatch
         if (self::$collectionInstance) return self::$collectionInstance;
         $rootCollection = new BaseRouteCollection();
         $allRoute = $this->getAllGroupRoute();
+//        $this->debug($allRoute);
         if ($allRoute) {
             foreach ($allRoute as $v) {
                 $rootCollection->addCollection($v);
@@ -103,12 +110,11 @@ class RouteMatch
     protected function groupFilter($url)
     {
         $groupPrefixs = RouteGroup::getGroupPrefixs();
-        if(!$groupPrefixs) return $url;
-        $urlTmp = ltrim($url,"/");
+        if (!$groupPrefixs) return $url;
+        $urlTmp = ltrim($url, "/");
 
-        if(in_array($urlTmp,$groupPrefixs))
-        {
-            return $url."/";
+        if (in_array($urlTmp, $groupPrefixs)) {
+            return $url . "/";
         }
         return $url;
     }
@@ -123,13 +129,14 @@ class RouteMatch
         $rootCollection = $this->getRootCollection();
         $context = new RequestContext();
         $request = FContext::request();
-        if(!$request){
+        if (!$request) {
             $request = Request::createFromGlobals();
         }
         $context->fromRequest($request);
         $matcher = new UrlMatcher($rootCollection, $context);
         $url = $this->groupFilter($url);
         $parameters = $matcher->match($url);
+//        $this->debug($parameters);
         $parameters['_matchinfo'] = $this->setDispatch($parameters);
         return $parameters;
     }
@@ -144,13 +151,13 @@ class RouteMatch
     {
 
         $mathResult = [];
-        if(isset($match['_route']) && $match['_route']) {
+        if (isset($match['_route']) && $match['_route']) {
             $routeName = $match['_route'];
             $mathResult['groupName'] = substr($routeName, 0, strpos($routeName, '@'));
-            $mathResult['routeName'] = substr($routeName, strpos($routeName, '@')+1);
+            $mathResult['routeName'] = substr($routeName, strpos($routeName, '@') + 1);
         }
 
-        if(isset($match['_controller']) && $match['_controller']) {
+        if (isset($match['_controller']) && $match['_controller']) {
             $controller = $match['_controller'];
             $mathResult['controller'] = $controller;
         }
@@ -165,13 +172,19 @@ class RouteMatch
      * @param string $groupName
      * @return mixed
      */
-    public function simpleUrl($routeName, $params = [], $groupName='')
+    public function simpleUrl($routeName, $params = [], $groupName = '')
     {
-        if($groupName){
-            $routeName = $groupName."@".$routeName;
-        }else{
-            if(isset(self::$dispatch['groupName']) && self::$dispatch['groupName']){
-                $routeName = self::$dispatch['groupName']."@".$routeName;
+
+        if ($params && (!is_array($params)) && !$groupName) {
+            $groupName = $params;
+            $params = [];
+        }
+
+        if ($groupName) {
+            $routeName = $groupName . "@" . $routeName;
+        } else {
+            if (isset(self::$dispatch['groupName']) && self::$dispatch['groupName']) {
+                $routeName = self::$dispatch['groupName'] . "@" . $routeName;
             }
         }
         return $this->url($routeName, $params);
@@ -187,11 +200,11 @@ class RouteMatch
      */
     public function url($routeName, $params = [])
     {
-        if(!$routeName) return "";
-        
+        if (!$routeName) return "";
+
         $sysCacheKey = md5($routeName . serialize($params));
 
-        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+        $sysCache = new ApcCache();
         $url = $sysCache->get($sysCacheKey);
 
         if ($url) return $url;
@@ -199,15 +212,15 @@ class RouteMatch
         $rootCollection = $this->getRootCollection();
         $context = new RequestContext();
         $request = FContext::request();
-        if(!$request){
+        if (!$request) {
             $request = Request::createFromGlobals();
         }
         $context->fromRequest($request);
-        
+
         $generator = new UrlGenerator($rootCollection, $context);
         $url = $generator->generate($routeName, $params);
 
-        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+        $sysCache = new ApcCache();
 
         $sysCache->set($sysCacheKey, $url, 3600);
 
@@ -228,15 +241,15 @@ class RouteMatch
         $serverStr = $request->server->get("REQUEST_METHOD");
         $serverStr .= $request->server->get("HTTP_HOST");
 
-        $sysCacheKey = md5(__CLASS__ . $url.$serverStr);
+        $sysCacheKey = md5(__CLASS__ . $url . $serverStr);
 
-        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+        $sysCache = new ApcCache();
         $parameters = $sysCache->get($sysCacheKey);
 
 
         if (!$parameters) {
             $parameters = $this->match($url);
-            $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+            $sysCache = new ApcCache();
             $sysCache->set($sysCacheKey, $parameters, 3600);
         }
 
@@ -284,13 +297,13 @@ class RouteMatch
     {
         $sysCacheKey = md5($url);
 
-        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+        $sysCache = new ApcCache();
 
         $parameters = $sysCache->get($sysCacheKey);
 
         if (!$parameters) {
             $parameters = $this->match($url);
-            $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
+            $sysCache = new ApcCache();
             $sysCache->set($sysCacheKey, $parameters, 3600);
         }
 
@@ -321,7 +334,6 @@ class RouteMatch
             $controller = isset($parameters['_controller']) ? $parameters['_controller'] : null;
             if ($controller) {
                 $middleware = isset($parameters['_middleware']) ? $parameters['_middleware'] : null;
-
                 $isClosure = 0;
                 if ($controller instanceof \Closure) {
                     $isClosure = 1;
@@ -336,18 +348,34 @@ class RouteMatch
                         list($controller, $action) = explode("@", $controller);
                         //如果是http服务器
                         if (isset($require[0]) && ($require[0] instanceof Request)) {
-                            $obj = new $controller($require[0], $require[1]);
+                            $definition = [];
+                            $definition['request'] = $require[0];
+                            $definition['response'] = $require[1];
+                            $definition['view'] = $require[1]->view;
+                            $obj = Di::get($controller,[],$definition);
+//                            $obj = new $controller($require[0], $require[1]);
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
-                            if(!$check) return ;
+                            if (!$check){
+                                throw new \Exception("middleWare unvalidate");
+                                return;
+                            }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require[2]);
+//                            Log::debug($realParams);
                             $result = call_user_func_array([$obj, $action], $realParams);
                             Event::fire("monitor", [$require[0], $require[1]]);
                         } else {
                             //tcp
-                            list($serv, $fd, $requestData) = $otherData;
-                            $obj = new $controller($serv, $fd, $requestData);
+                            list($serv, $fd, $params) = $otherData;
+                            $definition = [];
+                            $definition['serv'] = $serv;
+                            $definition['fd'] = $fd;
+                            $definition['params'] = $params;
+                            $obj = Di::get($controller,[],$definition);
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
-                            if(!$check) return ;
+                            if (!$check){
+                                throw new \Exception("middleWare unvalidate");
+                                return;
+                            }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require);
                             $result = call_user_func_array([$obj, $action], $realParams);
                             Event::fire("monitor", [$realParams]);
@@ -369,13 +397,23 @@ class RouteMatch
     protected function callUserFuncArrayRealParams($class, $function, $params)
     {
         $reflect = new \ReflectionMethod($class, $function);
+
         $real_params = array();
-        foreach ($reflect->getParameters() as $i => $param)
-        {
+        foreach ($reflect->getParameters() as $i => $param) {
             $pname = $param->getName();
-            if (array_key_exists($pname, $params))
-            {
-                $real_params[] = $params[$pname];
+
+            if(!is_callable($pname)){
+                if (array_key_exists($pname, $params)) {
+                    $real_params[] = $params[$pname];
+                }
+            }else{
+                $obj = Di::get($pname);
+                $real_params[] = $obj;
+            }
+            if($param->getClass()){
+                $className = $param->getClass()->getName();
+                $obj = Di::get($className);
+                $real_params[] = $obj;
             }
         }
 
@@ -407,22 +445,27 @@ class RouteMatch
      */
     protected function runMiddleware($middleware, $require, $action, $whiteAction)
     {
+//        var_dump([$middleware,$whiteAction]);
         if ($middleware) {
             $middleware = is_string($middleware) ? [$middleware] : $middleware;
             $midd = self::$middlewareConfig;
             if ($midd) {
                 foreach ($middleware as $v) {
-                    if($whiteAction){
+                    if ($whiteAction) {
                         if (isset($whiteAction[$v])) {
                             if (in_array($action, $whiteAction[$v])) continue;
-                        }else{
+                        } else {
                             if (in_array($action, $whiteAction)) continue;
                         }
                     }
 
                     if (isset($midd[$v])) {
                         $class = $midd[$v];
-                        $obj = new $class();
+
+                        $definition = [];
+                        $definition['require'] = $require;
+                        $obj = Di::get($class,[],$definition);
+//                        $obj = new $class();
                         $rs = call_user_func_array([$obj, "perform"], $require);
                         if (!$rs) return false;
                     }

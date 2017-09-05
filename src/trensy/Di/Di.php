@@ -12,7 +12,6 @@
 
 namespace Trensy\Di;
 
-use Trensy\Config\Config;
 use Trensy\Di\Exception\DiNotDefinedException;
 
 class Di
@@ -23,15 +22,14 @@ class Di
      */
     protected static $containerInstance = null;
 
+
     /**
-     * get Container
-     *
+     * @return Container
      */
     public static function getContainer()
     {
         if (!self::$containerInstance) {
-            $container = new Container();
-            self::$containerInstance = $container;
+            self::$containerInstance =new Container();
         }
         return self::$containerInstance;
     }
@@ -45,50 +43,24 @@ class Di
      * @param bool $isLazy
      * @return mixed
      */
-    private static function register($name, $options, $shared = true)
+    private static function register($name,$definition=[],$params=[], $shared = true)
     {
-        if (!$options) {
+        if (!$name) {
             throw new DiNotDefinedException(" container object is not found ~");
         }
 
-        self::getContainer();
-
-        if (is_string($options)) {
-            return self::$containerInstance->set($name, $options, [], $shared);
+        if(!$definition){
+            $definition['class'] = $name;
         }else{
-            $className = isset($options['class']) ? $options['class'] : null;
-            $arguments = isset($options['arguments']) ? $options['arguments'] : null;
-            $relate = isset($options['relate']) ? $options['relate'] : null;
-            $configKey = isset($options['config']) ? $options['config'] : null;
-            if(isset($options['share'])){
-                $shared = isset($options['share']) ? $options['share'] : $shared;
+            if(is_array($definition) && !isset($definition['class'])){
+                $definition['class'] = $name;
             }
-            
-            $params = [];
-            if($arguments){
-                foreach ($arguments as $argument){
-                    if(is_string($argument)){
-                        if(isset($configKey[$argument])){
-                            $argument = Config::get($configKey[$argument]);
-                        }
-                    }
-                    $params[] = $argument;
-                }
-            }
+        }
 
-            $relateArr = [];
-            
-            if($relate){
-                foreach ($relate as $k=>$v){
-                    $tmp = [];
-                    $obj = self::get($k);
-                    $tmp[] = $obj;
-                    $tmp[] = $v;
-                    $relateArr[] = $tmp;
-                } 
-            }
-            
-            return self::$containerInstance->set($name, $className, $params, $shared, $relateArr);
+        if($shared){
+            return self::getContainer()->setSingleton($name, $definition, $params);
+        }else{
+            return self::getContainer()->set($name, $definition, $params);
         }
     }
 
@@ -99,21 +71,19 @@ class Di
      * @param $options
      * @return mixed
      */
-    public static function set($name, $options)
+    public static function set($name, $definition=[],$params=[])
     {
-        return self::register($name, $options);
+        return self::register($name, $definition,$params,false);
     }
 
     /**
-     *  get a service
-     *
      * @param $name
      * @return object
-     * @throws \Trensy\Di\DiNotDefinedException
+     * @throws DiNotDefinedException
      */
-    public static function get($name)
+    public static function get($name, $params=[], $config=[])
     {
-        $service = self::$containerInstance->get($name);
+        $service = self::getContainer()->get($name, $params, $config);
         if (!$service) {
             throw new DiNotDefinedException(" Container is not defined ~");
         }
@@ -128,22 +98,21 @@ class Di
      */
     public static function has($name)
     {
-        $service = self::$containerInstance->has($name);
+        $service = self::getContainer()->has($name);
         return $service?true:false;
     }
 
     /**
-     * set a no share service
-     *
      * @param $name
-     * @param $options
-     * @return null|Definition
-     * @throws \Trensy\Di\DiNotDefinedException
+     * @param array $definition
+     * @param array $params
+     * @return mixed
      */
-    public static function notShareSet($name, $options)
+    public static function shareSet($name, $definition=[],$params=[])
     {
-        return self::register($name, $options, false);
+        return self::register($name, $definition,$params,true);
     }
+
 
     public function __destruct()
     {

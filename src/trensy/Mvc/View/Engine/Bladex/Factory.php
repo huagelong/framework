@@ -126,10 +126,10 @@ class Factory
         $this->share('__env', $this);
     }
 
-    public function requireStatic($path, $other=[])
+    public function requireStatic($path, $other=[], $useCache=1)
     {
         list($version, $bladexEx, $runMode) = $this->config;
-        if($runMode != RunMode::RUN_MODE_ONLINE) {
+        if(($runMode != RunMode::RUN_MODE_ONLINE) && !$useCache) {
             $version = time();
         }
         $ext = pathinfo($path, PATHINFO_EXTENSION);

@@ -14,7 +14,7 @@
 
 namespace Trensy\Foundation\Bootstrap;
 
-use Route;
+use Trensy\Mvc\Route\Route;
 use Trensy\Config\Config;
 use Trensy\Foundation\Shortcut;
 use Trensy\Support\Dir;
@@ -59,6 +59,7 @@ class RouteBootstrap
             }
             $config = $obj->perform($config);
         }
+
         if ($config) {
             foreach ($config as $value){
                 $this->loadOneRouteConfig($value);

@@ -46,15 +46,7 @@ class Serialization
                     return new DefaultSerialization();
             }
         }else{
-            if (function_exists("msgpack_pack")){
-                return new MsgPackSerialization();
-            }elseif(function_exists("igbinary_serialize")){
-                return new IgbinarySerialization();
-            }elseif(function_exists("hprose_serialize")){
-                return new HproseSerialization();
-            }else{
-                return new DefaultSerialization();
-            }
+            return new DefaultSerialization();
         }
     }
 

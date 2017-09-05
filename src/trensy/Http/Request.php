@@ -28,6 +28,7 @@ class Request extends BaseRequest
      */
     public function __construct($swooleRequest)
     {
+
         $this->swooleRequest = $swooleRequest;
 
         $get = isset($swooleRequest->get) ? $swooleRequest->get : [];
@@ -58,8 +59,7 @@ class Request extends BaseRequest
                 $this->request = new ParameterBag($data);
             }
         }
-        //覆盖$_GET,$_POST等
-//        parent::overrideGlobals();
+
     }
 
     public function getSwooleRequest()

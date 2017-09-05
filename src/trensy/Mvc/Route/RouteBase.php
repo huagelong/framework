@@ -14,11 +14,14 @@
 
 namespace Trensy\Mvc\Route;
 
+use Trensy\Foundation\Shortcut;
 use Trensy\Mvc\Route\Base\Route as BaseRoute;
 use Trensy\Support\Arr;
 
 class RouteBase
 {
+    use Shortcut;
+
     const DEFAULTGROUP_KEY = "group_default";
 
     protected $path = null;
@@ -104,9 +107,7 @@ class RouteBase
         $this->defaults = Arr::merge($this->defaults, $default);
 
         $this->routeObj->setDefaults($this->defaults);
-
         $this->setResult($this->resultKey, $this->routeObj);
-
         return $this;
     }
 

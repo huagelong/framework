@@ -41,7 +41,7 @@ class Mysqldiff extends Base
             $type = $type ? $type : "schema";
 
             $check = $this->todo($type);
-            if($check) $this->todo($type);
+//            if($check) $this->todo($type);
 
             Log::show("done");
         } catch (\Exception $e) {
@@ -265,7 +265,7 @@ class Mysqldiff extends Base
 	*/
     function clearSql($segment,$old_prefix="",$new_prefix="")
     {
-        $commenter = array('#','-','\/\*', '\+', '\@', 'WARNING');
+        $commenter = array('#','-','\/\*', '\+', '\@', 'WARNING','\[');
         //去掉注释和多余的空行
         $data=array();
         foreach($segment as  $statement)
