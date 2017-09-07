@@ -16,6 +16,7 @@ namespace Trensy\Foundation;
 
 use Trensy\Console\Application as CmdApplication;
 use Trensy\Config\Config as CConfig;
+use Trensy\Di\Di;
 use Trensy\Foundation\Bootstrap\Bootstrap;
 use Trensy\Foundation\Bootstrap\RouteBootstrap;
 use Trensy\Foundation\Command;
@@ -58,7 +59,9 @@ class Application
         //pathinfo 处理
         $pathinfoMiddle = CConfig::get("app.pathinfo");
         if($pathinfoMiddle){
-            $obj = new $pathinfoMiddle;
+//            $obj = new $pathinfoMiddle;
+
+            $obj = Di::get($pathinfoMiddle);
             if(!method_exists($obj, "perform")){
                 throw new \Exception(" 'perform' method must defined");
             }

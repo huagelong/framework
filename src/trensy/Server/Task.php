@@ -14,6 +14,7 @@
 
 namespace Trensy\Server;
 
+use Trensy\Di\Di;
 use Trensy\Foundation\Shortcut;
 use Trensy\Server\Exception\InvalidArgumentException;
 use Trensy\Server\Facade\Context as FacedeContext;
@@ -121,7 +122,8 @@ class Task
             throw new InvalidArgumentException(" task not config ");
         }
 
-        $obj = new $taskClass();
+        $obj = Di::get($taskClass);
+//        $obj = new $taskClass();
 
         if (!method_exists($obj, "perform")) {
             throw new InvalidArgumentException(" task method perform not config ");

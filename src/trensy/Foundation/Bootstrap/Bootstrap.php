@@ -73,7 +73,8 @@ class Bootstrap
     {
         $config = Config::get("app.init");
         if ($config) {
-            $obj = new $config;
+            $obj = Di::get($config);
+//            $obj = new $config;
             if (!method_exists($obj, "perform")) {
                 throw new InvalidArgumentException(" log class perform not config ");
             }
@@ -86,7 +87,8 @@ class Bootstrap
         $config = Config::get("app.log");
         if($config){
             Log::register(function($params) use ($config){
-                $obj = new $config;
+                $obj = Di::get($config);
+//                $obj = new $config;
                 if (!method_exists($obj, "perform")) {
                     throw new InvalidArgumentException(" log class perform not config ");
                 }

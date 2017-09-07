@@ -13,6 +13,7 @@
 namespace Trensy\Foundation;
 
 use Trensy\Config\Config;
+use Trensy\Di\Di;
 use Trensy\Http\Request;
 use Trensy\Http\Response;
 use Trensy\Mvc\Template;
@@ -75,7 +76,9 @@ class Controller
 
         $diyView = Config::get("server.httpd.server.view.diy");
         if($diyView){
-            $obj = new $diyView;
+
+            $obj = Di::get($diyView);
+//            $obj = new $diyView;
             if(!method_exists($obj, "perform")){
                 throw new \Exception(" 'perform' method must defined");
             }

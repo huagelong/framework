@@ -14,6 +14,7 @@
 
 namespace Trensy\Foundation\Bootstrap;
 
+use Trensy\Di\Di;
 use Trensy\Mvc\Route\Route;
 use Trensy\Config\Config;
 use Trensy\Foundation\Shortcut;
@@ -53,7 +54,8 @@ class RouteBootstrap
         //route 方式自定义
         $myRoute = Config::get("app.".$configKey);
         if($myRoute){
-            $obj = new $myRoute;
+            $obj = Di::get($myRoute);
+//            $obj = new $myRoute;
             if(!method_exists($obj, "perform")){
                 throw new \Exception(" 'perform' method must defined");
             }
