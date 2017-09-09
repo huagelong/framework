@@ -91,13 +91,14 @@ class Controller
         $viewCachePath = Config::get("server.httpd.server.view.compile_path");
 
         $template->setViewCacheRoot($viewCachePath);
-        $assign = Arr::merge($assign, $this->view->getAssignData());
+        if(isset($this->view)) $assign = Arr::merge($assign, $this->view->getAssignData());
         
         $bladexEx = Config::get("server.httpd.server.view.bladex_ex");
         //执行环境
         $version = Config::get("server.httpd.server.view.static_version");
+        $widget = Config::get("server.httpd.server.view.widget");
         $runMode = RunMode::getRunMode();
-        $config = [$version, $bladexEx, $runMode];
+        $config = [$version, $bladexEx, $runMode, $widget];
         $template->setConfig($config);
 
         $content = $template->render($viewPath, $assign);

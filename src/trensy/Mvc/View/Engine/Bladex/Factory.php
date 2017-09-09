@@ -11,6 +11,7 @@ use Trensy\Mvc\View\Engine\Bladex\Support\Str;
 use Trensy\Di\Di;
 use Trensy\Server\Facade\Task;
 use Trensy\Support\Dir;
+use Trensy\Support\Log;
 use Trensy\Support\RunMode;
 use Trensy\Support\Tool;
 
@@ -122,7 +123,6 @@ class Factory
         $this->finder = $finder;
         $this->engines = $engines;
         $this->config = $config;
-        
         $this->share('__env', $this);
     }
 
@@ -194,6 +194,30 @@ class Factory
         $view = new View($this, $this->getEngineFromPath($path), $path, $path, $data);
         
         return $view;
+    }
+
+    public function widget()
+    {
+        $params = func_get_args();
+        $widgetConfig = isset($this->config[3])?$this->config[3]:"";
+        if(!$widgetConfig){
+            return "";
+        }
+        $widgetName = func_get_arg(0);
+        if(!$widgetName){
+            return "";
+        }
+        unset($params[0]);
+        $class = isset($widgetConfig[$widgetName])?$widgetConfig[$widgetName]:"";
+        if(!$class){
+            return "";
+        }
+        $obj = Di::get($class);
+        if(!method_exists($obj, "perform")){
+            return "";
+        }
+        $params = array_values($params);
+        return $obj->perform($params);
     }
 
     /**

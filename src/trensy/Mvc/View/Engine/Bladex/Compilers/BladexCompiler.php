@@ -1032,7 +1032,7 @@ class BladexCompiler extends Compiler implements CompilerInterface
         $expression = join(",", $params);
         $expression = $this->stripParentheses($expression);
 
-        return "<?php echo \$__env->make($expression, \Trensy\Mvc\View\Engine\Bladex\Helper::array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
+        return "<?php echo \$__env->widget($expression); ?>";
     }
     
 }
