@@ -77,7 +77,7 @@ class SocketServer
         swoole_set_process_name($this->serverName . "-manage");
         Log::sysinfo($this->serverName . " manage start ......");
 
-        $memRebootRate = isset($this->config['mem_reboot_rate']) ? $this->config['mem_reboot_rate'] : 0;
+        $memRebootRate = isset($this->config['mem_reboot_rate']) ? $this->config['mem_reboot_rate'] : 0.8;
 
         Reload::load($this->serverName . "-manage", $memRebootRate, $this->config);
     }

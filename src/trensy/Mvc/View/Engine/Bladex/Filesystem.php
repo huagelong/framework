@@ -3,9 +3,12 @@
 namespace Trensy\Mvc\View\Engine\Bladex;
 
 use Exception;
+use Trensy\Foundation\Shortcut;
 
 class Filesystem
 {
+    use Shortcut;
+
     /**
      * Determine if a file exists.
      *
@@ -55,7 +58,14 @@ class Filesystem
      */
     public function lastModified($path)
     {
-        return filemtime($path);
+        $key = __CLASS__.__METHOD__.$path;
+        $rest = $this->syscache()->get($key);
+        if($rest) return $rest;
+        $filemtime = filemtime($path);
+
+        $this->syscache()->set($key, $filemtime);
+
+        return $filemtime;
     }
 
     /**

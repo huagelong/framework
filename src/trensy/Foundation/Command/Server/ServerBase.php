@@ -73,6 +73,7 @@ class ServerBase
         if ($servers) {
             $name = $config['name'];
             foreach ($servers as $v) {
+                if(!isset($config[$v]) || !$config[$v]) continue;
                 $cmdName = $v . ":" . $type;
                 $cmdDefined = $cmdObj->getApplication()->has($cmdName);
                 if(!$cmdDefined){
@@ -97,9 +98,9 @@ class ServerBase
         $count = -1;
         $time = time();
         while (1) {
-            usleep(40000);
+            sleep(1);
             exec("ps axu|grep " . $name . "|grep -v grep|awk '{print $2}'", $masterArr);
-            if ((time() - $time) > 30) {
+            if ((time() - $time) > 10) {
                 break;
             }
             if ($count == -1) {

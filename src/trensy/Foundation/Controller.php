@@ -23,7 +23,7 @@ use Trensy\Support\ElapsedTime;
 use Trensy\Support\RunMode;
 use Trensy\Support\Tool;
 
-class Controller
+class Controller implements DocLoadInterface
 {
     use Shortcut;
 
@@ -132,7 +132,7 @@ class Controller
         $result = [];
         $result['result'] = $data;
         $result['statusCode'] = $errorCode;
-        $result['msg'] = $errorMsg;
+        $result['message'] = $errorMsg;
         $result['elapsedTime'] = $elapsedTime;
         $this->response->header("Content-type", "application/json");
         //JSON_NUMERIC_CHECK

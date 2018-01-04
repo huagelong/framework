@@ -39,10 +39,13 @@ class PhpEngine implements EngineInterface
             include $__path;
         } catch (Exception $e) {
             $this->handlePhpViewException($e, $obLevel);
+            return ;
         } catch (\Error $e) {
             $this->handlePhpViewException($e, $obLevel);
+            return ;
         }catch (Throwable $e) {
             $this->handlePhpViewException(new Exception($e), $obLevel);
+            return ;
         }
         return ltrim(ob_get_clean());
     }

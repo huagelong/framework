@@ -87,13 +87,8 @@ class HttpSendFile
 
         if ($readFile) {
             $this->response->header("Content-Type", $mime);
-            //bug macos sendfile slow
-            if(strtolower(PHP_OS) == 'darwin'){
-                $data = file_get_contents($filePath);
-                $this->response->end($data);
-            }else{
-                $this->response->sendfile($filePath);
-            }
+            $data = file_get_contents($filePath);
+            $this->response->end($data);
         } else {
             $this->response->end();
         }
@@ -111,9 +106,8 @@ class HttpSendFile
 
         $pathinfo = $this->request->getPathInfo();
 
-        $sysCacheKey = md5($pathinfo);
-        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
-        $analyse = $sysCache->get(__CLASS__.$sysCacheKey);
+        $sysCacheKey = __CLASS__.__METHOD__.md5($pathinfo);
+        $analyse = $this->syscache()->get(__CLASS__.$sysCacheKey);
         if($analyse){
             return $this->analyse = $analyse;
         }
@@ -152,8 +146,7 @@ class HttpSendFile
         }
         $mimeMap = $this->array_isset($mime,$extension);
         $this->analyse = [$isFile, $filePath, $extension, $mimeMap, $notFound];
-        $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
-        $sysCache->set($sysCacheKey, $this->analyse, 3600);
+        $this->syscache()->set($sysCacheKey, $this->analyse);
 
         return $this->analyse;
     }

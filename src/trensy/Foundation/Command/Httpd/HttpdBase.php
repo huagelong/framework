@@ -84,7 +84,7 @@ class HttpdBase
             "task_fail_log" => "/tmp/trensy/task_fail_log",
             "task_retry_count" => 2,
             "serialization" => 1,
-            "mem_reboot_rate" => 0,
+            "mem_reboot_rate" => 0.8,
             //以下配置直接复制，无需改动
             'open_length_check' => 1,
             'package_length_type' => 'N',

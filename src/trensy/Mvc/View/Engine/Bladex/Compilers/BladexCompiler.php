@@ -820,7 +820,7 @@ class BladexCompiler extends Compiler implements CompilerInterface
      * @param  string $expression
      * @return string
      */
-    protected function compileEndpush($expression)
+    protected function compileEndpush()
     {
         return '<?php $__env->stopPush(); ?>';
     }

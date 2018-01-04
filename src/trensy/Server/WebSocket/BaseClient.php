@@ -121,7 +121,8 @@ class BaseClient
         $data = $this->socket->recv();
         if ($data === false)
         {
-            echo "Error: {$this->socket->errMsg}";
+//            echo "Error: {$this->socket->errMsg}";
+            fwrite(STDOUT, "Error: {$this->socket->errMsg}");
             return false;
         }
         $this->buffer .= $data;

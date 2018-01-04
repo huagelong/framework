@@ -38,7 +38,7 @@ class Flash
         ];
         if(in_array($type, $methods)){
             $data = [];
-            $data['type'] = $type;
+            $data['type'] = ($type=='error')?"danger":$type;
             $data['value'] = $value;
             self::session()->set(__CLASS__, $data);
         }

@@ -3,11 +3,13 @@
 namespace Trensy\Mvc\View\Engine\Bladex;
 
 use InvalidArgumentException;
+use Trensy\Foundation\Shortcut;
 use Trensy\Mvc\View\Engine\Bladex\Filesystem;
 use Trensy\Support\Log;
 
 class FileViewFinder implements ViewFinderInterface
 {
+    use Shortcut;
     /**
      * The filesystem instance.
      *
@@ -71,8 +73,7 @@ class FileViewFinder implements ViewFinderInterface
     {
         $sysCacheKey = md5(__CLASS__.$name);
         if(function_exists("syscache")){
-            $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
-            $path = $sysCache->get($sysCacheKey);
+            $path = $this->syscache()->get($sysCacheKey);
             if($path) return $path;
         }
         if (isset($this->views[$name])) {
@@ -86,8 +87,7 @@ class FileViewFinder implements ViewFinderInterface
         $this->views[$name] = $this->findInPaths($name, $this->paths);
 
         if(function_exists("syscache")){
-            $sysCache = new \Trensy\Storage\Cache\Adapter\ApcCache();
-            $sysCache->set($sysCacheKey, $this->views[$name], 3600);
+            $this->syscache()->set($sysCacheKey, $this->views[$name]);
         }
         return $this->views[$name];
     }

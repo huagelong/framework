@@ -56,6 +56,7 @@ class Response
      */
     public function cookie($key, $value = '', $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false)
     {
+        $expire = time()+$expire;
         return $this->response->cookie($key, $value, $expire, $path, $domain, $secure, $httponly);
     }
 
@@ -73,6 +74,7 @@ class Response
      */
     public function rawcookie($key, $value = '', $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false)
     {
+        $expire = time()+$expire;
         return $this->response->rawcookie($key, $value, $expire, $path, $domain, $secure, $httponly);
     }
 

@@ -5,6 +5,7 @@ namespace Trensy\Mvc\View\Engine\Bladex;
 use Closure;
 use Countable;
 use InvalidArgumentException;
+use Trensy\Foundation\Shortcut;
 use Trensy\Mvc\View\Engine\Bladex\Engines\EngineResolver;
 use Trensy\Mvc\View\Engine\Bladex\Support\Arr;
 use Trensy\Mvc\View\Engine\Bladex\Support\Str;
@@ -17,6 +18,7 @@ use Trensy\Support\Tool;
 
 class Factory
 {
+    use Shortcut;
     /**
      * The engine implementation.
      *
@@ -145,11 +147,22 @@ class Factory
             }
         }
 
+        $cdnUrl = $this->config()->get("server.httpd.server.view.cdn_url");
+        $cdnUrl = $cdnUrl?rtrim($cdnUrl,'/')."/":"/";
+        $path = ltrim($path,'/');
+        $path = $cdnUrl.$path;
+
         if($ext == 'js'){
             return "<script ".$otherStr." src=\"" . $path . "?".$version."\" type=\"text/javascript\"></script>" . PHP_EOL;
         }
-        if($ext == 'css'){
+        else if($ext == 'css'){
             return "<link  ".$otherStr." rel=\"stylesheet\" href=\"" . $path . "?".$version."\">" . PHP_EOL;
+        }
+        else if($ext =='ico'){
+            return "<link  ".$otherStr." rel=\"shortcut icon\" href=\"" . $path . "?".$version."\">" . PHP_EOL;
+        }
+        else{
+            return $path."?".$version;
         }
     }
     
@@ -201,23 +214,27 @@ class Factory
         $params = func_get_args();
         $widgetConfig = isset($this->config[3])?$this->config[3]:"";
         if(!$widgetConfig){
-            return "";
+            throw  new \Exception("widget not found, please config!");
         }
         $widgetName = func_get_arg(0);
         if(!$widgetName){
-            return "";
+            throw  new \Exception("widget name not found!");
         }
         unset($params[0]);
         $class = isset($widgetConfig[$widgetName])?$widgetConfig[$widgetName]:"";
         if(!$class){
-            return "";
+            throw  new \Exception("widget class not found!");
         }
         $obj = Di::get($class);
         if(!method_exists($obj, "perform")){
-            return "";
+            throw  new \Exception("method perform not found!");
         }
         $params = array_values($params);
-        return $obj->perform($params);
+        if($params){
+            return $obj->perform($params);
+        }else{
+            return $obj->perform();
+        }
     }
 
     /**

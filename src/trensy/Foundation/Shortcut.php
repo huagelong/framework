@@ -1,9 +1,13 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: wangkaihui
- * Date: 2017/4/11
- * Time: 13:54
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         1.0.7
  */
 
 namespace Trensy\Foundation;
@@ -55,6 +59,16 @@ trait Shortcut
     }
 
     /**
+     *  session 对象
+     *
+     * @return string
+     */
+    public static function getCookie($key, $default=null)
+    {
+        return self::request()->cookies->get($key, $default);
+    }
+
+    /**
      * 缓存对象
      * @return \Trensy\Storage\Cache\Adapter\RedisCache;
      */
@@ -65,9 +79,19 @@ trait Shortcut
 
     /**
      * 缓存对象
-     * @return \Trensy\Storage\Cache\Adapter\ApcCache;
+     * @return \Trensy\Storage\Cache\Adapter\SysCache;
      */
      public static function syscache()
+    {
+        return new \Trensy\Storage\Cache\Adapter\SysCache();
+    }
+
+
+    /**
+     * 缓存对象
+     * @return \Trensy\Storage\Cache\Adapter\ApcCache;
+     */
+    public static function apccache()
     {
         return new \Trensy\Storage\Cache\Adapter\ApcCache();
     }
@@ -215,5 +239,21 @@ trait Shortcut
      public static function di($str)
     {
         return \Trensy\Di\Di::get($str);
+    }
+
+    /**
+     *  @return \Trensy\Http\Request
+     */
+    public static function request()
+    {
+        return \Trensy\Server\Facade\Context::request();
+    }
+
+    /**
+     * @return \Trensy\Http\response
+     */
+    public static function response()
+    {
+        return \Trensy\Server\Facade\Context::response();
     }
 }

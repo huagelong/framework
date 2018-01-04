@@ -117,7 +117,9 @@ class Log
             $string = "\033[" . $colorStr . "m".$string;
         }
         $string = $string . "\033[0m\n";
-        echo $string;
+
+        fwrite(STDOUT, $string);
+//        echo $string;
     }
 
     public static function __callStatic($name, $arguments)

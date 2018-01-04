@@ -12,6 +12,7 @@
 namespace Trensy\Di;
 
 use ReflectionClass;
+use Trensy\Foundation\Shortcut;
 
 /**
  * Container implements a [dependency injection](http://en.wikipedia.org/wiki/Dependency_injection) container.
@@ -97,6 +98,7 @@ use ReflectionClass;
  */
 class Container
 {
+    use Shortcut;
     /**
      * @var static
      */
@@ -131,8 +133,7 @@ class Container
 
     public static function getInstance()
     {
-        if (!self::$_instance)
-        {
+        if (!self::$_instance) {
             self::$_instance = new Container();
         }
 
@@ -185,6 +186,17 @@ class Container
     {
         $class = $this->getAlias($class);
 
+        $newConfig = $config;
+        $key = __CLASS__."-get-".$class."-".serialize($config);
+        $configTmp = $this->syscache()->get($key);
+        if(!$configTmp){
+            $this->varParse($class, $newConfig);
+            $this->syscache()->set($key, $newConfig);
+            $config = $newConfig;
+        }else{
+            $config = $configTmp;
+        }
+
         if (isset($this->_singletons[$class])) {
             // singleton
             return $this->_singletons[$class];
@@ -221,6 +233,48 @@ class Container
         }
 
         return $object;
+    }
+
+
+    /**
+     * 根据注释初始化
+     *
+     * @param $class
+     * @param $ret
+     */
+    protected function varParse($class, &$ret)
+    {
+        $classObj = new ReflectionClass($class);
+//        echo $class."\r\n";
+        $check = $classObj->implementsInterface('\Trensy\Foundation\DocLoadInterface');
+        if(!$check){
+           return ;
+        }
+        $isFinal = $classObj->isFinal();
+        if(!$isFinal) return ;
+        $properties = $classObj->getProperties(\ReflectionProperty::IS_PUBLIC);
+        if(!$properties) return ;
+        foreach($properties as $property)
+        {
+                $docblock = $property->getDocComment();
+                preg_match("/@var\s*(.*+)/i", $docblock, $matches);
+
+                if(isset($matches[1]) && $matches[1]){
+                    $className = trim($matches[1]);
+                    $className = "\\".ltrim($className, "\\");
+                    $pname = $property->getName();
+                    if(class_exists($className)){
+                        $myReflection = new ReflectionClass($className);
+                        if($myReflection->isSubclassOf('\Trensy\Foundation\ServceAbstract')
+                            || $myReflection->isSubclassOf('\Trensy\Foundation\DaoAbstract')){
+
+                            $subObj = Di::get($className);
+                            $ret[$pname] = $subObj;
+                        }
+                    }
+                }
+        }
+        return true;
     }
 
     /**

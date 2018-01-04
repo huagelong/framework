@@ -15,22 +15,18 @@
 namespace Trensy\Mvc\Route;
 
 use Trensy\Di\Di;
+use Trensy\Foundation\MiddlewareAbstract;
 use Trensy\Foundation\Shortcut;
 use Trensy\Support\Event;
 use Trensy\Foundation\Bootstrap\Session;
 use Trensy\Http\Request;
 use Trensy\Http\Response;
-use Trensy\Mvc\Route\Base;
 use Trensy\Mvc\Route\Base\Generator\UrlGenerator;
 use Trensy\Mvc\Route\Base\Matcher\UrlMatcher;
 use Trensy\Mvc\Route\Base\RequestContext;
 use Trensy\Mvc\Route\Base\RouteCollection as BaseRouteCollection;
 use Trensy\Mvc\Route\Exception\PageNotFoundException;
-use Trensy\Support\Arr;
-use Trensy\Support\Log;
 use Trensy\Server\Facade\Context as FContext;
-use Trensy\Storage\Cache\Adapter\ApcCache;
-use Trensy\Di\Instance;
 
 
 class RouteMatch
@@ -204,8 +200,7 @@ class RouteMatch
 
         $sysCacheKey = md5($routeName . serialize($params));
 
-        $sysCache = new ApcCache();
-        $url = $sysCache->get($sysCacheKey);
+        $url = $this->apccache()->get($sysCacheKey);
 
         if ($url) return $url;
 
@@ -220,9 +215,7 @@ class RouteMatch
         $generator = new UrlGenerator($rootCollection, $context);
         $url = $generator->generate($routeName, $params);
 
-        $sysCache = new ApcCache();
-
-        $sysCache->set($sysCacheKey, $url, 3600);
+        $this->apccache()->set($sysCacheKey, $url, 600);
 
         return $url;
     }
@@ -243,14 +236,12 @@ class RouteMatch
 
         $sysCacheKey = md5(__CLASS__ . $url . $serverStr);
 
-        $sysCache = new ApcCache();
-        $parameters = $sysCache->get($sysCacheKey);
+        $parameters = $this->apccache()->get($sysCacheKey);
 
 
         if (!$parameters) {
             $parameters = $this->match($url);
-            $sysCache = new ApcCache();
-            $sysCache->set($sysCacheKey, $parameters, 3600);
+            $this->apccache()->set($sysCacheKey, $parameters, 600);
         }
 
         self::$dispatch = $parameters['_matchinfo'];
@@ -297,14 +288,11 @@ class RouteMatch
     {
         $sysCacheKey = md5($url);
 
-        $sysCache = new ApcCache();
-
-        $parameters = $sysCache->get($sysCacheKey);
+        $parameters = $this->apccache()->get($sysCacheKey);
 
         if (!$parameters) {
             $parameters = $this->match($url);
-            $sysCache = new ApcCache();
-            $sysCache->set($sysCacheKey, $parameters, 3600);
+            $this->apccache()->set($sysCacheKey, $parameters, 600);
         }
 
         if ($parameters) {
@@ -346,18 +334,19 @@ class RouteMatch
                 } elseif (is_string($controller)) {
                     if (stristr($controller, "@")) {
                         list($controller, $action) = explode("@", $controller);
+                        $this->checkControllerReflect($controller, $action);
                         //如果是http服务器
                         if (isset($require[0]) && ($require[0] instanceof Request)) {
                             $definition = [];
                             $definition['request'] = $require[0];
                             $definition['response'] = $require[1];
                             $definition['view'] = $require[1]->view;
-                            $obj = Di::get($controller,[],$definition);
+                            $obj = Di::get($controller, [], $definition);
 //                            $obj = new $controller($require[0], $require[1]);
+
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
-                            if (!$check){
+                            if (!$check) {
                                 throw new \Exception("middleWare unvalidate");
-                                return;
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require[2]);
 //                            Log::debug($realParams);
@@ -370,11 +359,10 @@ class RouteMatch
                             $definition['serv'] = $serv;
                             $definition['fd'] = $fd;
                             $definition['params'] = $params;
-                            $obj = Di::get($controller,[],$definition);
+                            $obj = Di::get($controller, [], $definition);
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
-                            if (!$check){
+                            if (!$check) {
                                 throw new \Exception("middleWare unvalidate");
-                                return;
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require);
                             $result = call_user_func_array([$obj, $action], $realParams);
@@ -392,6 +380,50 @@ class RouteMatch
                 throw new PageNotFoundException("page not found!");
             }
         }
+    }
+
+
+    /**
+     * 检查controller 层入口是否继承ServceAbstract
+     *
+     * @param $class
+     * @param $function
+     * @return mixed
+     * @throws \Exception
+     */
+    protected function checkControllerReflect($class, $function){
+        $key = __CLASS__."-".__METHOD__.$class."-".$function;
+        $ret = $this->syscache()->get($key);
+        if($ret) return $ret;
+
+        $reflect = new \ReflectionClass($class);
+        $constructor = $reflect->getConstructor();
+        if ($constructor) {
+            foreach ($constructor->getParameters() as $param) {
+                $pname = $param->getName();
+                if(is_callable($pname)){
+                    $className = $param->getClass()->getName();
+                    $myReflection = new \ReflectionClass($className);
+                    if(!$myReflection->isSubclassOf('\Trensy\Foundation\ServceAbstract')){
+                        throw new \Exception("Constructor parameters must instance of \\Trensy\\Foundation\\ServceAbstract");
+                    }
+                }
+            }
+        }
+        $reflect = new \ReflectionMethod($class, $function);
+
+        foreach ($reflect->getParameters() as $i => $param) {
+            $pname = $param->getName();
+
+            if(is_callable($pname)){
+                $className = $param->getClass()->getName();
+                $myReflection = new \ReflectionClass($className);
+                if(!$myReflection->isSubclassOf('\Trensy\Foundation\ServceAbstract')){
+                    throw new \Exception("method parameters must instance of \\Trensy\\Foundation\\ServceAbstract");
+                }
+            }
+        }
+        $this->syscache()->set($key, 1);
     }
 
     protected function callUserFuncArrayRealParams($class, $function, $params)
@@ -462,11 +494,19 @@ class RouteMatch
                     if (isset($midd[$v])) {
                         $class = $midd[$v];
 
+                        $this->checkControllerReflect($class, 'perform');
+
                         $definition = [];
-                        $definition['require'] = $require;
+                        $definition['params'] = $require;
                         $obj = Di::get($class,[],$definition);
+                        if(!($obj instanceof MiddlewareAbstract)){
+                            throw new \Exception("middleWare not instanceof MiddlewareAbstract");
+                        }
 //                        $obj = new $class();
-                        $rs = call_user_func_array([$obj, "perform"], $require);
+                        if(!method_exists($obj, 'perform')){
+                            throw new \Exception("middleWare perform method not found");
+                        }
+                        $rs = call_user_func_array([$obj, "perform"],[]);
                         if (!$rs) return false;
                     }
                 }
