@@ -28,7 +28,11 @@ class Reload
         }
 
         $process = new \swoole_process(function(\swoole_process $worker) use($serverName, $rate, $config,$showLog){
-            $worker->name($config['server_name']."-processCheck");
+            try {
+                $worker->name($config['server_name'] . "-processCheck");
+            }catch (\Exception $e){
+                Log::warn($e->getMessage());
+            }
             swoole_timer_tick(1000, function()use($serverName, $rate, $config,$showLog){
                 self::perform($serverName, $rate, $config, $showLog);
             });

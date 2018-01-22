@@ -12,7 +12,7 @@
 
 namespace Trensy\Support;
 
-
+use Trensy\Support\Log;
 class Tool
 {
 
@@ -150,6 +150,26 @@ class Tool
             }
         }
         return $stripStr;
+    }
+
+    /**
+     * fix Uncaught ErrorException: cli_set_process_title(): cli_set_process_title had an error: Not initialized correctly
+     * @param $name
+     */
+    public static function swoole_set_process_name($name){
+        try{
+//            PHP_OS
+            if (function_exists('cli_set_process_title')) {
+                cli_set_process_title($name);
+            } elseif (function_exists('setproctitle')) {
+                setproctitle($name);
+            } else{
+                Log::error('Install the proctitle PECL to be able to change the process title.');
+            }
+        }catch (\Exception $e){
+
+            Log::warn($e->getMessage());
+        }
     }
 
 }

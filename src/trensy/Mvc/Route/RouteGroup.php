@@ -103,7 +103,7 @@ class RouteGroup
         $subCollection->mergeDefaults($this->defaults);
         $subCollection->addRequirements([]);
         $subCollection->setHost($this->domain);
-        $subCollection->setMethods($this->methods);
+//        if($this->methods) $subCollection->setMethods($this->methods);
 
         return self::$result[$key] = $subCollection;
     }

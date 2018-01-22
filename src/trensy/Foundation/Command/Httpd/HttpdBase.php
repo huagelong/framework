@@ -20,6 +20,7 @@ use Trensy\Server\WebSocket\WSServer;
 use Trensy\Support\Arr;
 use Trensy\Support\Dir;
 use Trensy\Support\ElapsedTime;
+use Trensy\Support\Exception;
 use Trensy\Support\Log;
 use Trensy\Support\Tool;
 
@@ -63,8 +64,13 @@ class HttpdBase
             exit(0);
         }
 
-        $adapter = new Application($root);
-        self::doOperate($cmd, $config, $adapter, $root, $appName);
+        try{
+            $adapter = new Application($root);
+            self::doOperate($cmd, $config, $adapter, $root, $appName);
+        }catch (\Exception $e){
+            Log::error(Exception::formatException($e));
+        }
+
     }
 
 

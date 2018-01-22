@@ -167,7 +167,8 @@ class RouteBase
      */
     public function match($methods, $path, $closureOrArr)
     {
-        if($methods != 'any'){
+
+        if(strtolower($methods) != 'any'){
             if (!is_array($methods)) $methods = array($methods);
             $this->methods = $methods;
         }

@@ -38,6 +38,11 @@ class Pdo extends SQlAdapter
     }
 
 
+    public function getConnect($hostKey=self::CONN_MASTER)
+    {
+        return self::$conn[$this->key][$hostKey];
+    }
+
     protected function conn()
     {
 
@@ -80,6 +85,7 @@ class Pdo extends SQlAdapter
             }
 
         } catch (\PDOException $e) {
+            Log::error(Exception::formatException($e));
             throw $e;
         }
 
@@ -228,6 +234,52 @@ class Pdo extends SQlAdapter
             }
         }
 
+    }
+
+    function backup($tables=[])
+    {
+        $tables = is_array($tables)?$tables:explode(',',$tables);
+        if(!$tables) return "";
+        $return = "";
+        $db = self::$conn[$this->key][self::CONN_MASTER];
+        foreach($tables as $table) {
+
+            $stmt = $db->query("DESC $table");
+            $tableFields = $stmt->fetchAll(\PDO::FETCH_COLUMN);
+            $numColumns = count($tableFields);
+
+            $return .= "DROP TABLE $table;";
+
+            $result2 = $db->query("SHOW CREATE TABLE $table");
+            $row2 = $result2->fetch();
+            $row2 = array_values($row2);
+            $return .= "\n\n" . $row2['1'] . ";\n\n";
+
+            $sql = "SELECT * FROM $table";
+
+            for ($i = 0; $i < $numColumns; $i++) {
+                foreach ($db->query($sql) as $row) {
+                    $row = array_values($row);
+                    $return .= "INSERT INTO `$table` VALUES(";
+                    for ($j = 0; $j < $numColumns; $j++) {
+                        $row[$j] = addslashes($row[$j]);
+                        $row[$j] = str_replace("\n", "\\n", $row[$j]);
+                        if (isset($row[$j])) {
+                            $return .= '"' . $row[$j] . '"';
+                        } else {
+                            $return .= '""';
+                        }
+                        if ($j < ($numColumns - 1)) {
+                            $return .= ',';
+                        }
+                    }
+                    $return .= ");\n";
+                }
+            }
+
+            $return .= "\n\n\n";
+        }
+        return $return;
     }
 
     protected function checkErrors($errorMsgStr)

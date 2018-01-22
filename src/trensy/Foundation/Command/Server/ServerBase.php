@@ -14,6 +14,7 @@ namespace Trensy\Foundation\Command\Server;
 
 use Trensy\Config\Config;
 use Trensy\Foundation\Shortcut;
+use Trensy\Support\Exception;
 use Trensy\Support\Log;
 use Trensy\Support\PhpExecutableFinder;
 
@@ -44,7 +45,15 @@ class ServerBase
         }
         $str = 'Welcome To Trensy!';
         Log::show($str);
-        self::doOperate($cmd, $options, $config, $cmdObj);
+
+        $tmpPath = "tmp path is : ".STORAGE_PATH;
+        Log::show($tmpPath);
+
+        try{
+            self::doOperate($cmd, $options, $config, $cmdObj);
+        }catch (\Exception $e){
+            Log::error(Exception::formatException($e));
+        }
         sleep(1);
         exit(0);
     }

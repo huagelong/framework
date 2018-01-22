@@ -31,6 +31,7 @@ use Trensy\Support\Exception\RuntimeExitException;
 use Trensy\Mvc\Route\Base\Exception\ResourceNotFoundException;
 use Trensy\Support\Exception\Page404Exception;
 use Trensy\Support\Exception as SupportException;
+use Trensy\Support\Tool;
 
 class HttpServer
 {
@@ -98,7 +99,7 @@ class HttpServer
 
     public function onManagerStart(SwooleServer $serv)
     {
-        swoole_set_process_name($this->serverName . "-manage");
+        Tool::swoole_set_process_name($this->serverName . "-manage");
         Log::sysinfo($this->serverName . " manage start ......");
 
         $memRebootRate = isset($this->config['mem_reboot_rate'])?$this->config['mem_reboot_rate']:0.8;
@@ -139,7 +140,7 @@ class HttpServer
 
     public function onStart(SwooleServer $swooleServer)
     {
-        swoole_set_process_name($this->serverName . "-master");
+        Tool::swoole_set_process_name($this->serverName . "-master");
         Log::sysinfo($this->serverName . " server start ......");
     }
 
@@ -172,10 +173,10 @@ class HttpServer
         Task::setConfig($this->config);
 
         if ($workerId >= $this->config["worker_num"]) {
-            swoole_set_process_name($this->serverName . "-task-worker");
+            Tool::swoole_set_process_name($this->serverName . "-task-worker");
             Log::sysinfo($this->serverName . " task worker start ..... ");
         } else {
-            swoole_set_process_name($this->serverName . "-worker");
+            Tool::swoole_set_process_name($this->serverName . "-worker");
             Log::sysinfo($this->serverName . " worker start ..... ");
         }
         $this->adapter->httpBoostrap();
