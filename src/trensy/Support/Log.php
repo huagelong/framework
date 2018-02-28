@@ -49,16 +49,18 @@ class Log
 
     protected static function preData()
     {
-        $ip = swoole_get_local_ip();
-        $elapsedTime = ElapsedTime::runtime("sys_elapsed_time");
+        if(function_exists('swoole_get_local_ip(')){
+            $ip = swoole_get_local_ip();
+            $elapsedTime = ElapsedTime::runtime("sys_elapsed_time");
 
-        $result = [];
-        $result[] = date('Y-m-d H:i:s');
-        $result[] = "pid:".posix_getpid();
-        $result[] = "ip:".current($ip)."/".self::getOlineIp();
-        $result[] = $elapsedTime;
+            $result = [];
+            $result[] = date('Y-m-d H:i:s');
+            $result[] = "pid:".posix_getpid();
+            $result[] = "ip:".current($ip)."/".self::getOlineIp();
+            $result[] = $elapsedTime;
 
-        return $result;
+            return $result;
+        }
     }
 
     protected static function getOlineIp()

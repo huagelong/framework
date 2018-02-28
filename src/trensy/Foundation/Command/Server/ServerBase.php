@@ -71,8 +71,27 @@ class ServerBase
 
     }
 
+    protected static function waitRunCmd($cmd)
+    {
+        exec($cmd, $out, $result);
+        if($out){
+            sleep(1);
+            self::waitRunCmd($cmd);
+        }
+        return true;
+    }
+
     protected static function runCmd($type, $config, $options, $cmdObj)
     {
+
+        if(strtolower(PHP_OS) == 'darwin'){
+            //mac 直接根据端口结束进程
+            if(in_array($type, ["stop", "restart"])){
+                exec("ps aux|grep trensy|grep -v server:restart|grep -v server:stop|grep -v grep|grep -v PID|awk '{print $2}'|xargs kill -9", $out, $result);
+                self::waitRunCmd("ps aux|grep trensy|grep -v server:restart|grep -v server:stop|grep -v grep|grep -v PID|awk '{print $2}'");
+            }
+        }
+
         $daemonizeStr = self::array_isset($options, "daemonize");
         $option = self::array_isset($options, "option");
         $runFileName = $_SERVER['SCRIPT_FILENAME'];

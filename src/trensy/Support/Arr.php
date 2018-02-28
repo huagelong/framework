@@ -40,6 +40,38 @@ class Arr
         return $result;
     }
 
+
+    /**
+     * Collapse an array of arrays into a single array.
+     *
+     * @param  array  $array
+     * @return array
+     */
+    public static function collapse($array)
+    {
+        $results = [];
+
+        foreach ($array as $values) {
+            if (! is_array($values)) {
+                continue;
+            }
+            $results = array_merge($results, $values);
+        }
+
+        return $results;
+    }
+
+    public static function join(...$arrays)
+    {
+        return array_reduce($arrays, function ($results, $array) {
+            return static::collapse(array_map(function ($parent) use ($array) {
+                return array_map(function ($item) use ($parent) {
+                    return array_merge($parent, [$item]);
+                }, $array);
+            }, $results));
+        }, [[]]);
+    }
+
     /**
      * ======================================
      *  input:

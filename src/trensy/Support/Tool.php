@@ -168,7 +168,7 @@ class Tool
             }
         }catch (\Exception $e){
 
-            Log::warn($e->getMessage());
+//            Log::warn($e->getMessage());
         }
     }
 

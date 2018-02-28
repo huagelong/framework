@@ -13,6 +13,7 @@
 namespace Trensy\Mvc\View\Engine;
 
 use Trensy\Config\Config;
+use Trensy\Di\Di;
 use Trensy\Mvc\View\Engine\Bladex\Engines\EngineResolver;
 use Trensy\Mvc\View\ViewInterface;
 use Trensy\Mvc\View\Engine\Bladex\Compilers\BladexCompiler;
@@ -126,7 +127,7 @@ class Bladex implements ViewInterface
             if($bladexEx){
                 foreach ($bladexEx as $k=>$class){
                     $compiler->directive($k, function($param) use ($class){
-                        $obj = new $class();
+                        $obj = Di::get($class);
                         return $obj->perform($param);
                     });
                 }

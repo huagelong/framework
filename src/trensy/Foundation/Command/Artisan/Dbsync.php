@@ -34,7 +34,7 @@ class Dbsync extends Base
             ->addOption('--sqldir', '-d', InputOption::VALUE_OPTIONAL, 'sql file dir path')
             ->addOption('--prefix', '-p', InputOption::VALUE_OPTIONAL, 'database table prefix')
             ->addOption('--action', '-a', InputOption::VALUE_OPTIONAL, 'database migration action,"up" or "down" ', "up")
-            ->setDescription('database sync project');
+            ->setDescription('database sync project db:sync -p db_');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

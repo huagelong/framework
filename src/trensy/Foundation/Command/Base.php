@@ -14,9 +14,10 @@ namespace Trensy\Foundation\Command;
 
 use Trensy\Foundation\Bootstrap\Bootstrap;
 use Trensy\Console\Command\Command;
+use Trensy\Foundation\DocLoadInterface;
 use Trensy\Foundation\Shortcut;
 
-class Base extends Command
+class Base extends Command implements DocLoadInterface
 {
     use Shortcut;
 

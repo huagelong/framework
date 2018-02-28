@@ -27,7 +27,7 @@ class Mysqldiff extends Base
     {
         $this->setName('mysql:diff')
             ->addArgument("type", InputArgument::OPTIONAL, 'schema or data or all - Specifies the type of diff to do either on the schema, data or both. schema is the default', 'schema')
-            ->setDescription('db diff');
+            ->setDescription('db diff, eg: mysql:diff or mysql:diff all or mysql:diff data or mysql:diff schema');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -40,8 +40,7 @@ class Mysqldiff extends Base
             $type = $input->getArgument("type");
             $type = $type ? $type : "schema";
 
-            $check = $this->todo($type);
-//            if($check) $this->todo($type);
+            $this->todo($type);
 
             Log::show("done");
         } catch (\Exception $e) {

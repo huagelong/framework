@@ -74,7 +74,15 @@ trait Shortcut
      */
      public static function cache()
     {
-        return new \Trensy\Storage\Cache\Adapter\RedisCache();
+        $name = self::config()->get('server.name');
+        return new \Trensy\Storage\Cache\Adapter\RedisCache($name);
+    }
+
+    public static function fileCache()
+    {
+        $name = self::config()->get('server.name');
+        $cacheDir = STORAGE_PATH."/file_cache";
+        return new \Trensy\Storage\Cache\Adapter\FileCache($name, $cacheDir);
     }
 
     /**

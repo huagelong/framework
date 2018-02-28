@@ -22,6 +22,11 @@ class Reload
 
     public static function load($serverName, $rate, $config, $showLog=false)
     {
+        if(strtolower(PHP_OS) == 'darwin'){
+            //mac
+            return ;
+        }
+
         $configApp = Config::get("app");
         if (isset($configApp['memory_limit'])) {
             ini_set('memory_limit', $configApp['memory_limit']);
@@ -31,7 +36,7 @@ class Reload
             try {
                 $worker->name($config['server_name'] . "-processCheck");
             }catch (\Exception $e){
-                Log::warn($e->getMessage());
+//                Log::warn($e->getMessage());
             }
             swoole_timer_tick(1000, function()use($serverName, $rate, $config,$showLog){
                 self::perform($serverName, $rate, $config, $showLog);

@@ -152,17 +152,18 @@ class Factory
         $path = ltrim($path,'/');
         $path = $cdnUrl.$path;
 
+        $version = $version?"?".$version:"";
         if($ext == 'js'){
-            return "<script ".$otherStr." src=\"" . $path . "?".$version."\" type=\"text/javascript\"></script>" . PHP_EOL;
+            return "<script ".$otherStr." src=\"" . $path . $version."\" type=\"text/javascript\"></script>" . PHP_EOL;
         }
         else if($ext == 'css'){
-            return "<link  ".$otherStr." rel=\"stylesheet\" href=\"" . $path . "?".$version."\">" . PHP_EOL;
+            return "<link  ".$otherStr." rel=\"stylesheet\" href=\"" . $path . $version."\">" . PHP_EOL;
         }
         else if($ext =='ico'){
-            return "<link  ".$otherStr." rel=\"shortcut icon\" href=\"" . $path . "?".$version."\">" . PHP_EOL;
+            return "<link  ".$otherStr." rel=\"shortcut icon\" href=\"" . $path . $version."\">" . PHP_EOL;
         }
         else{
-            return $path."?".$version;
+            return $path.$version;
         }
     }
     
