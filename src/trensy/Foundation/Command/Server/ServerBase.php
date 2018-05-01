@@ -17,6 +17,7 @@ use Trensy\Foundation\Shortcut;
 use Trensy\Support\Exception;
 use Trensy\Support\Log;
 use Trensy\Support\PhpExecutableFinder;
+use Trensy\Support\RunMode;
 
 
 class ServerBase
@@ -48,6 +49,9 @@ class ServerBase
 
         $tmpPath = "tmp path is : ".STORAGE_PATH;
         Log::show($tmpPath);
+
+        $runmode = "current runmode is : ". RunMode::getRunMode();
+        Log::show($runmode);
 
         try{
             self::doOperate($cmd, $options, $config, $cmdObj);

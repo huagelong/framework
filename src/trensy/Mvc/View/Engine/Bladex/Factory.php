@@ -128,12 +128,11 @@ class Factory
         $this->share('__env', $this);
     }
 
-    public function requireStatic($path, $other=[], $useCache=1)
+    public function requireStatic($path, $other=[], $useCache=0)
     {
         list($version, $bladexEx, $runMode) = $this->config;
-        if(($runMode != RunMode::RUN_MODE_ONLINE) && !$useCache) {
-            $version = time();
-        }
+//        debug($runMode."|".RunMode::RUN_MODE_ONLINE."|".$useCache);
+
         $ext = pathinfo($path, PATHINFO_EXTENSION);
 
         $otherStr = "";
@@ -147,23 +146,50 @@ class Factory
             }
         }
 
+
+
         $cdnUrl = $this->config()->get("server.httpd.server.view.cdn_url");
         $cdnUrl = $cdnUrl?rtrim($cdnUrl,'/')."/":"/";
         $path = ltrim($path,'/');
+
+        $manifestKey = "server.httpd.server.view.manifest";
+        $manifestVaues = $this->syscache()->get($manifestKey);
+        if($manifestVaues){
+            $path = isset($manifestVaues[$path])?$manifestVaues[$path]:$path;
+        }else{
+            $manifestFile = $this->config()->get("server.httpd.server.view.manifest");
+            if(is_file($manifestFile)){
+                $json = file_get_contents($manifestFile);
+                if($json){
+                    $manifestVaues = json_decode($json, true);
+                    $this->syscache()->set($manifestKey, $manifestVaues);
+                    $path = isset($manifestVaues[$path])?$manifestVaues[$path]:$path;
+                }
+            }
+        }
+
+        $path = ltrim($path,'/');
         $path = $cdnUrl.$path;
 
-        $version = $version?"?".$version:"";
+        $versionStr = "";
+        if(!$useCache){
+            if(($runMode != RunMode::RUN_MODE_ONLINE)) {
+                $version = time();
+            }
+            $versionStr = $version?"?".$version:"";
+        }
+
         if($ext == 'js'){
-            return "<script ".$otherStr." src=\"" . $path . $version."\" type=\"text/javascript\"></script>" . PHP_EOL;
+            return "<script ".$otherStr." src=\"" . $path."\" type=\"text/javascript\"></script>" . PHP_EOL;
         }
         else if($ext == 'css'){
-            return "<link  ".$otherStr." rel=\"stylesheet\" href=\"" . $path . $version."\">" . PHP_EOL;
+            return "<link  ".$otherStr." rel=\"stylesheet\" href=\"" . $path ."\">" . PHP_EOL;
         }
         else if($ext =='ico'){
-            return "<link  ".$otherStr." rel=\"shortcut icon\" href=\"" . $path . $version."\">" . PHP_EOL;
+            return "<link  ".$otherStr." rel=\"shortcut icon\" href=\"" . $path . $versionStr."\">" . PHP_EOL;
         }
         else{
-            return $path.$version;
+            return $path.$versionStr;
         }
     }
     

@@ -36,4 +36,27 @@ class Exception
         return $message;
     }
 
+    public static function debugException($message = "")
+    {
+        $log = "$message\nStack trace:\n";
+        $trace = debug_backtrace(1);
+        foreach ($trace as $i => $t) {
+            if (!isset($t['file'])) {
+                $t['file'] = 'unknown';
+            }
+            if (!isset($t['line'])) {
+                $t['line'] = 0;
+            }
+            if (!isset($t['function'])) {
+                $t['function'] = 'unknown';
+            }
+            $log .= "#$i {$t['file']}({$t['line']}): ";
+            if (isset($t['object']) and is_object($t['object'])) {
+                $log .= get_class($t['object']) . '->';
+            }
+            $log .= "{$t['function']}()\n";
+        }
+        return $log;
+    }
+
 }

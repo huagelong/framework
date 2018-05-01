@@ -86,6 +86,9 @@ class HttpSendFile
         }
 
         if ($readFile) {
+            $this->response->header('Access-Control-Allow-Origin', "*");
+            $this->response->header('Access-Control-Allow-Methods', 'GET');
+            $this->response->header('Access-Control-Allow-Headers:', "x-requested-with,content-type");
             $this->response->header("Content-Type", $mime);
             $data = file_get_contents($filePath);
             $this->response->end($data);

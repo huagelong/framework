@@ -132,18 +132,19 @@ trait Shortcut
      * 输出
      * @return string;
      */
-     public static function debug($str, $isReturn=false)
+     public static function debug($str, $isReturn=false, $line=1)
     {
         if(!$isReturn){
-            $data = debug_backtrace(2, 2);
-            $line = isset($data[0])?$data[0]:null;
-            $func = isset($data[1])?$data[1]:null;
+            $data = debug_backtrace(2, 7);
+            $result = isset($data[$line])?$data[$line]:$data[0];
+            $func = isset($result['function'])?$result['function']:null;
             if($func){
-                $strTmp = "{$func['function']}(): {$line['file']} . (line:{$line['line']})";
+                $strTmp = "{$result['function']}(): {$result['file']} . (line:{$result['line']})";
             }
             else{
-                $strTmp = " {$line['file']} . (line:{$line['line']})";
+                $strTmp = " {$result['file']} . (line:{$result['line']})";
             }
+
             \Trensy\Support\Log::show($strTmp);
             return \Trensy\Support\Log::debug($str);
         }

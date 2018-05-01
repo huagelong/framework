@@ -22,6 +22,7 @@ use Trensy\Server\Task;
 use Trensy\Support\AliasLoader;
 use Trensy\Support\Arr;
 use Trensy\Support\ElapsedTime;
+use Trensy\Support\Exception;
 use Trensy\Support\Facade;
 use Trensy\Support\RunMode;
 use Trensy\Support\Dir;
@@ -113,7 +114,7 @@ class Bootstrap
             if($params instanceof Response){
                 $controller = new HttpController();
                 $controller->view = $params->view;
-                $controller->view->msg = $e->getMessage();
+                $controller->view->msg = Exception::formatException($e);
                 if($config){
                     $content = $controller->render($config);
                 }else{

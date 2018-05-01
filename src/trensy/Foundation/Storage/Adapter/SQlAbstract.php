@@ -606,6 +606,31 @@ abstract class SQlAbstract
         }
     }
 
+    /**
+     *  对获取到的数组，将其中一个字段作为key
+     * @param $key
+     * @param $where
+     * @param string $orderBy
+     * @param string $limit
+     * @param string $offset
+     * @param string $groupBy
+     * @param bool $returnCount
+     * @param null $tableName
+     * @return array
+     */
+    public function getReturnUseFieldKey($fieldKey, $where, $orderBy = "", $limit = "", $offset = "", $groupBy = "", $returnCount = false, $tableName=null)
+    {
+        $list = $this->gets($where, $orderBy,$limit, $offset, $groupBy, $returnCount, $tableName);
+        if(!$list) return $list;
+        $rs = [];
+        if($list){
+            foreach ($list as $v){
+                $rs[$v[$fieldKey]] = $v;
+            }
+        }
+        return $rs;
+    }
+
 
     /**
      * 根据条件获取一行

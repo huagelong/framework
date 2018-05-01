@@ -187,7 +187,12 @@ class Container
         $class = $this->getAlias($class);
 
         $newConfig = $config;
-        $key = __CLASS__."-get-".$class."-".serialize($config);
+        if($config){
+            $key = __CLASS__."-get-".$class."-".json_encode($config);
+        }else{
+            $key = __CLASS__."-get-".$class;
+        }
+
         $configTmp = $this->syscache()->get($key);
         if(!$configTmp){
             $this->varParse($class, $newConfig);
