@@ -14,7 +14,8 @@
         "ext-swoole" : ">=1.8.0",
         "ext-mbstring": "*",
         "ext-posix":"*",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "vlucas/phpdotenv": "^2.5"
     },
     "replace":{
 
