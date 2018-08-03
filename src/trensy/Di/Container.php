@@ -7,12 +7,13 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 namespace Trensy\Di;
 
 use ReflectionClass;
-use Trensy\Foundation\Shortcut;
+use Trensy\Shortcut;
+use Trensy\Di;
 
 /**
  * Container implements a [dependency injection](http://en.wikipedia.org/wiki/Dependency_injection) container.
@@ -251,7 +252,7 @@ class Container
     {
         $classObj = new ReflectionClass($class);
 //        echo $class."\r\n";
-        $check = $classObj->implementsInterface('\Trensy\Foundation\DocLoadInterface');
+        $check = $classObj->implementsInterface('\Trensy\Foundation\AnnotationLoadInterface');
         if(!$check){
            return ;
         }
@@ -270,8 +271,8 @@ class Container
                     $pname = $property->getName();
                     if(class_exists($className)){
                         $myReflection = new ReflectionClass($className);
-                        if($myReflection->isSubclassOf('\Trensy\Foundation\ServceAbstract')
-                            || $myReflection->isSubclassOf('\Trensy\Foundation\DaoAbstract')){
+                        if($myReflection->isSubclassOf('\Trensy\ServceAbstract')
+                            || $myReflection->isSubclassOf('\Trensy\DaoAbstract')){
 
                             $subObj = Di::get($className);
                             $ret[$pname] = $subObj;

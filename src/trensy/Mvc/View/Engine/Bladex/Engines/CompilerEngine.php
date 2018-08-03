@@ -5,7 +5,7 @@ namespace Trensy\Mvc\View\Engine\Bladex\Engines;
 use Exception;
 use ErrorException;
 use Trensy\Mvc\View\Engine\Bladex\Compilers\CompilerInterface;
-use Trensy\Di\Di;
+use Trensy\Di;
 
 class CompilerEngine extends PhpEngine
 {

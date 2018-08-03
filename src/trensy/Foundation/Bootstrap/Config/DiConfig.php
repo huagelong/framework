@@ -8,7 +8,7 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Bootstrap\Config;
@@ -21,13 +21,13 @@ class DiConfig
     {
         return [
             "context" => [
-                "class" => \Trensy\Server\Context::class
-            ],
-            "task" => [
-                "class" => \Trensy\Server\Task::class
+                "class" => \Trensy\Context::class
             ],
             "log" => [
-                "class" => \Trensy\Support\Log::class
+                "class" => \Trensy\Log::class
+            ],
+            "db"=>[
+                "class"=>\Trensy\DB::class
             ],
             "session" => [
                 "class" => \Trensy\Foundation\Bootstrap\Session::class,

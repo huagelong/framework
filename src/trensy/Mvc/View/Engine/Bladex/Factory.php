@@ -5,15 +5,13 @@ namespace Trensy\Mvc\View\Engine\Bladex;
 use Closure;
 use Countable;
 use InvalidArgumentException;
-use Trensy\Foundation\Shortcut;
+use Trensy\Shortcut;
 use Trensy\Mvc\View\Engine\Bladex\Engines\EngineResolver;
 use Trensy\Mvc\View\Engine\Bladex\Support\Arr;
 use Trensy\Mvc\View\Engine\Bladex\Support\Str;
-use Trensy\Di\Di;
-use Trensy\Server\Facade\Task;
+use Trensy\Di;
 use Trensy\Support\Dir;
-use Trensy\Support\Log;
-use Trensy\Support\RunMode;
+use Trensy\Log;
 use Trensy\Support\Tool;
 
 class Factory
@@ -130,8 +128,7 @@ class Factory
 
     public function requireStatic($path, $other=[], $useCache=0)
     {
-        list($version, $bladexEx, $runMode) = $this->config;
-//        debug($runMode."|".RunMode::RUN_MODE_ONLINE."|".$useCache);
+        list($version) = $this->config;
 
         $ext = pathinfo($path, PATHINFO_EXTENSION);
 
@@ -146,18 +143,16 @@ class Factory
             }
         }
 
-
-
-        $cdnUrl = $this->config()->get("server.httpd.server.view.cdn_url");
+        $cdnUrl = $this->config()->get("app.view.cdn_url");
         $cdnUrl = $cdnUrl?rtrim($cdnUrl,'/')."/":"/";
         $path = ltrim($path,'/');
 
-        $manifestKey = "server.httpd.server.view.manifest";
+        $manifestKey = "app.view.manifest";
         $manifestVaues = $this->syscache()->get($manifestKey);
         if($manifestVaues){
             $path = isset($manifestVaues[$path])?$manifestVaues[$path]:$path;
         }else{
-            $manifestFile = $this->config()->get("server.httpd.server.view.manifest");
+            $manifestFile = $this->config()->get("app.view.manifest");
             if(is_file($manifestFile)){
                 $json = file_get_contents($manifestFile);
                 if($json){
@@ -173,9 +168,6 @@ class Factory
 
         $versionStr = "";
         if(!$useCache){
-            if(($runMode != RunMode::RUN_MODE_ONLINE)) {
-                $version = time();
-            }
             $versionStr = $version?"?".$version:"";
         }
 
@@ -239,7 +231,7 @@ class Factory
     public function widget()
     {
         $params = func_get_args();
-        $widgetConfig = isset($this->config[3])?$this->config[3]:"";
+        $widgetConfig = isset($this->config[2])?$this->config[2]:"";
         if(!$widgetConfig){
             throw  new \Exception("widget not found, please config!");
         }
@@ -778,7 +770,7 @@ class Factory
      */
     public function getFirstLoop()
     {
-        return ($last = Arr::last($this->loopsStack)) ? (object)$last : null;
+        return ($last = Arr::last($this->loopsStack)) ? (object) $last : null;
     }
 
     /**

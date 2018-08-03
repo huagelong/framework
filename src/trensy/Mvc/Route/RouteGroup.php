@@ -9,12 +9,12 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Mvc\Route;
 
-use Trensy\Foundation\Shortcut;
+use Trensy\Shortcut;
 use Trensy\Mvc\Route\Base\RouteCollection as BaseRouteCollection;
 use Trensy\Support\Arr;
 

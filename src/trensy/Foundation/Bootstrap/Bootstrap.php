@@ -8,64 +8,57 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Bootstrap;
 
-use Trensy\Config\Config;
-use Trensy\Di\Di;
+use Trensy\Config;
+use Trensy\Di;
 use Trensy\Foundation\Bootstrap\Config\AliasConfig;
 use Trensy\Foundation\Bootstrap\Config\DiConfig;
 use Trensy\Foundation\Exception\InvalidArgumentException;
-use Trensy\Server\Task;
 use Trensy\Support\AliasLoader;
 use Trensy\Support\Arr;
 use Trensy\Support\ElapsedTime;
 use Trensy\Support\Exception;
 use Trensy\Support\Facade;
-use Trensy\Support\RunMode;
 use Trensy\Support\Dir;
-use Trensy\Support\Event;
+use Trensy\Event;
 use Trensy\Http\Response;
-use Trensy\Foundation\Controller as HttpController;
-use Trensy\Support\Log;
+use Trensy\Controller as HttpController;
+use Trensy\Log;
+use Dotenv\Dotenv;
 
 class Bootstrap
 {
-    protected static $instance = [];
+    protected static $instance = null;
 
     /**
      *  instance
      * @return object
      */
-    public static function getInstance($path)
+    public static function getInstance()
     {
-        if (isset(self::$instance[$path]) && self::$instance[$path]) return self::$instance[$path];
+        if (isset(self::$instance) && self::$instance) return self::$instance;
         
-        return self::$instance[$path] = new self($path);
+        return self::$instance = new self();
     }
 
     /**
      * Init constructor.
      */
-    public function __construct($path)
+    public function __construct()
     {
         ElapsedTime::setStartTime(ElapsedTime::SYS_START);
-        $this->initEnv();
-        if(defined('APPLICATION_PATH')){
-            $configPath = APPLICATION_PATH;
-        }else{
-            $configPath = $path;
-        }
-        $this->initConfig($configPath);
+        $this->initConfig();
+        $this->initException();
         $this->iniSet();
         $this->initLog();
         $this->initMonitor();
         $this->initAlias();
         $this->initFacade();
         $this->initDi();
-        $this->initTask();
         $this->init404();
         $this->initDiy();
     }
@@ -105,7 +98,7 @@ class Bootstrap
     {
         Event::bind("404",function($allParams){
             list($e, $errorName, $params) = $allParams;
-            $config = Config::get("server.httpd.server.view.page404");
+            $config = Config::get("app.view.page404");
 
             if($errorName == "Page404Exception"){
                 Log::debug($e->getMessage());
@@ -158,39 +151,32 @@ class Bootstrap
 
     }
 
-    /**
-     * task 初始化
-     * @return bool
-     */
-    protected function initTask()
-    {
-
-        $options = Config::get("app.task");
-        
-        if (!$options) return true;
-        Task::setTaskConfig($options);
-
-        return true;
-    }
 
     /**
      * 配置初始化
      *
      * @param $path
      */
-    protected function initConfig($path)
+    protected function initConfig()
     {
-        $path = Dir::formatPath($path);
-        Config::setConfigPath($path . "config");
+        $dotenv = new Dotenv(ROOT_PATH);
+        $dotenv->load();
+        Config::setConfigPath(CONFIG_PATH);
     }
 
     /**
      * 'init runenv
      */
-    protected function initEnv()
+    protected function initException()
     {
-        RunMode::init();
-        ErrorHandleBootstrap::getInstance();
+        $errorReportingLevel = "E_ALL ^ E_NOTICE";
+        $displayErrors = false;
+        $debug = Config::get("app.debug");
+        if($debug){
+            $errorReportingLevel = "E_ALL";
+            $displayErrors = true;
+        }
+        ErrorHandleBootstrap::getInstance($errorReportingLevel, $displayErrors);
     }
 
 
@@ -207,7 +193,6 @@ class Bootstrap
 
         if (!$options) return true;
         AliasLoader::getInstance($options)->register();
-
         return true;
     }
 

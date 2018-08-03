@@ -7,7 +7,7 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation;
@@ -41,11 +41,11 @@ trait Shortcut
     /**
      *  config 对象
      *
-     * @return \Trensy\Config\Config
+     * @return \Trensy\Config
      */
      public static function config()
     {
-        return new \Trensy\Config\Config();
+        return \Trensy\Config::getInstance();
     }
 
     /**
@@ -74,13 +74,13 @@ trait Shortcut
      */
      public static function cache()
     {
-        $name = self::config()->get('server.name');
+        $name = self::config()->get('app.app_name');
         return new \Trensy\Storage\Cache\Adapter\RedisCache($name);
     }
 
     public static function fileCache()
     {
-        $name = self::config()->get('server.name');
+        $name = self::config()->get('app.app_name');
         $cacheDir = STORAGE_PATH."/file_cache";
         return new \Trensy\Storage\Cache\Adapter\FileCache($name, $cacheDir);
     }
@@ -115,15 +115,15 @@ trait Shortcut
             $line = isset($data[0])?$data[0]:null;
             $func = isset($data[1])?$data[1]:null;
             if($func){
-                \Trensy\Support\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
+                \Trensy\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
             }
             else{
-                \Trensy\Support\Log::show(" {$line['file']} . (line:{$line['line']})");
+                \Trensy\Log::show(" {$line['file']} . (line:{$line['line']})");
             }
-            return \Trensy\Support\Log::show($str);
+            return \Trensy\Log::show($str);
         }
         ob_start();
-        \Trensy\Support\Log::show($str);
+        \Trensy\Log::show($str);
         $msg = ob_get_clean();
         return $msg;
     }
@@ -132,24 +132,29 @@ trait Shortcut
      * 输出
      * @return string;
      */
-     public static function debug($str, $isReturn=false, $line=1)
+     public static function debug($str, $isReturn=false, $line=0)
     {
         if(!$isReturn){
             $data = debug_backtrace(2, 7);
             $result = isset($data[$line])?$data[$line]:$data[0];
             $func = isset($result['function'])?$result['function']:null;
-            if($func){
-                $strTmp = "{$result['function']}(): {$result['file']} . (line:{$result['line']})";
-            }
-            else{
-                $strTmp = " {$result['file']} . (line:{$result['line']})";
+            $file = isset($result['file'])?$result['file']:null;
+            $strTmp = "";
+            if($file){
+                if($func){
+                    $strTmp = "{$result['function']}(): {$result['file']} . (line:{$result['line']})";
+                }
+                else{
+                    $strTmp = " {$result['file']} . (line:{$result['line']})";
+                }
             }
 
-            \Trensy\Support\Log::show($strTmp);
-            return \Trensy\Support\Log::debug($str);
+            if($strTmp) \Trensy\Log::show($strTmp);
+
+            return \Trensy\Log::debug($str);
         }
         ob_start();
-        \Trensy\Support\Log::debug($str);
+        \Trensy\Log::debug($str);
         $msg = ob_get_clean();
         return $msg;
     }
@@ -159,12 +164,12 @@ trait Shortcut
         $data = debug_backtrace(2, 7);
         if($data){
             $data = array_splice($data, 2);
-            \Trensy\Support\Log::show('{');
+            \Trensy\Log::show('{');
             foreach ($data as $v){
                 $str = implode(" ", $v);
-                \Trensy\Support\Log::show($str);
+                \Trensy\Log::show($str);
             }
-            \Trensy\Support\Log::show('}');
+            \Trensy\Log::show('}');
         }
 
     }
@@ -184,7 +189,7 @@ trait Shortcut
     {
         if(!$str){
             list($line, $func) = debug_backtrace(2, 2);
-            \Trensy\Support\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
+            \Trensy\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
         }
         $str && self::dump($str);
         throw new \Trensy\Support\Exception\RuntimeExitException("exit");
@@ -195,7 +200,7 @@ trait Shortcut
      */
      public static function l($str, $params=[])
     {
-        return \Trensy\Support\Lang::get($str, $params);
+        return \Trensy\Lang::get($str, $params);
     }
 
     /**
@@ -211,7 +216,7 @@ trait Shortcut
      */
      public static function trans($arr)
     {
-        return  \Trensy\Support\Serialization\Serialization::get()->trans($arr);
+        return  \Trensy\Support\Serialization::get()->trans($arr);
     }
 
     /**
@@ -219,7 +224,7 @@ trait Shortcut
      */
      public static function xtrans($arr)
     {
-        return  \Trensy\Support\Serialization\Serialization::get()->xtrans($arr);
+        return  \Trensy\Support\Serialization::get()->xtrans($arr);
     }
 
     /**
@@ -227,16 +232,9 @@ trait Shortcut
      */
      public static function responseEnd($callback)
     {
-        \Trensy\Support\Event::bind("request.end",$callback);
+        \Trensy\Event::bind("request.end",$callback);
     }
 
-    /**
-     * 非阻塞程序处理
-     */
-     public static function nonBlock($callback,$interval=1)
-    {
-        \Trensy\Support\Timer::after($interval,$callback);
-    }
 
     /**
      *  依赖注入
@@ -247,7 +245,7 @@ trait Shortcut
      */
      public static function di($str)
     {
-        return \Trensy\Di\Di::get($str);
+        return \Trensy\Di::get($str);
     }
 
     /**
@@ -255,7 +253,7 @@ trait Shortcut
      */
     public static function request()
     {
-        return \Trensy\Server\Facade\Context::request();
+        return \Trensy\Context::request();
     }
 
     /**
@@ -263,6 +261,6 @@ trait Shortcut
      */
     public static function response()
     {
-        return \Trensy\Server\Facade\Context::response();
+        return \Trensy\Context::response();
     }
 }

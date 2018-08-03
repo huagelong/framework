@@ -9,14 +9,14 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Bootstrap;
 
-use Trensy\Config\Config;
+use Trensy\Config;
 use Trensy\Support\Exception;
-use Trensy\Support\Log;
+use Trensy\Log;
 
 class ErrorHandleBootstrap
 {
@@ -30,12 +30,11 @@ class ErrorHandleBootstrap
         return self::$instance = new self($errorReportingLevel, $displayErrors);
     }
 
-    public function __construct()
+    public function __construct($errorReportingLevel, $displayErrors)
     {
-        ini_set("swoole.display_errors", false);
-        ini_set('display_errors', false);
+        ini_set('display_errors', $displayErrors);
 
-        error_reporting(E_ALL ^ E_NOTICE);
+        error_reporting($errorReportingLevel);
 
         set_exception_handler([$this, 'handleException']);
 

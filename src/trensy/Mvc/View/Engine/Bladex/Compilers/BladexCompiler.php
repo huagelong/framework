@@ -407,6 +407,7 @@ class BladexCompiler extends Compiler implements CompilerInterface
     public function compileEchoDefaults($value)
     {
         $value = preg_replace('/^(?=\$)(.+?)(?:\s+or\s+)(.+?)$/s', 'isset($1) ? $1 : $2', $value);
+        $value = preg_replace('/^(?=\$)(.+?)(?:\s+isset\s+)(.+?)$/s', 'isset($1) ? $1 : $2', $value);
         $value = preg_replace('/^(?=\$)(.+?)(?:\s+empty\s+)(.+?)$/s', 'isset($1) && !empty($1) ? $1 : $2', $value);
         return $value;
     }

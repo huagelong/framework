@@ -9,15 +9,15 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Bootstrap;
 
-use Trensy\Di\Di;
+use Trensy\Di;
 use Trensy\Mvc\Route\Route;
-use Trensy\Config\Config;
-use Trensy\Foundation\Shortcut;
+use Trensy\Config;
+use Trensy\Shortcut;
 use Trensy\Support\Dir;
 
 class RouteBootstrap
@@ -59,6 +59,9 @@ class RouteBootstrap
             if(!method_exists($obj, "perform")){
                 throw new \Exception(" 'perform' method must defined");
             }
+            $config = $obj->perform($config);
+        }else{
+            $obj = Di::get(\Trensy\Mvc\Route\RouteHandle::class);
             $config = $obj->perform($config);
         }
 

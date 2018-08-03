@@ -8,7 +8,7 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Bootstrap\Config;
@@ -20,22 +20,17 @@ class AliasConfig
     public static function getOptions()
     {
         return [
-            "Di" => \Trensy\Di\Di::class,
-            "RunMode" => \Trensy\Support\RunMode::class,
+            "Di" => \Trensy\Di::class,
             "Arr" => \Trensy\Support\Arr::class,
             "Dir" => \Trensy\Support\Dir::class,
-            "Config" => \Trensy\Config\Config::class,
+            "Config" => \Trensy\Config::class,
             "Route" => \Trensy\Mvc\Route\Route::class,
-            "Context" => \Trensy\Server\Facade\Context::class,
-            "Task" => \Trensy\Server\Facade\Task::class,
+            "Context" => \Trensy\Context::class,
             "Log" => \Trensy\Foundation\Bootstrap\Facade\Log::class,
             "Session" => \Trensy\Foundation\Bootstrap\Facade\Session::class,
-            "Controller"=>\Trensy\Foundation\Controller::class,
-            "WSSController"=>\Trensy\Server\WebSocket\WSServer::class,
-            "WSClient"=>\Trensy\Server\WebSocket\WSClient::class,
-            "Lang"=>\Trensy\Support\Lang::class,
-            "Flash"=>\Trensy\Support\Flash::class,
-            "Timer"=>\Trensy\Support\Timer::class,
+            "Controller"=>\Trensy\Controller::class,
+            "Lang"=>\Trensy\Lang::class,
+            "Flash"=>\Trensy\Flash::class,
         ];
     }
 

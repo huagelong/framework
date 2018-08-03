@@ -9,14 +9,14 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Http;
 
-use Trensy\Server\Facade\Context;
-use Trensy\Support\Log;
-use Trensy\Support\Serialization\Serialization;
+use Trensy\Context;
+use Trensy\Log;
+use Trensy\Support\Serialization;
 
 class Session
 {

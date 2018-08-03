@@ -4,7 +4,7 @@ namespace Trensy\Mvc\View\Engine\Bladex\Engines;
 
 use Exception;
 use Throwable;
-use Trensy\Support\Log;
+use Trensy\Log;
 
 class PhpEngine implements EngineInterface
 {

@@ -7,7 +7,7 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 namespace Trensy\Storage\Cache\Adapter;
 
@@ -17,6 +17,21 @@ class SysCache implements CacheInterface
 {
 
     protected static $cacheData = [];
+    protected static $instance = null;
+
+    public static function getInstance()
+    {
+        if(self::$instance) return self::$instance;
+        self::$instance = new self();
+        return self::$instance;
+    }
+
+
+    public function __construct()
+    {
+
+    }
+
 
     /**
      * 设置缓存
@@ -25,7 +40,7 @@ class SysCache implements CacheInterface
      * @param $value
      * @return mixed
      */
-    public function set($key, $value)
+    public function set($key, $value, $expire=0)
     {
         self::$cacheData[$key] = $value;
 

@@ -7,19 +7,19 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Storage;
 
-use Trensy\Config\Config;
+use Trensy\Config;
 use Trensy\Foundation\Exception\ConfigNotFoundException;
-use Trensy\Support\Event;
-use Trensy\Foundation\Storage\Adapter\SQlAbstract as SQlAdapter;
+use Trensy\Event;
+use Trensy\Foundation\Storage\Adapter\SQlAbstract;
 use Trensy\Support\Exception;
-use Trensy\Support\Log;
+use Trensy\Log;
 
-class Pdo extends SQlAdapter
+class Pdo extends SQlAbstract
 {
     public static $conn = [];
     protected $config = null;
@@ -34,7 +34,7 @@ class Pdo extends SQlAdapter
         }
 
         $this->key = md5(serialize($this->config));
-        $this->conn();
+        $this->conndb();
     }
 
 
@@ -43,7 +43,7 @@ class Pdo extends SQlAdapter
         return self::$conn[$this->key][$hostKey];
     }
 
-    protected function conn()
+    protected function conndb()
     {
 
         if(!isset(self::$conn[$this->key]) || !self::$conn[$this->key]){
@@ -206,7 +206,7 @@ class Pdo extends SQlAdapter
             Log::error($e->getMessage());
             //重新连接
             self::$conn[$this->key] = [];
-            $this->conn();
+            $this->conndb();
             if(isset(self::$conn[$this->key]) && self::$conn[$this->key]){
                 return $this->set($sql, $connType, $method);
             }else{
@@ -225,7 +225,7 @@ class Pdo extends SQlAdapter
             Log::error($e->getMessage());
             //重新连接
             self::$conn[$this->key] = [];
-            $this->conn();
+            $this->conndb();
             if(isset(self::$conn[$this->key]) && self::$conn[$this->key]){
                 return $this->set($sql, $connType, $method);
             }else{

@@ -7,7 +7,7 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Command\Artisan;
@@ -19,7 +19,7 @@ use Trensy\Console\Input\InputOption;
 use Trensy\Foundation\Command\Base;
 use Trensy\Foundation\Storage\Pdo;
 use Trensy\Support\Dir;
-use Trensy\Support\Log;
+use Trensy\Log;
 
 class Mysqldiff extends Base
 {

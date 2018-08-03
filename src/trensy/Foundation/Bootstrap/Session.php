@@ -9,13 +9,13 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Bootstrap;
 
 use Trensy\Foundation\Storage\Redis;
-use Trensy\Config\Config;
+use Trensy\Config;
 use Trensy\Http\Session as HttpSession;
 
 class Session extends HttpSession

@@ -7,15 +7,14 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Http;
 
-use swoole_http_response as SwooleHttpResponse;
 use Trensy\Http\Exception\ContextErrorException;
 use Trensy\Support\Exception\RuntimeExitException;
-use Trensy\Support\Log;
+use Trensy\Log;
 
 class Response
 {
@@ -27,10 +26,9 @@ class Response
 
     /**
      * 初始化
-     * Response constructor.
-     * @param SwooleHttpResponse $response
+     * Response constructor
      */
-    public function __construct(SwooleHttpResponse $response, $gzip=0)
+    public function __construct(ResponseAbstract $response, $gzip=0)
     {
         $this->response = $response;
         $this->view = new AssignData();
@@ -174,10 +172,16 @@ class Response
     {
         if ($this->headerStack) {
             foreach ($this->headerStack as $k => $v) {
-                $this->response->header($k, $v);
+                if(is_array($v)){
+                    foreach ($v as $subV){
+                        $this->response->header($k, $subV);
+                    }
+                }else{
+                    $this->response->header($k, $v);
+                }
             }
         }
-        return $this->response->sendfile($filename);
+        $this->response->sendfile($filename);
     }
 
     /**
@@ -188,11 +192,7 @@ class Response
      */
     public function redirect($url)
     {
-        $this->header("Location", $url);
-        $this->status(302);
-        $this->end('');
-        //抛异常中断执行
-        throw new RuntimeExitException('redirect->'. $url);
+        $this->response->redirect($url);
     }
 
 }

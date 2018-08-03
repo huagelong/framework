@@ -7,13 +7,13 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 namespace Trensy\Storage\Cache\Adapter;
 
 use Trensy\Storage\Cache\CacheInterface;
 use Trensy\Foundation\Storage\Redis;
-use Trensy\Support\Serialization\Serialization;
+use Trensy\Support\Serialization;
 
 class RedisCache implements CacheInterface
 {

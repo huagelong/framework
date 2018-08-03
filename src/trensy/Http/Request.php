@@ -9,7 +9,7 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Http;
@@ -20,25 +20,24 @@ use Trensy\Http\HttpBase\Request as BaseRequest;
 class Request extends BaseRequest
 {
 
-    protected $swooleRequest = null;
     /**
      * 初始化
      * Request constructor.
      * @param array $swooleRequest
      */
-    public function __construct($swooleRequest)
+    public function __construct(RequestAbstract $request)
     {
-
-        $this->swooleRequest = $swooleRequest;
-
-        $get = isset($swooleRequest->get) ? $swooleRequest->get : [];
-        $post = isset($swooleRequest->post) ? $swooleRequest->post : [];
+        $get = $request->get();
+        $post = $request->post();
         $attributes = [];
-        $cookie = isset($swooleRequest->cookie) ? $swooleRequest->cookie : [];
-        $files = isset($swooleRequest->files) ? $swooleRequest->files : [];
-        $server = isset($swooleRequest->server) ? array_change_key_case($swooleRequest->server, CASE_UPPER) : [];
-        if (isset($swooleRequest->header)) {
-            foreach ($swooleRequest->header as $key => $value) {
+        $cookie = $request->cookie();
+        $files = $request->files();
+        $requestServer = $request->server();
+        $requestRawContent = $request->rawContent();
+        $server = isset($requestServer) ? array_change_key_case($requestServer, CASE_UPPER) : [];
+        $requestHeader = $request->header();
+        if (isset($requestHeader)) {
+            foreach ($requestHeader as $key => $value) {
                 $newKey = 'HTTP_' . strtoupper(str_replace('-', '_', $key));
                 $server[$newKey] = $value;
             }
@@ -50,7 +49,7 @@ class Request extends BaseRequest
         $contentType = $this->headers->get('CONTENT_TYPE');
         $requestMethod = strtoupper($this->server->get('REQUEST_METHOD', 'GET'));
         if (in_array($requestMethod, ['POST', 'PUT', 'DELETE', 'PATCH'])) {
-            $this->content = $swooleRequest->rawContent();
+            $this->content = $requestRawContent;
             $data = [];
             if (0 === strpos($contentType, 'application/x-www-form-urlencoded')) {
                 parse_str($this->content, $data);
@@ -60,10 +59,5 @@ class Request extends BaseRequest
             }
         }
 
-    }
-
-    public function getSwooleRequest()
-    {
-        return $this->swooleRequest;
     }
 }

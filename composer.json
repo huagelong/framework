@@ -5,12 +5,12 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Peter Wang",
+            "name": "bruce Wang",
             "email": "hpuwang@gmail.com"
         }
     ],
     "require": {
-        "php": ">=5.6.0",
+        "php": ">5.6.0",
         "ext-swoole" : ">=1.8.0",
         "ext-mbstring": "*",
         "ext-posix":"*",
@@ -33,5 +33,5 @@
         "ext-apc":"php opcode cache , not support7",
         "ext-apcu":"php7 support "
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "3.0.0"
 }

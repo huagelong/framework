@@ -8,12 +8,12 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 namespace Trensy\Mvc\View\Engine;
 
-use Trensy\Config\Config;
-use Trensy\Di\Di;
+use Trensy\Config;
+use Trensy\Di;
 use Trensy\Mvc\View\Engine\Bladex\Engines\EngineResolver;
 use Trensy\Mvc\View\ViewInterface;
 use Trensy\Mvc\View\Engine\Bladex\Compilers\BladexCompiler;

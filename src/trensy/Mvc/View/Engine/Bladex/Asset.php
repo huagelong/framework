@@ -7,7 +7,7 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 
@@ -16,7 +16,7 @@ namespace Trensy\Mvc\View\Engine\Bladex;
 
 use Trensy\Support\Dir;
 use Trensy\Support\Tool;
-use Trensy\Support\Log;
+use Trensy\Log;
 
 class Asset
 {

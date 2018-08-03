@@ -3,9 +3,9 @@
 namespace Trensy\Mvc\View\Engine\Bladex;
 
 use InvalidArgumentException;
-use Trensy\Foundation\Shortcut;
+use Trensy\Shortcut;
 use Trensy\Mvc\View\Engine\Bladex\Filesystem;
-use Trensy\Support\Log;
+use Trensy\Log;
 
 class FileViewFinder implements ViewFinderInterface
 {

@@ -3,7 +3,7 @@
 namespace Trensy\Mvc\View\Engine\Bladex;
 
 use Exception;
-use Trensy\Foundation\Shortcut;
+use Trensy\Shortcut;
 
 class Filesystem
 {

@@ -7,14 +7,14 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Storage;
 
-use Trensy\Config\Config;
+use Trensy\Config;
 use Trensy\Foundation\Exception\ConfigNotFoundException;
-use Trensy\Support\Log;
+use Trensy\Log;
 use Predis\Client;
 use Trensy\Support\Exception as SupportException;
 

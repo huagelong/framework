@@ -9,15 +9,16 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Mvc\Route;
 
-use Trensy\Di\Di;
-use Trensy\Foundation\MiddlewareAbstract;
-use Trensy\Foundation\Shortcut;
-use Trensy\Support\Event;
+use Trensy\Di;
+use Trensy\Log;
+use Trensy\MiddlewareAbstract;
+use Trensy\Shortcut;
+use Trensy\Event;
 use Trensy\Foundation\Bootstrap\Session;
 use Trensy\Http\Request;
 use Trensy\Http\Response;
@@ -26,7 +27,8 @@ use Trensy\Mvc\Route\Base\Matcher\UrlMatcher;
 use Trensy\Mvc\Route\Base\RequestContext;
 use Trensy\Mvc\Route\Base\RouteCollection as BaseRouteCollection;
 use Trensy\Mvc\Route\Exception\PageNotFoundException;
-use Trensy\Server\Facade\Context as FContext;
+use Trensy\Context;
+use Trensy\Support\Exception\Page404Exception;
 
 
 class RouteMatch
@@ -124,7 +126,7 @@ class RouteMatch
     {
         $rootCollection = $this->getRootCollection();
         $context = new RequestContext();
-        $request = FContext::request();
+        $request = Context::request();
         if (!$request) {
             $request = Request::createFromGlobals();
         }
@@ -132,9 +134,13 @@ class RouteMatch
         $matcher = new UrlMatcher($rootCollection, $context);
         $url = $this->groupFilter($url);
         $parameters = $matcher->match($url);
-//        $this->debug($parameters);
-        $parameters['_matchinfo'] = $this->setDispatch($parameters);
-        return $parameters;
+//        Log::debug($parameters);
+        if($parameters){
+            $parameters['_matchinfo'] = $this->setDispatch($parameters);
+            return $parameters;
+        }else{
+            throw new Page404Exception("页面不存在!");
+        }
     }
 
     /**
@@ -200,13 +206,13 @@ class RouteMatch
 
         $sysCacheKey = md5($routeName . serialize($params));
 
-        $url = $this->apccache()->get($sysCacheKey);
+        $url = $this->syscache()->get($sysCacheKey);
 
         if ($url) return $url;
 
         $rootCollection = $this->getRootCollection();
         $context = new RequestContext();
-        $request = FContext::request();
+        $request = Context::request();
         if (!$request) {
             $request = Request::createFromGlobals();
         }
@@ -215,7 +221,7 @@ class RouteMatch
         $generator = new UrlGenerator($rootCollection, $context);
         $url = $generator->generate($routeName, $params);
 
-        $this->apccache()->set($sysCacheKey, $url, 600);
+        $this->syscache()->set($sysCacheKey, $url, 600);
 
         return $url;
     }
@@ -236,12 +242,11 @@ class RouteMatch
 
         $sysCacheKey = md5(__CLASS__ . $url . $serverStr);
 
-        $parameters = $this->apccache()->get($sysCacheKey);
-
-
+        $parameters = $this->syscache()->get($sysCacheKey);
+        
         if (!$parameters) {
             $parameters = $this->match($url);
-            $this->apccache()->set($sysCacheKey, $parameters, 600);
+            $this->syscache()->set($sysCacheKey, $parameters);
         }
 
         self::$dispatch = $parameters['_matchinfo'];
@@ -288,11 +293,11 @@ class RouteMatch
     {
         $sysCacheKey = md5($url);
 
-        $parameters = $this->apccache()->get($sysCacheKey);
+        $parameters = $this->syscache()->get($sysCacheKey);
 
         if (!$parameters) {
             $parameters = $this->match($url);
-            $this->apccache()->set($sysCacheKey, $parameters, 600);
+            $this->syscache()->set($sysCacheKey, $parameters, 600);
         }
 
         if ($parameters) {
@@ -404,7 +409,7 @@ class RouteMatch
                 if(is_callable($pname)){
                     $className = $param->getClass()->getName();
                     $myReflection = new \ReflectionClass($className);
-                    if(!$myReflection->isSubclassOf('\Trensy\Foundation\ServceAbstract')){
+                    if(!$myReflection->isSubclassOf('\Trensy\ServceAbstract')){
                         throw new \Exception("Constructor parameters must instance of \\Trensy\\Foundation\\ServceAbstract");
                     }
                 }
@@ -418,7 +423,7 @@ class RouteMatch
             if(is_callable($pname)){
                 $className = $param->getClass()->getName();
                 $myReflection = new \ReflectionClass($className);
-                if(!$myReflection->isSubclassOf('\Trensy\Foundation\ServceAbstract')){
+                if(!$myReflection->isSubclassOf('\Trensy\ServceAbstract')){
                     throw new \Exception("method parameters must instance of \\Trensy\\Foundation\\ServceAbstract");
                 }
             }
@@ -496,9 +501,7 @@ class RouteMatch
 
                         $this->checkControllerReflect($class, 'perform');
 
-                        $definition = [];
-                        $definition['params'] = $require;
-                        $obj = Di::get($class,[],$definition);
+                        $obj = Di::get($class);
                         if(!($obj instanceof MiddlewareAbstract)){
                             throw new \Exception("middleWare not instanceof MiddlewareAbstract");
                         }

@@ -9,74 +9,31 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation;
 
 use Trensy\Console\Application as CmdApplication;
-use Trensy\Config\Config as CConfig;
-use Trensy\Di\Di;
+use Trensy\Config;
+use Trensy\Di;
+use Trensy\Event;
 use Trensy\Foundation\Bootstrap\Bootstrap;
 use Trensy\Foundation\Bootstrap\RouteBootstrap;
 use Trensy\Foundation\Command;
+use Trensy\Http\Request;
+use Trensy\Http\RequestAbstract;
+use Trensy\Http\Response;
+use Trensy\Http\ResponseAbstract;
 use Trensy\Mvc\Route\RouteMatch;
 use Trensy\Support\Dir;
 use Trensy\Support\Arr;
-use Trensy\Support\Log;
-
+use Trensy\Log;
+use Trensy\Context;
+use Trensy\Support\AliasLoader;
 
 class Application
 {
-
-    /**
-     * 项目路径
-     *
-     * @var string
-     */
-    protected static $rootPath = null;
-
-    public function __construct($rootPath)
-    {
-        self::$rootPath = Dir::formatPath($rootPath);
-    }
-    
-    public function httpBoostrap()
-    {
-        RouteBootstrap::getInstance();
-    }
-
-    /**
-     * https server 路由开始匹配
-     *
-     * @param $request
-     * @param $response
-     * @return mixed
-     */
-    public function start($request, $response)
-    {
-        $url = $request->getPathInfo();
-        //pathinfo 处理
-        $pathinfoMiddle = CConfig::get("app.pathinfo");
-        if($pathinfoMiddle){
-//            $obj = new $pathinfoMiddle;
-
-            $obj = Di::get($pathinfoMiddle);
-            if(!method_exists($obj, "perform")){
-                throw new \Exception(" 'perform' method must defined");
-            }
-            $url = $obj->perform($url);
-        }
-        $routeObj = RouteMatch::getInstance();
-       
-        $middlewareConfig = CConfig::get("app.middleware");
-        
-        $routeObj->setMiddlewareConfig($middlewareConfig);
-    
-        $resut = $routeObj->run($url, $request, $response);
-        return $resut;
-    }
-
     /**
      * 获取项目根目录
      *
@@ -84,7 +41,7 @@ class Application
      */
     public static function getRootPath()
     {
-        return self::$rootPath;
+        return Dir::formatPath(ROOT_PATH);
     }
 
     /**
@@ -95,16 +52,6 @@ class Application
     public static function runCmd()
     {
         $commands = [
-            new Command\Httpd\Start(),
-            new Command\Httpd\Restart(),
-            new Command\Httpd\Status(),
-            new Command\Httpd\Stop(),
-            new Command\Httpd\Reload(),
-            new Command\Server\Start(),
-            new Command\Server\Restart(),
-            new Command\Server\Status(),
-            new Command\Server\Stop(),
-            new Command\Server\Reload(),
             new Command\Artisan\Optimize(),
             new Command\Artisan\Dbsync(),
             new Command\Artisan\BuildPhar(),
@@ -112,7 +59,7 @@ class Application
             new Command\Artisan\Mysqldiff()
         ];
 
-        $config = CConfig::get("app.command");
+        $config = Config::get("app.command");
         if ($config) {
             $commandsTmp = [];
             foreach ($config as $cv){
@@ -127,6 +74,56 @@ class Application
         }
 
         $application->run();
+    }
+
+    /**
+     * https server 路由开始匹配
+     *
+     * @param $request
+     * @param $response
+     * @return mixed
+     */
+    public static function start(Request $request, Response $response)
+    {
+        Context::set('request', $request);
+        Context::set('response', $response);
+
+        $url = $request->getPathInfo();
+        //pathinfo 处理
+        $pathinfoMiddle = Config::get("app.pathinfo");
+        if($pathinfoMiddle){
+            $obj = Di::get($pathinfoMiddle);
+            if(!method_exists($obj, "perform")){
+                throw new \Exception(" 'perform' method must defined");
+            }
+            $url = $obj->perform($url);
+        }
+        $routeObj = RouteMatch::getInstance();
+
+        $middlewareConfig = Config::get("app.middleware");
+
+        $routeObj->setMiddlewareConfig($middlewareConfig);
+
+        $resut = $routeObj->run($url, $request, $response);
+        Event::fire("clear");
+        Event::fire("request.end");
+        return $resut;
+    }
+
+    /**
+     * 网页初始化
+     */
+    public static function runWeb(RequestAbstract $request, ResponseAbstract $response)
+    {
+        Bootstrap::getInstance();
+        RouteBootstrap::getInstance();
+
+        Di::set("task", ['class'=>\Trensy\Server\Task::class]);
+        AliasLoader::getInstance(['Task'=>\Trensy\Server\TaskFacade::class])->register();
+
+        $request = new Request($request);
+        $response = new Response($response);
+        self::start($request, $response);
     }
 
 }

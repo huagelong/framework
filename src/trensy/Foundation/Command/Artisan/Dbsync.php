@@ -7,7 +7,7 @@
  * @author          kaihui.wang <hpuwang@gmail.com>
  * @copyright      trensy, Inc.
  * @package         trensy/framework
- * @version         1.0.7
+ * @version         3.0.0
  */
 
 namespace Trensy\Foundation\Command\Artisan;
@@ -19,7 +19,7 @@ use Trensy\Console\Input\InputOption;
 use Trensy\Foundation\Command\Base;
 use Trensy\Foundation\Storage\Pdo;
 use Trensy\Support\Dir;
-use Trensy\Support\Log;
+use Trensy\Log;
 use Trensy\Support\Exception as SupportException;
 
 class Dbsync extends Base
@@ -145,6 +145,7 @@ class Dbsync extends Base
             Log::sysinfo("no sql need import");
             return ;
         }
+
         $createAt = date('Y-m-d H:i:s');
         foreach ($files as $v){
             $filePath = $sqlpath.$v."_".$action.".sql";

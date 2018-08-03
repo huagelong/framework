@@ -93,10 +93,10 @@ class UrlMatcher implements UrlMatcherInterface, RequestMatcherInterface
             return $ret;
         }
 
-        throw 0 < count($this->allow)
-//            ? new MethodNotAllowedException(array_unique($this->allow))
-             ? new ResourceNotFoundException(sprintf('No routes found for "%s"[method].', $pathinfo))
-            : new ResourceNotFoundException(sprintf('No routes found for "%s".', $pathinfo));
+        return false;
+//        throw 0 < count($this->allow)
+//             ? new ResourceNotFoundException(sprintf('No routes found for "%s"[method].', $pathinfo))
+//            : new ResourceNotFoundException(sprintf('No routes found for "%s".', $pathinfo));
     }
 
     /**
