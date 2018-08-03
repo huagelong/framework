@@ -34,5 +34,5 @@
         "ext-apc":"php opcode cache , not support7",
         "ext-apcu":"php7 support "
     },
-    "minimum-stability": "3.0.0"
+    "minimum-stability": "dev"
 }
