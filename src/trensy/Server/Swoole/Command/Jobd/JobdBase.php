@@ -39,7 +39,7 @@ class JobdBase
         //定义task
         self::taskAlias();
 
-        $config = Config::get("server.jobd");
+        $config = Config::get("swoole.jobd");
         $appName = Config::get("app.app_name");
 
         $str = 'Welcome To Trensy!';
@@ -54,14 +54,14 @@ class JobdBase
         }
 
         if (!$config) {
-            Log::sysinfo("server.Jobd config not config");
+            Log::sysinfo("swoole.jobd config not config");
             exit(0);
         }
 
         if ($input->hasOption("daemonize")) {
             $daemonize = $input->getOption('daemonize');
             $daemonize = $daemonize == 0 ? 0 : 1;
-            Config::set("server.httpd.daemonize", $daemonize);
+            Config::set("swoole.httpd.daemonize", $daemonize);
         }
 
         try{
@@ -165,7 +165,7 @@ class JobdBase
 
     protected static function start()
     {
-        $config = Config::get("server.jobd");
+        $config = Config::get("swoole.jobd");
         $swooleServer = new \swoole_server($config['host'], $config['port']);
         $obj = new JobdServer($swooleServer);
         return $obj->start();

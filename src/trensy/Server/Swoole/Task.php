@@ -34,7 +34,7 @@ class Task extends TaskRunAbstract
 
     public function __construct()
     {
-        $taskConfig = Config::get("server.httpd");
+        $taskConfig = Config::get("swoole.httpd");
         $this->retryCount = $taskConfig['task_retry_count'];
         $this->logPath = $taskConfig['task_fail_log'];
         $this->timeOut = $taskConfig['task_timeout'];
@@ -126,7 +126,7 @@ class Task extends TaskRunAbstract
         if(self::$numbersTmp){
             return array_pop(self::$numbersTmp);
         }else{
-            $taskConfig = Config::get("server.httpd");
+            $taskConfig = Config::get("swoole.httpd");
             $taskNumber = $taskConfig["task_worker_num"]-1;
             $start = 0;
             $end = $taskNumber;

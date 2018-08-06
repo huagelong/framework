@@ -39,7 +39,7 @@ class HttpdBase
         //定义task
         self::taskAlias();
 
-        $config = Config::get("server.httpd");
+        $config = Config::get("swoole.httpd");
         $appName = Config::get("app.app_name");
 
         $str = 'Welcome To Trensy!';
@@ -54,14 +54,14 @@ class HttpdBase
         }
 
         if (!$config) {
-            Log::sysinfo("server.httpd config not config");
+            Log::sysinfo("swoole.httpd config not config");
             exit(0);
         }
 
         if ($input->hasOption("daemonize")) {
             $daemonize = $input->getOption('daemonize');
             $daemonize = $daemonize == 0 ? 0 : 1;
-            Config::set("server.httpd.daemonize", $daemonize);
+            Config::set("swoole.httpd.daemonize", $daemonize);
         }
 
         try{
@@ -166,7 +166,7 @@ class HttpdBase
 
     protected static function start()
     {
-        $config = Config::get("server.httpd");
+        $config = Config::get("swoole.httpd");
         $swooleServer = new \swoole_websocket_server($config['host'], $config['port']);
         $obj = new WSServer($swooleServer);
         return $obj->start();

@@ -45,7 +45,7 @@ abstract class ServerAbstract
             'package_length_offset' => 0,
             'package_body_offset' => 4,
             'package_max_length' => 8 * 1024 * 1024,//默认8M
-            "pfile"=> "/tmp/{$serverName}_pid",
+            "pfile"=> "/tmp/{$serverName}.pid",
             'open_tcp_nodelay' => 1,
         ];
 

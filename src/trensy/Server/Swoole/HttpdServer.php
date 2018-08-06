@@ -63,7 +63,7 @@ class HttpdServer extends ServerAbstract
             'open_tcp_nodelay' => 1,
         ];
 
-        $config = Config::get("server.httpd");
+        $config = Config::get("swoole.httpd");
         $config = Arr::merge($defaultConfig, $config);
 
         parent::__construct($swooleServer, $serverName, $config);

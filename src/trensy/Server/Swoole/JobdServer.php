@@ -49,7 +49,7 @@ class JobdServer extends ServerAbstract
             'open_tcp_nodelay' => 1,
         ];
 
-        $config = Config::get("server.jobd");
+        $config = Config::get("swoole.jobd");
         $config = Arr::merge($defaultConfig, $config);
 
         $this->jobList = $this->getjobList();
@@ -108,7 +108,7 @@ class JobdServer extends ServerAbstract
     }
 
     protected function getjobList(){
-        $jobList = Config::get("server.jobd.lists");
+        $jobList = Config::get("app.jobd");
         $realip = swoole_get_local_ip();
         $realip = current($realip);
         Log::sysinfo("local ip :". $realip);

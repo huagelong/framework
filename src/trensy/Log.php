@@ -121,15 +121,16 @@ class Log
 
         $data = array_slice($data, 0, 2);
 
-        if($type == 'show'){
-            $string = $msg;
-        }else{
-            $string = date('Y-m-d H:i:s')." [".implode("][",$data)."] ".$msg;
-        }
-
         if(PHP_SAPI != 'cli'){
-            echo $string;
+            echo $msg;
         }else{
+
+            if($type == 'show'){
+                $string = $msg;
+            }else{
+                $string = date('Y-m-d H:i:s')." [".implode("][",$data)."] ".$msg;
+            }
+
             $foreground_colors = self::init();
             $color = [
                 "info"=>"light_gray",
@@ -149,17 +150,42 @@ class Log
         }
     }
 
-    public static function __callStatic($name, $arguments)
+    protected static function _outPut($name, $arguments)
     {
+        $msg = $arguments;
 
-        $msg = isset($arguments[0])?$arguments[0]:"";
-
-        if(is_array($arguments[0])){
-            $msg = print_r($arguments[0], true);
+        if(is_array($arguments)){
+            $msg = print_r($arguments, true);
         }
 
         $data = self::preData();
         $data[]=$msg;
         self::outPut($name,$data);
     }
+
+    public static function info($arguments){
+        return self::_outPut("info", $arguments);
+    }
+
+    public static function sysinfo($arguments){
+        return self::_outPut("sysinfo", $arguments);
+    }
+
+    public static function warn($arguments){
+        return self::_outPut("warn", $arguments);
+    }
+
+    public static function debug($arguments){
+        return self::_outPut("debug", $arguments);
+    }
+
+    public static function show($arguments){
+        return self::_outPut("show", $arguments);
+    }
+
+    public static function error($arguments){
+        return self::_outPut("error", $arguments);
+    }
+
+
 }

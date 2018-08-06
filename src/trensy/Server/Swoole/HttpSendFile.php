@@ -31,7 +31,7 @@ class HttpSendFile
     {
         $this->request = $request;
         $this->response = $response;
-        $this->config = Config::get("server.httpd");
+        $this->config = Config::get("swoole.httpd");
     }
 
     public function getAnalyse()
