@@ -218,7 +218,15 @@ class Factory
         }
 
         $view = $this->normalizeName($view);
-    
+
+        list(,,,$bundles) = $this->config;
+
+        if($bundles){
+            foreach ($bundles as $hitsk=>$hitsv){
+                $this->prependNamespace($hitsk, $hitsv);
+            }
+        }
+
         $path = $this->finder->find($view);
 
         $data = array_merge($mergeData, $this->parseData($data));

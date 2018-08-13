@@ -1,8 +1,15 @@
 <?php
 /**
- * User: Peter Wang
- * Date: 16/12/9
- * Time: 下午10:15
+ * 路由分配
+ *
+ * Trensy Framework
+ *
+ * PHP Version 7
+ *
+ * @author          kaihui.wang <hpuwang@gmail.com>
+ * @copyright      trensy, Inc.
+ * @package         trensy/framework
+ * @version         3.0.0
  */
 
 namespace Trensy\Mvc\Route;
@@ -26,8 +33,9 @@ class RouteHandle
                     $middleware = $this->array_isset($v, 3);
                     $tmp = [];
                     $tmp['method'] = $method;
-                    $usesTmp = strpos($uses, "#")?substr($uses,0,strpos($uses, "#")):$uses;
-                    list($modules, $controller, $action) = explode("/", $usesTmp);
+                    $modules = strpos($uses, "::")?substr($uses,0,strpos($uses, "::")):$uses;
+                    $usesTmp = strpos($uses, "::")?substr($uses,strpos($uses, "::")+2):$uses;
+                    list($controller, $action) = explode("/", $usesTmp);
 
                     $controllerTmp = explode("@", $controller);
                     $controllerGroup = $this->array_isset($controllerTmp,0);
@@ -40,7 +48,7 @@ class RouteHandle
                         $controllerStr = ucwords($controllerGroup);
                     }
 
-                    $realUses = "\\App\\Modules\\" . ucwords($modules) . "\\Controller\\" . $controllerStr."Controller@" . $action;
+                    $realUses = "\\".ucwords($modules)."\\Controllers\\" . $controllerStr."Controller@" . $action;
 
                     $tmp['path'] = $path;
                     $tmp['uses'] = $realUses;

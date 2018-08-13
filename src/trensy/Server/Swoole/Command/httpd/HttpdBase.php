@@ -113,7 +113,7 @@ class HttpdBase
                     $result = self::stop();
                     if($result){
                         Log::sysinfo("$serverName stop success ");
-                        sleep(1);
+//                        sleep(1);
                         $restartResult= self::start();
                         if($restartResult){
                             Log::sysinfo("$serverName start success ");
@@ -154,7 +154,7 @@ class HttpdBase
         if(!$result) return false;
         $pfile = $obj->getPfile();
         if(is_file($pfile))  @unlink($pfile);
-        return true;
+        return $result;
     }
 
 

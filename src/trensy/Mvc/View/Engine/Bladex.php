@@ -14,6 +14,7 @@ namespace Trensy\Mvc\View\Engine;
 
 use Trensy\Config;
 use Trensy\Di;
+use Trensy\Log;
 use Trensy\Mvc\View\Engine\Bladex\Engines\EngineResolver;
 use Trensy\Mvc\View\ViewInterface;
 use Trensy\Mvc\View\Engine\Bladex\Compilers\BladexCompiler;
@@ -89,7 +90,7 @@ class Bladex implements ViewInterface
         }
         $path = is_array($path)?$path:[$path];
         $finder = new FileViewFinder($path);
-        
+
         $factory = new Factory($resolver, $finder, $this->config);
 
         $result= $factory->make($view, $data, [])->render();

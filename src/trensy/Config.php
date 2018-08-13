@@ -24,6 +24,7 @@ class Config implements ConfigInterface
     protected static $configPath = null;
     protected static $allConfig = [];
     protected static $instance = [];
+    protected static $bundles=[];
 
     public static function getInstance()
     {
@@ -69,6 +70,31 @@ class Config implements ConfigInterface
     {
         $dir = Dir::formatPath($dir);
         $config = self::getDirConfig($dir);
+        //bundle 配置
+        $application = Dir::formatPath(APPLICATION_PATH);
+        //获取当前文件夹子
+        $subDirs = [];
+        $handle = dir ($application);
+        while ( $entry = $handle->read() ) {
+            if (($entry != ".") && ($entry != "..")) {
+                $tmpPath = $application . $entry;
+                if (is_dir ($tmpPath)) {
+                    $subDirs[$entry] = $tmpPath;
+                }
+            }
+        }
+       if($subDirs){
+            foreach ($subDirs as $k=>$v){
+                if(strpos($k, "Bundle")){
+//                    $bundleName =
+                    $configPath = Dir::formatPath($v."/Resources/configs");
+                    if(is_dir($configPath)){
+                        $configTmp = self::getDirConfig($configPath);
+                        if($configTmp) $config = Arr::merge($config, $configTmp);
+                    }
+                }
+            }
+       }
         return $config;
     }
 

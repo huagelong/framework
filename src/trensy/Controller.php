@@ -72,6 +72,7 @@ class Controller implements AnnotationLoadInterface
      */
     public function render($viewPath, $assign = [])
     {
+
         $viewRoot = Config::get("app.view.path");
         $realViewRoot = Dir::formatPath($viewRoot);
 
@@ -93,12 +94,14 @@ class Controller implements AnnotationLoadInterface
 
         $template->setViewCacheRoot($viewCachePath);
         if(isset($this->view) && $this->view) $assign = Arr::merge($assign, $this->view->getAssignData());
-        
+
         $bladexEx = Config::get("app.view.bladex_ex");
         //执行环境
         $version = Config::get("app.view.static_version");
         $widget = Config::get("app.view.widget");
-        $config = [$version, $bladexEx, $widget];
+        $bundleConfig = Config::get("app.view.bundle");
+
+        $config = [$version, $bladexEx, $widget, $bundleConfig];
         $template->setConfig($config);
 
         $content = $template->render($viewPath, $assign);

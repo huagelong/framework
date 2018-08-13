@@ -183,7 +183,7 @@ abstract class ServerAbstract
         $pids = $this->getPids();
         if(!$pids) return true;
         $masterPid = $pids[0];
-        if(\swoole_process::kill($masterPid, 0)) return true;
+        if(!\swoole_process::kill($masterPid, 0)) return true;
         //获取master进程ID
         //使用swoole_process::kill代替posix_kill
         \swoole_process::kill($masterPid);
@@ -191,7 +191,7 @@ abstract class ServerAbstract
         $startTime = time();
         while (true) {
             //检测进程是否退出
-            if(!\swoole_process::kill($masterPid, 0)) {
+            if(\swoole_process::kill($masterPid, 0)) {
                 //判断是否超时
                 if((time() - $startTime) >= $timeout) {
                     return false;

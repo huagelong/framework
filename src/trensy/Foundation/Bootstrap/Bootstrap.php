@@ -162,7 +162,7 @@ class Bootstrap
     {
         $dotenv = new Dotenv(ROOT_PATH);
         $dotenv->load();
-        Config::setConfigPath(CONFIG_PATH);
+        Config::setConfigPath(RESOURCE_PATH."/configs");
     }
 
     /**
