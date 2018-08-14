@@ -222,8 +222,9 @@ class Factory
         list(,,,$bundles) = $this->config;
 
         if($bundles){
-            foreach ($bundles as $hitsk=>$hitsv){
-                $this->prependNamespace($hitsk, $hitsv);
+            foreach ($bundles as $hitsv){
+                $hitsPath = Dir::formatPath(APPLICATION_PATH).ucwords($hitsv)."Bundle/Resources/templates";
+                $this->prependNamespace($hitsv, $hitsPath);
             }
         }
 

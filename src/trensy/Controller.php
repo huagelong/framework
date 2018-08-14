@@ -99,7 +99,7 @@ class Controller implements AnnotationLoadInterface
         //执行环境
         $version = Config::get("app.view.static_version");
         $widget = Config::get("app.view.widget");
-        $bundleConfig = Config::get("app.view.bundle");
+        $bundleConfig = Config::get("app.bundles");
 
         $config = [$version, $bladexEx, $widget, $bundleConfig];
         $template->setConfig($config);

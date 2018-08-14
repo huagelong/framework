@@ -86,7 +86,8 @@ class Config implements ConfigInterface
        if($subDirs){
             foreach ($subDirs as $k=>$v){
                 if(strpos($k, "Bundle")){
-//                    $bundleName =
+                    $bundleName = strtolower(substr($k, 0, strpos($k, "Bundle")));
+                    self::$bundles[] = $bundleName;
                     $configPath = Dir::formatPath($v."/Resources/configs");
                     if(is_dir($configPath)){
                         $configTmp = self::getDirConfig($configPath);
@@ -95,6 +96,9 @@ class Config implements ConfigInterface
                 }
             }
        }
+
+        Arr::set($config, "app.bundles", self::$bundles);
+
         return $config;
     }
 
