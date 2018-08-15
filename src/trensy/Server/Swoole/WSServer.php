@@ -48,7 +48,7 @@ class WSServer extends HttpdServer
 
     protected function render($data='', $errorCode = self::RESPONSE_SUCCESS_CODE, $errorMsg = '')
     {
-        $elapsedTime = ElapsedTime::runtime("sys_elapsed_time");
+        $elapsedTime = ElapsedTime::runtime(ElapsedTime::SYS_START);
         $result = [];
         $result['result'] = $data;
         $result['statusCode'] = $errorCode;

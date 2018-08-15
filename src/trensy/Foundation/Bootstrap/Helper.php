@@ -18,3 +18,11 @@ if(!function_exists("env")){
         return $getEnv?$getEnv:$default;
     }
 }
+
+if(!function_exists("debug")){
+    function debug($str)
+    {
+        \Trensy\Log::debug($str);
+        return true;
+    }
+}

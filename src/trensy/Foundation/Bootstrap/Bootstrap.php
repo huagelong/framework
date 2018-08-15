@@ -50,7 +50,7 @@ class Bootstrap
      */
     public function __construct()
     {
-        ElapsedTime::setStartTime(ElapsedTime::SYS_START);
+        if(php_sapi_name() != 'cli')  ElapsedTime::setStartTime(ElapsedTime::SYS_START);
         require_once "Helper.php";
         $this->initConfig();
         $this->initException();

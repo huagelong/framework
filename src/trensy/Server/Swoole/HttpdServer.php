@@ -120,7 +120,7 @@ class HttpdServer extends ServerAbstract
      */
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
-        ElapsedTime::setStartTime("sys_elapsed_time");
+        ElapsedTime::setStartTime(ElapsedTime::SYS_START);
 
         $gzip = isset($this->config["gzip"]) ? $this->config["gzip"] : 0;
 

@@ -91,14 +91,14 @@ class Config implements ConfigInterface
                     $configPath = Dir::formatPath($v."/Resources/configs");
                     if(is_dir($configPath)){
                         $configTmp = self::getDirConfig($configPath);
-                        if($configTmp) $config = Arr::merge($config, $configTmp);
+                        if($configTmp) $config = array_merge_recursive($config, $configTmp);
                     }
                 }
             }
        }
 
         Arr::set($config, "app.bundles", self::$bundles);
-
+//        Log::debug($config);
         return $config;
     }
 

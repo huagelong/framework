@@ -45,7 +45,7 @@ class Log
     {
         $ip = static::getClientIp();
 
-        $elapsedTime = ElapsedTime::runtime("sys_elapsed_time");
+        $elapsedTime = ElapsedTime::runtime(ElapsedTime::SYS_START);
 
         $result = [];
         if(function_exists('posix_getpid')) $result[] = "pid:".posix_getpid();

@@ -14,10 +14,12 @@
 
 namespace Trensy\Support;
 
+use Trensy\Event;
+
 class ElapsedTime
 {
     // 时间属性
-    static $elapsedTime = [];
+    protected static $elapsedTime = [];
     const SYS_START = "sys_start";
 
     /**
@@ -44,6 +46,12 @@ class ElapsedTime
         return $time;
     }
 
+    static function clear($key = 0)
+    {
+       if(isset(self::$elapsedTime[$key])) self::$elapsedTime[$key]=self::getmicrotime();
+       return true;
+    }
+
     /**
      *  获取时间戳
      *
@@ -57,6 +65,7 @@ class ElapsedTime
     
     public function __destruct()
     {
+
         Event::bind("clear", function () {
             self::$elapsedTime = [];
         });
