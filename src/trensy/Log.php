@@ -48,7 +48,7 @@ class Log
         $elapsedTime = ElapsedTime::runtime("sys_elapsed_time");
 
         $result = [];
-        $result[] = "pid:".posix_getpid();
+        if(function_exists('posix_getpid')) $result[] = "pid:".posix_getpid();
         $result[] = "ip:".$ip."/".self::getOlineIp();
         $result[] = $elapsedTime."ms";
 
