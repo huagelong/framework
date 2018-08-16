@@ -54,9 +54,7 @@ class Application
         $commands = [
             new Command\Artisan\Optimize(),
             new Command\Artisan\Dbsync(),
-            new Command\Artisan\BuildPhar(),
-            new Command\Artisan\Dbdiff(),
-            new Command\Artisan\Mysqldiff()
+            new Command\Artisan\BuildPhar()
         ];
 
         $config = Config::get("app.command");
