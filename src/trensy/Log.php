@@ -154,12 +154,12 @@ class Log
     {
         $msg = $arguments;
 
-        if(is_array($arguments)){
+        if(is_array($arguments) || is_object($arguments)){
             $msg = print_r($arguments, true);
         }
 
         $data = self::preData();
-        $data[]=$msg;
+        $data[]= $msg;
         self::outPut($name,$data);
     }
 

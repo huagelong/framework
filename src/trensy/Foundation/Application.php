@@ -25,12 +25,14 @@ use Trensy\Http\Request;
 use Trensy\Http\RequestAbstract;
 use Trensy\Http\Response;
 use Trensy\Http\ResponseAbstract;
+use Trensy\Mvc\Route\Base\Exception\ResourceNotFoundException;
 use Trensy\Mvc\Route\RouteMatch;
 use Trensy\Support\Dir;
 use Trensy\Support\Arr;
 use Trensy\Log;
 use Trensy\Context;
 use Trensy\Support\AliasLoader;
+use Trensy\Support\Exception\Page404Exception;
 
 class Application
 {
@@ -113,15 +115,22 @@ class Application
      */
     public static function runWeb(RequestAbstract $request, ResponseAbstract $response)
     {
-        Bootstrap::getInstance();
-        RouteBootstrap::getInstance();
+        try{
+            Bootstrap::getInstance();
+            RouteBootstrap::getInstance();
 
-        Di::set("task", ['class'=>\Trensy\Server\Task::class]);
-        AliasLoader::getInstance(['Task'=>\Trensy\Server\TaskFacade::class])->register();
-
-        $request = new Request($request);
-        $response = new Response($response);
-        self::start($request, $response);
+            Di::set("task", ['class'=>\Trensy\Server\Task::class]);
+            AliasLoader::getInstance(['Task'=>\Trensy\Server\TaskFacade::class])->register();
+            $request = new Request($request);
+            $response = new Response($response);
+            self::start($request, $response);
+        }catch (Page404Exception $e){
+            Event::fire("request.end");
+            Event::fire("404",[$e,"Page404Exception",$response]);
+        }catch (ResourceNotFoundException $e){
+            Event::fire("request.end");
+            Event::fire("404",[$e,"Page404Exception",$response]);
+        }
     }
 
 }

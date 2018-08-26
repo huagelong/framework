@@ -102,7 +102,7 @@ class Bootstrap
             $config = Config::get("app.view.page404");
 
             if($errorName == "Page404Exception"){
-                Log::debug($e->getMessage());
+                if(php_sapi_name() == 'cli') Log::debug($e->getMessage());
             }
 
             if($params instanceof Response){

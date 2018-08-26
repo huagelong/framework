@@ -339,7 +339,7 @@ class RouteMatch
                 } elseif (is_string($controller)) {
                     if (stristr($controller, "@")) {
                         list($controller, $action) = explode("@", $controller);
-                        $this->checkControllerReflect($controller, $action);
+                        $this->checkReflect($controller, $action);
                         //如果是http服务器
                         if (isset($require[0]) && ($require[0] instanceof Request)) {
                             $definition = [];
@@ -350,13 +350,13 @@ class RouteMatch
 //                            $obj = new $controller($require[0], $require[1]);
 
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
-                            if (!$check) {
+                            if ($check === false) {
                                 throw new \Exception("middleWare unvalidate");
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require[2]);
 //                            Log::debug($realParams);
                             $result = call_user_func_array([$obj, $action], $realParams);
-                            Event::fire("monitor", [$require[0], $require[1]]);
+                            Event::fire("action_after", $require[2]);
                         } else {
                             //tcp
                             list($serv, $fd, $params) = $otherData;
@@ -366,12 +366,12 @@ class RouteMatch
                             $definition['params'] = $params;
                             $obj = Di::get($controller, [], $definition);
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
-                            if (!$check) {
+                            if ($check === false) {
                                 throw new \Exception("middleWare unvalidate");
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require);
                             $result = call_user_func_array([$obj, $action], $realParams);
-                            Event::fire("monitor", [$realParams]);
+                            Event::fire("action_after", [$require, $result]);
                         }
                         Event::fire("clear");
                         return $result;
@@ -396,7 +396,7 @@ class RouteMatch
      * @return mixed
      * @throws \Exception
      */
-    protected function checkControllerReflect($class, $function){
+    protected function checkReflect($class, $function){
         $key = __CLASS__."-".__METHOD__.$class."-".$function;
         $ret = $this->syscache()->get($key);
         if($ret) return $ret;
@@ -471,7 +471,7 @@ class RouteMatch
 
         $check = $this->runMiddleware($middleware, $require, $action, $whiteAction);
         if (!$check) return false;
-        return true;
+        return $check;
     }
 
     /**
@@ -495,22 +495,28 @@ class RouteMatch
                             if (in_array($action, $whiteAction)) continue;
                         }
                     }
-
                     if (isset($midd[$v])) {
                         $class = $midd[$v];
 
-                        $this->checkControllerReflect($class, 'perform');
+                        $this->checkReflect($class, 'before');
 
                         $obj = Di::get($class);
                         if(!($obj instanceof MiddlewareAbstract)){
                             throw new \Exception("middleWare not instanceof MiddlewareAbstract");
                         }
-//                        $obj = new $class();
-                        if(!method_exists($obj, 'perform')){
-                            throw new \Exception("middleWare perform method not found");
+
+                        if(!method_exists($obj, 'before')){
+                            throw new \Exception("middleWare before method not found");
                         }
-                        $rs = call_user_func_array([$obj, "perform"],[]);
-                        if (!$rs) return false;
+
+                        $rs = call_user_func_array([$obj, "before"],[]);
+                        if ($rs === false) throw new \Exception("middleWare[$v] return false");
+
+                        if(method_exists($obj, 'after')){
+                            Event::bind("action_after", function($args) use ($obj){
+                                call_user_func_array([$obj, "after"],$args);
+                            });
+                        }
                     }
                 }
             }

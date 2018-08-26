@@ -17,7 +17,8 @@ use Trensy\Foundation\AnnotationLoadInterface;
 abstract class MiddlewareAbstract implements AnnotationLoadInterface
 {
 
-    abstract public function perform();
+    abstract public function before();
+    abstract public function after();
 
     /**
      * @return \Trensy\Http\Request

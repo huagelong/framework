@@ -61,7 +61,7 @@ class JobdBase
         if ($input->hasOption("daemonize")) {
             $daemonize = $input->getOption('daemonize');
             $daemonize = $daemonize == 0 ? 0 : 1;
-            Config::set("swoole.httpd.daemonize", $daemonize);
+            Config::set("swoole.jobd.daemonize", $daemonize);
         }
 
         try{

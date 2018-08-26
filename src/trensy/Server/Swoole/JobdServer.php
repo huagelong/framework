@@ -112,20 +112,20 @@ class JobdServer extends ServerAbstract
         $realip = swoole_get_local_ip();
         $realip = current($realip);
         Log::sysinfo("local ip :". $realip);
+        $jobListTm= [];
         if($jobList){
             foreach ($jobList as &$v){
                 $ips = isset($v['ip'])?$v['ip']:null;
                 if($ips){
                     if(!in_array($realip, $ips)){
-                        unset($v);
                         Log::sysinfo("local ip not allow run job");
                         continue;
                     }
+                    $jobListTm[] = $v;
                 }
             }
         }
-
-        return $jobList;
+        return $jobListTm;
     }
 
     public function onReceive(){}
