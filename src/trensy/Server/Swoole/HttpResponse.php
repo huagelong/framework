@@ -9,6 +9,7 @@
 namespace Trensy\Server\Swoole;
 
 
+use Trensy\Event;
 use Trensy\Http\ResponseAbstract;
 use swoole_http_response as SwooleHttpResponse;
 use Trensy\Support\Exception\RuntimeExitException;
@@ -71,4 +72,5 @@ class HttpResponse extends ResponseAbstract
     {
         return $this->swooleHttpResponse->sendfile($filename);
     }
+
 }

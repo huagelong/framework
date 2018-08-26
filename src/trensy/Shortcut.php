@@ -23,9 +23,9 @@ trait Shortcut
      * @param string $groupName
      * @return string
      */
-     public static function url($routeName, $params = [], $groupName='')
+     public static function url($routeName, $params = [])
     {
-        return \Trensy\Mvc\Route\RouteMatch::getInstance()->simpleUrl($routeName, $params, $groupName);
+        return \Trensy\Mvc\Route\RouteMatch::getInstance()->simpleUrl($routeName, $params);
     }
 
     /**

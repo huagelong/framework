@@ -139,14 +139,13 @@ trait Shortcut
             $result = isset($data[$line])?$data[$line]:$data[0];
             $func = isset($result['function'])?$result['function']:null;
             $file = isset($result['file'])?$result['file']:null;
+            $line = isset($result['line'])?$result['line']:null;
             $strTmp = "";
-            if($file){
-                if($func){
-                    $strTmp = "{$result['function']}(): {$result['file']} . (line:{$result['line']})";
-                }
-                else{
-                    $strTmp = " {$result['file']} . (line:{$result['line']})";
-                }
+            if($func){
+                $strTmp = "{$func}(): {$file} . (line:{$line})";
+            }
+            else{
+                $strTmp = " {$file} . (line:{$line})";
             }
 
             if($strTmp) \Trensy\Log::show($strTmp);

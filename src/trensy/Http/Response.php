@@ -141,7 +141,6 @@ class Response
         if ($this->hasEnd) {
             return Log::sysinfo("http has send");
         }
-        
         $this->hasEnd = 1;
         if ($this->headerStack) {
             foreach ($this->headerStack as $k => $v) {
@@ -158,8 +157,7 @@ class Response
             $this->gzip($this->gzip);
         }
         
-        $data = $this->response->end($html);
-        return $data;
+        $this->response->end($html);
     }
 
     /**

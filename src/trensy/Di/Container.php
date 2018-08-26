@@ -187,21 +187,28 @@ class Container
     {
         $class = $this->getAlias($class);
 
-        $newConfig = $config;
-        if($config){
-            $key = __CLASS__."-get-".$class."-".json_encode($config);
-        }else{
-            $key = __CLASS__."-get-".$class;
-        }
+        $this->varParse($class, $config);
 
-        $configTmp = $this->syscache()->get($key);
-        if(!$configTmp){
-            $this->varParse($class, $newConfig);
-            $this->syscache()->set($key, $newConfig);
-            $config = $newConfig;
-        }else{
-            $config = $configTmp;
-        }
+//        $newConfig = $config;
+
+//        $this->varParse($class, $config);
+//            $this->syscache()->set($key, $newConfig);
+//        $config = $newConfig;
+
+//        if($config){
+//            $key = __CLASS__."-get-".$class."-".json_encode($config);
+//        }else{
+//            $key = __CLASS__."-get-".$class;
+//        }
+//
+//        $configTmp = $this->syscache()->get($key);
+//        if(!$configTmp){
+//            $this->varParse($class, $newConfig);
+////            $this->syscache()->set($key, $newConfig);
+//            $config = $newConfig;
+//        }else{
+//            $config = $configTmp;
+//        }
 
         if (isset($this->_singletons[$class])) {
             // singleton

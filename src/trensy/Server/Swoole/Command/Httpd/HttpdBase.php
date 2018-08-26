@@ -14,6 +14,7 @@ namespace Trensy\Server\Swoole\Command\Httpd;
 
 use Trensy\Config;
 use Trensy\Foundation\Application;
+use Trensy\Server\Swoole\HttpdServer;
 use Trensy\Shortcut;
 use Trensy\Server\Swoole\WSServer;
 use Trensy\Support\AliasLoader;

@@ -66,7 +66,10 @@ class RouteBootstrap
         }
 
         if ($config) {
+            $bundles = Config::get("app.bundles");
             foreach ($config as $value){
+                $name = isset($value['name'])?$value['name']:null;
+                if(!in_array($name, $bundles))  throw new \Exception(" route group name[{$name}] is not equal bundle");
                 $this->loadOneRouteConfig($value);
             }
         }

@@ -83,7 +83,7 @@ class Application
      * @param $response
      * @return mixed
      */
-    public static function start(Request $request, Response $response)
+    public function start(Request $request, Response $response)
     {
         Context::set('request', $request);
         Context::set('response', $response);

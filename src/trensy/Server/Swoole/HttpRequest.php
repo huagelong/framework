@@ -9,6 +9,7 @@
 namespace Trensy\Server\Swoole;
 
 
+use Trensy\Event;
 use Trensy\Http\RequestAbstract;
 use Trensy\Http\ResponseAbstract;
 

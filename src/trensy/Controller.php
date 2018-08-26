@@ -121,7 +121,6 @@ class Controller implements AnnotationLoadInterface
         });
         $content = $this->render($viewPath, $assign);
         $this->response->end($content, $useZip);
-        return $content;
     }
 
 
@@ -142,7 +141,6 @@ class Controller implements AnnotationLoadInterface
         //JSON_NUMERIC_CHECK
         $content = Tool::myJsonEncode($result);
         $this->response->end($content, $useZip);
-        return $content;
     }
 
 }

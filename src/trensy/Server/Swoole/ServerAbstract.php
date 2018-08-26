@@ -16,6 +16,7 @@ use Trensy\Support\Arr;
 use Trensy\Support\Exception as SupportException;
 use Trensy\Log;
 use Trensy\Support\Tool;
+use Trensy\Di;
 
 abstract class ServerAbstract
 {
@@ -74,7 +75,9 @@ abstract class ServerAbstract
         $this->swooleServer->on('workerStop', [$this, 'onWorkerStop']);
         $this->swooleServer->on('workerError', [$this, 'onWorkerError']);
 
-        $this->swooleServer->on('request', [$this, 'onRequest']);
+        if ( method_exists($this , 'onRequest') ) {
+            $this->swooleServer->on('request', [$this, 'onRequest']);
+        }
 
         if ( method_exists($this , 'onOpen') ) {
             $this->swooleServer->on('open' , [ $this , 'onOpen' ]);
@@ -90,6 +93,10 @@ abstract class ServerAbstract
             $this->swooleServer->on('message' , [ $this , 'onWsMessage' ]);
         }
 
+        if ( method_exists($this , 'onMessage') ) {
+            $this->swooleServer->on('message' , [ $this , 'onMessage' ]);
+        }
+
         //开启任务
         if (isset($this->config['task_worker_num']) && ($this->config['task_worker_num'] > 0)) {
             $this->swooleServer->on('Task', array($this, 'onTask'));
@@ -97,6 +104,7 @@ abstract class ServerAbstract
         }
         $this->swooleServer->start();
     }
+
 
     public function onManagerStop(SwooleServer $serv)
     {

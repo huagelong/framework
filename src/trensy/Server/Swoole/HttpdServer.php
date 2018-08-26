@@ -74,6 +74,10 @@ class HttpdServer extends ServerAbstract
         return $this->config['pfile'];
     }
 
+    public function onMessage()
+    {
+
+    }
 
     /**
      * 数据初始化
@@ -135,14 +139,12 @@ class HttpdServer extends ServerAbstract
 
         $httpSendFile = new HttpSendFile($request, $response);
         list($isFile,,,,) = $httpSendFile->analyse();
-
+//
         if ($isFile) {
             $httpSendFile->sendFile();
         } else {
             $this->response($request, $response);
         }
-
-        Event::fire("clear");
     }
 
     protected function response(Request $request, Response $response)
@@ -182,7 +184,8 @@ class HttpdServer extends ServerAbstract
     protected function requestHtmlHandle(Request $request, Response $response)
     {
         $response->header("Content-Type", "text/html;charset=utf-8");
-        return Application::start($request, $response);
+        $obj = new Application();
+        return $obj->start($request, $response);
     }
 
 }

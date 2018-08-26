@@ -174,15 +174,10 @@ class RouteMatch
      * @param string $groupName
      * @return mixed
      */
-    public function simpleUrl($routeName, $params = [], $groupName = '')
+    public function simpleUrl($routeName, $params = [])
     {
-
-        if ($params && (!is_array($params)) && !$groupName) {
-            $groupName = $params;
-            $params = [];
-        }
-
-        if ($groupName) {
+        if (strpos($routeName, "::")) {
+            $groupName = substr($routeName, 0, strpos($routeName, "::"));
             $routeName = $groupName . "@" . $routeName;
         } else {
             if (isset(self::$dispatch['groupName']) && self::$dispatch['groupName']) {
