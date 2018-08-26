@@ -184,8 +184,7 @@ class HttpdServer extends ServerAbstract
     protected function requestHtmlHandle(Request $request, Response $response)
     {
         $response->header("Content-Type", "text/html;charset=utf-8");
-        $obj = new Application();
-        return $obj->start($request, $response);
+        return Application::start($request, $response);
     }
 
 }
