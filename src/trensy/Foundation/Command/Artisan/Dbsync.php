@@ -49,7 +49,6 @@ class Dbsync extends Base
         $sqlpath = $sqlpath?$sqlpath:$sqlPathConfig;
 
         $prefix = $input->getOption("prefix");
-        $prefix = $prefix?$prefix:$storageConfig['sync_prefix'];
 
         $action = $input->getOption("action");
         if(!in_array($action, ['up', 'down'])){
@@ -138,7 +137,7 @@ class Dbsync extends Base
         $db = new Pdo($inputConfig);
 
         $newPrefix = $inputConfig['prefix'];
-        $prefix = $prefix?$prefix:$newPrefix;
+        $prefix = $prefix?$prefix:'base_';
 
         $files = $this->getImportFilePath($sqlpath, $db, $action);
         if(!$files){

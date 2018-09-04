@@ -682,7 +682,7 @@ abstract class SQlAbstract
     function clearSql($content,$old_prefix="",$new_prefix="",$separator=";\n")
     {
         $commenter = array('#','-','\/\*', '\+', '\@');
-        $content = str_replace(array($old_prefix, "\r"), array($new_prefix, "\n"), $content);//替换前缀
+        if($new_prefix) $content = str_replace(array($old_prefix, "\r"), array($new_prefix, "\n"), $content);//替换前缀
         //通过sql语法的语句分割符进行分割
         $segment = explode($separator,trim($content));
         //去掉注释和多余的空行
