@@ -13,6 +13,7 @@ use Trensy\Http\ResponseAbstract;
 
 class Response extends ResponseAbstract
 {
+    protected $headerStack=[];
 
     function cookie($key, $value = '', $expire = 0, $path = '/', $domain = '', $secure = false, $httponly = false)
     {
@@ -81,8 +82,9 @@ class Response extends ResponseAbstract
 
     function header($key, $value)
     {
-        $headerStr = $key. " : ".$value;
-        header($headerStr);
+        $headerStr = $key. ":".$value;
+        $this->headerStack[] = $headerStr;
+//        header($headerStr);
         return true;
     }
 
@@ -93,6 +95,11 @@ class Response extends ResponseAbstract
 
     function end($html)
     {
+        if($this->headerStack){
+            foreach ($this->headerStack as $v){
+                header($v);
+            }
+        }
         echo $html;
     }
 

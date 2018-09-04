@@ -131,6 +131,9 @@ class Controller implements AnnotationLoadInterface
      */
     public function response($data=[], $errorCode = self::RESPONSE_SUCCESS_CODE, $errorMsg = '', $useZip=0)
     {
+        $this->responseEnd(function() {
+            $this->response->setHasEnd(0);
+        });
         $elapsedTime = ElapsedTime::runtime(ElapsedTime::SYS_START);
         $result = [];
         $result['result'] = $data;
