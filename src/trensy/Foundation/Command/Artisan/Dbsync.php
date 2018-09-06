@@ -56,7 +56,7 @@ class Dbsync extends Base
             return ;
         }
 
-        $newPrefix = $storageConfig['prefix'];
+        $newPrefix = $storageConfig['prefix']?$storageConfig['prefix']:"base_";
         $this->tableName = "{$newPrefix}dbsync";
 
         //判断表格是否存在
@@ -69,7 +69,7 @@ class Dbsync extends Base
             if(!$checkData){
                 $sql = "CREATE TABLE `{$this->tableName}` ( `id` INT NOT NULL AUTO_INCREMENT , `filename` VARCHAR(100) NOT NULL DEFAULT '', `ftype` varchar(5) NULL DEFAULT 'up', `fstatus` TINYINT(1) NOT NULL DEFAULT '1', `created_at` TIMESTAMP NULL , `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci";
                 $db->exec($sql);
-                Log::sysinfo("dbSync initialize success!");
+                Log::sysinfo($this->tableName. " initialize success!");
             }
 
             $this->importDb($storageConfig, $sqlpath, $prefix, $action);
@@ -85,13 +85,13 @@ class Dbsync extends Base
     protected function getImportFilePath($sqlpath, $db, $action)
     {
         if($action == 'down'){
-            $diffTime = $db->getField("created_at", ['fstatus'=>1, 'ftype'=>'up'], false, "", "id DESC", "", "", "",'dbsync');
+            $diffTime = $db->getField("created_at", ['fstatus'=>1, 'ftype'=>'up'], false, "", "id DESC", "", "", "",$this->tableName);
             if(!$diffTime) return ;
-            $diffFile = $db->getField("filename", ["created_at"=>$diffTime,'fstatus'=>1, 'ftype'=>'up'], true, "", "id DESC", "", "", "",'dbsync');
+            $diffFile = $db->getField("filename", ["created_at"=>$diffTime,'fstatus'=>1, 'ftype'=>'up'], true, "", "id DESC", "", "", "",$this->tableName);
             return is_array($diffFile)?$diffFile:[$diffFile];
         }
 
-        $importFileNames = $db->getField("filename", ['fstatus'=>1, 'ftype'=>'up'], true, "", "", "", "", "",'dbsync');
+        $importFileNames = $db->getField("filename", ['fstatus'=>1, 'ftype'=>'up'], true, "", "", "", "", "",$this->tableName);
 
         $this->getFiles($sqlpath, $files);
 
@@ -155,12 +155,12 @@ class Dbsync extends Base
             $insertData['created_at'] = $createAt;
             $insertData['ftype'] = $action;
             $insertData['updated_at'] = date('Y-m-d H:i:s');
-            $db->insert($insertData, "dbsync");
+            $db->insert($insertData, $this->tableName);
 
             $actionBack = $action == 'down'?"up":"down";
             $update = [];
             $update['fstatus'] = 0;
-            $db->update($update, ['filename'=>$v, 'ftype'=>$actionBack], 'dbsync');
+            $db->update($update, ['filename'=>$v, 'ftype'=>$actionBack], $this->tableName);
 
         }
     }
