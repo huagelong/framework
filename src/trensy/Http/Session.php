@@ -111,7 +111,7 @@ class Session
         } elseif ($request->cookies->get($sessionName)) {
             $sid = $request->cookies->get($sessionName);
         } else {
-            $sid = sha1($request->headers->get('user-agent') . $request->server->get('remote_addr') . uniqid(posix_getpid(), true));
+            $sid = sha1($request->headers->get('user-agent') . $request->server->get('remote_addr') . uniqid(time(), true));
         }
         $this->sid = $sid;
         return $sid;
