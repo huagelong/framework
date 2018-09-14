@@ -26,9 +26,6 @@
         }
     },
     "suggest": {
-        "ext-msgpack": "data serialize tool",
-        "ext-igbinary":"data serialize tool",
-        "ext-hprose":"data serialize tool",
         "ext-swoole" : "swoole >=2.0.0"
     },
     "minimum-stability": "dev"
