@@ -126,7 +126,7 @@ class Factory
         $this->share('__env', $this);
     }
 
-    public function requireStatic($path, $other=[], $useCache=0)
+    public function requireStatic($path, $manifestFile="", $other=[], $useCache=0)
     {
         list($version) = $this->config;
 
@@ -145,25 +145,32 @@ class Factory
 
         $cdnUrl = $this->config()->get("app.view.cdn_url");
         $cdnUrl = $cdnUrl?rtrim($cdnUrl,'/')."/":"/";
-        $path = ltrim($path,'/');
-
-        $manifestKey = "app.view.manifest";
-        $manifestVaues = $this->syscache()->get($manifestKey);
-        if($manifestVaues){
-            $path = isset($manifestVaues[$path])?$manifestVaues[$path]:$path;
-        }else{
+        if(!$manifestFile){
             $manifestFile = $this->config()->get("app.view.manifest");
-            if(is_file($manifestFile)){
-                $json = file_get_contents($manifestFile);
-                if($json){
-                    $manifestVaues = json_decode($json, true);
-                    $this->syscache()->set($manifestKey, $manifestVaues);
-                    $path = isset($manifestVaues[$path])?$manifestVaues[$path]:$path;
-                }
-            }
         }
 
-        $path = ltrim($path,'/');
+        if($manifestFile) {
+            $manifestFile = trim($manifestFile, '/');
+            $dir = dirname($manifestFile);
+            $path = substr(trim($path, '/'), strlen($dir) + 1);
+            $manifestKey = "app.view.manifest." . md5($manifestFile);
+            $manifestVaues = $this->syscache()->get($manifestKey);
+            if ($manifestVaues) {
+                $path = isset($manifestVaues[$path]) ? $manifestVaues[$path] : $path;
+            } else {
+                $manifestFile = Dir::formatPath(ROOT_PATH)."public/" . $manifestFile;
+                if (is_file($manifestFile)) {
+                    $json = file_get_contents($manifestFile);
+                    if ($json) {
+                        $manifestVaues = json_decode($json, true);
+                        $this->syscache()->set($manifestKey, $manifestVaues);
+                        $path = isset($manifestVaues[$path]) ? $manifestVaues[$path] : $path;
+                    }
+                }
+            }
+            $path = $dir . "/" . $path;
+        }
+        $path = ltrim($path, '/');
         $path = $cdnUrl.$path;
 
         $versionStr = "";
