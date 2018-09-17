@@ -145,9 +145,6 @@ class Factory
 
         $cdnUrl = $this->config()->get("app.view.cdn_url");
         $cdnUrl = $cdnUrl?rtrim($cdnUrl,'/')."/":"/";
-        if(!$manifestFile){
-            $manifestFile = $this->config()->get("app.view.manifest");
-        }
 
         if($manifestFile) {
             $manifestFile = trim($manifestFile, '/');

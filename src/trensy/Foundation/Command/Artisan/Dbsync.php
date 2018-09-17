@@ -58,7 +58,6 @@ class Dbsync extends Base
 
         $newPrefix = $storageConfig['prefix']?$storageConfig['prefix']:"base_";
         $this->tableName = "{$newPrefix}dbsync";
-
         //判断表格是否存在
         $db = new Pdo($storageConfig);
         try{
@@ -85,13 +84,13 @@ class Dbsync extends Base
     protected function getImportFilePath($sqlpath, $db, $action)
     {
         if($action == 'down'){
-            $diffTime = $db->getField("created_at", ['fstatus'=>1, 'ftype'=>'up'], false, "", "id DESC", "", "", "",$this->tableName);
+            $diffTime = $db->getField("created_at", ['fstatus'=>1, 'ftype'=>'up'], false, "", "id DESC", "", "", "",'dbsync');
             if(!$diffTime) return ;
-            $diffFile = $db->getField("filename", ["created_at"=>$diffTime,'fstatus'=>1, 'ftype'=>'up'], true, "", "id DESC", "", "", "",$this->tableName);
+            $diffFile = $db->getField("filename", ["created_at"=>$diffTime,'fstatus'=>1, 'ftype'=>'up'], true, "", "id DESC", "", "", "",'dbsync');
             return is_array($diffFile)?$diffFile:[$diffFile];
         }
 
-        $importFileNames = $db->getField("filename", ['fstatus'=>1, 'ftype'=>'up'], true, "", "", "", "", "",$this->tableName);
+        $importFileNames = $db->getField("filename", ['fstatus'=>1, 'ftype'=>'up'], true, "", "", "", "", "",'dbsync');
 
         $this->getFiles($sqlpath, $files);
 
@@ -155,12 +154,12 @@ class Dbsync extends Base
             $insertData['created_at'] = $createAt;
             $insertData['ftype'] = $action;
             $insertData['updated_at'] = date('Y-m-d H:i:s');
-            $db->insert($insertData, $this->tableName);
+            $db->insert($insertData, 'dbsync');
 
             $actionBack = $action == 'down'?"up":"down";
             $update = [];
             $update['fstatus'] = 0;
-            $db->update($update, ['filename'=>$v, 'ftype'=>$actionBack], $this->tableName);
+            $db->update($update, ['filename'=>$v, 'ftype'=>$actionBack], 'dbsync');
 
         }
     }
