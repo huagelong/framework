@@ -145,28 +145,46 @@ class Factory
 
         $cdnUrl = $this->config()->get("app.view.cdn_url");
         $cdnUrl = $cdnUrl?rtrim($cdnUrl,'/')."/":"/";
-
-        if($manifestFile) {
-            $manifestFile = trim($manifestFile, '/');
-            $dir = dirname($manifestFile);
-            $path = substr(trim($path, '/'), strlen($dir) + 1);
-            $manifestKey = "app.view.manifest." . md5($manifestFile);
-            $manifestVaues = $this->syscache()->get($manifestKey);
-            if ($manifestVaues) {
-                $path = isset($manifestVaues[$path]) ? $manifestVaues[$path] : $path;
-            } else {
-                $manifestFile = Dir::formatPath(ROOT_PATH)."public/" . $manifestFile;
-                if (is_file($manifestFile)) {
-                    $json = file_get_contents($manifestFile);
-                    if ($json) {
-                        $manifestVaues = json_decode($json, true);
-                        $this->syscache()->set($manifestKey, $manifestVaues);
-                        $path = isset($manifestVaues[$path]) ? $manifestVaues[$path] : $path;
-                    }
-                }
-            }
-            $path = $dir . "/" . $path;
+        if(!$manifestFile){
+            $manifestFile = $this->config()->get("app.view.manifest");
         }
+
+        $manifestFile = trim($manifestFile, '/');
+        $dir = dirname($manifestFile);
+        $pathTmp = $path;
+        $path = substr(trim($path, '/'), strlen($dir) + 1);
+        $manifestKey = "app.view.manifest." . md5($manifestFile);
+        $manifestVaues = $this->syscache()->get($manifestKey);
+
+        if ($manifestVaues) {
+            debug($manifestVaues[$path]);
+            if(isset($manifestVaues[$path]) && $manifestVaues[$path]){
+                $path = $manifestVaues[$path];
+                $path = $dir . "/" . $path;
+            }else{
+                $path = $pathTmp;
+            }
+        } else {
+            $manifestFile = Dir::formatPath(ROOT_PATH)."public/" . $manifestFile;
+            if (is_file($manifestFile)) {
+                $json = file_get_contents($manifestFile);
+                if ($json) {
+                    $manifestVaues = json_decode($json, true);
+                    $this->syscache()->set($manifestKey, $manifestVaues);
+                    if(isset($manifestVaues[$path]) && $manifestVaues[$path]){
+                        $path = $manifestVaues[$path];
+                        $path = $dir . "/" . $path;
+                    }else{
+                        $path = $pathTmp;
+                    }
+                }else{
+                    $path = $pathTmp;
+                }
+            }else{
+                $path = $pathTmp;
+            }
+        }
+
         $path = ltrim($path, '/');
         $path = $cdnUrl.$path;
 
