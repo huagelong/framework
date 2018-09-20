@@ -12,7 +12,6 @@
 
 namespace Trensy\Foundation;
 
-
 trait Shortcut
 {
     /**
@@ -65,7 +64,7 @@ trait Shortcut
      */
     public static function getCookie($key, $default=null)
     {
-        return self::request()->cookies->get($key, $default);
+        return  \Trensy\Context::request()->cookies->get($key, $default);
     }
 
     /**
@@ -74,13 +73,13 @@ trait Shortcut
      */
      public static function cache()
     {
-        $name = self::config()->get('app.app_name');
+        $name = \Trensy\Config::getInstance()->get('app.app_name');
         return new \Trensy\Storage\Cache\Adapter\RedisCache($name);
     }
 
     public static function fileCache()
     {
-        $name = self::config()->get('app.app_name');
+        $name = \Trensy\Config::getInstance()->get('app.app_name');
         $cacheDir = STORAGE_PATH."/file_cache";
         return new \Trensy\Storage\Cache\Adapter\FileCache($name, $cacheDir);
     }
@@ -190,7 +189,7 @@ trait Shortcut
             list($line, $func) = debug_backtrace(2, 2);
             \Trensy\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
         }
-        $str && self::dump($str);
+        $str && \Trensy\Log::show($str);
         throw new \Trensy\Support\Exception\RuntimeExitException("exit");
     }
 
