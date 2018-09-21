@@ -12,7 +12,6 @@
 
 namespace Trensy;
 
-
 trait Shortcut
 {
     /**
@@ -23,9 +22,9 @@ trait Shortcut
      * @param string $groupName
      * @return string
      */
-     public static function url($routeName, $params = [])
+    public static function url($routeName, $params = [], $groupName='')
     {
-        return \Trensy\Mvc\Route\RouteMatch::getInstance()->simpleUrl($routeName, $params);
+        return \Trensy\Mvc\Route\RouteMatch::getInstance()->simpleUrl($routeName, $params, $groupName);
     }
 
     /**
@@ -33,7 +32,7 @@ trait Shortcut
      *
      * @return \Trensy\Foundation\Storage\Redis
      */
-     public static function redis()
+    public static function redis()
     {
         return new \Trensy\Foundation\Storage\Redis();
     }
@@ -43,7 +42,7 @@ trait Shortcut
      *
      * @return \Trensy\Config
      */
-     public static function config()
+    public static function config()
     {
         return \Trensy\Config::getInstance();
     }
@@ -53,7 +52,7 @@ trait Shortcut
      *
      * @return \Trensy\Http\Session
      */
-     public static function session()
+    public static function session()
     {
         return \Trensy\Foundation\Bootstrap\Session::getInstance();
     }
@@ -65,22 +64,22 @@ trait Shortcut
      */
     public static function getCookie($key, $default=null)
     {
-        return self::request()->cookies->get($key, $default);
+        return  \Trensy\Context::request()->cookies->get($key, $default);
     }
 
     /**
      * 缓存对象
      * @return \Trensy\Storage\Cache\Adapter\RedisCache;
      */
-     public static function cache()
+    public static function cache()
     {
-        $name = self::config()->get('app.app_name');
+        $name = \Trensy\Config::getInstance()->get('app.app_name');
         return new \Trensy\Storage\Cache\Adapter\RedisCache($name);
     }
 
     public static function fileCache()
     {
-        $name = self::config()->get('app.app_name');
+        $name = \Trensy\Config::getInstance()->get('app.app_name');
         $cacheDir = STORAGE_PATH."/file_cache";
         return new \Trensy\Storage\Cache\Adapter\FileCache($name, $cacheDir);
     }
@@ -89,9 +88,9 @@ trait Shortcut
      * 缓存对象
      * @return \Trensy\Storage\Cache\Adapter\SysCache;
      */
-     public static function syscache()
+    public static function syscache()
     {
-        return \Trensy\Storage\Cache\Adapter\SysCache::getInstance();
+        return new \Trensy\Storage\Cache\Adapter\SysCache();
     }
 
 
@@ -108,7 +107,7 @@ trait Shortcut
      * 输出
      * @return string;
      */
-     public static function dump($str, $isReturn=false)
+    public static function dump($str, $isReturn=false)
     {
         if(!$isReturn){
             $data = debug_backtrace(2, 2);
@@ -132,21 +131,20 @@ trait Shortcut
      * 输出
      * @return string;
      */
-     public static function debug($str, $isReturn=false, $line=0)
+    public static function debug($str, $isReturn=false, $line=0)
     {
         if(!$isReturn){
             $data = debug_backtrace(2, 7);
             $result = isset($data[$line])?$data[$line]:$data[0];
             $func = isset($result['function'])?$result['function']:null;
             $file = isset($result['file'])?$result['file']:null;
+            $line = isset($result['line'])?$result['line']:null;
             $strTmp = "";
-            if($file){
-                if($func){
-                    $strTmp = "{$result['function']}(): {$result['file']} . (line:{$result['line']})";
-                }
-                else{
-                    $strTmp = " {$result['file']} . (line:{$result['line']})";
-                }
+            if($func){
+                $strTmp = "{$func}(): {$file} . (line:{$line})";
+            }
+            else{
+                $strTmp = " {$file} . (line:{$line})";
             }
 
             if($strTmp) \Trensy\Log::show($strTmp);
@@ -159,7 +157,7 @@ trait Shortcut
         return $msg;
     }
 
-     public static function backtrace()
+    public static function backtrace()
     {
         $data = debug_backtrace(2, 7);
         if($data){
@@ -177,7 +175,7 @@ trait Shortcut
     /**
      * 404错误
      */
-     public static function page404($str='')
+    public static function page404($str='')
     {
         throw new \Trensy\Support\Exception\Page404Exception($str);
     }
@@ -185,20 +183,20 @@ trait Shortcut
     /**
      * 断点
      */
-     public static function throwExit($str=null)
+    public static function throwExit($str=null)
     {
         if(!$str){
             list($line, $func) = debug_backtrace(2, 2);
             \Trensy\Log::show("{$func['function']}(): {$line['file']} . (line:{$line['line']})");
         }
-        $str && self::dump($str);
+        $str && \Trensy\Log::show($str);
         throw new \Trensy\Support\Exception\RuntimeExitException("exit");
     }
 
     /**
      * 多语言
      */
-     public static function l($str, $params=[])
+    public static function l($str, $params=[])
     {
         return \Trensy\Lang::get($str, $params);
     }
@@ -206,7 +204,7 @@ trait Shortcut
     /**
      * isset
      */
-     public static function array_isset($arr, $key, $default=null)
+    public static function array_isset($arr, $key, $default=null)
     {
         return isset($arr[$key]) ? $arr[$key]:$default;
     }
@@ -214,7 +212,7 @@ trait Shortcut
     /**
      * isset
      */
-     public static function trans($arr)
+    public static function trans($arr)
     {
         return  \Trensy\Support\Serialization::get()->trans($arr);
     }
@@ -222,7 +220,7 @@ trait Shortcut
     /**
      * isset
      */
-     public static function xtrans($arr)
+    public static function xtrans($arr)
     {
         return  \Trensy\Support\Serialization::get()->xtrans($arr);
     }
@@ -230,7 +228,7 @@ trait Shortcut
     /**
      * 输出后清除变量
      */
-     public static function responseEnd($callback)
+    public static function responseEnd($callback)
     {
         \Trensy\Event::bind("request.end",$callback);
     }
@@ -243,24 +241,8 @@ trait Shortcut
      * @return object
      * @throws \Trensy\Di\Exception\DiNotDefinedException
      */
-     public static function di($str)
+    public static function di($str)
     {
         return \Trensy\Di::get($str);
-    }
-
-    /**
-     *  @return \Trensy\Http\Request
-     */
-    public static function request()
-    {
-        return \Trensy\Context::request();
-    }
-
-    /**
-     * @return \Trensy\Http\response
-     */
-    public static function response()
-    {
-        return \Trensy\Context::response();
     }
 }
