@@ -28,8 +28,6 @@ class Base extends Command implements AnnotationLoadInterface
       ob_implicit_flush(1);
 
       parent::__construct();
-
-      Bootstrap::getInstance();
   }
 
     /**

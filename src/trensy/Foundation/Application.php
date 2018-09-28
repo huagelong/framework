@@ -53,23 +53,31 @@ class Application
      */
     public static function runCmd()
     {
+
+        Bootstrap::getInstance();
+
         $commands = [
-            new Command\Artisan\Optimize(),
-            new Command\Artisan\Dbsync(),
-            new Command\Artisan\BuildPhar()
+//            new Command\Artisan\Optimize(),
+//            new Command\Artisan\Dbsync(),
+//            new Command\Artisan\BuildPhar(),
+            \Trensy\Foundation\Command\Artisan\Optimize::class,
+            \Trensy\Foundation\Command\Artisan\Dbsync::class,
+            \Trensy\Foundation\Command\Artisan\BuildPhar::class,
         ];
 
         $config = Config::get("app.command");
+
         if ($config) {
-            $commandsTmp = [];
-            foreach ($config as $cv){
-                $commandsTmp[] = new $cv;
-            }
-            $commands = array_merge($commands, $commandsTmp);
+            $commands = array_merge($commands, $config);
+        }
+
+        $commandsTmp = [];
+        foreach ($commands as $cv){
+            $commandsTmp[] = Di::get($cv);
         }
 
         $application = new CmdApplication();
-        foreach ($commands as $v) {
+        foreach ($commandsTmp as $v) {
             $application->add($v);
         }
 
