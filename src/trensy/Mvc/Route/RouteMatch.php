@@ -347,12 +347,12 @@ class RouteMatch
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
                             if ($check === false) {
                                 return false;
-                                throw new \Exception("middleWare unvalidate");
+//                                throw new \Exception("middleWare unvalidate");
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require[2]);
 //                            Log::debug($realParams);
                             $result = call_user_func_array([$obj, $action], $realParams);
-                            Event::fire("action_after", $require[2]);
+                            Event::fire("action_after", [$result, $require[2]]);
                         } else {
                             //tcp
                             list($serv, $fd, $params) = $otherData;
@@ -368,7 +368,7 @@ class RouteMatch
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require);
                             $result = call_user_func_array([$obj, $action], $realParams);
-                            Event::fire("action_after", [$require, $result]);
+                            Event::fire("action_after", [$result, $require]);
                         }
                         Event::fire("clear");
                         return $result;
