@@ -140,7 +140,7 @@ class Controller implements AnnotationLoadInterface
         $result['statusCode'] = $errorCode;
         $result['message'] = $errorMsg;
         $result['elapsedTime'] = $elapsedTime;
-        $this->response->header("Content-type", "application/json");
+//        $this->response->header("Content-type", "application/json");
         //JSON_NUMERIC_CHECK
         $content = Tool::myJsonEncode($result);
         $this->response->end($content, $useZip);

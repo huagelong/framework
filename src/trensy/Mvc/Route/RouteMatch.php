@@ -346,6 +346,7 @@ class RouteMatch
 
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
                             if ($check === false) {
+                                return false;
                                 throw new \Exception("middleWare unvalidate");
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require[2]);
@@ -362,7 +363,8 @@ class RouteMatch
                             $obj = Di::get($controller, [], $definition);
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
                             if ($check === false) {
-                                throw new \Exception("middleWare unvalidate");
+                                return false;
+//                                throw new \Exception("middleWare unvalidate");
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require);
                             $result = call_user_func_array([$obj, $action], $realParams);
@@ -505,7 +507,10 @@ class RouteMatch
                         }
 
                         $rs = call_user_func_array([$obj, "before"],[]);
-                        if ($rs === false) throw new \Exception("middleWare[$v] return false");
+                        if ($rs === false){
+//                            throw new \Exception("middleWare[$v] return false");
+                            return false;
+                        }
 
                         if(method_exists($obj, 'after')){
                             Event::bind("action_after", function($args) use ($obj){
