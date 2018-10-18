@@ -40,13 +40,13 @@ class Pdo extends SQlAbstract
 
     public function getConnect($hostKey=self::CONN_MASTER)
     {
-        return self::$conn[$this->key][$hostKey];
+        return Pdo::$conn[$this->key][$hostKey];
     }
 
     protected function conndb()
     {
 
-        if(!isset(self::$conn[$this->key]) || !self::$conn[$this->key]){
+        if(!isset(Pdo::$conn[$this->key]) || !Pdo::$conn[$this->key]){
             self::$prefix = $this->config['prefix'];
             parent::__construct();
             $this->initConn($this->config);
@@ -55,10 +55,10 @@ class Pdo extends SQlAbstract
 
     protected function initConn($config)
     {
-        if(isset(self::$conn[$this->key]) && self::$conn[$this->key]) return self::$conn[$this->key];
+        if(isset(Pdo::$conn[$this->key]) && Pdo::$conn[$this->key]) return Pdo::$conn[$this->key];
         try {
 
-            if (isset($config['master']) && !isset(self::$conn[$this->key][self::CONN_MASTER])) {
+            if (isset($config['master']) && !isset(Pdo::$conn[$this->key][self::CONN_MASTER])) {
                 $masterConfig = $config['master'];
                 $masterOptions = array(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY=>true,\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout'],\PDO::ATTR_PERSISTENT=>true);
                 if(php_sapi_name() != 'cli') $masterOptions = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout']);
@@ -68,11 +68,11 @@ class Pdo extends SQlAbstract
                     $query = $dbh->prepare("set session wait_timeout=90000,interactive_timeout=90000,net_read_timeout=90000");
                     $query->execute();
                 }
-                self::$conn[$this->key][self::CONN_MASTER] = $dbh;
-                self::$conn[$this->key][self::CONN_MASTER]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
-                self::$conn[$this->key][self::CONN_MASTER]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+                Pdo::$conn[$this->key][self::CONN_MASTER] = $dbh;
+                Pdo::$conn[$this->key][self::CONN_MASTER]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+                Pdo::$conn[$this->key][self::CONN_MASTER]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             }
-            if (isset($config['slave']) && !isset(self::$conn[$this->key][self::CONN_MASTER])) {
+            if (isset($config['slave']) && !isset(Pdo::$conn[$this->key][self::CONN_MASTER])) {
                 $slaveConfig = $config['slave'];
                 $slavOptions = array(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY=>true,\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout'],\PDO::ATTR_PERSISTENT=>true);
                 if(php_sapi_name() != 'cli') $slavOptions = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout']);
@@ -83,29 +83,29 @@ class Pdo extends SQlAbstract
                     $query = $slaveDBH->prepare("set session wait_timeout=90000,interactive_timeout=90000,net_read_timeout=90000");
                     $query->execute();
                 }
-                self::$conn[$this->key][self::CONN_SLAVE] = $slaveDBH;
-                self::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
-                self::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+                Pdo::$conn[$this->key][self::CONN_SLAVE] = $slaveDBH;
+                Pdo::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+                Pdo::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             }
 
-            Event::bind("request.end", function () {
-                self::$conn=[];
-            });
+//            Event::bind("request.end", function () {
+//                Pdo::$conn=[];
+//            });
 
         } catch (\PDOException $e) {
             Log::error(Exception::formatException($e));
             throw $e;
         }
 
-        if (!isset(self::$conn[$this->key][self::CONN_MASTER])) {
+        if (!isset(Pdo::$conn[$this->key][self::CONN_MASTER])) {
             throw new \PDOException('master database server must set ~');
         }
 
-        if (!isset(self::$conn[$this->key][self::CONN_SLAVE])) {
-            self::$conn[$this->key][self::CONN_SLAVE] = self::$conn[$this->key][self::CONN_MASTER];
+        if (!isset(Pdo::$conn[$this->key][self::CONN_SLAVE])) {
+            Pdo::$conn[$this->key][self::CONN_SLAVE] = Pdo::$conn[$this->key][self::CONN_MASTER];
         }
 
-        return self::$conn[$this->key];
+        return Pdo::$conn[$this->key];
     }
 
     /**
@@ -175,18 +175,18 @@ class Pdo extends SQlAbstract
         try{
             $result = [];
             if (!$method || $method == 'lastInsertId') {
-                $result = self::$conn[$this->key][$connType]->exec($sql);
+                $result = Pdo::$conn[$this->key][$connType]->exec($sql);
                 if ($method) {
-                    $result = self::$conn[$this->key][$connType]->$method();
+                    $result = Pdo::$conn[$this->key][$connType]->$method();
                 }
-                if (self::$conn[$this->key][$connType]->errorCode() != '00000') {
-                    $error = self::$conn[$this->key][$connType]->errorInfo();
+                if (Pdo::$conn[$this->key][$connType]->errorCode() != '00000') {
+                    $error = Pdo::$conn[$this->key][$connType]->errorInfo();
                     $errorMsg = 'ERROR: [' . $error['1'] . '] ' . $error['2'];
-                    throw new \Exception($errorMsg, self::$conn[$this->key][$connType]->errorCode());
+                    throw new \Exception($errorMsg, Pdo::$conn[$this->key][$connType]->errorCode());
                 }
                 return $result;
             } else {
-                $query = self::$conn[$this->key][$connType]->query($sql);
+                $query = Pdo::$conn[$this->key][$connType]->query($sql);
 //                dump('1');
 //                dump($query);
                 if($query === false){
@@ -194,11 +194,11 @@ class Pdo extends SQlAbstract
                 }
                 $result = $query->$method();
 //                dump('2');
-//                dump(self::$conn[$this->key][$connType]->errorCode());
-                if (self::$conn[$this->key][$connType]->errorCode() != '00000') {
-                    $error = self::$conn[$this->key][$connType]->errorInfo();
+//                dump(Pdo::$conn[$this->key][$connType]->errorCode());
+                if (Pdo::$conn[$this->key][$connType]->errorCode() != '00000') {
+                    $error = Pdo::$conn[$this->key][$connType]->errorInfo();
                     $errorMsg = 'ERROR: [' . $error['1'] . '] ' . $error['2'];
-                    throw new \Exception($errorMsg, self::$conn[$this->key][$connType]->errorCode());
+                    throw new \Exception($errorMsg, Pdo::$conn[$this->key][$connType]->errorCode());
                 }
                 return $result;
             }
@@ -213,9 +213,9 @@ class Pdo extends SQlAbstract
             $this->dump($sql);
             Log::error($e->getMessage());
             //重新连接
-            self::$conn[$this->key] = [];
+            Pdo::$conn[$this->key] = [];
             $this->conndb();
-            if(isset(self::$conn[$this->key]) && self::$conn[$this->key]){
+            if(isset(Pdo::$conn[$this->key]) && Pdo::$conn[$this->key]){
                 return $this->set($sql, $connType, $method);
             }else{
                 $this->dump($sql);
@@ -232,9 +232,9 @@ class Pdo extends SQlAbstract
             $this->dump($sql);
             Log::error($e->getMessage());
             //重新连接
-            self::$conn[$this->key] = [];
+            Pdo::$conn[$this->key] = [];
             $this->conndb();
-            if(isset(self::$conn[$this->key]) && self::$conn[$this->key]){
+            if(isset(Pdo::$conn[$this->key]) && Pdo::$conn[$this->key]){
                 return $this->set($sql, $connType, $method);
             }else{
                 $this->dump($sql);
@@ -249,7 +249,7 @@ class Pdo extends SQlAbstract
         $tables = is_array($tables)?$tables:explode(',',$tables);
         if(!$tables) return "";
         $return = "";
-        $db = self::$conn[$this->key][self::CONN_MASTER];
+        $db = Pdo::$conn[$this->key][self::CONN_MASTER];
         foreach($tables as $table) {
 
             $stmt = $db->query("DESC $table");
