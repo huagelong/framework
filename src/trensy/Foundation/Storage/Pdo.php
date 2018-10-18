@@ -60,7 +60,7 @@ class Pdo extends SQlAbstract
 
             if (isset($config['master']) && !isset(self::$conn[$this->key][self::CONN_MASTER])) {
                 $masterConfig = $config['master'];
-                $masterOptions = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout'],\PDO::ATTR_PERSISTENT=>true);
+                $masterOptions = array(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY=>true,\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout'],\PDO::ATTR_PERSISTENT=>true);
                 if(php_sapi_name() != 'cli') $masterOptions = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout']);
                 $dbh = new \PDO($config['type'] . ':host=' . $masterConfig['host'] . ';port=' . $masterConfig['port'] . ';dbname=' . $masterConfig['db_name'] . '',
                     $masterConfig['user'], $masterConfig['password'],$masterOptions);
@@ -74,7 +74,7 @@ class Pdo extends SQlAbstract
             }
             if (isset($config['slave']) && !isset(self::$conn[$this->key][self::CONN_MASTER])) {
                 $slaveConfig = $config['slave'];
-                $slavOptions = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout'],\PDO::ATTR_PERSISTENT=>true);
+                $slavOptions = array(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY=>true,\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout'],\PDO::ATTR_PERSISTENT=>true);
                 if(php_sapi_name() != 'cli') $slavOptions = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout']);
                     $slaveDBH = new \PDO($config['type'] . ':host=' . $slaveConfig['host'] . ';port=' . $slaveConfig['port'] . ';dbname=' . $slaveConfig['db_name'] . '',
                     $slaveConfig['user'], $slaveConfig['password'],$slavOptions
