@@ -88,9 +88,9 @@ class Pdo extends SQlAbstract
                 Pdo::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             }
 
-//            Event::bind("request.end", function () {
-//                Pdo::$conn=[];
-//            });
+            Event::bind("request.end", function () {
+                Pdo::$conn=[];
+            });
 
         } catch (\PDOException $e) {
             Log::error(Exception::formatException($e));
