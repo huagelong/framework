@@ -24,6 +24,7 @@ class Pdo extends SQlAbstract
     public static $conn = [];
     protected $config = null;
     protected $key = null;
+    protected static $lock = null;
 
     public function __construct($config=null)
     {
@@ -34,7 +35,7 @@ class Pdo extends SQlAbstract
         }
 
         $this->key = md5(serialize($this->config));
-        $this->conndb();
+        self::$prefix = $this->config['prefix'];
     }
 
 
@@ -47,7 +48,6 @@ class Pdo extends SQlAbstract
     {
 
         if(!isset(Pdo::$conn[$this->key]) || !Pdo::$conn[$this->key]){
-            self::$prefix = $this->config['prefix'];
             parent::__construct();
             $this->initConn($this->config);
         }
@@ -57,7 +57,8 @@ class Pdo extends SQlAbstract
     {
         if(isset(Pdo::$conn[$this->key]) && Pdo::$conn[$this->key]) return Pdo::$conn[$this->key];
         try {
-
+//            debug('conn-------');
+//            debug_print_backtrace();
             if (isset($config['master']) && !isset(Pdo::$conn[$this->key][self::CONN_MASTER])) {
                 $masterConfig = $config['master'];
                 $masterOptions = array(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY=>true,\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$masterConfig['timeout'],\PDO::ATTR_PERSISTENT=>true);
@@ -76,9 +77,9 @@ class Pdo extends SQlAbstract
                 $slaveConfig = $config['slave'];
                 $slavOptions = array(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY=>true,\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout'],\PDO::ATTR_PERSISTENT=>true);
                 if(php_sapi_name() != 'cli') $slavOptions = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'',\PDO::ATTR_TIMEOUT=>$slaveConfig['timeout']);
-                    $slaveDBH = new \PDO($config['type'] . ':host=' . $slaveConfig['host'] . ';port=' . $slaveConfig['port'] . ';dbname=' . $slaveConfig['db_name'] . '',
+                $slaveDBH = new \PDO($config['type'] . ':host=' . $slaveConfig['host'] . ';port=' . $slaveConfig['port'] . ';dbname=' . $slaveConfig['db_name'] . '',
                     $slaveConfig['user'], $slaveConfig['password'],$slavOptions
-                    );
+                );
                 if((php_sapi_name() == 'cli') && strtolower($config['type'])=='mysql'){
                     $query = $slaveDBH->prepare("set session wait_timeout=90000,interactive_timeout=90000,net_read_timeout=90000");
                     $query->execute();
@@ -87,10 +88,6 @@ class Pdo extends SQlAbstract
                 Pdo::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
                 Pdo::$conn[$this->key][self::CONN_SLAVE]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             }
-
-            Event::bind("request.end", function () {
-                Pdo::$conn=[];
-            });
 
         } catch (\PDOException $e) {
             Log::error(Exception::formatException($e));
@@ -164,6 +161,7 @@ class Pdo extends SQlAbstract
 
     public function __destruct()
     {
+//        debug('__destruct---------------------');
         Event::bind("clear", function () {
             self::clearStaticData();
         });
@@ -173,6 +171,7 @@ class Pdo extends SQlAbstract
     protected function set($sql, $connType, $method)
     {
         try{
+            $this->conndb();
             $result = [];
             if (!$method || $method == 'lastInsertId') {
                 $result = Pdo::$conn[$this->key][$connType]->exec($sql);
