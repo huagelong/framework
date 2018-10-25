@@ -48,6 +48,10 @@ class HttpdBase
 
         $tmpPath = "tmp path is : ".STORAGE_PATH;
         Log::show($tmpPath);
+        $realip = swoole_get_local_ip();
+        $realip = current($realip);
+        $tmpIp = "current server ip is :" .$realip;
+        Log::show($tmpIp);
 
         if (!$appName) {
             Log::sysinfo("app.app_name not config");
