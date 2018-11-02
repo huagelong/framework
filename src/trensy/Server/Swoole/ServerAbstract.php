@@ -194,7 +194,7 @@ abstract class ServerAbstract
         if(!\swoole_process::kill($masterPid, 0)) return true;
         //获取master进程ID
         //使用swoole_process::kill代替posix_kill
-        \swoole_process::kill($masterPid);
+        \swoole_process::kill($masterPid, SIGKILL);
         $timeout = 60;
         $startTime = time();
         while (true) {
