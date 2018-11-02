@@ -150,12 +150,15 @@ class JobdServer extends ServerAbstract
             opcache_reset();
         }
 
+
         if ($workerId >= $this->config["worker_num"]) {
             Tool::set_process_name($this->serverName . "-task-worker");
             Log::sysinfo($this->serverName . " task worker start ..... ");
         } else {
             Tool::set_process_name($this->serverName . "-worker");
             Log::sysinfo($this->serverName . " worker start ..... ");
+
+            Context::set("swlserver", $swooleServer, false, true);
             //运行秒表
 //            Log::debug($this->jobList);
             $task = $this->jobList[$workerId];
@@ -163,8 +166,6 @@ class JobdServer extends ServerAbstract
                 $this->run($task);
             });
         }
-
-        Context::set("swlserver", $swooleServer, false, true);
     }
 
     protected function run($pv){
