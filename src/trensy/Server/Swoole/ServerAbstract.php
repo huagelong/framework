@@ -116,7 +116,6 @@ abstract class ServerAbstract
     {
         Tool::set_process_name($this->serverName . "-manage");
         Log::sysinfo($this->serverName . " manage start ......");
-
     }
 
     /**
@@ -157,6 +156,7 @@ abstract class ServerAbstract
         Log::sysinfo($this->serverName . " server start ......");
 
         file_put_contents($this->config['pfile'], $swooleServer->master_pid . ',' . $swooleServer->manager_pid);
+
     }
 
     public function onShutdown(SwooleServer $swooleServer)
@@ -191,24 +191,32 @@ abstract class ServerAbstract
         $pids = $this->getPids();
         if(!$pids) return true;
         $masterPid = $pids[0];
+//        $managerPid = $pids[1];
         if(!\swoole_process::kill($masterPid, 0)) return true;
         //获取master进程ID
         //使用swoole_process::kill代替posix_kill
-        \swoole_process::kill($masterPid, SIGKILL);
+        \swoole_process::kill($masterPid);
         $timeout = 60;
         $startTime = time();
+        $failTimes = 0;
         while (true) {
             //检测进程是否退出
             if(\swoole_process::kill($masterPid, 0)) {
                 //判断是否超时
                 if((time() - $startTime) >= $timeout) {
-                    return false;
+                    if($failTimes) return false;
+                    Log::sysinfo("kill master process fail, the next step is to force kill the process");
+                    //超时则强制关闭
+                    \swoole_process::kill($masterPid, SIGKILL);
+                    $failTimes = 1;
+                    $startTime = time();
                 }
                 usleep(10000);
                 continue;
             }
             return true;
         }
+
 
     }
 
