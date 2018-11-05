@@ -30,7 +30,7 @@ class JobdBase
     use Shortcut;
     protected static function taskAlias()
     {
-        Di::set("task", ['class'=>\Trensy\Server\Swoole\Task::class]);
+        Di::set("task", ['class'=>\Trensy\Server\Swoole\JobTask::class]);
         AliasLoader::getInstance(['Task'=>\Trensy\Server\TaskFacade::class])->register();
     }
 

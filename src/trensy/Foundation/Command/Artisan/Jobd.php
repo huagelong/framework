@@ -24,6 +24,8 @@ use Trensy\Console\Input\InputInterface;
 use Trensy\Console\Input\InputOption;
 use Trensy\Console\Output\OutputInterface;
 use Trensy\Log;
+use Trensy\Support\AliasLoader;
+use Trensy\Support\Tool;
 
 class Jobd extends Base
 {
@@ -36,9 +38,11 @@ class Jobd extends Base
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        Di::set("task", ['class'=>\Trensy\Server\Task::class]);
+        AliasLoader::getInstance(['Task'=>\Trensy\Server\TaskFacade::class])->register();
 
         $jobList = Config::get("app.jobd");
-        $realip = swoole_get_local_ip();
+        $realip = Tool::getCLientIp();
         $realip = current($realip);
         Log::sysinfo("local ip :". $realip);
         if($jobList){

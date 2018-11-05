@@ -25,16 +25,16 @@ use Trensy\Server\TaskRunAbstract;
 use Trensy\Server\Swoole\Timer;
 use Trensy\Log;
 
-class Task extends TaskRunAbstract
+class JobTask extends TaskRunAbstract
 {
     private  $retryCount = 2;
-    private  $logPath = "/tmp/taskFail.log";
+    private  $logPath = "/tmp/jobtaskFail.log";
     private static $numbersTmp = [];
     protected  $timeOut = 3;
 
     public function __construct()
     {
-        $taskConfig = Config::get("swoole.httpd");
+        $taskConfig = Config::get("swoole.jobd");
         $this->retryCount = $taskConfig['task_retry_count'];
         $this->logPath = $taskConfig['task_fail_log'];
         $this->timeOut = $taskConfig['task_timeout'];
@@ -131,7 +131,7 @@ class Task extends TaskRunAbstract
         if(self::$numbersTmp){
             return array_pop(self::$numbersTmp);
         }else{
-            $taskConfig = Config::get("swoole.httpd");
+            $taskConfig = Config::get("swoole.jobd");
             $taskNumber = $taskConfig["task_worker_num"]-1;
             $start = 0;
             $end = $taskNumber;
