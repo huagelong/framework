@@ -99,17 +99,17 @@ class HttpdServer extends ServerAbstract
             opcache_reset();
         }
 
+
         if ($workerId >= $this->config["worker_num"]) {
             Tool::set_process_name($this->serverName . "-task-worker");
             Log::sysinfo($this->serverName . " task worker start ..... ");
         } else {
+            Context::set("swlserver", $swooleServer, false, true);
             Tool::set_process_name($this->serverName . "-worker");
             Log::sysinfo($this->serverName . " worker start ..... ");
         }
 
         RouteBootstrap::getInstance();
-
-        Context::set("swlserver", $swooleServer, false, true);
     }
 
 
