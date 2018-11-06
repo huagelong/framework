@@ -191,12 +191,12 @@ abstract class ServerAbstract
         $pids = $this->getPids();
         if(!$pids) return true;
         $masterPid = $pids[0];
-//        $managerPid = $pids[1];
+        $managerPid = $pids[1];
         if(!\swoole_process::kill($masterPid, 0)) return true;
         //获取master进程ID
         //使用swoole_process::kill代替posix_kill
         \swoole_process::kill($masterPid);
-        $timeout = 60;
+        $timeout = 30;
         $startTime = time();
         $failTimes = 0;
         while (true) {
@@ -208,6 +208,7 @@ abstract class ServerAbstract
                     Log::sysinfo("kill master process fail, the next step is to force kill the process");
                     //超时则强制关闭
                     \swoole_process::kill($masterPid, SIGKILL);
+                    \swoole_process::kill($managerPid);
                     $failTimes = 1;
                     $startTime = time();
                 }
