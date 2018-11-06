@@ -19,14 +19,13 @@ class WSServer extends HttpdServer
     const RESPONSE_NORMAL_ERROR_CODE = 500;
     public static $allFd = [];
     
-    public function __construct(SwooleServer $swooleServer=null)
+    public function __construct(\swoole_websocket_server $swooleServer=null)
     {
         parent::__construct($swooleServer);
     }
 
     public function onOpen(\swoole_websocket_server $server, \swoole_http_request $request)
     {
-        //todo 保存到redis
         self::$allFd[$request->fd] = $request->fd;//首次连上时存起来
     }
 
@@ -41,7 +40,7 @@ class WSServer extends HttpdServer
         }
     }
 
-    public function onClose(swoole_server $server, $fd)
+    public function onClose(\swoole_websocket_server $server, $fd)
     {
         unset(self::$allFd[$fd]);
     }
