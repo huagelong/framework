@@ -125,6 +125,8 @@ class HttpdServer extends ServerAbstract
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
         ElapsedTime::setStartTime(ElapsedTime::SYS_START);
+//        $memory  = ( ! function_exists('memory_get_usage')) ? '0' : round(memory_get_usage()/1024/1024, 2).'MB';
+//        debug($memory);
 
         $gzip = isset($this->config["gzip"]) ? $this->config["gzip"] : 0;
 

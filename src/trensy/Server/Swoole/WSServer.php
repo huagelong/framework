@@ -42,7 +42,7 @@ class WSServer extends HttpdServer
 
     public function onClose(\swoole_websocket_server $server, $fd)
     {
-//        unset(self::$allFd[$fd]);
+        unset(self::$allFd[$fd]);
     }
 
     protected function render($data='', $errorCode = self::RESPONSE_SUCCESS_CODE, $errorMsg = '')
