@@ -84,8 +84,10 @@ class HttpSendFile
             $this->response->header('Access-Control-Allow-Methods', 'GET');
             $this->response->header('Access-Control-Allow-Headers:', "x-requested-with,content-type");
             $this->response->header("Content-Type", $mime);
-            $data = file_get_contents($filePath);
-            $this->response->end($data);
+            $this->response->sendfile($filePath);
+//            $data = file_get_contents($filePath);
+//            echo $data;
+//            $this->response->end($data);
         } else {
             $this->response->end();
         }

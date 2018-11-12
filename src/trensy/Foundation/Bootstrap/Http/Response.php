@@ -117,5 +117,7 @@ class Response extends ResponseAbstract
     function sendfile($filename)
     {
         // TODO: Implement sendfile() method.
+        $data = file_get_contents($filename);
+        echo $data;
     }
 }
