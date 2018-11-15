@@ -125,9 +125,8 @@ class HttpdServer extends ServerAbstract
     public function onRequest(SwooleHttpRequest $swooleHttpRequest, SwooleHttpResponse $swooleHttpResponse)
     {
         ElapsedTime::setStartTime(ElapsedTime::SYS_START);
-//        $memory  = ( ! function_exists('memory_get_usage')) ? '0' : round(memory_get_usage()/1024/1024, 2).'MB';
-//        debug($memory);
-
+        //清空上下文
+        Context::clear();
         $gzip = isset($this->config["gzip"]) ? $this->config["gzip"] : 0;
 
         $httpRequest = new HttpRequest($swooleHttpRequest);
@@ -135,9 +134,6 @@ class HttpdServer extends ServerAbstract
 
         $request = new Request($httpRequest);
         $response = new Response($httpResponse, $gzip);
-
-        //清空上下文
-        Context::clear();
 
         $httpSendFile = new HttpSendFile($request, $response);
         list($isFile,,,,) = $httpSendFile->analyse();

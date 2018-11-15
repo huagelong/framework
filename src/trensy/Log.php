@@ -51,10 +51,11 @@ class Log
         $ip = static::getClientIp();
 
         $elapsedTime = ElapsedTime::runtime(ElapsedTime::SYS_START);
-
+        $memory  = ( ! function_exists('memory_get_usage')) ? '0' : round(memory_get_usage()/1024/1024, 2).'MB';
         $result = [];
         if(function_exists('posix_getpid')) $result[] = "pid:".posix_getpid();
-        $result[] = "ip:".$ip."/".self::getOlineIp();
+//        $result[] = "ip:".$ip."/".self::getOlineIp();
+        $result[] = $memory;
         $result[] = $elapsedTime."ms";
 
         return $result;
@@ -124,7 +125,7 @@ class Log
         $msg = array_pop($data);
         if($type) array_unshift($data, $type);
 
-        $data = array_slice($data, 0, 2);
+        $data = array_slice($data, 0, 3);
 
         if(PHP_SAPI != 'cli'){
             echo $msg;

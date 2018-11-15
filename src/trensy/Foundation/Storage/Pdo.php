@@ -159,18 +159,13 @@ class Pdo extends SQlAbstract
         return $this->set($sql, $connType, $func);
     }
 
-    public function __destruct()
-    {
-//        debug('__destruct---------------------');
-        Event::bind("clear", function () {
-            self::clearStaticData();
-        });
-    }
-
-
     protected function set($sql, $connType, $method)
     {
         try{
+            Event::bind("clear", function () {
+                self::clearStaticData();
+            });
+
             $this->conndb();
             $result = [];
             if (!$method || $method == 'lastInsertId') {
