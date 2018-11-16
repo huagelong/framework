@@ -14,7 +14,7 @@
 
 namespace Trensy\Foundation;
 
-use Trensy\Console\Application as CmdApplication;
+use Symfony\Component\Console\Application as CmdApplication;
 use Trensy\Config;
 use Trensy\Di;
 use Trensy\Event;
@@ -57,12 +57,15 @@ class Application
         Bootstrap::getInstance();
 
         $commands = [
-//            new Command\Artisan\Optimize(),
-//            new Command\Artisan\Dbsync(),
-//            new Command\Artisan\BuildPhar(),
             \Trensy\Foundation\Command\Artisan\Optimize::class,
-            \Trensy\Foundation\Command\Artisan\Dbsync::class,
-            \Trensy\Foundation\Command\Artisan\BuildPhar::class,
+            \Trensy\Foundation\Command\Migrations\DiffCommand::class,
+            \Trensy\Foundation\Command\Migrations\ExecuteCommand::class,
+            \Trensy\Foundation\Command\Migrations\GenerateCommand::class,
+            \Trensy\Foundation\Command\Migrations\MigrateCommand::class,
+            \Trensy\Foundation\Command\Migrations\StatusCommand::class,
+            \Trensy\Foundation\Command\Migrations\LatestCommand::class,
+            \Trensy\Foundation\Command\Migrations\UpToDateCommand::class,
+            \Trensy\Foundation\Command\Migrations\VersionCommand::class
         ];
 
         $config = Config::get("app.command");

@@ -12,8 +12,8 @@
 
 namespace Trensy\Server\Swoole\Command\Jobd;
 
-use Trensy\Console\Input\InputInterface;
-use Trensy\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use Trensy\Foundation\Command\Base;
 
 class Reload extends Base

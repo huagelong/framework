@@ -13,7 +13,7 @@
 namespace Trensy\Foundation\Command;
 
 use Trensy\Foundation\Bootstrap\Bootstrap;
-use Trensy\Console\Command\Command;
+use Symfony\Component\Console\Command\Command;
 use Trensy\Foundation\AnnotationLoadInterface;
 use Trensy\Shortcut;
 
@@ -32,7 +32,7 @@ class Base extends Command implements AnnotationLoadInterface
 
     /**
      * @param $cmdName
-     * @return \Trensy\Console\Input\InputDefinition
+     * @return \Symfony\Component\Console\Input\InputDefinition
      */
     public function getCmdDefinition($cmdName)
     {

@@ -12,9 +12,9 @@
 
 namespace Trensy\Server\Swoole\Command\Jobd;
 
-use Trensy\Console\Input\InputInterface;
-use Trensy\Console\Input\InputOption;
-use Trensy\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 use Trensy\Foundation\Command\Base;
 
 class Restart extends Base
