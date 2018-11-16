@@ -15,7 +15,7 @@
         "predis/predis": "^1.1",
         "vlucas/phpdotenv": "^2.5",
         "dflydev/apache-mime-types": "^1.0",
-        "symfony/console": "^4.1",
+        "symfony/console": "~3.3",
         "doctrine/migrations": "^1.8"
     },
     "replace":{
