@@ -16,7 +16,7 @@
         "vlucas/phpdotenv": "^2.5",
         "dflydev/apache-mime-types": "^1.0",
         "symfony/console": "~3.3",
-        "doctrine/migrations": "^1.8"
+        "doctrine/migrations": "1.8.1"
     },
     "replace":{
 

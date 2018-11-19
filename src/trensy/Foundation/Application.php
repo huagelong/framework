@@ -58,6 +58,7 @@ class Application
 
         $commands = [
             \Trensy\Foundation\Command\Artisan\Optimize::class,
+            \Trensy\Foundation\Command\Artisan\Dbsync::class,
             \Trensy\Foundation\Command\Migrations\DiffCommand::class,
             \Trensy\Foundation\Command\Migrations\ExecuteCommand::class,
             \Trensy\Foundation\Command\Migrations\GenerateCommand::class,
