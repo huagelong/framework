@@ -133,50 +133,64 @@ class Factory
         $ext = pathinfo($path, PATHINFO_EXTENSION);
 
         $otherStr = "";
-        if($other){
-            foreach ($other as $k=>$v){
-                if(is_int($k)){
-                    $otherStr .= " ".$v;
-                }else{
-                    $otherStr .= " ".$k."='".$v."'";
+        if ($other) {
+            foreach ($other as $k => $v) {
+                if (is_int($k)) {
+                    $otherStr .= " " . $v;
+                } else {
+                    $otherStr .= " " . $k . "='" . $v . "'";
                 }
             }
         }
 
         $cdnUrl = $this->config()->get("app.view.cdn_url");
-        $cdnUrl = $cdnUrl?rtrim($cdnUrl,'/')."/":"/";
+        $cdnUrl = $cdnUrl ? rtrim($cdnUrl, '/') . "/" : "/";
 
-        $manifestFile = $manifestFile?$manifestFile:$this->config()->get('app.view.manifest');
+        $manifestFile = $manifestFile ? $manifestFile : $this->config()->get('app.view.manifest');
+        $manifestFile = trim($manifestFile, '/');
 
-        if($manifestFile) {
-            $manifestFile = trim($manifestFile, '/');
-            $dir = dirname($manifestFile);
-            if( substr(trim($path, '/'), 0, strlen($dir)) == $dir)
-            {
-                $path = substr(trim($path, '/'), strlen($dir) + 1);
-                $manifestKey = "app.view.manifest." . md5($manifestFile);
-                $manifestVaues = $this->syscache()->get($manifestKey);
-//                Log::debug($manifestVaues);
-//                Log::debug($path);
-                if ($manifestVaues) {
-                    $path = isset($manifestVaues[$path]) ? $manifestVaues[$path] : $path;
-                } else {
-                    $manifestFile = Dir::formatPath(ROOT_PATH)."public/" . $manifestFile;
+        $manifestKey = "app.view.manifest." . md5($manifestFile) . "." . $path;
+        $cachePath = $this->syscache()->get($manifestKey);
+        if (!$cachePath) {
+            if ($manifestFile) {
+                $dir = dirname($manifestFile);
+                if (substr(trim($path, '/'), 0, strlen($dir)) == $dir) {
+
+                    $manifestFile = Dir::formatPath(ROOT_PATH) . "public/" . $manifestFile;
                     if (is_file($manifestFile)) {
                         $json = file_get_contents($manifestFile);
                         if ($json) {
                             $manifestVaues = json_decode($json, true);
-                            $this->syscache()->set($manifestKey, $manifestVaues);
+                            if(isset($manifestVaues[$path])){
+                                $path = $manifestVaues[$path];
+                            }else{
+                                $path = substr(trim($path, '/'), strlen($dir) + 1);
+                                $path = isset($manifestVaues[$path]) ? $manifestVaues[$path] : $path;
+                            }
+                        }
+                    }
+                    if (substr(trim($path, '/'), 0, strlen($dir)) != $dir) {
+                        $path = $dir . "/" . $path;
+                    }
+                    $this->syscache()->set($manifestKey, $path);
+                } else {
+                    $manifestFile = Dir::formatPath(ROOT_PATH) . "public/" . $manifestFile;
+                    if (is_file($manifestFile)) {
+                        $json = file_get_contents($manifestFile);
+                        if ($json) {
+                            $manifestVaues = json_decode($json, true);
+//                            Log::debug($manifestVaues);
+//                            Log::debug("++++++".$path);
                             $path = isset($manifestVaues[$path]) ? $manifestVaues[$path] : $path;
+                            $this->syscache()->set($manifestKey, $path);
                         }
                     }
                 }
-                if( substr(trim($path, '/'), 0, strlen($dir)) != $dir){
-                    $path = $dir . "/" . $path;
-                }
             }
-
+        }else{
+            $path = $cachePath;
         }
+
         $path = ltrim($path, '/');
         $path = $cdnUrl.$path;
 
