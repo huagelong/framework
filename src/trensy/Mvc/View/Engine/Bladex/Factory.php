@@ -156,6 +156,8 @@ class Factory
                 $path = substr(trim($path, '/'), strlen($dir) + 1);
                 $manifestKey = "app.view.manifest." . md5($manifestFile);
                 $manifestVaues = $this->syscache()->get($manifestKey);
+//                Log::debug($manifestVaues);
+//                Log::debug($path);
                 if ($manifestVaues) {
                     $path = isset($manifestVaues[$path]) ? $manifestVaues[$path] : $path;
                 } else {
@@ -169,7 +171,9 @@ class Factory
                         }
                     }
                 }
-                $path = $dir . "/" . $path;
+                if( substr(trim($path, '/'), 0, strlen($dir)) != $dir){
+                    $path = $dir . "/" . $path;
+                }
             }
 
         }
