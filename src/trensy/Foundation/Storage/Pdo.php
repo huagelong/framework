@@ -41,6 +41,7 @@ class Pdo extends SQlAbstract
 
     public function getConnect($hostKey=self::CONN_MASTER)
     {
+        $this->conndb();
         return Pdo::$conn[$this->key][$hostKey];
     }
 
