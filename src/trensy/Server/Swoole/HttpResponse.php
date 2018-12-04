@@ -56,9 +56,10 @@ class HttpResponse extends ResponseAbstract
 
     function redirect($url)
     {
-        $this->header("Location", $url);
-        $this->status(302);
-        $this->end('');
+//        $this->header("Location", $url);
+////        $this->status(302);
+////        $this->end('');
+        $this->swooleHttpResponse->redirect($url, 302);
         //抛异常中断执行
         throw new RuntimeExitException('redirect->'. $url);
     }
