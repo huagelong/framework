@@ -46,6 +46,14 @@ class Context
         }
         self::$map[$key] = [$value, $once, $keepLive];
     }
+
+    public static function get($method)
+    {
+        if (!isset(self::$map[$method])) {
+            return null;
+        }
+        return self::$map[$method][0];
+    }
     
     public static function __callstatic($method, $args)
     {

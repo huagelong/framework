@@ -137,10 +137,29 @@ class RouteMatch
 //        Log::debug($parameters);
         if($parameters){
             $parameters['_matchinfo'] = $this->setDispatch($parameters);
+            $this->domainParamsContext($parameters);
             return $parameters;
         }else{
             throw new Page404Exception("页面不存在!");
         }
+    }
+
+    /**
+     * 域名参数处理
+     *
+     * @param $require
+     * @return bool
+     */
+    protected function domainParamsContext($require){
+        if(!$require) return true;
+        $domainParams = [];
+        foreach ($require as $k=>$v){
+            $re = '/__.*+/m';
+            if(preg_match($re, $k)){
+                $domainParams[$k] = $v;
+            }
+        }
+        if($domainParams) Context::set("domainParams", $domainParams);
     }
 
     /**
@@ -198,6 +217,10 @@ class RouteMatch
     public function url($routeName, $params = [])
     {
         if (!$routeName) return "";
+
+        $domainParams = Context::get("domainParams");
+
+        if($domainParams) $params = array_merge($domainParams, $params);
 
         $sysCacheKey = md5($routeName . serialize($params));
 
@@ -342,15 +365,13 @@ class RouteMatch
                             $definition['response'] = $require[1];
                             $definition['view'] = $require[1]->view;
                             $obj = Di::get($controller, [], $definition);
-//                            $obj = new $controller($require[0], $require[1]);
 
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
                             if ($check === false) {
                                 return false;
-//                                throw new \Exception("middleWare unvalidate");
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require[2]);
-//                            Log::debug($realParams);
+
                             $result = call_user_func_array([$obj, $action], $realParams);
                             Event::fire("action_after", [$result, $require[2]]);
                         } else {
@@ -364,7 +385,6 @@ class RouteMatch
                             $check = $this->todoMiddleWare($obj, $action, $middleware, $require);
                             if ($check === false) {
                                 return false;
-//                                throw new \Exception("middleWare unvalidate");
                             }
                             $realParams = $this->callUserFuncArrayRealParams($controller, $action, $require);
                             $result = call_user_func_array([$obj, $action], $realParams);
@@ -383,7 +403,6 @@ class RouteMatch
             }
         }
     }
-
 
     /**
      * 检查controller 层入口是否继承ServceAbstract
@@ -506,7 +525,8 @@ class RouteMatch
                             throw new \Exception("middleWare before method not found");
                         }
 
-                        $rs = call_user_func_array([$obj, "before"],[]);
+                        $params = $require?$require:[];
+                        $rs = call_user_func_array([$obj, "before"],$params);
                         if ($rs === false){
 //                            throw new \Exception("middleWare[$v] return false");
                             return false;
