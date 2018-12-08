@@ -39,7 +39,7 @@ class Context
         return self::$map;
     }
 
-    public static function set($key, $value, $once = true, $keepLive = false)
+    public static function set($key, $value, $once = false, $keepLive = false)
     {
         if (isset(self::$map[$key]) && self::$map[$key][1] == true) {
             return;
@@ -47,26 +47,21 @@ class Context
         self::$map[$key] = [$value, $once, $keepLive];
     }
 
-    public static function get($method)
+    public static function get($key)
     {
-        if (!isset(self::$map[$method])) {
+        if (!isset(self::$map[$key])) {
             return null;
         }
-        return self::$map[$method][0];
+
+        $value = self::$map[$key][0];
+        if(self::$map[$key][1]){
+            unset(self::$map[$key]);
+        }
+        return $value;
     }
     
     public static function __callstatic($method, $args)
     {
-        if (!isset(self::$map[$method])) {
-            return null;
-        }
-        return self::$map[$method][0];
-    }
-
-    public function __destruct()
-    {
-        Event::bind("clear", function () {
-            self::$map = [];
-        });
+        return self::get($method);
     }
 }
