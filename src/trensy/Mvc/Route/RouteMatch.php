@@ -137,7 +137,7 @@ class RouteMatch
 //        Log::debug($parameters);
         if($parameters){
             $parameters['_matchinfo'] = $this->setDispatch($parameters);
-            $this->domainParamsContext($parameters);
+//            $this->domainParamsContext($parameters);
             return $parameters;
         }else{
             throw new Page404Exception("页面不存在!");
@@ -266,6 +266,8 @@ class RouteMatch
             $parameters = $this->match($url);
             $this->syscache()->set($sysCacheKey, $parameters);
         }
+
+        $this->domainParamsContext($parameters);
 
         self::$dispatch = $parameters['_matchinfo'];
 
