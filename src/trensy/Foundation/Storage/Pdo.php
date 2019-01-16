@@ -299,6 +299,7 @@ class Pdo extends SQlAbstract
             'Error writing data to the connection',
             'Resource deadlock avoided',
             'Transaction() on null',
+            'failed with errno=32 Broken pipe',
         ];
 
         foreach ($needles as $needle) {
