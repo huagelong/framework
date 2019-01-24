@@ -91,7 +91,17 @@ class Application
     {
         Context::set('request', $request);
         Context::set('response', $response);
+        //
+        $pathinfoMiddle = Config::get("app.request_init");
+        if($pathinfoMiddle){
+            $obj = Di::get($pathinfoMiddle);
+            if(!method_exists($obj, "perform")){
+                throw new \Exception(" 'perform' method must defined");
+            }
+            $obj->perform();
+        }
 
+        Event::fire("request.start");
         $url = $request->getPathInfo();
         //pathinfo 处理
         $pathinfoMiddle = Config::get("app.pathinfo");
@@ -102,12 +112,13 @@ class Application
             }
             $url = $obj->perform($url);
         }
+
+        //
         $routeObj = RouteMatch::getInstance();
 
         $middlewareConfig = Config::get("app.middleware");
 
         $routeObj->setMiddlewareConfig($middlewareConfig);
-
         $resut = $routeObj->run($url, $request, $response);
         Event::fire("clear");
         Event::fire("request.end");
