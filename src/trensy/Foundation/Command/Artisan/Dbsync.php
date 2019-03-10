@@ -59,6 +59,7 @@ class Dbsync extends Base
         $newPrefix = $storageConfig['prefix']?$storageConfig['prefix']:"base_";
         $this->tableName = "{$newPrefix}dbsync";
         //判断表格是否存在
+        $storageConfig['prefix'] = '';
         $db = new Pdo($storageConfig);
         try{
             $db->startTrans();
