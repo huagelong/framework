@@ -59,8 +59,9 @@ class Dbsync extends Base
         $newPrefix = $storageConfig['prefix']?$storageConfig['prefix']:"base_";
         $this->tableName = "{$newPrefix}dbsync";
         //判断表格是否存在
-        $storageConfig['prefix'] = '';
-        $db = new Pdo($storageConfig);
+        $storageConfigTmp = $storageConfig;
+        $storageConfigTmp['prefix'] = '';
+        $db = new Pdo($storageConfigTmp);
         try{
             $db->startTrans();
             $sql =  "SHOW TABLES like '{$this->tableName}'";
@@ -134,7 +135,9 @@ class Dbsync extends Base
 
     protected function importDb($inputConfig, $sqlpath, $prefix, $action)
     {
-        $db = new Pdo($inputConfig);
+        $storageConfigTmp = $inputConfig;
+        $storageConfigTmp['prefix'] = '';
+        $db = new Pdo($storageConfigTmp);
 
         $newPrefix = $inputConfig['prefix'];
         $prefix = $prefix?$prefix:'base_';
