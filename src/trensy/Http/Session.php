@@ -64,7 +64,7 @@ class Session
 
         $response->rawcookie($sessionName, $sid, $lifetime, $path, $domain, $secure, $httponly);
 
-        $this->set("trensy_heart", 1);
+//        $this->set("trensy_heart", 1);
         $this->server->expire($sid, $expire);
     }
 
